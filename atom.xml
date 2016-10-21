@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Sulfur6_L8972</title>
+  <subtitle>A Blog</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2016-10-20T23:43:22.000Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>Sulfur6</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>杨威利与莱因哈特的爱恨情仇</title>
+    <link href="http://yoursite.com/2016/10/20/ywl/"/>
+    <id>http://yoursite.com/2016/10/20/ywl/</id>
+    <published>2016-10-20T13:05:09.000Z</published>
+    <updated>2016-10-20T23:43:22.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>蒟蒻Sulfur6在第一次看见这道题的时候感觉它好水啊，然后五分钟打了个自以为是的正解。。肯定是错的太离谱了，那天晚上的代码带崩了我的三个系统。。。</p>
+<p>#题目大意<br>给定一个最多有30000艘船的船队，初始状态一字排开。<br>接下来你要读入 $ T $ 个指令 ($1 \leq T  \leq 500000$)：<br>若为$M i j$，则将$i$所在的舰队移动到$j$所在舰队的后面（即将第$i$艘舰船所在的战舰队列全部移动到第$j$列舰船所在战舰队列的后面）；<br>若为$C i j$，如果第$i,j$艘舰船在同一列中，则输出它们中间有的舰船数，如果不在同一列中，则输出$-1$。</p>
+<blockquote>
+<p>这里要注意的是（可能只有我一个人这么智障），就是给定合并操作的$i j$可能只是一列舰船中间或末尾的那个，不一定就是某列舰船的第一个。【天真的以为一定给定第一艘的蒟蒻就这么WA挺了。</p>
+</blockquote>
+<p>#压缩路径</p>
+<ul>
+<li>分析完题目大意之后我们会自然而然的想到一种做法，那就是记录每一列舰船所在的位置</li>
+<li>但是这样显然不靠谱，因为不路径压缩的UFS会爆炸。</li>
+<li>怎么在压缩路径的基础上维护战舰所在位置的信息呢？<br>##某优化<br>如果说大家和我一样记得并查集路径压缩的代码的话，我们会发现，在路径压缩之前并没有维护什么信息，所以我们尝试着来搞一些事情</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> a[MAXN];<span class="comment">//某列战舰现有的战舰数，初始化为1</span></div><div class="line"><span class="keyword">int</span> b[MAXN];<span class="comment">/*某列战舰现在在本列战舰内的深度，初始化为0*/</span></div><div class="line"><span class="keyword">int</span> fa[MAXN];<span class="comment">//UFS中用的father数组</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span> <span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</div><div class="line">	<span class="keyword">int</span> t;</div><div class="line">	<span class="keyword">if</span> (x != fa[x]) &#123;</div><div class="line">		t = find(fa[x]);</div><div class="line">		b[x] += b[fa[x]];<span class="comment">//这一句包括上面一句类似于递归求解确定x战舰在本列中的位置</span></div><div class="line">		fa[x] = t;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> fa[x];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>#完整代码</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">30000</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxt = <span class="number">500000</span>;</div><div class="line"></div><div class="line"><span class="keyword">int</span> fa[maxn + <span class="number">5</span>], a[maxn + <span class="number">5</span>], b[maxn + <span class="number">5</span>];</div><div class="line"><span class="keyword">int</span> ans;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span> <span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</div><div class="line">	<span class="keyword">int</span> t;</div><div class="line">	<span class="keyword">if</span> (x != fa[x]) &#123;</div><div class="line">		t = find(fa[x]);</div><div class="line">		b[x] += b[fa[x]];</div><div class="line">		fa[x] = t;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> fa[x];</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">int</span> T;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;T);</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= maxn + <span class="number">1</span>; i++) &#123;</div><div class="line">		fa[i] = i;</div><div class="line">		a[i] = <span class="number">1</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">char</span> c; <span class="keyword">int</span> x, y;</div><div class="line">	<span class="keyword">while</span> (T--) &#123;</div><div class="line">		<span class="built_in">scanf</span>(<span class="string">"\n%c %d %d"</span>, &amp;c, &amp;x, &amp;y);</div><div class="line">		<span class="keyword">int</span> f1 = find(x); <span class="keyword">int</span> f2 = find(y);</div><div class="line">		<span class="keyword">if</span> (c == <span class="string">'M'</span>) &#123;<span class="comment">//合并操作</span></div><div class="line">			fa[f1] = f2;<span class="comment">//修改战舰头</span></div><div class="line">			b[f1] = a[f2];<span class="comment">//修改战舰层数</span></div><div class="line">			a[f2] += a[f1];<span class="comment">//增加合并后该列的战舰数</span></div><div class="line">		&#125; <span class="keyword">else</span> &#123;</div><div class="line">			<span class="keyword">if</span> (f1 == f2) &#123;</div><div class="line">				ans = <span class="built_in">abs</span>(b[x] - b[y]) - <span class="number">1</span>;<span class="comment">//这里要记得-1，因为编号从0开始</span></div><div class="line">				<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans);</div><div class="line">			&#125; <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"-1\n"</span>);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>看这个难度也知道是NOI的一道水题，毕竟我这样的蒟蒻都能A。。<br>当年看着唐氏Pascal学并查集就死活学不会了，思想都不懂，这里要感谢教会我并查集的神犇Menci和Gty.</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;蒟蒻Sulfur6在第一次看见这道题的时候感觉它好水啊，然后五分钟打了个自以为是的正解。。肯定是错的太离谱了，那天晚上的代码带崩了我的三个系统。。。&lt;/p&gt;
+&lt;p&gt;#题目大意&lt;br&gt;给定一个最多有30000艘船的船队，初始状态一字排开。&lt;br&gt;接下来你要读入 $ T $ 个
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
