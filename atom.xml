@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-10-20T23:43:22.000Z</updated>
+  <updated>2016-10-22T00:37:41.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,33 +16,124 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>拯救少林神棍，POJ1011，DFS</title>
+    <link href="http://yoursite.com/2016/10/22/%E6%8B%AF%E6%95%91%E5%B0%91%E6%9E%97%E7%A5%9E%E6%A3%8D%EF%BC%8CPOJ1011%EF%BC%8CDFS/"/>
+    <id>http://yoursite.com/2016/10/22/拯救少林神棍，POJ1011，DFS/</id>
+    <published>2016-10-22T00:34:21.000Z</published>
+    <updated>2016-10-22T00:37:41.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>一般的，在碰到搜索题的时候，我的反应是：woc，这也能搜索？事实证明，我还是too young.</p>
+<h1 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h1><ul>
+<li>据说,少林寺的镇寺之宝,是救秦王李世民的十三棍僧留下的若干根一样长的棍子。</li>
+<li>在民国某年,少林寺被军阀炮轰,这些棍子被炸成$ N $节长度各异的小木棒。</li>
+<li>战火过后,少林方丈想要用这些木棒拼回原来的棍子。可他记不得原来到底有几根棍子了,只知道古人比较矮,且为了携带方便,棍子一定比较短。他想知道这些棍子最短可能有多短。</li>
+</ul>
+<blockquote>
+<p>看到这个题面之后，我整个人都不好了qwq</p>
+</blockquote>
+<h1 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h1><ul>
+<li>给定$N$节长度各异的小木棒，不剩余地拼成若干节长度相等的少林神棍，求神棍最短可以有多短。</li>
+</ul>
+<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><h2 id="枚举"><a href="#枚举" class="headerlink" title="枚举"></a>枚举</h2><ul>
+<li>可能拼成的棍子长度</li>
+<li>长度从最长的那根木棒开始枚举到木棒总长的一半</li>
+<li>若枚举到的长度不能整除木棒总长度，则不去搜索</li>
+</ul>
+<h2 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h2><blockquote>
+<p>搜索的过程，就是我们尝试着拼神棍的过程</p>
+</blockquote>
+<ul>
+<li>如何拼完这一组神棍呢？<ul>
+<li>一根一根的拼棍子</li>
+<li>如果拼完第$i$根棍子之后，发现第$i+1$根棍子拼不成了，那就推翻第$i$根棍子的拼法</li>
+<li>有可能一直向前推翻第一根的拼法</li>
+</ul>
+</li>
+</ul>
+<h2 id="搜索状态"><a href="#搜索状态" class="headerlink" title="搜索状态"></a>搜索状态</h2><blockquote>
+<p>发现能搜索以后，就要确定搜索状态了</p>
+</blockquote>
+<ul>
+<li>我们设状态为一个二元组$(R,M)$。<ul>
+<li>$R$表示还没有用的木棒数</li>
+<li>$M$表示当前拼的这根棍子剩余未填满的长度</li>
+</ul>
+</li>
+<li>本题的初始状态和结束状态是什么？</li>
+<li>假设共有$N$根木棒，当前枚举到的长度为$L$。<ul>
+<li>初始状态：$(N,L)$ </li>
+<li>结束状态：$(0,0)$</li>
+</ul>
+</li>
+</ul>
+<h2 id="开始搜索"><a href="#开始搜索" class="headerlink" title="开始搜索"></a>开始搜索</h2><blockquote>
+<p>我也不废话了，伪代码参上</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Dfs的基本递推关系:<span class="function"><span class="keyword">bool</span> <span class="title">Dfs</span><span class="params">(<span class="keyword">int</span> R, <span class="keyword">int</span> M)</span> </span>&#123;</div><div class="line">	<span class="keyword">if</span>( R == <span class="number">0</span> &amp;&amp; M == <span class="number">0</span>)	<span class="keyword">return</span> <span class="literal">true</span>; <span class="comment">//拼接任务完成 </span></div><div class="line">	如果能找到一根长为S(S &lt;= M)的木棒,拼在当前棍子上,然后	Dfs(R – <span class="number">1</span>,M - S);	如果找不到:<span class="keyword">return</span> <span class="literal">false</span>; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>这里要注意的是我们首先要对长度排序，从大到小枚举</p>
+</blockquote>
+<h2 id="剪枝"><a href="#剪枝" class="headerlink" title="剪枝"></a>剪枝</h2><blockquote>
+<p>如果按照之前的搜法，那么一定会TLE</p>
+<p>所以，我们需要出动暴力大杀器——剪枝</p>
+</blockquote>
+<h3 id="剪枝1"><a href="#剪枝1" class="headerlink" title="剪枝1"></a>剪枝1</h3><ul>
+<li>如果在当前状态下确定了一根不能使用的木棒，那么当我们弃用它以后，当前状态下和它长度同的木棒都不再使用。</li>
+<li>正确性显然</li>
+</ul>
+<h3 id="剪枝2"><a href="#剪枝2" class="headerlink" title="剪枝2"></a>剪枝2</h3><ul>
+<li>由于拼接失败，我们需要拆掉某根棍子时，如果我们一直拆解到它的第一根木棒，那么我们就不再动它，去看它的上一根棍子，如果它没有上一根棍子，则此长度不合法</li>
+<li>如果拆掉第一根木棒，我们假设它在之后能被使用，而现在已知序列是有序的，那么如果之后某种拼法能使得当前第一根棍子被用到，那么它在之前序列一定不会被拆掉。</li>
+</ul>
+<h3 id="剪枝3"><a href="#剪枝3" class="headerlink" title="剪枝3"></a>剪枝3</h3><ul>
+<li>当我们需要拆解某根已经拼好的棍子时，不要拆掉最后的那根木棒反而用更小的木棒来代替。</li>
+<li>如果这样就能拼上，那么我们用用来代替最后长木棒的几根短木棒来代替那根长木棒也能拼上。</li>
+</ul>
+<h3 id="剪枝4"><a href="#剪枝4" class="headerlink" title="剪枝4"></a>剪枝4</h3><ul>
+<li>如果当前需要加的木棒不是当前棍子的第一根，那么我们不能从最长的木棒往下枚举，而是从最近使用过的那根之后的一根开始向下枚举。</li>
+<li>这样可以避免先使用长的后使用短的的情况。</li>
+</ul>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="keyword">int</span> n, l; <span class="keyword">bool</span> used[<span class="number">65</span>];</div><div class="line"><span class="built_in">vector</span> &lt;<span class="keyword">int</span>&gt; len;</div><div class="line"></div><div class="line"><span class="keyword">int</span> last;</div><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">dfs</span> <span class="params">(<span class="keyword">int</span> r, <span class="keyword">int</span> m)</span> </span>&#123;</div><div class="line">	<span class="keyword">if</span> (r == <span class="number">0</span> &amp;&amp; m == <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">true</span>;<span class="comment">//搜索停止，达到条件返回true，表示枚举的长度可行</span></div><div class="line">	<span class="keyword">if</span> (m == <span class="number">0</span>) m = l;<span class="comment">//如果已经拼完一根，那么就再接着往下拼</span></div><div class="line">	<span class="keyword">int</span> S = <span class="number">0</span>;</div><div class="line">	<span class="keyword">if</span> (m != l) S = last + <span class="number">1</span>;<span class="comment">//剪枝4，保证递减拼</span></div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = S; i &lt; n; i++) &#123;</div><div class="line">		<span class="keyword">if</span> (!used[i] &amp;&amp; len[i] &lt;= m) &#123;</div><div class="line">			<span class="keyword">if</span> (i &gt; <span class="number">0</span>) &#123;</div><div class="line">				<span class="keyword">if</span> (!used[i - <span class="number">1</span>] &amp;&amp; len[i] == len[i - <span class="number">1</span>]) <span class="keyword">continue</span>;<span class="comment">//剪枝1，保证相同长度的木棒不在同一位置多次用</span></div><div class="line">			&#125;</div><div class="line">			used[i] = <span class="literal">true</span>; last = i;<span class="comment">//标记此根为使用过，记录本次加入的木棒</span></div><div class="line">			<span class="keyword">if</span> (dfs(r - <span class="number">1</span>, m - len[i])) <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">			<span class="keyword">else</span> &#123;</div><div class="line">				used[i] = <span class="number">0</span>;<span class="comment">//回溯，有可能之后还能用到这根木棒</span></div><div class="line">				<span class="keyword">if</span> (len[i] == m || m == l) <span class="keyword">return</span> <span class="literal">false</span>;<span class="comment">//剪枝2，3</span></div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</div><div class="line">	<span class="keyword">while</span> (<span class="number">1</span>) &#123;</div><div class="line">		<span class="built_in">cin</span> &gt;&gt; n;</div><div class="line">		<span class="keyword">if</span> (n == <span class="number">0</span>) <span class="keyword">break</span>;<span class="comment">//Blocks of datas, 读入0终止</span></div><div class="line">		len.clear();<span class="comment">//每次清一遍储存长度的数组</span></div><div class="line">		<span class="keyword">int</span> totallen = <span class="number">0</span>;</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</div><div class="line">			<span class="keyword">int</span> x; <span class="built_in">cin</span> &gt;&gt; x;</div><div class="line">			len.push_back(x);</div><div class="line">			totallen += x;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		sort (len.begin(), len.end(), greater&lt;<span class="keyword">int</span>&gt;());<span class="comment">//从小到大排序</span></div><div class="line"></div><div class="line">		<span class="keyword">for</span> (l = len[<span class="number">0</span>]; l &lt;= totallen / <span class="number">2</span>; l++) &#123;</div><div class="line">			<span class="keyword">if</span> (totallen % l) <span class="keyword">continue</span>;</div><div class="line">			<span class="built_in">memset</span>(used, <span class="number">0</span>, <span class="keyword">sizeof</span>(used));</div><div class="line">			<span class="keyword">if</span> (dfs(n, l)) &#123;<span class="built_in">cout</span> &lt;&lt; l &lt;&lt; <span class="built_in">endl</span>; <span class="keyword">break</span>;&#125;<span class="comment">//因为是从小到大枚举，所以验证一个答案正确就可以输出了</span></div><div class="line">		&#125;</div><div class="line"></div><div class="line">		<span class="keyword">if</span> (l &gt; totallen / <span class="number">2</span>) <span class="built_in">cout</span> &lt;&lt; totallen &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>团长在POJ和HDU上都成功拯救了少林神棍，但是原题并不叫拯救少林神棍，而是叫Sticks，很无聊的题面，某不远透露姓名的薛定谔同学竟然告诉我这是一道POJ上的中文题，害的我一阵好找。。。。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;一般的，在碰到搜索题的时候，我的反应是：woc，这也能搜索？事实证明，我还是too young.&lt;/p&gt;
+&lt;h1 id=&quot;题面&quot;&gt;&lt;a href=&quot;#题面&quot; class=&quot;headerlink&quot; title=&quot;题面&quot;&gt;&lt;/a&gt;题面&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;据说,少林寺的镇
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>杨威利与莱因哈特的爱恨情仇</title>
     <link href="http://yoursite.com/2016/10/20/ywl/"/>
     <id>http://yoursite.com/2016/10/20/ywl/</id>
     <published>2016-10-20T13:05:09.000Z</published>
-    <updated>2016-10-20T23:43:22.000Z</updated>
+    <updated>2016-10-21T13:34:05.000Z</updated>
     
     <content type="html"><![CDATA[<p>蒟蒻Sulfur6在第一次看见这道题的时候感觉它好水啊，然后五分钟打了个自以为是的正解。。肯定是错的太离谱了，那天晚上的代码带崩了我的三个系统。。。</p>
-<p>#题目大意<br>给定一个最多有30000艘船的船队，初始状态一字排开。<br>接下来你要读入 $ T $ 个指令 ($1 \leq T  \leq 500000$)：<br>若为$M i j$，则将$i$所在的舰队移动到$j$所在舰队的后面（即将第$i$艘舰船所在的战舰队列全部移动到第$j$列舰船所在战舰队列的后面）；<br>若为$C i j$，如果第$i,j$艘舰船在同一列中，则输出它们中间有的舰船数，如果不在同一列中，则输出$-1$。</p>
+<h1 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h1><p>给定一个最多有30000艘船的船队，初始状态一字排开。<br>接下来你要读入 $ T $ 个指令 ($1 \leq T  \leq 500000$)：<br>若为$M i j$，则将$i$所在的舰队移动到$j$所在舰队的后面（即将第$i$艘舰船所在的战舰队列全部移动到第$j$列舰船所在战舰队列的后面）；<br>若为$C i j$，如果第$i,j$艘舰船在同一列中，则输出它们中间有的舰船数，如果不在同一列中，则输出$-1$。</p>
 <blockquote>
 <p>这里要注意的是（可能只有我一个人这么智障），就是给定合并操作的$i j$可能只是一列舰船中间或末尾的那个，不一定就是某列舰船的第一个。【天真的以为一定给定第一艘的蒟蒻就这么WA挺了。</p>
 </blockquote>
-<p>#压缩路径</p>
-<ul>
+<h1 id="压缩路径"><a href="#压缩路径" class="headerlink" title="压缩路径"></a>压缩路径</h1><ul>
 <li>分析完题目大意之后我们会自然而然的想到一种做法，那就是记录每一列舰船所在的位置</li>
 <li>但是这样显然不靠谱，因为不路径压缩的UFS会爆炸。</li>
-<li>怎么在压缩路径的基础上维护战舰所在位置的信息呢？<br>##某优化<br>如果说大家和我一样记得并查集路径压缩的代码的话，我们会发现，在路径压缩之前并没有维护什么信息，所以我们尝试着来搞一些事情</li>
+<li>怎么在压缩路径的基础上维护战舰所在位置的信息呢？<h2 id="某优化"><a href="#某优化" class="headerlink" title="某优化"></a>某优化</h2>如果说大家和我一样记得并查集路径压缩的代码的话，我们会发现，在路径压缩之前并没有维护什么信息，所以我们尝试着来搞一些事情</li>
 </ul>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> a[MAXN];<span class="comment">//某列战舰现有的战舰数，初始化为1</span></div><div class="line"><span class="keyword">int</span> b[MAXN];<span class="comment">/*某列战舰现在在本列战舰内的深度，初始化为0*/</span></div><div class="line"><span class="keyword">int</span> fa[MAXN];<span class="comment">//UFS中用的father数组</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span> <span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</div><div class="line">	<span class="keyword">int</span> t;</div><div class="line">	<span class="keyword">if</span> (x != fa[x]) &#123;</div><div class="line">		t = find(fa[x]);</div><div class="line">		b[x] += b[fa[x]];<span class="comment">//这一句包括上面一句类似于递归求解确定x战舰在本列中的位置</span></div><div class="line">		fa[x] = t;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> fa[x];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>#完整代码</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">30000</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxt = <span class="number">500000</span>;</div><div class="line"></div><div class="line"><span class="keyword">int</span> fa[maxn + <span class="number">5</span>], a[maxn + <span class="number">5</span>], b[maxn + <span class="number">5</span>];</div><div class="line"><span class="keyword">int</span> ans;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span> <span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</div><div class="line">	<span class="keyword">int</span> t;</div><div class="line">	<span class="keyword">if</span> (x != fa[x]) &#123;</div><div class="line">		t = find(fa[x]);</div><div class="line">		b[x] += b[fa[x]];</div><div class="line">		fa[x] = t;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> fa[x];</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">int</span> T;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;T);</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= maxn + <span class="number">1</span>; i++) &#123;</div><div class="line">		fa[i] = i;</div><div class="line">		a[i] = <span class="number">1</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">char</span> c; <span class="keyword">int</span> x, y;</div><div class="line">	<span class="keyword">while</span> (T--) &#123;</div><div class="line">		<span class="built_in">scanf</span>(<span class="string">"\n%c %d %d"</span>, &amp;c, &amp;x, &amp;y);</div><div class="line">		<span class="keyword">int</span> f1 = find(x); <span class="keyword">int</span> f2 = find(y);</div><div class="line">		<span class="keyword">if</span> (c == <span class="string">'M'</span>) &#123;<span class="comment">//合并操作</span></div><div class="line">			fa[f1] = f2;<span class="comment">//修改战舰头</span></div><div class="line">			b[f1] = a[f2];<span class="comment">//修改战舰层数</span></div><div class="line">			a[f2] += a[f1];<span class="comment">//增加合并后该列的战舰数</span></div><div class="line">		&#125; <span class="keyword">else</span> &#123;</div><div class="line">			<span class="keyword">if</span> (f1 == f2) &#123;</div><div class="line">				ans = <span class="built_in">abs</span>(b[x] - b[y]) - <span class="number">1</span>;<span class="comment">//这里要记得-1，因为编号从0开始</span></div><div class="line">				<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans);</div><div class="line">			&#125; <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"-1\n"</span>);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">30000</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxt = <span class="number">500000</span>;</div><div class="line"></div><div class="line"><span class="keyword">int</span> fa[maxn + <span class="number">5</span>], a[maxn + <span class="number">5</span>], b[maxn + <span class="number">5</span>];</div><div class="line"><span class="keyword">int</span> ans;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span> <span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</div><div class="line">	<span class="keyword">int</span> t;</div><div class="line">	<span class="keyword">if</span> (x != fa[x]) &#123;</div><div class="line">		t = find(fa[x]);</div><div class="line">		b[x] += b[fa[x]];</div><div class="line">		fa[x] = t;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> fa[x];</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">int</span> T;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;T);</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= maxn + <span class="number">1</span>; i++) &#123;</div><div class="line">		fa[i] = i;</div><div class="line">		a[i] = <span class="number">1</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">char</span> c; <span class="keyword">int</span> x, y;</div><div class="line">	<span class="keyword">while</span> (T--) &#123;</div><div class="line">		<span class="built_in">scanf</span>(<span class="string">"\n%c %d %d"</span>, &amp;c, &amp;x, &amp;y);</div><div class="line">		<span class="keyword">int</span> f1 = find(x); <span class="keyword">int</span> f2 = find(y);</div><div class="line">		<span class="keyword">if</span> (c == <span class="string">'M'</span>) &#123;<span class="comment">//合并操作</span></div><div class="line">			fa[f1] = f2;<span class="comment">//修改战舰头</span></div><div class="line">			b[f1] = a[f2];<span class="comment">//修改战舰层数</span></div><div class="line">			a[f2] += a[f1];<span class="comment">//增加合并后该列的战舰数</span></div><div class="line">		&#125; <span class="keyword">else</span> &#123;</div><div class="line">			<span class="keyword">if</span> (f1 == f2) &#123;</div><div class="line">				ans = <span class="built_in">abs</span>(b[x] - b[y]) - <span class="number">1</span>;<span class="comment">//这里要记得-1，因为编号从0开始</span></div><div class="line">				<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans);</div><div class="line">			&#125; <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"-1\n"</span>);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>看这个难度也知道是NOI的一道水题，毕竟我这样的蒟蒻都能A。。<br>当年看着唐氏Pascal学并查集就死活学不会了，思想都不懂，这里要感谢教会我并查集的神犇Menci和Gty.</p>
 ]]></content>
     
     <summary type="html">
     
       &lt;p&gt;蒟蒻Sulfur6在第一次看见这道题的时候感觉它好水啊，然后五分钟打了个自以为是的正解。。肯定是错的太离谱了，那天晚上的代码带崩了我的三个系统。。。&lt;/p&gt;
-&lt;p&gt;#题目大意&lt;br&gt;给定一个最多有30000艘船的船队，初始状态一字排开。&lt;br&gt;接下来你要读入 $ T $ 个
+&lt;h1 id=&quot;题目大意&quot;&gt;&lt;a href=&quot;#题目大意&quot; class=&quot;headerlink&quot; title=&quot;题目
     
     </summary>
     
