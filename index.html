@@ -21,7 +21,8 @@
   
   <meta name="summary" content="null">
   <link rel="shortcut icon" href="/favicon.ico">
-  <link rel="stylesheet" href="/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css" /><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body>
@@ -140,6 +141,49 @@
       <ul class="post-list">
   
     <li class="post-list-item">
+        <article id="post-矩阵乘法优化递推，NOIP-你赛"
+  class="article article-type-post" itemprop="blogPost">
+     
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2016/10/23/矩阵乘法优化递推，NOIP-你赛/">矩阵乘法优化递推，NOIP%你赛</a>
+    </h3>
+  
+
+
+
+    <div class="post-meta">
+        <time datetime="2016-10-23T07:27:35.000Z" itemprop="datePublished" class="post-time">
+  2016-10-23
+</time>
+
+        
+
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent" >
+
+    
+           矩阵乘法优化递推，NOIP%你赛    题目大意  给定一个坐标系，可以往左，右，上走，已经走过的点（单次访问中）不可以重复走，一共可以走      N   N           N    步，求一共有多少种走法。 
+   题目分析  
+ 表神，各单位提供丰富成功地证明了递推公式，然而，不适合这样做的蒟蒻Sulfur6更喜欢打表找规律。 
+ 
+ 这里我们就假装我们已经打完了这个表，然后发现
+    
+    
+        <a href="/2016/10/23/矩阵乘法优化递推，NOIP-你赛/" class="post-more waves-effect waves-button">
+            阅读全文...
+        </a>
+    </div>
+    
+</article>
+
+    </li>
+  
+    <li class="post-list-item">
         <article id="post-拯救少林神棍，POJ1011，DFS"
   class="article article-type-post" itemprop="blogPost">
      
@@ -169,8 +213,8 @@
          一般的，在碰到搜索题的时候，我的反应是：woc，这也能搜索？事实证明，我还是too young. 
    题面  
  据说,少林寺的镇寺之宝,是救秦王李世民的十三棍僧留下的若干根一样长的棍子。 
- 在民国某年,少林寺被军阀炮轰,这些棍子被炸成$ N $节长度各异的小木棒。 
- 战火过后,少林方丈想要用这些木棒拼回原来的棍子。可他记不得原来到底有几根棍子了,只知道古人比较矮,且为了携带方便,棍子一
+ 在民国某年,少林寺被军阀炮轰,这些棍子被炸成      N    N            N    节长度各异的小木棒。 
+ 战火过后,少林方丈想要用这些木棒拼回原来的棍子。可他记不得原来到底有几根
     
     
         <a href="/2016/10/22/拯救少林神棍，POJ1011，DFS/" class="post-more waves-effect waves-button">
@@ -210,7 +254,8 @@
 
     
          蒟蒻Sulfur6在第一次看见这道题的时候感觉它好水啊，然后五分钟打了个自以为是的正解。。肯定是错的太离谱了，那天晚上的代码带崩了我的三个系统。。。 
-   题目大意  给定一个最多有30000艘船的船队，初始状态一字排开。 接下来你要读入 $ T $ 个指令 ($1 \leq T  \leq 500000$)： 若为$M i j$，则将$i$所在的舰队移动到$j$所在舰队的后面（即将第$i$艘
+   题目大意  给定一个最多有30000艘船的船队，初始状态一字排开。
+接下来你要读入       T    T            T     个指令 (      1  ≤  T  ≤  5  0  0  0  0  0   1 \leq
     
     
         <a href="/2016/10/20/ywl/" class="post-more waves-effect waves-button">
@@ -299,7 +344,31 @@ var BLOG_SHARE = {
 </li>
 </script>
 
-<script src="/js/search.js"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script src="/js/search.js"></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+<!--
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+--><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
 </script>
@@ -317,7 +386,6 @@ var BLOG_SHARE = {
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
-
 
 
 

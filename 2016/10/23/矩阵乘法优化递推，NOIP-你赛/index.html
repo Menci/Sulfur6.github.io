@@ -1,28 +1,224 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Sulfur6_L8972</title>
-  <subtitle>A Blog</subtitle>
-  <link href="/atom.xml" rel="self"/>
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
-  <link href="http://yoursite.com/"/>
-  <updated>2016-10-23T07:41:55.000Z</updated>
-  <id>http://yoursite.com/</id>
+  <title>矩阵乘法优化递推，NOIP%你赛 | Sulfur6_L8972 | A Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <author>
-    <name>Sulfur6</name>
-    
-  </author>
+  <meta name="theme-color" content="#3F51B5">
   
-  <generator uri="http://hexo.io/">Hexo</generator>
   
-  <entry>
-    <title>矩阵乘法优化递推，NOIP%你赛</title>
-    <link href="http://yoursite.com/2016/10/23/%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95%E4%BC%98%E5%8C%96%E9%80%92%E6%8E%A8%EF%BC%8CNOIP-%E4%BD%A0%E8%B5%9B/"/>
-    <id>http://yoursite.com/2016/10/23/矩阵乘法优化递推，NOIP-你赛/</id>
-    <published>2016-10-23T07:27:35.000Z</published>
-    <updated>2016-10-23T07:41:55.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="矩阵乘法优化递推，NOIP-你赛"><a href="#矩阵乘法优化递推，NOIP-你赛" class="headerlink" title="矩阵乘法优化递推，NOIP%你赛"></a>矩阵乘法优化递推，NOIP%你赛</h1><h1 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h1><p>给定一个坐标系，可以往左，右，上走，已经走过的点（单次访问中）不可以重复走，一共可以走<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">N</span></span></span></span>步，求一共有多少种走法。</p>
+  <meta name="keywords" content="">
+  <meta name="description" content="矩阵乘法优化递推，NOIP%你赛题目大意给定一个坐标系，可以往左，右，上走，已经走过的点（单次访问中）不可以重复走，一共可以走NNN步，求一共有多少种走法。
+题目分析
+表神，各单位提供丰富成功地证明了递推公式，然而，不适合这样做的蒟蒻Sulfur6更喜欢打表找规律。
+
+这里我们就假装我们已经打完了这个表，然后发现它的前几项分别是：
+f(0)=1,f(1)=3,f(2)=7,f(3)=17,f(4)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="矩阵乘法优化递推，NOIP%你赛">
+<meta property="og:url" content="http://yoursite.com/2016/10/23/矩阵乘法优化递推，NOIP-你赛/index.html">
+<meta property="og:site_name" content="Sulfur6_L8972">
+<meta property="og:description" content="矩阵乘法优化递推，NOIP%你赛题目大意给定一个坐标系，可以往左，右，上走，已经走过的点（单次访问中）不可以重复走，一共可以走NNN步，求一共有多少种走法。
+题目分析
+表神，各单位提供丰富成功地证明了递推公式，然而，不适合这样做的蒟蒻Sulfur6更喜欢打表找规律。
+
+这里我们就假装我们已经打完了这个表，然后发现它的前几项分别是：
+f(0)=1,f(1)=3,f(2)=7,f(3)=17,f(4)">
+<meta property="og:updated_time" content="2016-10-23T07:41:55.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="矩阵乘法优化递推，NOIP%你赛">
+<meta name="twitter:description" content="矩阵乘法优化递推，NOIP%你赛题目大意给定一个坐标系，可以往左，右，上走，已经走过的点（单次访问中）不可以重复走，一共可以走NNN步，求一共有多少种走法。
+题目分析
+表神，各单位提供丰富成功地证明了递推公式，然而，不适合这样做的蒟蒻Sulfur6更喜欢打表找规律。
+
+这里我们就假装我们已经打完了这个表，然后发现它的前几项分别是：
+f(0)=1,f(1)=3,f(2)=7,f(3)=17,f(4)">
+  
+    <link rel="alternative" href="/atom.xml" title="Sulfur6_L8972" type="application/atom+xml">
+  
+  <meta name="summary" content="null">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css" /><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="loading" class="active"></div>
+
+  <nav id="menu" class="hide" >
+   <div class="inner flex-row-vertical">
+  <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+      <i class="icon icon-lg icon-close"></i>
+  </a>
+  <div class="brand-wrap">
+    <div class="brand">
+      <a href="/" class="avatar"><img src="/img/sulfur.png"></a>
+      <hgroup class="introduce">
+        <h5 class="nickname">Sulfur6</h5>
+        <a href="mailto:huangchun50@icloud.com" title="huangchun50@icloud.com" class="mail">huangchun50@icloud.com</a>
+      </hgroup>
+    </div>
+  </div>
+  <div class="scroll-wrap flex-col">
+    <ul class="nav">
+      
+          <li class="waves-block waves-effect">
+            <a href="/"  >
+              <i class="icon icon-lg icon-home"></i>
+              主页
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="/archives"  >
+              <i class="icon icon-lg icon-archives"></i>
+              Archives
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="/tags"  >
+              <i class="icon icon-lg icon-tags"></i>
+              Tags
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="https://github.com/yscoder" target="_blank" >
+              <i class="icon icon-lg icon-github"></i>
+              Github
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="http://www.weibo.com/ysweb" target="_blank" >
+              <i class="icon icon-lg icon-weibo"></i>
+              Weibo
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="/404"  >
+              <i class="icon icon-lg icon-link"></i>
+              测试
+            </a>
+          </li>
+      
+    </ul>
+
+    <footer class="footer">
+  <p><a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAPCAMAAABEF7i9AAAAllBMVEUAAAD///+rsapERER3d3eIiIjMzMzu7u4iIiKUmZO6v7rKzsoODg4RERFVVVUNDQ0NDg0PEA8zMzNLTEtbXltmZmZydnF9gn2AgICPkI+ZmZmqqqq7u7vFxsXIzMgNDQwZGRkgICAhISEkJSMnKCcuMC4xMzE5Ozk7PTtBQkFCQkJDQ0Nna2eGhoaHh4ezuLLGysbd3d1wVGpAAAAA4UlEQVR42q2T1xqCMAyFk7QsBQeKA9x7j/d/OSm22CpX0nzcpA1/T05aAOuBVkMAScQFHLnEwoCo2f1TnQIGoVMewjZEjVFN4GH1Ue1Cn2jWqwfsOOj6wDwGvotsl/c8lv7KIq1eLOsT0HMFHMIE/RZyHnlphryT9zyV+8WH5e8yQw3wnQvgAFxPTKUVi555SHR/lOfLMgVTeDlSfN+TaoUsiTyeIm+bCkHvCA2FUKG48LDtYBZBknsYP/G8NTw0gaaHyuQf4H5pecrB/FYCT2sL9zAfy1Xyjou6L8X2W7YcLyBZCRtnq/zfAAAAAElFTkSuQmCC" /></a></p>
+  <p>Sulfur6_L8972 &copy; 2016</p>
+  <p>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
+  <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></p>
+  <a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-2x icon-rss-square"></i></a>
+</footer>
+
+  </div>
+</div>
+
+  </nav>
+  <main id="main">
+    <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">矩阵乘法优化递推，NOIP%你赛</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input " autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-share">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header">
+  <div class="container">
+    <h1 class="author">矩阵乘法优化递推，NOIP%你赛</h1>
+    <h5 class="subtitle">
+        
+            <time datetime="2016-10-23T07:27:35.000Z" itemprop="datePublished" class="page-time">
+  2016-10-23
+</time>
+
+
+        
+    </h5>
+  </div>
+</header>
+
+    <div class="container body-wrap">
+      <article id="post-矩阵乘法优化递推，NOIP-你赛" 
+  class="article article-type-post" itemprop="blogPost">
+    <div class="post-meta flex-row">
+        
+    </div>
+    <div class="post-body">
+        <aside class="post-widget" id="post-widget">
+
+            
+            <div class="post-share" id="post-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+            
+
+            
+            <nav class="post-toc-wrap" id="post-toc">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#矩阵乘法优化递推，NOIP-你赛"><span class="post-toc-number">1.</span> <span class="post-toc-text">矩阵乘法优化递推，NOIP%你赛</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#题目大意"><span class="post-toc-number">2.</span> <span class="post-toc-text">题目大意</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#题目分析"><span class="post-toc-number">3.</span> <span class="post-toc-text">题目分析</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#矩阵"><span class="post-toc-number">4.</span> <span class="post-toc-text">矩阵</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#矩阵乘法"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">矩阵乘法</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#矩阵优化递推"><span class="post-toc-number">5.</span> <span class="post-toc-text">矩阵优化递推</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#如何优化"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">如何优化</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#代码"><span class="post-toc-number">6.</span> <span class="post-toc-text">代码</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#最后说几句"><span class="post-toc-number">7.</span> <span class="post-toc-text">最后说几句</span></a></li></ol>
+            </nav>
+            
+        </aside>
+
+        <div class="post-main">
+
+            <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="矩阵乘法优化递推，NOIP-你赛"><a href="#矩阵乘法优化递推，NOIP-你赛" class="headerlink" title="矩阵乘法优化递推，NOIP%你赛"></a>矩阵乘法优化递推，NOIP%你赛</h1><h1 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h1><p>给定一个坐标系，可以往左，右，上走，已经走过的点（单次访问中）不可以重复走，一共可以走<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">N</span></span></span></span>步，求一共有多少种走法。</p>
 <h1 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h1><blockquote>
 <p>表神，各单位提供丰富成功地证明了递推公式，然而，不适合这样做的蒟蒻Sulfur6更喜欢打表找规律。</p>
 </blockquote>
@@ -516,144 +712,213 @@ C_{i,j} = \sum\limits_{k = 1}^{N} A_{i,k} \times B_{k,j}
 <li>这道题是可以分块打表的</li>
 <li>再次%表神cyr</li>
 </ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;矩阵乘法优化递推，NOIP-你赛&quot;&gt;&lt;a href=&quot;#矩阵乘法优化递推，NOIP-你赛&quot; class=&quot;headerlink&quot; title=&quot;矩阵乘法优化递推，NOIP%你赛&quot;&gt;&lt;/a&gt;矩阵乘法优化递推，NOIP%你赛&lt;/h1&gt;&lt;h1 id=&quot;题目大意&quot;&gt;&lt;a 
-    
-    </summary>
-    
-    
-  </entry>
+
+
+            
+            <div class="post-reward">
+                <a id="rewardBtn" href="javascript:;" class="post-reward-btn waves-effect waves-circle waves-light">赏</a>
+            </div>
+            
+            
+            <blockquote>
+                <p>
+                本文地址：
+                <a href="http://yoursite.com/2016/10/23/矩阵乘法优化递推，NOIP-你赛/" target="_blank" rel="external">http://yoursite.com/2016/10/23/矩阵乘法优化递推，NOIP-你赛/</a>
+                </p>
+                <footer><cite><a href="http://yoursite.com">@Sulfur6_L8972</a></cite></footer>
+            </blockquote>
+            </div>
+            
+<nav class="post-nav">
   
-  <entry>
-    <title>拯救少林神棍，POJ1011，DFS</title>
-    <link href="http://yoursite.com/2016/10/22/%E6%8B%AF%E6%95%91%E5%B0%91%E6%9E%97%E7%A5%9E%E6%A3%8D%EF%BC%8CPOJ1011%EF%BC%8CDFS/"/>
-    <id>http://yoursite.com/2016/10/22/拯救少林神棍，POJ1011，DFS/</id>
-    <published>2016-10-22T00:34:21.000Z</published>
-    <updated>2016-10-22T00:37:41.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>一般的，在碰到搜索题的时候，我的反应是：woc，这也能搜索？事实证明，我还是too young.</p>
-<h1 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h1><ul>
-<li>据说,少林寺的镇寺之宝,是救秦王李世民的十三棍僧留下的若干根一样长的棍子。</li>
-<li>在民国某年,少林寺被军阀炮轰,这些棍子被炸成<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex"> N </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">N</span></span></span></span>节长度各异的小木棒。</li>
-<li>战火过后,少林方丈想要用这些木棒拼回原来的棍子。可他记不得原来到底有几根棍子了,只知道古人比较矮,且为了携带方便,棍子一定比较短。他想知道这些棍子最短可能有多短。</li>
-</ul>
-<blockquote>
-<p>看到这个题面之后，我整个人都不好了qwq</p>
-</blockquote>
-<h1 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h1><ul>
-<li>给定<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">N</span></span></span></span>节长度各异的小木棒，不剩余地拼成若干节长度相等的少林神棍，求神棍最短可以有多短。</li>
-</ul>
-<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><h2 id="枚举"><a href="#枚举" class="headerlink" title="枚举"></a>枚举</h2><ul>
-<li>可能拼成的棍子长度</li>
-<li>长度从最长的那根木棒开始枚举到木棒总长的一半</li>
-<li>若枚举到的长度不能整除木棒总长度，则不去搜索</li>
-</ul>
-<h2 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h2><blockquote>
-<p>搜索的过程，就是我们尝试着拼神棍的过程</p>
-</blockquote>
-<ul>
-<li>如何拼完这一组神棍呢？<ul>
-<li>一根一根的拼棍子</li>
-<li>如果拼完第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.65952em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span></span></span></span>根棍子之后，发现第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">i+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.74285em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span>根棍子拼不成了，那就推翻第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.65952em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span></span></span></span>根棍子的拼法</li>
-<li>有可能一直向前推翻第一根的拼法</li>
-</ul>
-</li>
-</ul>
-<h2 id="搜索状态"><a href="#搜索状态" class="headerlink" title="搜索状态"></a>搜索状态</h2><blockquote>
-<p>发现能搜索以后，就要确定搜索状态了</p>
-</blockquote>
-<ul>
-<li>我们设状态为一个二元组<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>R</mi><mo separator="true">,</mo><mi>M</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">(R,M)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.00773em;">R</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.10903em;">M</span><span class="mclose">)</span></span></span></span>。<ul>
-<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>R</mi></mrow><annotation encoding="application/x-tex">R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.00773em;">R</span></span></span></span>表示还没有用的木棒数</li>
-<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>M</mi></mrow><annotation encoding="application/x-tex">M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">M</span></span></span></span>表示当前拼的这根棍子剩余未填满的长度</li>
-</ul>
-</li>
-<li>本题的初始状态和结束状态是什么？</li>
-<li>假设共有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">N</span></span></span></span>根木棒，当前枚举到的长度为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>L</mi></mrow><annotation encoding="application/x-tex">L</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">L</span></span></span></span>。<ul>
-<li>初始状态：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>N</mi><mo separator="true">,</mo><mi>L</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">(N,L)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.10903em;">N</span><span class="mpunct">,</span><span class="mord mathit">L</span><span class="mclose">)</span></span></span></span> </li>
-<li>结束状态：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">(0,0)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="mord mathrm">0</span><span class="mpunct">,</span><span class="mord mathrm">0</span><span class="mclose">)</span></span></span></span></li>
-</ul>
-</li>
-</ul>
-<h2 id="开始搜索"><a href="#开始搜索" class="headerlink" title="开始搜索"></a>开始搜索</h2><blockquote>
-<p>我也不废话了，伪代码参上</p>
-</blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Dfs的基本递推关系:<span class="function"><span class="keyword">bool</span> <span class="title">Dfs</span><span class="params">(<span class="keyword">int</span> R, <span class="keyword">int</span> M)</span> </span>&#123;</div><div class="line">	<span class="keyword">if</span>( R == <span class="number">0</span> &amp;&amp; M == <span class="number">0</span>)	<span class="keyword">return</span> <span class="literal">true</span>; <span class="comment">//拼接任务完成 </span></div><div class="line">	如果能找到一根长为S(S &lt;= M)的木棒,拼在当前棍子上,然后	Dfs(R – <span class="number">1</span>,M - S);	如果找不到:<span class="keyword">return</span> <span class="literal">false</span>; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>这里要注意的是我们首先要对长度排序，从大到小枚举</p>
-</blockquote>
-<h2 id="剪枝"><a href="#剪枝" class="headerlink" title="剪枝"></a>剪枝</h2><blockquote>
-<p>如果按照之前的搜法，那么一定会TLE</p>
-<p>所以，我们需要出动暴力大杀器——剪枝</p>
-</blockquote>
-<h3 id="剪枝1"><a href="#剪枝1" class="headerlink" title="剪枝1"></a>剪枝1</h3><ul>
-<li>如果在当前状态下确定了一根不能使用的木棒，那么当我们弃用它以后，当前状态下和它长度同的木棒都不再使用。</li>
-<li>正确性显然</li>
-</ul>
-<h3 id="剪枝2"><a href="#剪枝2" class="headerlink" title="剪枝2"></a>剪枝2</h3><ul>
-<li>由于拼接失败，我们需要拆掉某根棍子时，如果我们一直拆解到它的第一根木棒，那么我们就不再动它，去看它的上一根棍子，如果它没有上一根棍子，则此长度不合法</li>
-<li>如果拆掉第一根木棒，我们假设它在之后能被使用，而现在已知序列是有序的，那么如果之后某种拼法能使得当前第一根棍子被用到，那么它在之前序列一定不会被拆掉。</li>
-</ul>
-<h3 id="剪枝3"><a href="#剪枝3" class="headerlink" title="剪枝3"></a>剪枝3</h3><ul>
-<li>当我们需要拆解某根已经拼好的棍子时，不要拆掉最后的那根木棒反而用更小的木棒来代替。</li>
-<li>如果这样就能拼上，那么我们用用来代替最后长木棒的几根短木棒来代替那根长木棒也能拼上。</li>
-</ul>
-<h3 id="剪枝4"><a href="#剪枝4" class="headerlink" title="剪枝4"></a>剪枝4</h3><ul>
-<li>如果当前需要加的木棒不是当前棍子的第一根，那么我们不能从最长的木棒往下枚举，而是从最近使用过的那根之后的一根开始向下枚举。</li>
-<li>这样可以避免先使用长的后使用短的的情况。</li>
-</ul>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="keyword">int</span> n, l; <span class="keyword">bool</span> used[<span class="number">65</span>];</div><div class="line"><span class="built_in">vector</span> &lt;<span class="keyword">int</span>&gt; len;</div><div class="line"></div><div class="line"><span class="keyword">int</span> last;</div><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">dfs</span> <span class="params">(<span class="keyword">int</span> r, <span class="keyword">int</span> m)</span> </span>&#123;</div><div class="line">	<span class="keyword">if</span> (r == <span class="number">0</span> &amp;&amp; m == <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">true</span>;<span class="comment">//搜索停止，达到条件返回true，表示枚举的长度可行</span></div><div class="line">	<span class="keyword">if</span> (m == <span class="number">0</span>) m = l;<span class="comment">//如果已经拼完一根，那么就再接着往下拼</span></div><div class="line">	<span class="keyword">int</span> S = <span class="number">0</span>;</div><div class="line">	<span class="keyword">if</span> (m != l) S = last + <span class="number">1</span>;<span class="comment">//剪枝4，保证递减拼</span></div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = S; i &lt; n; i++) &#123;</div><div class="line">		<span class="keyword">if</span> (!used[i] &amp;&amp; len[i] &lt;= m) &#123;</div><div class="line">			<span class="keyword">if</span> (i &gt; <span class="number">0</span>) &#123;</div><div class="line">				<span class="keyword">if</span> (!used[i - <span class="number">1</span>] &amp;&amp; len[i] == len[i - <span class="number">1</span>]) <span class="keyword">continue</span>;<span class="comment">//剪枝1，保证相同长度的木棒不在同一位置多次用</span></div><div class="line">			&#125;</div><div class="line">			used[i] = <span class="literal">true</span>; last = i;<span class="comment">//标记此根为使用过，记录本次加入的木棒</span></div><div class="line">			<span class="keyword">if</span> (dfs(r - <span class="number">1</span>, m - len[i])) <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">			<span class="keyword">else</span> &#123;</div><div class="line">				used[i] = <span class="number">0</span>;<span class="comment">//回溯，有可能之后还能用到这根木棒</span></div><div class="line">				<span class="keyword">if</span> (len[i] == m || m == l) <span class="keyword">return</span> <span class="literal">false</span>;<span class="comment">//剪枝2，3</span></div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</div><div class="line">	<span class="keyword">while</span> (<span class="number">1</span>) &#123;</div><div class="line">		<span class="built_in">cin</span> &gt;&gt; n;</div><div class="line">		<span class="keyword">if</span> (n == <span class="number">0</span>) <span class="keyword">break</span>;<span class="comment">//Blocks of datas, 读入0终止</span></div><div class="line">		len.clear();<span class="comment">//每次清一遍储存长度的数组</span></div><div class="line">		<span class="keyword">int</span> totallen = <span class="number">0</span>;</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</div><div class="line">			<span class="keyword">int</span> x; <span class="built_in">cin</span> &gt;&gt; x;</div><div class="line">			len.push_back(x);</div><div class="line">			totallen += x;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		sort (len.begin(), len.end(), greater&lt;<span class="keyword">int</span>&gt;());<span class="comment">//从小到大排序</span></div><div class="line"></div><div class="line">		<span class="keyword">for</span> (l = len[<span class="number">0</span>]; l &lt;= totallen / <span class="number">2</span>; l++) &#123;</div><div class="line">			<span class="keyword">if</span> (totallen % l) <span class="keyword">continue</span>;</div><div class="line">			<span class="built_in">memset</span>(used, <span class="number">0</span>, <span class="keyword">sizeof</span>(used));</div><div class="line">			<span class="keyword">if</span> (dfs(n, l)) &#123;<span class="built_in">cout</span> &lt;&lt; l &lt;&lt; <span class="built_in">endl</span>; <span class="keyword">break</span>;&#125;<span class="comment">//因为是从小到大枚举，所以验证一个答案正确就可以输出了</span></div><div class="line">		&#125;</div><div class="line"></div><div class="line">		<span class="keyword">if</span> (l &gt; totallen / <span class="number">2</span>) <span class="built_in">cout</span> &lt;&lt; totallen &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>团长在POJ和HDU上都成功拯救了少林神棍，但是原题并不叫拯救少林神棍，而是叫Sticks，很无聊的题面，某不远透露姓名的薛定谔同学竟然告诉我这是一道POJ上的中文题，害的我一阵好找。。。。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;一般的，在碰到搜索题的时候，我的反应是：woc，这也能搜索？事实证明，我还是too young.&lt;/p&gt;
-&lt;h1 id=&quot;题面&quot;&gt;&lt;a href=&quot;#题面&quot; class=&quot;headerlink&quot; title=&quot;题面&quot;&gt;&lt;/a&gt;题面&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;据说,少林寺的镇
-    
-    </summary>
-    
-    
-  </entry>
+
   
-  <entry>
-    <title>杨威利与莱因哈特的爱恨情仇</title>
-    <link href="http://yoursite.com/2016/10/20/ywl/"/>
-    <id>http://yoursite.com/2016/10/20/ywl/</id>
-    <published>2016-10-20T13:05:09.000Z</published>
-    <updated>2016-10-21T13:34:05.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>蒟蒻Sulfur6在第一次看见这道题的时候感觉它好水啊，然后五分钟打了个自以为是的正解。。肯定是错的太离谱了，那天晚上的代码带崩了我的三个系统。。。</p>
-<h1 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h1><p>给定一个最多有30000艘船的船队，初始状态一字排开。
-接下来你要读入 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>T</mi></mrow><annotation encoding="application/x-tex"> T </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.13889em;">T</span></span></span></span> 个指令 (<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>≤</mo><mi>T</mi><mo>≤</mo><mn>5</mn><mn>0</mn><mn>0</mn><mn>0</mn><mn>0</mn><mn>0</mn></mrow><annotation encoding="application/x-tex">1 \leq T  \leq 500000</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.8193em;vertical-align:-0.13597em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span><span class="mrel">≤</span><span class="mord mathit" style="margin-right:0.13889em;">T</span><span class="mrel">≤</span><span class="mord mathrm">5</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span></span></span></span>)：
-若为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>M</mi><mi>i</mi><mi>j</mi></mrow><annotation encoding="application/x-tex">M i j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">M</span><span class="mord mathit">i</span><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span>，则将<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.65952em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span></span></span></span>所在的舰队移动到<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>j</mi></mrow><annotation encoding="application/x-tex">j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span>所在舰队的后面（即将第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.65952em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span></span></span></span>艘舰船所在的战舰队列全部移动到第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>j</mi></mrow><annotation encoding="application/x-tex">j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span>列舰船所在战舰队列的后面）；
-若为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>C</mi><mi>i</mi><mi>j</mi></mrow><annotation encoding="application/x-tex">C i j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.07153em;">C</span><span class="mord mathit">i</span><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span>，如果第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow><annotation encoding="application/x-tex">i,j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span>艘舰船在同一列中，则输出它们中间有的舰船数，如果不在同一列中，则输出<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord">−</span><span class="mord mathrm">1</span></span></span></span>。</p>
-<blockquote>
-<p>这里要注意的是（可能只有我一个人这么智障），就是给定合并操作的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi><mi>j</mi></mrow><annotation encoding="application/x-tex">i j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span>可能只是一列舰船中间或末尾的那个，不一定就是某列舰船的第一个。【天真的以为一定给定第一艘的蒟蒻就这么WA挺了。</p>
-</blockquote>
-<h1 id="压缩路径"><a href="#压缩路径" class="headerlink" title="压缩路径"></a>压缩路径</h1><ul>
-<li>分析完题目大意之后我们会自然而然的想到一种做法，那就是记录每一列舰船所在的位置</li>
-<li>但是这样显然不靠谱，因为不路径压缩的UFS会爆炸。</li>
-<li>怎么在压缩路径的基础上维护战舰所在位置的信息呢？<h2 id="某优化"><a href="#某优化" class="headerlink" title="某优化"></a>某优化</h2>如果说大家和我一样记得并查集路径压缩的代码的话，我们会发现，在路径压缩之前并没有维护什么信息，所以我们尝试着来搞一些事情</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> a[MAXN];<span class="comment">//某列战舰现有的战舰数，初始化为1</span></div><div class="line"><span class="keyword">int</span> b[MAXN];<span class="comment">/*某列战舰现在在本列战舰内的深度，初始化为0*/</span></div><div class="line"><span class="keyword">int</span> fa[MAXN];<span class="comment">//UFS中用的father数组</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span> <span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</div><div class="line">	<span class="keyword">int</span> t;</div><div class="line">	<span class="keyword">if</span> (x != fa[x]) &#123;</div><div class="line">		t = find(fa[x]);</div><div class="line">		b[x] += b[fa[x]];<span class="comment">//这一句包括上面一句类似于递归求解确定x战舰在本列中的位置</span></div><div class="line">		fa[x] = t;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> fa[x];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h1 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">30000</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxt = <span class="number">500000</span>;</div><div class="line"></div><div class="line"><span class="keyword">int</span> fa[maxn + <span class="number">5</span>], a[maxn + <span class="number">5</span>], b[maxn + <span class="number">5</span>];</div><div class="line"><span class="keyword">int</span> ans;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span> <span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</div><div class="line">	<span class="keyword">int</span> t;</div><div class="line">	<span class="keyword">if</span> (x != fa[x]) &#123;</div><div class="line">		t = find(fa[x]);</div><div class="line">		b[x] += b[fa[x]];</div><div class="line">		fa[x] = t;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> fa[x];</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">int</span> T;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;T);</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= maxn + <span class="number">1</span>; i++) &#123;</div><div class="line">		fa[i] = i;</div><div class="line">		a[i] = <span class="number">1</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">char</span> c; <span class="keyword">int</span> x, y;</div><div class="line">	<span class="keyword">while</span> (T--) &#123;</div><div class="line">		<span class="built_in">scanf</span>(<span class="string">"\n%c %d %d"</span>, &amp;c, &amp;x, &amp;y);</div><div class="line">		<span class="keyword">int</span> f1 = find(x); <span class="keyword">int</span> f2 = find(y);</div><div class="line">		<span class="keyword">if</span> (c == <span class="string">'M'</span>) &#123;<span class="comment">//合并操作</span></div><div class="line">			fa[f1] = f2;<span class="comment">//修改战舰头</span></div><div class="line">			b[f1] = a[f2];<span class="comment">//修改战舰层数</span></div><div class="line">			a[f2] += a[f1];<span class="comment">//增加合并后该列的战舰数</span></div><div class="line">		&#125; <span class="keyword">else</span> &#123;</div><div class="line">			<span class="keyword">if</span> (f1 == f2) &#123;</div><div class="line">				ans = <span class="built_in">abs</span>(b[x] - b[y]) - <span class="number">1</span>;<span class="comment">//这里要记得-1，因为编号从0开始</span></div><div class="line">				<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans);</div><div class="line">			&#125; <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"-1\n"</span>);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>看这个难度也知道是NOI的一道水题，毕竟我这样的蒟蒻都能A。。
-当年看着唐氏Pascal学并查集就死活学不会了，思想都不懂，这里要感谢教会我并查集的神犇Menci和Gty.</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;蒟蒻Sulfur6在第一次看见这道题的时候感觉它好水啊，然后五分钟打了个自以为是的正解。。肯定是错的太离谱了，那天晚上的代码带崩了我的三个系统。。。&lt;/p&gt;
-&lt;h1 id=&quot;题目大意&quot;&gt;&lt;a href=&quot;#题目大意&quot; class=&quot;headerlink&quot; title=&quot;题目
-    
-    </summary>
-    
-    
-  </entry>
+    <div class="waves-block waves-effect next fr">
+      <a href="/2016/10/22/拯救少林神棍，POJ1011，DFS/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">拯救少林神棍，POJ1011，DFS</h4>
+      </a>
+    </div>
   
-</feed>
+</nav>
+
+
+            
+            
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="矩阵乘法优化递推，NOIP-你赛" data-title="矩阵乘法优化递推，NOIP%你赛" data-url="http://yoursite.com/2016/10/23/矩阵乘法优化递推，NOIP-你赛/index.html"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"ysblog"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+        </div>
+    </div>
+</article>
+    </div>
+  </main>
+<div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+<script>
+var BLOG_SHARE = {
+    title: "矩阵乘法优化递推，NOIP%你赛",
+    pic: "/img/sulfur.png",
+    summary: document.getElementsByName('summary')[0].content,
+    url: "http://yoursite.com/2016/10/23/矩阵乘法优化递推，NOIP-你赛/index.html"
+};
+</script>
+<div class="global-share" id="global-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+
+<div id="reward" class="reward-lay">
+    <a class="reward-off" id="rewardOff" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<script type="text/template" id="search-tpl">
+<li class="item">
+    <a href="/{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</script>
+
+<script src="/js/search.js"></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+<!--
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+--><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+
+
+
+
+
+
+</body>
+</html>

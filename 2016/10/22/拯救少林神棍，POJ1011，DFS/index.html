@@ -13,7 +13,7 @@
   <meta name="description" content="一般的，在碰到搜索题的时候，我的反应是：woc，这也能搜索？事实证明，我还是too young.
 题面
 据说,少林寺的镇寺之宝,是救秦王李世民的十三棍僧留下的若干根一样长的棍子。
-在民国某年,少林寺被军阀炮轰,这些棍子被炸成$ N $节长度各异的小木棒。
+在民国某年,少林寺被军阀炮轰,这些棍子被炸成N N N节长度各异的小木棒。
 战火过后,少林方丈想要用这些木棒拼回原来的棍子。可他记不得原来到底有几根棍子了,只知道古人比较矮,且为了携带方便,棍子一定比较短。他想知道这些棍">
 <meta property="og:type" content="article">
 <meta property="og:title" content="拯救少林神棍，POJ1011，DFS">
@@ -22,7 +22,7 @@
 <meta property="og:description" content="一般的，在碰到搜索题的时候，我的反应是：woc，这也能搜索？事实证明，我还是too young.
 题面
 据说,少林寺的镇寺之宝,是救秦王李世民的十三棍僧留下的若干根一样长的棍子。
-在民国某年,少林寺被军阀炮轰,这些棍子被炸成$ N $节长度各异的小木棒。
+在民国某年,少林寺被军阀炮轰,这些棍子被炸成N N N节长度各异的小木棒。
 战火过后,少林方丈想要用这些木棒拼回原来的棍子。可他记不得原来到底有几根棍子了,只知道古人比较矮,且为了携带方便,棍子一定比较短。他想知道这些棍">
 <meta property="og:updated_time" content="2016-10-22T00:37:41.000Z">
 <meta name="twitter:card" content="summary">
@@ -30,14 +30,15 @@
 <meta name="twitter:description" content="一般的，在碰到搜索题的时候，我的反应是：woc，这也能搜索？事实证明，我还是too young.
 题面
 据说,少林寺的镇寺之宝,是救秦王李世民的十三棍僧留下的若干根一样长的棍子。
-在民国某年,少林寺被军阀炮轰,这些棍子被炸成$ N $节长度各异的小木棒。
+在民国某年,少林寺被军阀炮轰,这些棍子被炸成N N N节长度各异的小木棒。
 战火过后,少林方丈想要用这些木棒拼回原来的棍子。可他记不得原来到底有几根棍子了,只知道古人比较矮,且为了携带方便,棍子一定比较短。他想知道这些棍">
   
     <link rel="alternative" href="/atom.xml" title="Sulfur6_L8972" type="application/atom+xml">
   
   <meta name="summary" content="null">
   <link rel="shortcut icon" href="/favicon.ico">
-  <link rel="stylesheet" href="/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css" /><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body>
@@ -217,14 +218,14 @@
             <p>一般的，在碰到搜索题的时候，我的反应是：woc，这也能搜索？事实证明，我还是too young.</p>
 <h1 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h1><ul>
 <li>据说,少林寺的镇寺之宝,是救秦王李世民的十三棍僧留下的若干根一样长的棍子。</li>
-<li>在民国某年,少林寺被军阀炮轰,这些棍子被炸成$ N $节长度各异的小木棒。</li>
+<li>在民国某年,少林寺被军阀炮轰,这些棍子被炸成<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex"> N </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">N</span></span></span></span>节长度各异的小木棒。</li>
 <li>战火过后,少林方丈想要用这些木棒拼回原来的棍子。可他记不得原来到底有几根棍子了,只知道古人比较矮,且为了携带方便,棍子一定比较短。他想知道这些棍子最短可能有多短。</li>
 </ul>
 <blockquote>
 <p>看到这个题面之后，我整个人都不好了qwq</p>
 </blockquote>
 <h1 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h1><ul>
-<li>给定$N$节长度各异的小木棒，不剩余地拼成若干节长度相等的少林神棍，求神棍最短可以有多短。</li>
+<li>给定<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">N</span></span></span></span>节长度各异的小木棒，不剩余地拼成若干节长度相等的少林神棍，求神棍最短可以有多短。</li>
 </ul>
 <h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><h2 id="枚举"><a href="#枚举" class="headerlink" title="枚举"></a>枚举</h2><ul>
 <li>可能拼成的棍子长度</li>
@@ -237,7 +238,7 @@
 <ul>
 <li>如何拼完这一组神棍呢？<ul>
 <li>一根一根的拼棍子</li>
-<li>如果拼完第$i$根棍子之后，发现第$i+1$根棍子拼不成了，那就推翻第$i$根棍子的拼法</li>
+<li>如果拼完第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.65952em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span></span></span></span>根棍子之后，发现第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">i+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.74285em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span>根棍子拼不成了，那就推翻第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.65952em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span></span></span></span>根棍子的拼法</li>
 <li>有可能一直向前推翻第一根的拼法</li>
 </ul>
 </li>
@@ -246,15 +247,15 @@
 <p>发现能搜索以后，就要确定搜索状态了</p>
 </blockquote>
 <ul>
-<li>我们设状态为一个二元组$(R,M)$。<ul>
-<li>$R$表示还没有用的木棒数</li>
-<li>$M$表示当前拼的这根棍子剩余未填满的长度</li>
+<li>我们设状态为一个二元组<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>R</mi><mo separator="true">,</mo><mi>M</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">(R,M)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.00773em;">R</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.10903em;">M</span><span class="mclose">)</span></span></span></span>。<ul>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>R</mi></mrow><annotation encoding="application/x-tex">R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.00773em;">R</span></span></span></span>表示还没有用的木棒数</li>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>M</mi></mrow><annotation encoding="application/x-tex">M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">M</span></span></span></span>表示当前拼的这根棍子剩余未填满的长度</li>
 </ul>
 </li>
 <li>本题的初始状态和结束状态是什么？</li>
-<li>假设共有$N$根木棒，当前枚举到的长度为$L$。<ul>
-<li>初始状态：$(N,L)$ </li>
-<li>结束状态：$(0,0)$</li>
+<li>假设共有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">N</span></span></span></span>根木棒，当前枚举到的长度为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>L</mi></mrow><annotation encoding="application/x-tex">L</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">L</span></span></span></span>。<ul>
+<li>初始状态：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>N</mi><mo separator="true">,</mo><mi>L</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">(N,L)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.10903em;">N</span><span class="mpunct">,</span><span class="mord mathit">L</span><span class="mclose">)</span></span></span></span> </li>
+<li>结束状态：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">(0,0)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="mord mathrm">0</span><span class="mpunct">,</span><span class="mord mathrm">0</span><span class="mclose">)</span></span></span></span></li>
 </ul>
 </li>
 </ul>
@@ -305,6 +306,13 @@
             </div>
             
 <nav class="post-nav">
+  
+    <div class="waves-block waves-effect prev fl">
+      <a href="/2016/10/23/矩阵乘法优化递推，NOIP-你赛/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">矩阵乘法优化递推，NOIP%你赛</h4>
+      </a>
+    </div>
   
 
   
@@ -445,7 +453,31 @@ var BLOG_SHARE = {
 </li>
 </script>
 
-<script src="/js/search.js"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script src="/js/search.js"></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+<!--
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+--><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
 </script>
@@ -463,7 +495,6 @@ var BLOG_SHARE = {
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
-
 
 
 
