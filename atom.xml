@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-10-24T02:31:52.000Z</updated>
+  <updated>2016-10-24T08:25:19.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2016/10/23/Sudoku%EF%BC%8C%E6%9A%B4%E5%8A%9BDFS%EF%BC%8CPOJ2676/"/>
     <id>http://yoursite.com/2016/10/23/Sudoku，暴力DFS，POJ2676/</id>
     <published>2016-10-23T11:53:10.000Z</published>
-    <updated>2016-10-24T02:31:52.000Z</updated>
+    <updated>2016-10-24T08:25:19.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Sudoku，暴力DFS，POJ2676"><a href="#Sudoku，暴力DFS，POJ2676" class="headerlink" title="Sudoku，暴力DFS，POJ2676"></a>Sudoku，暴力DFS，POJ2676</h1><h1 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h1><p>标准<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>9</mn><mo>×</mo><mn>9</mn></mrow><annotation encoding="application/x-tex">9\times 9</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">9</span><span class="mbin">×</span><span class="mord mathrm">9</span></span></span></span>的数独游戏，由你填上空缺的数</p>
 <h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><ul>
@@ -59,6 +59,12 @@
     </summary>
     
     
+      <category term="学习笔记" scheme="http://yoursite.com/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="DFS" scheme="http://yoursite.com/tags/DFS/"/>
+    
+      <category term="POJ" scheme="http://yoursite.com/tags/POJ/"/>
+    
   </entry>
   
   <entry>
@@ -66,7 +72,7 @@
     <link href="http://yoursite.com/2016/10/23/%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95%E4%BC%98%E5%8C%96%E9%80%92%E6%8E%A8%EF%BC%8CNOIP-%E4%BD%A0%E8%B5%9B/"/>
     <id>http://yoursite.com/2016/10/23/矩阵乘法优化递推，NOIP-你赛/</id>
     <published>2016-10-23T07:27:35.000Z</published>
-    <updated>2016-10-23T07:41:55.000Z</updated>
+    <updated>2016-10-24T08:25:57.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="矩阵乘法优化递推，NOIP-你赛"><a href="#矩阵乘法优化递推，NOIP-你赛" class="headerlink" title="矩阵乘法优化递推，NOIP%你赛"></a>矩阵乘法优化递推，NOIP%你赛</h1><h1 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h1><p>给定一个坐标系，可以往左，右，上走，已经走过的点（单次访问中）不可以重复走，一共可以走<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">N</span></span></span></span>步，求一共有多少种走法。</p>
 <h1 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h1><blockquote>
@@ -571,6 +577,12 @@ C_{i,j} = \sum\limits_{k = 1}^{N} A_{i,k} \times B_{k,j}
     </summary>
     
     
+      <category term="学习笔记" scheme="http://yoursite.com/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="递推" scheme="http://yoursite.com/tags/%E9%80%92%E6%8E%A8/"/>
+    
+      <category term="矩阵乘法" scheme="http://yoursite.com/tags/%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95/"/>
+    
   </entry>
   
   <entry>
@@ -578,7 +590,7 @@ C_{i,j} = \sum\limits_{k = 1}^{N} A_{i,k} \times B_{k,j}
     <link href="http://yoursite.com/2016/10/22/%E6%8B%AF%E6%95%91%E5%B0%91%E6%9E%97%E7%A5%9E%E6%A3%8D%EF%BC%8CPOJ1011%EF%BC%8CDFS/"/>
     <id>http://yoursite.com/2016/10/22/拯救少林神棍，POJ1011，DFS/</id>
     <published>2016-10-22T00:34:21.000Z</published>
-    <updated>2016-10-23T11:54:25.000Z</updated>
+    <updated>2016-10-24T08:25:47.000Z</updated>
     
     <content type="html"><![CDATA[<p>一般的，在碰到搜索题的时候，我的反应是：woc，这也能搜索？事实证明，我还是too young.</p>
 <h1 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h1><ul>
@@ -664,6 +676,14 @@ C_{i,j} = \sum\limits_{k = 1}^{N} A_{i,k} \times B_{k,j}
     </summary>
     
     
+      <category term="学习笔记" scheme="http://yoursite.com/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="DFS" scheme="http://yoursite.com/tags/DFS/"/>
+    
+      <category term="POJ" scheme="http://yoursite.com/tags/POJ/"/>
+    
+      <category term="剪枝" scheme="http://yoursite.com/tags/%E5%89%AA%E6%9E%9D/"/>
+    
   </entry>
   
   <entry>
@@ -671,7 +691,7 @@ C_{i,j} = \sum\limits_{k = 1}^{N} A_{i,k} \times B_{k,j}
     <link href="http://yoursite.com/2016/10/20/ywl/"/>
     <id>http://yoursite.com/2016/10/20/ywl/</id>
     <published>2016-10-20T13:05:09.000Z</published>
-    <updated>2016-10-21T13:34:05.000Z</updated>
+    <updated>2016-10-24T08:25:35.000Z</updated>
     
     <content type="html"><![CDATA[<p>蒟蒻Sulfur6在第一次看见这道题的时候感觉它好水啊，然后五分钟打了个自以为是的正解。。肯定是错的太离谱了，那天晚上的代码带崩了我的三个系统。。。</p>
 <h1 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h1><p>给定一个最多有30000艘船的船队，初始状态一字排开。
@@ -699,6 +719,14 @@ C_{i,j} = \sum\limits_{k = 1}^{N} A_{i,k} \times B_{k,j}
     
     </summary>
     
+    
+      <category term="学习笔记" scheme="http://yoursite.com/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="并查集" scheme="http://yoursite.com/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/"/>
+    
+      <category term="路径压缩" scheme="http://yoursite.com/tags/%E8%B7%AF%E5%BE%84%E5%8E%8B%E7%BC%A9/"/>
+    
+      <category term="NOI" scheme="http://yoursite.com/tags/NOI/"/>
     
   </entry>
   
