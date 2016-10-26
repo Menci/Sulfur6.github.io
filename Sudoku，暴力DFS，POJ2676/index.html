@@ -6,66 +6,28 @@
   <title>Sudoku，暴力DFS，POJ2676 | Sulfur6_L8972 | Abandoned Sulfur</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="theme-color" content="#3F51B5">
+  <meta name="theme-color" content="#66CCFF">
   
   
   <meta name="keywords" content="学习笔记,DFS,POJ">
-  <meta name="description" content="题目大意标准9×99\times 99×9的数独游戏，由你填上空缺的数
-思路
-填满每个空格
-记录某一行，某一列，某一小格不能填的数
-开始爆搜
-
-搜索
-搜索过程中，依次往每个格子中填数
-简单Hash，O(1)O(1)O(1)判断某行某列某小格是否填写某数
-
-注意事项
-本题给定数据的数独矩阵，数和数之间没有空格，所以需要用字符处理。
-
-
-当然为了某不愿透露姓名的PC同学的幸福生活，交完题我就更改了一下">
+  <meta name="description" content="数独有趣，爆搜无脑。
+还有回不去的还记得的一张张写满算式的纸，和解不出的Sudoku。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Sudoku，暴力DFS，POJ2676">
 <meta property="og:url" content="http://sulfur6.top/Sudoku，暴力DFS，POJ2676/index.html">
 <meta property="og:site_name" content="Sulfur6_L8972">
-<meta property="og:description" content="题目大意标准9×99\times 99×9的数独游戏，由你填上空缺的数
-思路
-填满每个空格
-记录某一行，某一列，某一小格不能填的数
-开始爆搜
-
-搜索
-搜索过程中，依次往每个格子中填数
-简单Hash，O(1)O(1)O(1)判断某行某列某小格是否填写某数
-
-注意事项
-本题给定数据的数独矩阵，数和数之间没有空格，所以需要用字符处理。
-
-
-当然为了某不愿透露姓名的PC同学的幸福生活，交完题我就更改了一下">
-<meta property="og:updated_time" content="2016-10-25T12:09:13.000Z">
+<meta property="og:description" content="数独有趣，爆搜无脑。
+还有回不去的还记得的一张张写满算式的纸，和解不出的Sudoku。">
+<meta property="og:updated_time" content="2016-10-26T07:31:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Sudoku，暴力DFS，POJ2676">
-<meta name="twitter:description" content="题目大意标准9×99\times 99×9的数独游戏，由你填上空缺的数
-思路
-填满每个空格
-记录某一行，某一列，某一小格不能填的数
-开始爆搜
-
-搜索
-搜索过程中，依次往每个格子中填数
-简单Hash，O(1)O(1)O(1)判断某行某列某小格是否填写某数
-
-注意事项
-本题给定数据的数独矩阵，数和数之间没有空格，所以需要用字符处理。
-
-
-当然为了某不愿透露姓名的PC同学的幸福生活，交完题我就更改了一下">
+<meta name="twitter:description" content="数独有趣，爆搜无脑。
+还有回不去的还记得的一张张写满算式的纸，和解不出的Sudoku。">
   
     <link rel="alternative" href="/atom.xml" title="Sulfur6_L8972" type="application/atom+xml">
   
-  <meta name="summary" content="A Kind Father">
+  <meta name="summary" content="&lt;p&gt;数独有趣，爆搜无脑。&lt;/p&gt;
+&lt;p&gt;还有回不去的还记得的一张张写满算式的纸，和解不出的Sudoku。&lt;/p&gt;">
   <link rel="shortcut icon" href="/favicon.ico">
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css" /><!-- hexo-inject:begin --><!-- hexo-inject:end -->
@@ -240,7 +202,10 @@
         <div class="post-main">
 
             <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h1><p>标准<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>9</mn><mo>×</mo><mn>9</mn></mrow><annotation encoding="application/x-tex">9\times 9</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">9</span><span class="mbin">×</span><span class="mord mathrm">9</span></span></span></span>的数独游戏，由你填上空缺的数</p>
+            <p>数独有趣，爆搜无脑。</p>
+<p>还有回不去的还记得的一张张写满算式的纸，和解不出的Sudoku。</p>
+<a id="more"></a>
+<h1 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h1><p>标准<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>9</mn><mo>×</mo><mn>9</mn></mrow><annotation encoding="application/x-tex">9\times 9</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">9</span><span class="mbin">×</span><span class="mord mathrm">9</span></span></span></span>的数独游戏，由你填上空缺的数</p>
 <h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><ul>
 <li>填满每个空格</li>
 <li>记录某一行，某一列，某一小格不能填的数</li>
@@ -270,10 +235,6 @@
 </blockquote>
 
 
-            
-            <div class="post-reward">
-                <a id="rewardBtn" href="javascript:;" class="post-reward-btn waves-effect waves-circle waves-light">赏</a>
-            </div>
             
             
             <blockquote>
@@ -385,30 +346,6 @@ var BLOG_SHARE = {
 
 
 
-
-<div id="reward" class="reward-lay">
-    <a class="reward-off" id="rewardOff" href="javascript:;"><i class="icon icon-close"></i></a>
-    <h3 class="reward-title">
-        <i class="icon icon-quote-left"></i>
-        谢谢大爷~
-        <i class="icon icon-quote-right"></i>
-    </h3>
-    <ul class="reward-items">
-        
-        <li>
-            <img src="/img/wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
-            <p>微信</p>
-        </li>
-        
-
-        
-        <li>
-            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
-            <p>支付宝</p>
-        </li>
-        
-    </ul>
-</div>
 
 <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 

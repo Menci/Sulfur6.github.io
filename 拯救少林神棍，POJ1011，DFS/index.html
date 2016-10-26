@@ -6,36 +6,28 @@
   <title>拯救少林神棍，POJ1011，DFS | Sulfur6_L8972 | Abandoned Sulfur</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="theme-color" content="#3F51B5">
+  <meta name="theme-color" content="#66CCFF">
   
   
   <meta name="keywords" content="学习笔记,DFS,POJ,剪枝">
   <meta name="description" content="一般的，在碰到搜索题的时候，我的反应是：woc，这也能搜索？事实证明，我还是too young.
-题面
-据说,少林寺的镇寺之宝,是救秦王李世民的十三棍僧留下的若干根一样长的棍子。
-在民国某年,少林寺被军阀炮轰,这些棍子被炸成N N N节长度各异的小木棒。
-战火过后,少林方丈想要用这些木棒拼回原来的棍子。可他记不得原来到底有几根棍子了,只知道古人比较矮,且为了携带方便,棍子一定比较短。他想知道这些棍">
+这是一道重在剪枝的神奇DFS题。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="拯救少林神棍，POJ1011，DFS">
 <meta property="og:url" content="http://sulfur6.top/拯救少林神棍，POJ1011，DFS/index.html">
 <meta property="og:site_name" content="Sulfur6_L8972">
 <meta property="og:description" content="一般的，在碰到搜索题的时候，我的反应是：woc，这也能搜索？事实证明，我还是too young.
-题面
-据说,少林寺的镇寺之宝,是救秦王李世民的十三棍僧留下的若干根一样长的棍子。
-在民国某年,少林寺被军阀炮轰,这些棍子被炸成N N N节长度各异的小木棒。
-战火过后,少林方丈想要用这些木棒拼回原来的棍子。可他记不得原来到底有几根棍子了,只知道古人比较矮,且为了携带方便,棍子一定比较短。他想知道这些棍">
-<meta property="og:updated_time" content="2016-10-25T12:09:28.000Z">
+这是一道重在剪枝的神奇DFS题。">
+<meta property="og:updated_time" content="2016-10-26T07:27:22.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="拯救少林神棍，POJ1011，DFS">
 <meta name="twitter:description" content="一般的，在碰到搜索题的时候，我的反应是：woc，这也能搜索？事实证明，我还是too young.
-题面
-据说,少林寺的镇寺之宝,是救秦王李世民的十三棍僧留下的若干根一样长的棍子。
-在民国某年,少林寺被军阀炮轰,这些棍子被炸成N N N节长度各异的小木棒。
-战火过后,少林方丈想要用这些木棒拼回原来的棍子。可他记不得原来到底有几根棍子了,只知道古人比较矮,且为了携带方便,棍子一定比较短。他想知道这些棍">
+这是一道重在剪枝的神奇DFS题。">
   
     <link rel="alternative" href="/atom.xml" title="Sulfur6_L8972" type="application/atom+xml">
   
-  <meta name="summary" content="A Kind Father">
+  <meta name="summary" content="&lt;p&gt;一般的，在碰到搜索题的时候，我的反应是：woc，这也能搜索？事实证明，我还是too young.&lt;/p&gt;
+&lt;p&gt;这是一道重在剪枝的神奇DFS题。&lt;/p&gt;">
   <link rel="shortcut icon" href="/favicon.ico">
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css" /><!-- hexo-inject:begin --><!-- hexo-inject:end -->
@@ -211,6 +203,9 @@
 
             <div class="post-content" id="post-content" itemprop="postContent">
             <p>一般的，在碰到搜索题的时候，我的反应是：woc，这也能搜索？事实证明，我还是too young.</p>
+<p>这是一道重在剪枝的神奇DFS题。</p>
+<a id="more"></a>
+<p>一般的，在碰到搜索题的时候，我的反应是：woc，这也能搜索？事实证明，我还是too young.</p>
 <h1 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h1><ul>
 <li>据说,少林寺的镇寺之宝,是救秦王李世民的十三棍僧留下的若干根一样长的棍子。</li>
 <li>在民国某年,少林寺被军阀炮轰,这些棍子被炸成<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex"> N </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">N</span></span></span></span>节长度各异的小木棒。</li>
@@ -285,10 +280,6 @@
 <p>团长在POJ和HDU上都成功拯救了少林神棍，但是原题并不叫拯救少林神棍，而是叫Sticks，很无聊的题面，某不远透露姓名的薛定谔同学竟然告诉我这是一道POJ上的中文题，害的我一阵好找。。。。</p>
 
 
-            
-            <div class="post-reward">
-                <a id="rewardBtn" href="javascript:;" class="post-reward-btn waves-effect waves-circle waves-light">赏</a>
-            </div>
             
             
             <blockquote>
@@ -400,30 +391,6 @@ var BLOG_SHARE = {
 
 
 
-
-<div id="reward" class="reward-lay">
-    <a class="reward-off" id="rewardOff" href="javascript:;"><i class="icon icon-close"></i></a>
-    <h3 class="reward-title">
-        <i class="icon icon-quote-left"></i>
-        谢谢大爷~
-        <i class="icon icon-quote-right"></i>
-    </h3>
-    <ul class="reward-items">
-        
-        <li>
-            <img src="/img/wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
-            <p>微信</p>
-        </li>
-        
-
-        
-        <li>
-            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
-            <p>支付宝</p>
-        </li>
-        
-    </ul>
-</div>
 
 <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 

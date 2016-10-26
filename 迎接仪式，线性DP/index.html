@@ -6,54 +6,28 @@
   <title>迎接仪式，线性DP | Sulfur6_L8972 | Abandoned Sulfur</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="theme-color" content="#3F51B5">
+  <meta name="theme-color" content="#66CCFF">
   
   
   <meta name="keywords" content="学习笔记,DP,线性DP">
-  <meta name="description" content="题目大意
-给定一个仅由j与z组成的的字符串
-允许最多交换KKK次字符串中字符
-使得字符串中jz子串尽量多
-
-思路
-看到这道题之后，我就想要暴力求解，然后。。就没有然后了
-
-思路的关键之处在于，交换kkk次，其实意味着kkk个j变成z，kkk个z变成j。
-于是，我们就开心的开始DP了
-DP状态设f(i,j,z)f(i,j,z)f(i,j,z)表示前iii位中有jjj个j变成了z，有zzz个z变成了j">
+  <meta name="description" content="这种DP让人不知所措，果然我还是Too young..
+多做题多积累。。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="迎接仪式，线性DP">
 <meta property="og:url" content="http://sulfur6.top/迎接仪式，线性DP/index.html">
 <meta property="og:site_name" content="Sulfur6_L8972">
-<meta property="og:description" content="题目大意
-给定一个仅由j与z组成的的字符串
-允许最多交换KKK次字符串中字符
-使得字符串中jz子串尽量多
-
-思路
-看到这道题之后，我就想要暴力求解，然后。。就没有然后了
-
-思路的关键之处在于，交换kkk次，其实意味着kkk个j变成z，kkk个z变成j。
-于是，我们就开心的开始DP了
-DP状态设f(i,j,z)f(i,j,z)f(i,j,z)表示前iii位中有jjj个j变成了z，有zzz个z变成了j">
-<meta property="og:updated_time" content="2016-10-25T12:09:09.000Z">
+<meta property="og:description" content="这种DP让人不知所措，果然我还是Too young..
+多做题多积累。。">
+<meta property="og:updated_time" content="2016-10-26T07:33:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="迎接仪式，线性DP">
-<meta name="twitter:description" content="题目大意
-给定一个仅由j与z组成的的字符串
-允许最多交换KKK次字符串中字符
-使得字符串中jz子串尽量多
-
-思路
-看到这道题之后，我就想要暴力求解，然后。。就没有然后了
-
-思路的关键之处在于，交换kkk次，其实意味着kkk个j变成z，kkk个z变成j。
-于是，我们就开心的开始DP了
-DP状态设f(i,j,z)f(i,j,z)f(i,j,z)表示前iii位中有jjj个j变成了z，有zzz个z变成了j">
+<meta name="twitter:description" content="这种DP让人不知所措，果然我还是Too young..
+多做题多积累。。">
   
     <link rel="alternative" href="/atom.xml" title="Sulfur6_L8972" type="application/atom+xml">
   
-  <meta name="summary" content="A Kind Father">
+  <meta name="summary" content="&lt;p&gt;这种DP让人不知所措，果然我还是Too young..&lt;/p&gt;
+&lt;p&gt;多做题多积累。。&lt;/p&gt;">
   <link rel="shortcut icon" href="/favicon.ico">
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css" /><!-- hexo-inject:begin --><!-- hexo-inject:end -->
@@ -228,7 +202,10 @@ DP状态设f(i,j,z)f(i,j,z)f(i,j,z)表示前iii位中有jjj个j变成了z，有z
         <div class="post-main">
 
             <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h1><ul>
+            <p>这种DP让人不知所措，果然我还是Too young..</p>
+<p>多做题多积累。。</p>
+<a id="more"></a>
+<h1 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h1><ul>
 <li>给定一个仅由<code>j</code>与<code>z</code>组成的的字符串</li>
 <li>允许最多交换<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.07153em;">K</span></span></span></span>次字符串中字符</li>
 <li>使得字符串中<code>jz</code>子串尽量多</li>
@@ -257,10 +234,6 @@ f(i,j,z)=\max(f(i-2,j-1,z),f(i-2,j,z-1),f(i-2,j-1,z-1),f(i-2,j,z))
 
 
             
-            <div class="post-reward">
-                <a id="rewardBtn" href="javascript:;" class="post-reward-btn waves-effect waves-circle waves-light">赏</a>
-            </div>
-            
             
             <blockquote>
                 <p>
@@ -272,6 +245,13 @@ f(i,j,z)=\max(f(i-2,j-1,z),f(i-2,j,z-1),f(i-2,j-1,z-1),f(i-2,j,z))
             </div>
             
 <nav class="post-nav">
+  
+    <div class="waves-block waves-effect prev fl">
+      <a href="/小机房的树，LCA，倍增/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">小机房的树，LCA，倍增</h4>
+      </a>
+    </div>
   
 
   
@@ -364,30 +344,6 @@ var BLOG_SHARE = {
 
 
 
-
-<div id="reward" class="reward-lay">
-    <a class="reward-off" id="rewardOff" href="javascript:;"><i class="icon icon-close"></i></a>
-    <h3 class="reward-title">
-        <i class="icon icon-quote-left"></i>
-        谢谢大爷~
-        <i class="icon icon-quote-right"></i>
-    </h3>
-    <ul class="reward-items">
-        
-        <li>
-            <img src="/img/wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
-            <p>微信</p>
-        </li>
-        
-
-        
-        <li>
-            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
-            <p>支付宝</p>
-        </li>
-        
-    </ul>
-</div>
 
 <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 

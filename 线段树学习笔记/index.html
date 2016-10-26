@@ -6,102 +6,28 @@
   <title>线段树学习笔记 | Sulfur6_L8972 | Abandoned Sulfur</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="theme-color" content="#3F51B5">
+  <meta name="theme-color" content="#66CCFF">
   
   
   <meta name="keywords" content="学习笔记,区间操作,线段树">
-  <meta name="description" content="引言在线段树之前我们已经学习过了多中维护区间操作的技巧与数据结构。
-
-维护区间最值:ST表
-区间更改转化为单点更改:差分数组
-区间和:前缀和
-
-但是，它们有一个共同的缺点，就是更适合离线操作，一旦操作与查询为动态的，它们的时间复杂度就会变成
-
-
-
-
-
-
-
-
-
- 
- 
-
- 
- 
- 
-
- 
-
-
-于是，我们开心的迎来了，线段树——SegmentTree\mathfrak {Segment Tree}Se">
+  <meta name="description" content="中国高级数据结构领导者，唐氏线段树！【雾
+其实并不是，下面即将介绍的是不会TLE的正版线段树哦">
 <meta property="og:type" content="article">
 <meta property="og:title" content="线段树学习笔记">
 <meta property="og:url" content="http://sulfur6.top/线段树学习笔记/index.html">
 <meta property="og:site_name" content="Sulfur6_L8972">
-<meta property="og:description" content="引言在线段树之前我们已经学习过了多中维护区间操作的技巧与数据结构。
-
-维护区间最值:ST表
-区间更改转化为单点更改:差分数组
-区间和:前缀和
-
-但是，它们有一个共同的缺点，就是更适合离线操作，一旦操作与查询为动态的，它们的时间复杂度就会变成
-
-
-
-
-
-
-
-
-
- 
- 
-
- 
- 
- 
-
- 
-
-
-于是，我们开心的迎来了，线段树——SegmentTree\mathfrak {Segment Tree}Se">
-<meta property="og:updated_time" content="2016-10-24T09:26:02.000Z">
+<meta property="og:description" content="中国高级数据结构领导者，唐氏线段树！【雾
+其实并不是，下面即将介绍的是不会TLE的正版线段树哦">
+<meta property="og:updated_time" content="2016-10-26T07:34:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="线段树学习笔记">
-<meta name="twitter:description" content="引言在线段树之前我们已经学习过了多中维护区间操作的技巧与数据结构。
-
-维护区间最值:ST表
-区间更改转化为单点更改:差分数组
-区间和:前缀和
-
-但是，它们有一个共同的缺点，就是更适合离线操作，一旦操作与查询为动态的，它们的时间复杂度就会变成
-
-
-
-
-
-
-
-
-
- 
- 
-
- 
- 
- 
-
- 
-
-
-于是，我们开心的迎来了，线段树——SegmentTree\mathfrak {Segment Tree}Se">
+<meta name="twitter:description" content="中国高级数据结构领导者，唐氏线段树！【雾
+其实并不是，下面即将介绍的是不会TLE的正版线段树哦">
   
     <link rel="alternative" href="/atom.xml" title="Sulfur6_L8972" type="application/atom+xml">
   
-  <meta name="summary" content="A Kind Father">
+  <meta name="summary" content="&lt;p&gt;中国高级数据结构领导者，唐氏线段树！【雾&lt;/p&gt;
+&lt;p&gt;其实并不是，下面即将介绍的是不会TLE的正版线段树哦&lt;/p&gt;">
   <link rel="shortcut icon" href="/favicon.ico">
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css" /><!-- hexo-inject:begin --><!-- hexo-inject:end -->
@@ -276,7 +202,10 @@
         <div class="post-main">
 
             <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>在线段树之前我们已经学习过了多中维护区间操作的技巧与数据结构。</p>
+            <p>中国高级数据结构领导者，唐氏线段树！【雾</p>
+<p>其实并不是，下面即将介绍的是不会TLE的正版线段树哦</p>
+<a id="more"></a>
+<h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>在线段树之前我们已经学习过了多中维护区间操作的技巧与数据结构。</p>
 <ul>
 <li>维护区间最值:ST表</li>
 <li>区间更改转化为单点更改:差分数组</li>
@@ -320,10 +249,6 @@
 <p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mrow><mi mathvariant="fraktur">P</mi><mi mathvariant="fraktur">o</mi><mi mathvariant="fraktur">w</mi><mi mathvariant="fraktur">e</mi><mi mathvariant="fraktur">r</mi><mi mathvariant="fraktur">e</mi><mi mathvariant="fraktur">d</mi><mtext> </mtext><mi mathvariant="fraktur">b</mi><mi mathvariant="fraktur">y</mi><mtext> </mtext><mi mathvariant="fraktur">S</mi><mi mathvariant="fraktur">u</mi><mi mathvariant="fraktur">l</mi><mi mathvariant="fraktur">f</mi><mi mathvariant="fraktur">u</mi><mi mathvariant="fraktur">r</mi><mn mathvariant="fraktur">6</mn></mrow></mrow><annotation encoding="application/x-tex">\mathfrak {Powered\ by\ Sulfur6}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69141em;"></span><span class="strut bottom" style="height:0.88047em;vertical-align:-0.18906em;"></span><span class="base textstyle uncramped"><span class="mord textstyle uncramped"><span class="mord mathfrak">P</span><span class="mord mathfrak">o</span><span class="mord mathfrak">w</span><span class="mord mathfrak">e</span><span class="mord mathfrak">r</span><span class="mord mathfrak">e</span><span class="mord mathfrak">d</span><span class="mord mspace"> </span><span class="mord mathfrak">b</span><span class="mord mathfrak">y</span><span class="mord mspace"> </span><span class="mord mathfrak">S</span><span class="mord mathfrak">u</span><span class="mord mathfrak">l</span><span class="mord mathfrak">f</span><span class="mord mathfrak">u</span><span class="mord mathfrak">r</span><span class="mord mathfrak">6</span></span></span></span></span></p>
 
 
-            
-            <div class="post-reward">
-                <a id="rewardBtn" href="javascript:;" class="post-reward-btn waves-effect waves-circle waves-light">赏</a>
-            </div>
             
             
             <blockquote>
@@ -435,30 +360,6 @@ var BLOG_SHARE = {
 
 
 
-
-<div id="reward" class="reward-lay">
-    <a class="reward-off" id="rewardOff" href="javascript:;"><i class="icon icon-close"></i></a>
-    <h3 class="reward-title">
-        <i class="icon icon-quote-left"></i>
-        谢谢大爷~
-        <i class="icon icon-quote-right"></i>
-    </h3>
-    <ul class="reward-items">
-        
-        <li>
-            <img src="/img/wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
-            <p>微信</p>
-        </li>
-        
-
-        
-        <li>
-            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
-            <p>支付宝</p>
-        </li>
-        
-    </ul>
-</div>
 
 <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 
