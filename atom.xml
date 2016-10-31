@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://sulfur6.top/"/>
-  <updated>2016-10-29T12:58:17.000Z</updated>
+  <updated>2016-10-31T12:09:11.000Z</updated>
   <id>http://sulfur6.top/</id>
   
   <author>
@@ -16,11 +16,70 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>生日蛋糕，DFS，POJ1190</title>
+    <link href="http://sulfur6.top/birthday-cake/"/>
+    <id>http://sulfur6.top/birthday-cake/</id>
+    <published>2016-10-31T12:07:43.000Z</published>
+    <updated>2016-10-31T12:09:11.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>生日蛋糕带我走上深搜不归路</p>
+<a id="more"></a>
+<h1 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h1><ul>
+<li>制作一个体积为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi><mi>π</mi></mrow><annotation encoding="application/x-tex">N\pi</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">N</span><span class="mord mathit" style="margin-right:0.03588em;">π</span></span></span></span>，共<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>M</mi></mrow><annotation encoding="application/x-tex">M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">M</span></span></span></span>层的蛋糕</li>
+<li>从上往下数第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi><mo separator="true">,</mo><mo>(</mo><mn>1</mn><mo>≤</mo><mi>i</mi><mo>≤</mo><mi>M</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">i,(1\leq i\leq M)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mopen">(</span><span class="mord mathrm">1</span><span class="mrel">≤</span><span class="mord mathit">i</span><span class="mrel">≤</span><span class="mord mathit" style="margin-right:0.10903em;">M</span><span class="mclose">)</span></span></span></span>的蛋糕是半径为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>R</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">R_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.00773em;">R</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.00773em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>，高度为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>H</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">H_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.08125em;">H</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.08125em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>的圆柱</li>
+<li>当<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi><mo>&lt;</mo><mi>M</mi></mrow><annotation encoding="application/x-tex">i&lt;M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.72243em;vertical-align:-0.0391em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span><span class="mrel">&lt;</span><span class="mord mathit" style="margin-right:0.10903em;">M</span></span></span></span>时，要求<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>R</mi><mi>i</mi></msub><mo>&gt;</mo><msub><mi>R</mi><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">R_i&gt;R_{i+1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.891661em;vertical-align:-0.208331em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.00773em;">R</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.00773em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">&gt;</span><span class="mord"><span class="mord mathit" style="margin-right:0.00773em;">R</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.00773em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>且<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>H</mi><mi>i</mi></msub><mo>&gt;</mo><msub><mi>H</mi><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">H_i&gt;H_{i+1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.891661em;vertical-align:-0.208331em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.08125em;">H</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.08125em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">&gt;</span><span class="mord"><span class="mord mathit" style="margin-right:0.08125em;">H</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.08125em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span></li>
+<li>使得蛋糕的表面积最小</li>
+</ul>
+<blockquote>
+<p>在这里本题需要输出的答案并不是最小的表面积，而是最小表面积除以<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>π</mi></mrow><annotation encoding="application/x-tex">\pi</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03588em;">π</span></span></span></span>之后的结果</p>
+</blockquote>
+<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><ul>
+<li>深搜<ul>
+<li>模拟拼蛋糕</li>
+<li>暴力枚举下一层可能的蛋糕半径与高度</li>
+<li>只需记录更新侧面积，所有顶面积等于最底层蛋糕的底面积</li>
+</ul>
+</li>
+<li>超时？<ul>
+<li><strong>剪枝！！！</strong></li>
+</ul>
+</li>
+</ul>
+<h1 id="如何剪枝"><a href="#如何剪枝" class="headerlink" title="如何剪枝"></a>如何剪枝</h1><blockquote>
+<p>在这里分可行性剪枝与最优性剪枝</p>
+</blockquote>
+<h3 id="最优性剪枝"><a href="#最优性剪枝" class="headerlink" title="最优性剪枝"></a>最优性剪枝</h3><ol>
+<li>当前已拼成的蛋糕表面积比已经记录的最优解大</li>
+</ol>
+<h3 id="可行性剪枝"><a href="#可行性剪枝" class="headerlink" title="可行性剪枝"></a>可行性剪枝</h3><ol>
+<li>无可用体积</li>
+<li>拼成这些层最少体积大于当前需要拼的体积</li>
+<li>目前枚举的高度半径不足以拼完蛋糕</li>
+<li>当前可能拼成的最大体积比需要拼的体积少</li>
+</ol>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="keyword">int</span> n, m;</div><div class="line"><span class="keyword">int</span> minArea = <span class="number">1</span> &lt;&lt; <span class="number">30</span>;<span class="comment">//记录最优解</span></div><div class="line"><span class="keyword">int</span> area = <span class="number">0</span>;<span class="comment">//记录当前解</span></div><div class="line"><span class="keyword">int</span> minV[<span class="number">30</span>], minA[<span class="number">30</span>];<span class="comment">//分别记录拼成i层最小可能的体积和表面积</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">MaxVforNRH</span> <span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> r, <span class="keyword">int</span> h)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> v;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i) v += (r - i) * (r - i) * (h - i);</div><div class="line"></div><div class="line">    <span class="keyword">return</span> v;</div><div class="line">&#125;<span class="comment">//计算在还有n层没拼完，当前一层的半径为r，高度为h时可能拼成的最大体积</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span> <span class="params">(<span class="keyword">int</span> v, <span class="keyword">int</span> n, <span class="keyword">int</span> r, <span class="keyword">int</span> h)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (n == <span class="number">0</span>) &#123;</div><div class="line">        <span class="keyword">if</span> (v) <span class="keyword">return</span>;</div><div class="line">        <span class="keyword">else</span> &#123;</div><div class="line">            minArea = min(minArea, area);</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (v &lt;= <span class="number">0</span>) <span class="keyword">return</span>;<span class="comment">//可行1</span></div><div class="line">    <span class="keyword">if</span> (minV[n] &gt; v) <span class="keyword">return</span>;<span class="comment">//可行2</span></div><div class="line">    <span class="keyword">if</span> (area + minA[n] &gt;= minArea) <span class="keyword">return</span>;<span class="comment">//最优</span></div><div class="line">    <span class="keyword">if</span> (h &lt; n || r &lt; n) <span class="keyword">return</span>;<span class="comment">//可行3</span></div><div class="line">    <span class="keyword">if</span> (MaxVforNRH(n, r, h) &lt; v) <span class="keyword">return</span>;<span class="comment">//可行4</span></div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> rr = r; rr &gt;= n; --rr) &#123;<span class="comment">//爆搜</span></div><div class="line">        <span class="keyword">if</span> (n == m) area = rr * rr;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> hh = h; hh &gt;= n; hh--) &#123;</div><div class="line">            area += <span class="number">2</span> * rr * hh;</div><div class="line">            dfs (v - rr * rr * hh, n - <span class="number">1</span>, rr - <span class="number">1</span>, hh - <span class="number">1</span>);</div><div class="line">            area -= <span class="number">2</span> * rr * hh;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</div><div class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;</div><div class="line">    minA[<span class="number">0</span>] = <span class="number">0</span>;</div><div class="line">    minV[<span class="number">0</span>] = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; ++i) &#123;</div><div class="line">        minV[i] = minV[i - <span class="number">1</span>] + i * i * i;</div><div class="line">        minA[i] = minA[i - <span class="number">1</span>] + <span class="number">2</span> * i * i;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (minV[m] &gt; n) <span class="built_in">cout</span> &lt;&lt; <span class="number">0</span> &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">    <span class="keyword">else</span> &#123;<span class="comment">//处理搜索边界</span></div><div class="line">        <span class="keyword">int</span> maxH = (n - minV[m - <span class="number">1</span>]) / (m * m) + <span class="number">1</span>;</div><div class="line">        <span class="keyword">int</span> maxR = <span class="built_in">sqrt</span>(<span class="keyword">double</span>(n - minV[m - <span class="number">1</span>]) / m) + <span class="number">1</span>;</div><div class="line">        area = <span class="number">0</span>;</div><div class="line">        minArea = <span class="number">1</span> &lt;&lt; <span class="number">30</span>;</div><div class="line">        dfs (n, m, maxR, maxH);</div><div class="line">        <span class="keyword">if</span> (minArea == <span class="number">1</span> &lt;&lt; <span class="number">30</span>) <span class="built_in">cout</span> &lt;&lt; <span class="number">0</span> &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">        <span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; minArea &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;生日蛋糕带我走上深搜不归路&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="学习笔记" scheme="http://sulfur6.top/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="DFS" scheme="http://sulfur6.top/tags/DFS/"/>
+    
+      <category term="POJ" scheme="http://sulfur6.top/tags/POJ/"/>
+    
+  </entry>
+  
+  <entry>
     <title>斗地主，DFS，状态压缩，记忆化搜索</title>
-    <link href="http://sulfur6.top/%E6%96%97%E5%9C%B0%E4%B8%BB%EF%BC%8CDFS%EF%BC%8C%E7%8A%B6%E6%80%81%E5%8E%8B%E7%BC%A9%EF%BC%8C%E8%AE%B0%E5%BF%86%E5%8C%96%E6%90%9C%E7%B4%A2/"/>
-    <id>http://sulfur6.top/斗地主，DFS，状态压缩，记忆化搜索/</id>
+    <link href="http://sulfur6.top/landlord-NOIP2015/"/>
+    <id>http://sulfur6.top/landlord-NOIP2015/</id>
     <published>2016-10-29T12:56:32.000Z</published>
-    <updated>2016-10-29T12:58:17.000Z</updated>
+    <updated>2016-10-31T12:06:00.000Z</updated>
     
     <content type="html"><![CDATA[<p>大概两周前，我还是一个不会DFS的小蒟蒻，当时看到斗地主这题，心中简直是千万匹草泥马飘过</p>
 <a id="more"></a>
@@ -70,10 +129,10 @@
   
   <entry>
     <title>灌溉草场，线性DP，POJ2373</title>
-    <link href="http://sulfur6.top/eat-edge/"/>
-    <id>http://sulfur6.top/eat-edge/</id>
+    <link href="http://sulfur6.top/pour-the-grass/"/>
+    <id>http://sulfur6.top/pour-the-grass/</id>
     <published>2016-10-28T01:24:04.000Z</published>
-    <updated>2016-10-31T12:03:25.000Z</updated>
+    <updated>2016-10-31T12:05:01.000Z</updated>
     
     <content type="html"><![CDATA[<p>一道比较难的线性DP，主要是限制条件太多，而且我又太弱。</p>
 <a id="more"></a>
@@ -141,10 +200,10 @@
   
   <entry>
     <title>小机房的树，LCA，倍增</title>
-    <link href="http://sulfur6.top/%E5%B0%8F%E6%9C%BA%E6%88%BF%E7%9A%84%E6%A0%91%EF%BC%8CLCA%EF%BC%8C%E5%80%8D%E5%A2%9E/"/>
-    <id>http://sulfur6.top/小机房的树，LCA，倍增/</id>
+    <link href="http://sulfur6.top/gaogay/"/>
+    <id>http://sulfur6.top/gaogay/</id>
     <published>2016-10-26T09:14:34.000Z</published>
-    <updated>2016-10-26T09:16:56.000Z</updated>
+    <updated>2016-10-31T12:07:09.000Z</updated>
     
     <content type="html"><![CDATA[<p>终于学会了三个多月前学习的倍增求LCA，最近几年经常出很恶心的带LCA的题。。看看就浑身难受。。</p>
 <a id="more"></a>
@@ -208,10 +267,10 @@ g(i,j)=g(i,j-1)+g(f(i,j-1),j-1)
   
   <entry>
     <title>迎接仪式，线性DP</title>
-    <link href="http://sulfur6.top/%E8%BF%8E%E6%8E%A5%E4%BB%AA%E5%BC%8F%EF%BC%8C%E7%BA%BF%E6%80%A7DP/"/>
-    <id>http://sulfur6.top/迎接仪式，线性DP/</id>
+    <link href="http://sulfur6.top/welcome-ceremony/"/>
+    <id>http://sulfur6.top/welcome-ceremony/</id>
     <published>2016-10-25T12:07:34.000Z</published>
-    <updated>2016-10-26T07:33:05.000Z</updated>
+    <updated>2016-10-31T12:05:44.000Z</updated>
     
     <content type="html"><![CDATA[<p>这种DP让人不知所措，果然我还是Too young..</p>
 <p>多做题多积累。。</p>
@@ -262,10 +321,10 @@ f(i,j,z)=\max(f(i-2,j-1,z),f(i-2,j,z-1),f(i-2,j-1,z-1),f(i-2,j,z))
   
   <entry>
     <title>线段树学习笔记</title>
-    <link href="http://sulfur6.top/%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    <id>http://sulfur6.top/线段树学习笔记/</id>
+    <link href="http://sulfur6.top/segment-tree/"/>
+    <id>http://sulfur6.top/segment-tree/</id>
     <published>2016-10-24T08:27:26.000Z</published>
-    <updated>2016-10-26T07:34:27.000Z</updated>
+    <updated>2016-10-31T12:05:30.000Z</updated>
     
     <content type="html"><![CDATA[<p>中国高级数据结构领导者，唐氏线段树！【雾</p>
 <p>其实并不是，下面即将介绍的是不会TLE的正版线段树哦</p>
@@ -332,10 +391,10 @@ f(i,j,z)=\max(f(i-2,j-1,z),f(i-2,j,z-1),f(i-2,j-1,z-1),f(i-2,j,z))
   
   <entry>
     <title>Sudoku，暴力DFS，POJ2676</title>
-    <link href="http://sulfur6.top/Sudoku%EF%BC%8C%E6%9A%B4%E5%8A%9BDFS%EF%BC%8CPOJ2676/"/>
-    <id>http://sulfur6.top/Sudoku，暴力DFS，POJ2676/</id>
+    <link href="http://sulfur6.top/sudoku/"/>
+    <id>http://sulfur6.top/sudoku/</id>
     <published>2016-10-23T11:53:10.000Z</published>
-    <updated>2016-10-26T07:31:46.000Z</updated>
+    <updated>2016-10-31T12:06:10.000Z</updated>
     
     <content type="html"><![CDATA[<p>数独有趣，爆搜无脑。</p>
 <p>还有回不去的还记得的一张张写满算式的纸，和解不出的Sudoku。</p>
@@ -388,10 +447,10 @@ f(i,j,z)=\max(f(i-2,j-1,z),f(i-2,j,z-1),f(i-2,j-1,z-1),f(i-2,j,z))
   
   <entry>
     <title>矩阵乘法优化递推，NOIP%你赛</title>
-    <link href="http://sulfur6.top/%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95%E4%BC%98%E5%8C%96%E9%80%92%E6%8E%A8%EF%BC%8CNOIP-%E4%BD%A0%E8%B5%9B/"/>
-    <id>http://sulfur6.top/矩阵乘法优化递推，NOIP-你赛/</id>
+    <link href="http://sulfur6.top/matrix-increase/"/>
+    <id>http://sulfur6.top/matrix-increase/</id>
     <published>2016-10-23T07:27:35.000Z</published>
-    <updated>2016-10-29T07:14:42.000Z</updated>
+    <updated>2016-10-31T12:06:33.000Z</updated>
     
     <content type="html"><![CDATA[<p>今天的欢乐%你赛，由于第一题是大水题，第二题良心出题人良心部分分，第三题不严格卡迪杰斯特拉，让人心神愉悦，话虽如此，第二题想要拿满分还是很麻烦的（我才不要分块打表），所以，我们要请出矩阵乘法来优化递推</p>
 <a id="more"></a>
@@ -908,10 +967,10 @@ C_{i,j} = \sum\limits_{k = 1}^{N} A_{i,k} \times B_{k,j}
   
   <entry>
     <title>拯救少林神棍，POJ1011，DFS</title>
-    <link href="http://sulfur6.top/%E6%8B%AF%E6%95%91%E5%B0%91%E6%9E%97%E7%A5%9E%E6%A3%8D%EF%BC%8CPOJ1011%EF%BC%8CDFS/"/>
-    <id>http://sulfur6.top/拯救少林神棍，POJ1011，DFS/</id>
+    <link href="http://sulfur6.top/buddhas-sticks/"/>
+    <id>http://sulfur6.top/buddhas-sticks/</id>
     <published>2016-10-22T00:34:21.000Z</published>
-    <updated>2016-10-26T09:20:12.000Z</updated>
+    <updated>2016-10-31T12:06:49.000Z</updated>
     
     <content type="html"><![CDATA[<p>一般的，在碰到搜索题的时候，我的反应是：woc，这也能搜索？事实证明，我还是too young.</p>
 <p>这是一道重在剪枝的神奇DFS题。</p>
@@ -1013,7 +1072,7 @@ C_{i,j} = \sum\limits_{k = 1}^{N} A_{i,k} \times B_{k,j}
     <link href="http://sulfur6.top/ywl/"/>
     <id>http://sulfur6.top/ywl/</id>
     <published>2016-10-20T13:05:09.000Z</published>
-    <updated>2016-10-26T09:20:21.000Z</updated>
+    <updated>2016-10-31T12:06:59.000Z</updated>
     
     <content type="html"><![CDATA[<p>蒟蒻Sulfur6在第一次看见这道题的时候感觉它好水啊，然后五分钟打了个自以为是的正解。。肯定是错的太离谱了，那天晚上的代码带崩了我的三个系统。。。</p>
 <p>刚刚学习并查集的时候就见过那个题，当时连最水的家族都做不出，真的是连题面都没看就跳过去了。</p>

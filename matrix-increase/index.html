@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>矩阵乘法优化递推，NOIP%你赛 | Sulfur6_L8972 | Abandoned Sulfur</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="theme-color" content="#66CCFF">
+  
+  
+  <meta name="keywords" content="学习笔记,递推,矩阵乘法">
+  <meta name="description" content="今天的欢乐%你赛，由于第一题是大水题，第二题良心出题人良心部分分，第三题不严格卡迪杰斯特拉，让人心神愉悦，话虽如此，第二题想要拿满分还是很麻烦的（我才不要分块打表），所以，我们要请出矩阵乘法来优化递推">
+<meta property="og:type" content="article">
+<meta property="og:title" content="矩阵乘法优化递推，NOIP%你赛">
+<meta property="og:url" content="http://sulfur6.top/matrix-increase/index.html">
+<meta property="og:site_name" content="Sulfur6_L8972">
+<meta property="og:description" content="今天的欢乐%你赛，由于第一题是大水题，第二题良心出题人良心部分分，第三题不严格卡迪杰斯特拉，让人心神愉悦，话虽如此，第二题想要拿满分还是很麻烦的（我才不要分块打表），所以，我们要请出矩阵乘法来优化递推">
+<meta property="og:updated_time" content="2016-10-31T12:06:33.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="矩阵乘法优化递推，NOIP%你赛">
+<meta name="twitter:description" content="今天的欢乐%你赛，由于第一题是大水题，第二题良心出题人良心部分分，第三题不严格卡迪杰斯特拉，让人心神愉悦，话虽如此，第二题想要拿满分还是很麻烦的（我才不要分块打表），所以，我们要请出矩阵乘法来优化递推">
+  
+    <link rel="alternative" href="/atom.xml" title="Sulfur6_L8972" type="application/atom+xml">
+  
+  <meta name="summary" content="&lt;p&gt;今天的欢乐%你赛，由于第一题是大水题，第二题良心出题人良心部分分，第三题不严格卡迪杰斯特拉，让人心神愉悦，话虽如此，第二题想要拿满分还是很麻烦的（我才不要分块打表），所以，我们要请出矩阵乘法来优化递推&lt;/p&gt;">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css" /><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="loading" class="active"></div>
+
+  <nav id="menu" class="hide" >
+   <div class="inner flex-row-vertical">
+  <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+      <i class="icon icon-lg icon-close"></i>
+  </a>
+  <div class="brand-wrap">
+    <div class="brand">
+      <a href="/" class="avatar"><img src="/img/sulfur.png"></a>
+      <hgroup class="introduce">
+        <h5 class="nickname">Sulfur6</h5>
+        <a href="mailto:huangchun50@icloud.com" title="huangchun50@icloud.com" class="mail">huangchun50@icloud.com</a>
+      </hgroup>
+    </div>
+  </div>
+  <div class="scroll-wrap flex-col">
+    <ul class="nav">
+      
+          <li class="waves-block waves-effect">
+            <a href="/"  >
+              <i class="icon icon-lg icon-home"></i>
+              Home
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="/archives"  >
+              <i class="icon icon-lg icon-archives"></i>
+              Archives
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="/tags"  >
+              <i class="icon icon-lg icon-tags"></i>
+              Tags
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="https://github.com/sulfur6th" target="_blank" >
+              <i class="icon icon-lg icon-github"></i>
+              Github
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="https://http://weibo.com/5143998868/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" target="_blank" >
+              <i class="icon icon-lg icon-weibo"></i>
+              Weibo
+            </a>
+          </li>
+      
+    </ul>
+
+    <footer class="footer">
+  <p><a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAPCAMAAABEF7i9AAAAllBMVEUAAAD///+rsapERER3d3eIiIjMzMzu7u4iIiKUmZO6v7rKzsoODg4RERFVVVUNDQ0NDg0PEA8zMzNLTEtbXltmZmZydnF9gn2AgICPkI+ZmZmqqqq7u7vFxsXIzMgNDQwZGRkgICAhISEkJSMnKCcuMC4xMzE5Ozk7PTtBQkFCQkJDQ0Nna2eGhoaHh4ezuLLGysbd3d1wVGpAAAAA4UlEQVR42q2T1xqCMAyFk7QsBQeKA9x7j/d/OSm22CpX0nzcpA1/T05aAOuBVkMAScQFHLnEwoCo2f1TnQIGoVMewjZEjVFN4GH1Ue1Cn2jWqwfsOOj6wDwGvotsl/c8lv7KIq1eLOsT0HMFHMIE/RZyHnlphryT9zyV+8WH5e8yQw3wnQvgAFxPTKUVi555SHR/lOfLMgVTeDlSfN+TaoUsiTyeIm+bCkHvCA2FUKG48LDtYBZBknsYP/G8NTw0gaaHyuQf4H5pecrB/FYCT2sL9zAfy1Xyjou6L8X2W7YcLyBZCRtnq/zfAAAAAElFTkSuQmCC" /></a></p>
+  <p>Sulfur6_L8972 &copy; 2016</p>
+  <p>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
+  <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></p>
+  <a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-2x icon-rss-square"></i></a>
+</footer>
+
+  </div>
+</div>
+
+  </nav>
+  <main id="main">
+    <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">矩阵乘法优化递推，NOIP%你赛</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input " autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-share">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header">
+  <div class="container">
+    <h1 class="author">矩阵乘法优化递推，NOIP%你赛</h1>
+    <h5 class="subtitle">
+        
+            <time datetime="2016-10-23T07:27:35.000Z" itemprop="datePublished" class="page-time">
+  2016-10-23
+</time>
+
+
+        
+    </h5>
+  </div>
+</header>
+
+    <div class="container body-wrap">
+      <article id="post-matrix-increase" 
+  class="article article-type-post" itemprop="blogPost">
+    <div class="post-meta flex-row">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/矩阵乘法/">矩阵乘法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/递推/">递推</a></li></ul>
+
+    </div>
+    <div class="post-body">
+        <aside class="post-widget" id="post-widget">
+
+            
+            <div class="post-share" id="post-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+            
+
+            
+            <nav class="post-toc-wrap" id="post-toc">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#题目大意"><span class="post-toc-number">1.</span> <span class="post-toc-text">题目大意</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#题目分析"><span class="post-toc-number">2.</span> <span class="post-toc-text">题目分析</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#矩阵"><span class="post-toc-number">3.</span> <span class="post-toc-text">矩阵</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#矩阵乘法"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">矩阵乘法</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#矩阵优化递推"><span class="post-toc-number">4.</span> <span class="post-toc-text">矩阵优化递推</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#如何优化"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">如何优化</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#代码"><span class="post-toc-number">5.</span> <span class="post-toc-text">代码</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#最后说几句"><span class="post-toc-number">6.</span> <span class="post-toc-text">最后说几句</span></a></li></ol>
+            </nav>
+            
+        </aside>
+
+        <div class="post-main">
+
+            <div class="post-content" id="post-content" itemprop="postContent">
+            <p>今天的欢乐%你赛，由于第一题是大水题，第二题良心出题人良心部分分，第三题不严格卡迪杰斯特拉，让人心神愉悦，话虽如此，第二题想要拿满分还是很麻烦的（我才不要分块打表），所以，我们要请出矩阵乘法来优化递推</p>
+<a id="more"></a>
+<h1 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h1><p>给定一个坐标系，可以往左，右，上走，已经走过的点（单次访问中）不可以重复走，一共可以走<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">N</span></span></span></span>步，求一共有多少种走法。</p>
+<h1 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h1><blockquote>
+<p>表神，各单位提供丰富成功地证明了递推公式，然而，不适合这样做的蒟蒻Sulfur6更喜欢打表找规律。</p>
+</blockquote>
+<p>这里我们就假装我们已经打完了这个表，然后发现它的前几项分别是：</p>
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mn>0</mn><mo>)</mo><mo>=</mo><mn>1</mn><mo separator="true">,</mo><mi>f</mi><mo>(</mo><mn>1</mn><mo>)</mo><mo>=</mo><mn>3</mn><mo separator="true">,</mo><mi>f</mi><mo>(</mo><mn>2</mn><mo>)</mo><mo>=</mo><mn>7</mn><mo separator="true">,</mo><mi>f</mi><mo>(</mo><mn>3</mn><mo>)</mo><mo>=</mo><mn>1</mn><mn>7</mn><mo separator="true">,</mo><mi>f</mi><mo>(</mo><mn>4</mn><mo>)</mo><mo>=</mo><mn>4</mn><mn>1</mn><mo separator="true">,</mo><mi>f</mi><mo>(</mo><mn>5</mn><mo>)</mo><mo>=</mo><mn>9</mn><mn>9</mn></mrow><annotation encoding="application/x-tex">
+f(0) = 1, f(1) = 3, f(2) = 7, f(3) = 17, f(4) = 41, f(5) = 99
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathrm">0</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord mathrm">1</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathrm">1</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord mathrm">3</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathrm">2</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord mathrm">7</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathrm">3</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord mathrm">1</span><span class="mord mathrm">7</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathrm">4</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord mathrm">4</span><span class="mord mathrm">1</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathrm">5</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord mathrm">9</span><span class="mord mathrm">9</span></span></span></span></span><p>后面不打了T ^ T，所以我们发现了一个递推公式：</p>
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mi>i</mi><mo>)</mo><mo>=</mo><mi>f</mi><mo>(</mo><mi>i</mi><mo>−</mo><mn>2</mn><mo>)</mo><mo>+</mo><mn>2</mn><mo>×</mo><mi>f</mi><mo>(</mo><mi>i</mi><mo>−</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">
+f(i) = f(i - 2) + 2 \times f(i - 1)
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathit">i</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathit">i</span><span class="mbin">−</span><span class="mord mathrm">2</span><span class="mclose">)</span><span class="mbin">+</span><span class="mord mathrm">2</span><span class="mbin">×</span><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathit">i</span><span class="mbin">−</span><span class="mord mathrm">1</span><span class="mclose">)</span></span></span></span></span><p>时间复杂度降至<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mclose">)</span></span></span></span>，但是极限数据高达<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><msup><mn>0</mn><mn>9</mn></msup></mrow><annotation encoding="application/x-tex">10^9</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span><span class="mord"><span class="mord mathrm">0</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">9</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>，这时<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mclose">)</span></span></span></span>不靠谱。<del>而且会MLE</del></p>
+<h1 id="矩阵"><a href="#矩阵" class="headerlink" title="矩阵"></a>矩阵</h1><blockquote>
+<p>说矩阵优化之前先说说矩阵</p>
+</blockquote>
+<p>形如</p>
+<div style="text-align: center; "><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="53.847ex" height="9.176ex" style="vertical-align: -4.005ex;" viewbox="0 -2226.5 23184.1 3950.7" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<path stroke-width="1" id="E1-MJMAIN-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"/>
+<path stroke-width="1" id="E1-MJMAIN-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"/>
+<path stroke-width="1" id="E1-MJMAIN-28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"/>
+<path stroke-width="1" id="E1-MJMAIN-2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"/>
+<path stroke-width="1" id="E1-MJMATHI-69" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"/>
+<path stroke-width="1" id="E1-MJMAIN-29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"/>
+<path stroke-width="1" id="E1-MJSZ4-239B" d="M837 1154Q843 1148 843 1145Q843 1141 818 1106T753 1002T667 841T574 604T494 299Q417 -84 417 -609Q417 -641 416 -647T411 -654Q409 -655 366 -655Q299 -655 297 -654Q292 -652 292 -643T291 -583Q293 -400 304 -242T347 110T432 470T574 813T785 1136Q787 1139 790 1142T794 1147T796 1150T799 1152T802 1153T807 1154T813 1154H819H837Z"/>
+<path stroke-width="1" id="E1-MJSZ4-239D" d="M843 -635Q843 -638 837 -644H820Q801 -644 800 -643Q792 -635 785 -626Q684 -503 605 -363T473 -75T385 216T330 518T302 809T291 1093Q291 1144 291 1153T296 1164Q298 1165 366 1165Q409 1165 411 1164Q415 1163 416 1157T417 1119Q417 529 517 109T833 -617Q843 -631 843 -635Z"/>
+<path stroke-width="1" id="E1-MJSZ4-239C" d="M413 -9Q412 -9 407 -9T388 -10T354 -10Q300 -10 297 -9Q294 -8 293 -5Q291 5 291 127V300Q291 602 292 605L296 609Q298 610 366 610Q382 610 392 610T407 610T412 609Q416 609 416 592T417 473V127Q417 -9 413 -9Z"/>
+<path stroke-width="1" id="E1-MJSZ4-239E" d="M31 1143Q31 1154 49 1154H59Q72 1154 75 1152T89 1136Q190 1013 269 873T401 585T489 294T544 -8T572 -299T583 -583Q583 -634 583 -643T577 -654Q575 -655 508 -655Q465 -655 463 -654Q459 -653 458 -647T457 -609Q457 -58 371 340T100 1037Q87 1059 61 1098T31 1143Z"/>
+<path stroke-width="1" id="E1-MJSZ4-23A0" d="M56 -644H50Q31 -644 31 -635Q31 -632 37 -622Q69 -579 100 -527Q286 -228 371 170T457 1119Q457 1161 462 1164Q464 1165 520 1165Q575 1165 577 1164Q582 1162 582 1153T583 1093Q581 910 570 752T527 400T442 40T300 -303T89 -626Q78 -640 75 -642T61 -644H56Z"/>
+<path stroke-width="1" id="E1-MJSZ4-239F" d="M579 -9Q578 -9 573 -9T554 -10T520 -10Q466 -10 463 -9Q460 -8 459 -5Q457 5 457 127V300Q457 602 458 605L462 609Q464 610 532 610Q548 610 558 610T573 610T578 609Q582 609 582 592T583 473V127Q583 -9 579 -9Z"/>
+<path stroke-width="1" id="E1-MJMAIN-5B" d="M118 -250V750H255V710H158V-210H255V-250H118Z"/>
+<path stroke-width="1" id="E1-MJMAIN-5D" d="M22 710V750H159V-250H22V-210H119V710H22Z"/>
+<path stroke-width="1" id="E1-MJSZ4-23A1" d="M319 -645V1154H666V1070H403V-645H319Z"/>
+<path stroke-width="1" id="E1-MJSZ4-23A3" d="M319 -644V1155H403V-560H666V-644H319Z"/>
+<path stroke-width="1" id="E1-MJSZ4-23A2" d="M319 0V602H403V0H319Z"/>
+<path stroke-width="1" id="E1-MJSZ4-23A4" d="M0 1070V1154H347V-645H263V1070H0Z"/>
+<path stroke-width="1" id="E1-MJSZ4-23A6" d="M263 -560V1155H347V-644H0V-560H263Z"/>
+<path stroke-width="1" id="E1-MJSZ4-23A5" d="M263 0V602H347V0H263Z"/>
+<path stroke-width="1" id="E1-MJMAIN-7B" d="M434 -231Q434 -244 428 -250H410Q281 -250 230 -184Q225 -177 222 -172T217 -161T213 -148T211 -133T210 -111T209 -84T209 -47T209 0Q209 21 209 53Q208 142 204 153Q203 154 203 155Q189 191 153 211T82 231Q71 231 68 234T65 250T68 266T82 269Q116 269 152 289T203 345Q208 356 208 377T209 529V579Q209 634 215 656T244 698Q270 724 324 740Q361 748 377 749Q379 749 390 749T408 750H428Q434 744 434 732Q434 719 431 716Q429 713 415 713Q362 710 332 689T296 647Q291 634 291 499V417Q291 370 288 353T271 314Q240 271 184 255L170 250L184 245Q202 239 220 230T262 196T290 137Q291 131 291 1Q291 -134 296 -147Q306 -174 339 -192T415 -213Q429 -213 431 -216Q434 -219 434 -231Z"/>
+<path stroke-width="1" id="E1-MJMAIN-7D" d="M65 731Q65 745 68 747T88 750Q171 750 216 725T279 670Q288 649 289 635T291 501Q292 362 293 357Q306 312 345 291T417 269Q428 269 431 266T434 250T431 234T417 231Q380 231 345 210T298 157Q293 143 292 121T291 -28V-79Q291 -134 285 -156T256 -198Q202 -250 89 -250Q71 -250 68 -247T65 -230Q65 -224 65 -223T66 -218T69 -214T77 -213Q91 -213 108 -210T146 -200T183 -177T207 -139Q208 -134 209 3L210 139Q223 196 280 230Q315 247 330 250Q305 257 280 270Q225 304 212 352L210 362L209 498Q208 635 207 640Q195 680 154 696T77 713Q68 713 67 716T65 731Z"/>
+<path stroke-width="1" id="E1-MJSZ4-23A7" d="M712 899L718 893V876V865Q718 854 704 846Q627 793 577 710T510 525Q510 524 509 521Q505 493 504 349Q504 345 504 334Q504 277 504 240Q504 -2 503 -4Q502 -8 494 -9T444 -10Q392 -10 390 -9Q387 -8 386 -5Q384 5 384 230Q384 262 384 312T383 382Q383 481 392 535T434 656Q510 806 664 892L677 899H712Z"/>
+<path stroke-width="1" id="E1-MJSZ4-23A9" d="M718 -893L712 -899H677L666 -893Q542 -825 468 -714T385 -476Q384 -466 384 -282Q384 3 385 5L389 9Q392 10 444 10Q486 10 494 9T503 4Q504 2 504 -239V-310V-366Q504 -470 508 -513T530 -609Q546 -657 569 -698T617 -767T661 -812T699 -843T717 -856T718 -876V-893Z"/>
+<path stroke-width="1" id="E1-MJSZ4-23A8" d="M389 1159Q391 1160 455 1160Q496 1160 498 1159Q501 1158 502 1155Q504 1145 504 924Q504 691 503 682Q494 549 425 439T243 259L229 250L243 241Q349 175 421 66T503 -182Q504 -191 504 -424Q504 -600 504 -629T499 -659H498Q496 -660 444 -660T390 -659Q387 -658 386 -655Q384 -645 384 -425V-282Q384 -176 377 -116T342 10Q325 54 301 92T255 155T214 196T183 222T171 232Q170 233 170 250T171 268Q171 269 191 284T240 331T300 407T354 524T383 679Q384 691 384 925Q384 1152 385 1155L389 1159Z"/>
+<path stroke-width="1" id="E1-MJSZ4-23AA" d="M384 150V266Q384 304 389 309Q391 310 455 310Q496 310 498 309Q502 308 503 298Q504 283 504 150Q504 32 504 12T499 -9H498Q496 -10 444 -10T390 -9Q386 -8 385 2Q384 17 384 150Z"/>
+<path stroke-width="1" id="E1-MJSZ4-23AB" d="M170 875Q170 892 172 895T189 899H194H211L222 893Q345 826 420 715T503 476Q504 467 504 230Q504 51 504 21T499 -9H498Q496 -10 444 -10Q402 -10 394 -9T385 -4Q384 -2 384 240V311V366Q384 469 380 513T358 609Q342 657 319 698T271 767T227 812T189 843T171 856T170 875Z"/>
+<path stroke-width="1" id="E1-MJSZ4-23AD" d="M384 -239V-57Q384 4 389 9Q391 10 455 10Q496 10 498 9Q501 8 502 5Q504 -5 504 -230Q504 -261 504 -311T505 -381Q505 -486 492 -551T435 -691Q357 -820 222 -893L211 -899H195Q176 -899 173 -896T170 -874Q170 -858 171 -855T184 -846Q262 -793 312 -709T378 -525Q378 -524 379 -522Q383 -493 384 -351Q384 -345 384 -334Q384 -276 384 -239Z"/>
+<path stroke-width="1" id="E1-MJSZ4-23AC" d="M389 1159Q391 1160 455 1160Q496 1160 498 1159Q501 1158 502 1155Q504 1145 504 925V782Q504 676 511 616T546 490Q563 446 587 408T633 345T674 304T705 278T717 268Q718 267 718 250T717 232Q717 231 697 216T648 169T588 93T534 -24T505 -179Q504 -191 504 -425Q504 -600 504 -629T499 -659H498Q496 -660 444 -660T390 -659Q387 -658 386 -655Q384 -645 384 -424Q384 -191 385 -182Q394 -49 463 61T645 241L659 250L645 259Q539 325 467 434T385 682Q384 692 384 873Q384 1153 385 1155L389 1159Z"/>
+<path stroke-width="1" id="E1-MJMAIN-7C" d="M139 -249H137Q125 -249 119 -235V251L120 737Q130 750 139 750Q152 750 159 735V-235Q151 -249 141 -249H139Z"/>
+<path stroke-width="1" id="E1-MJMATHI-61" d="M33 157Q33 258 109 349T280 441Q331 441 370 392Q386 422 416 422Q429 422 439 414T449 394Q449 381 412 234T374 68Q374 43 381 35T402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487Q506 153 506 144Q506 138 501 117T481 63T449 13Q436 0 417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157ZM351 328Q351 334 346 350T323 385T277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q217 26 254 59T298 110Q300 114 325 217T351 328Z"/>
+<path stroke-width="1" id="E1-MJMATHI-62" d="M73 647Q73 657 77 670T89 683Q90 683 161 688T234 694Q246 694 246 685T212 542Q204 508 195 472T180 418L176 399Q176 396 182 402Q231 442 283 442Q345 442 383 396T422 280Q422 169 343 79T173 -11Q123 -11 82 27T40 150V159Q40 180 48 217T97 414Q147 611 147 623T109 637Q104 637 101 637H96Q86 637 83 637T76 640T73 647ZM336 325V331Q336 405 275 405Q258 405 240 397T207 376T181 352T163 330L157 322L136 236Q114 150 114 114Q114 66 138 42Q154 26 178 26Q211 26 245 58Q270 81 285 114T318 219Q336 291 336 325Z"/>
+<path stroke-width="1" id="E1-MJMATHI-63" d="M34 159Q34 268 120 355T306 442Q362 442 394 418T427 355Q427 326 408 306T360 285Q341 285 330 295T319 325T330 359T352 380T366 386H367Q367 388 361 392T340 400T306 404Q276 404 249 390Q228 381 206 359Q162 315 142 235T121 119Q121 73 147 50Q169 26 205 26H209Q321 26 394 111Q403 121 406 121Q410 121 419 112T429 98T420 83T391 55T346 25T282 0T202 -11Q127 -11 81 37T34 159Z"/>
+<path stroke-width="1" id="E1-MJMATHI-64" d="M366 683Q367 683 438 688T511 694Q523 694 523 686Q523 679 450 384T375 83T374 68Q374 26 402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487H491Q506 153 506 145Q506 140 503 129Q490 79 473 48T445 8T417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157Q33 205 53 255T101 341Q148 398 195 420T280 442Q336 442 364 400Q369 394 369 396Q370 400 396 505T424 616Q424 629 417 632T378 637H357Q351 643 351 645T353 664Q358 683 366 683ZM352 326Q329 405 277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q233 26 290 98L298 109L352 326Z"/>
+<path stroke-width="1" id="E1-MJMAIN-2223" d="M139 -249H137Q125 -249 119 -235V251L120 737Q130 750 139 750Q152 750 159 735V-235Q151 -249 141 -249H139Z"/>
+</defs>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)">
+<g transform="translate(167,0)">
+<g transform="translate(-11,0)">
+<g transform="translate(167,0)">
+<g transform="translate(-11,0)">
+ <use xlink:href="#E1-MJMAIN-30" x="0" y="1350"/>
+ <use xlink:href="#E1-MJMAIN-31" x="0" y="-1450"/>
+</g>
+<g transform="translate(1490,0)">
+ <use xlink:href="#E1-MJMAIN-31" x="0" y="1350"/>
+ <use xlink:href="#E1-MJMAIN-30" x="0" y="-1450"/>
+</g>
+</g>
+<g transform="translate(3741,0)">
+<g transform="translate(0,2150)">
+ <use xlink:href="#E1-MJSZ4-239B" x="0" y="-1156"/>
+<g transform="translate(0,-2033.6645264847511) scale(1,0.4446227929373997)">
+ <use xlink:href="#E1-MJSZ4-239C"/>
+</g>
+ <use xlink:href="#E1-MJSZ4-239D" x="0" y="-3155"/>
+</g>
+<g transform="translate(1042,0)">
+<g transform="translate(-11,0)">
+ <use xlink:href="#E1-MJMAIN-30" x="0" y="1350"/>
+ <use xlink:href="#E1-MJMATHI-69" x="77" y="-1450"/>
+</g>
+<g transform="translate(1490,0)">
+<g transform="translate(0,1350)">
+ <use xlink:href="#E1-MJMAIN-2212" x="0" y="0"/>
+ <use xlink:href="#E1-MJMATHI-69" x="778" y="0"/>
+</g>
+ <use xlink:href="#E1-MJMAIN-30" x="311" y="-1450"/>
+</g>
+</g>
+<g transform="translate(3823,2150)">
+ <use xlink:href="#E1-MJSZ4-239E" x="0" y="-1155"/>
+<g transform="translate(0,-2033.645264847512) scale(1,0.4462279293739968)">
+ <use xlink:href="#E1-MJSZ4-239F"/>
+</g>
+ <use xlink:href="#E1-MJSZ4-23A0" x="0" y="-3155"/>
+</g>
+</g>
+<g transform="translate(9023,0)">
+<g transform="translate(0,2150)">
+ <use xlink:href="#E1-MJSZ4-23A1" x="0" y="-1155"/>
+<g transform="translate(0,-2048.5066225165565) scale(1,0.49337748344370863)">
+ <use xlink:href="#E1-MJSZ4-23A2"/>
+</g>
+ <use xlink:href="#E1-MJSZ4-23A3" x="0" y="-3155"/>
+</g>
+<g transform="translate(834,0)">
+<g transform="translate(-11,0)">
+ <use xlink:href="#E1-MJMAIN-30" x="0" y="1350"/>
+ <use xlink:href="#E1-MJMAIN-31" x="0" y="-1450"/>
+</g>
+<g transform="translate(1490,0)">
+<g transform="translate(0,1350)">
+ <use xlink:href="#E1-MJMAIN-2212" x="0" y="0"/>
+ <use xlink:href="#E1-MJMAIN-31" x="778" y="0"/>
+</g>
+ <use xlink:href="#E1-MJMAIN-30" x="389" y="-1450"/>
+</g>
+</g>
+<g transform="translate(3770,2150)">
+ <use xlink:href="#E1-MJSZ4-23A4" x="0" y="-1155"/>
+<g transform="translate(0,-2048.5066225165565) scale(1,0.49337748344370863)">
+ <use xlink:href="#E1-MJSZ4-23A5"/>
+</g>
+ <use xlink:href="#E1-MJSZ4-23A6" x="0" y="-3155"/>
+</g>
+</g>
+<g transform="translate(14044,0)">
+<g transform="translate(0,2150)">
+ <use xlink:href="#E1-MJSZ4-23A7" x="0" y="-900"/>
+<g transform="translate(0,-1032.9192546583852) scale(1,0.5527950310559007)">
+ <use xlink:href="#E1-MJSZ4-23AA"/>
+</g>
+ <use xlink:href="#E1-MJSZ4-23A8" x="0" y="-2150"/>
+<g transform="translate(0,-2932.919254658385) scale(1,0.5527950310559007)">
+ <use xlink:href="#E1-MJSZ4-23AA"/>
+</g>
+ <use xlink:href="#E1-MJSZ4-23A9" x="0" y="-2900"/>
+</g>
+<g transform="translate(1056,0)">
+<g transform="translate(-11,0)">
+ <use xlink:href="#E1-MJMAIN-31" x="0" y="1350"/>
+ <use xlink:href="#E1-MJMAIN-30" x="0" y="-1450"/>
+</g>
+<g transform="translate(1490,0)">
+ <use xlink:href="#E1-MJMAIN-30" x="389" y="1350"/>
+<g transform="translate(0,-1450)">
+ <use xlink:href="#E1-MJMAIN-2212" x="0" y="0"/>
+ <use xlink:href="#E1-MJMAIN-31" x="778" y="0"/>
+</g>
+</g>
+</g>
+<g transform="translate(3992,2150)">
+ <use xlink:href="#E1-MJSZ4-23AB" x="0" y="-900"/>
+<g transform="translate(0,-1032.9192546583852) scale(1,0.5527950310559007)">
+ <use xlink:href="#E1-MJSZ4-23AA"/>
+</g>
+ <use xlink:href="#E1-MJSZ4-23AC" x="0" y="-2150"/>
+<g transform="translate(0,-2932.919254658385) scale(1,0.5527950310559007)">
+ <use xlink:href="#E1-MJSZ4-23AA"/>
+</g>
+ <use xlink:href="#E1-MJSZ4-23AD" x="0" y="-2900"/>
+</g>
+</g>
+<g transform="translate(19510,0)">
+<g transform="translate(0,2150)">
+ <use xlink:href="#E1-MJMAIN-2223" x="0" y="-751"/>
+<g transform="translate(0,-2374.9740259740256) scale(1,1.896103896103896)">
+ <use xlink:href="#E1-MJMAIN-2223"/>
+</g>
+ <use xlink:href="#E1-MJMAIN-2223" x="0" y="-3550"/>
+</g>
+<g transform="translate(445,0)">
+<g transform="translate(-11,0)">
+ <use xlink:href="#E1-MJMATHI-61" x="0" y="1350"/>
+ <use xlink:href="#E1-MJMATHI-63" x="48" y="-1450"/>
+</g>
+<g transform="translate(1519,0)">
+ <use xlink:href="#E1-MJMATHI-62" x="47" y="1350"/>
+ <use xlink:href="#E1-MJMATHI-64" x="0" y="-1450"/>
+</g>
+</g>
+<g transform="translate(2655,2150)">
+ <use xlink:href="#E1-MJMAIN-2223" x="0" y="-751"/>
+<g transform="translate(0,-2374.9740259740256) scale(1,1.896103896103896)">
+ <use xlink:href="#E1-MJMAIN-2223"/>
+</g>
+ <use xlink:href="#E1-MJMAIN-2223" x="0" y="-3550"/>
+</g>
+</g>
+</g>
+</g>
+</g>
+</svg></div><p>简而言之，矩阵是一坨数</p>
+<h2 id="矩阵乘法"><a href="#矩阵乘法" class="headerlink" title="矩阵乘法"></a>矩阵乘法</h2><p>对于两个大小为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi><mo>×</mo><mi>M</mi></mrow><annotation encoding="application/x-tex">N \times M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">N</span><span class="mbin">×</span><span class="mord mathit" style="margin-right:0.10903em;">M</span></span></span></span>和<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi><mo>×</mo><mi>N</mi></mrow><annotation encoding="application/x-tex">P \times N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mbin">×</span><span class="mord mathit" style="margin-right:0.10903em;">N</span></span></span></span>的矩阵<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mo separator="true">,</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">A,B</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit">A</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05017em;">B</span></span></span></span>，他们相乘后的结果矩阵<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>C</mi></mrow><annotation encoding="application/x-tex">C</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.07153em;">C</span></span></span></span>是一个大小为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>M</mi><mo>×</mo><mi>P</mi></mrow><annotation encoding="application/x-tex">M \times P</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">M</span><span class="mbin">×</span><span class="mord mathit" style="margin-right:0.13889em;">P</span></span></span></span>的矩阵。
+对于矩阵<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>C</mi></mrow><annotation encoding="application/x-tex">C</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.07153em;">C</span></span></span></span>的每一位<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>C</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub></mrow><annotation encoding="application/x-tex">C_{i,j}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.07153em;">C</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.07153em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>，有:</p>
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>C</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub><mo>=</mo><msubsup><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mrow><mi>N</mi></mrow></msubsup><msub><mi>A</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>k</mi></mrow></msub><mo>×</mo><msub><mi>B</mi><mrow><mi>k</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub></mrow><annotation encoding="application/x-tex">
+C_{i,j} = \sum\limits_{k = 1}^{N} A_{i,k} \times B_{k,j}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.8283360000000002em;"></span><span class="strut bottom" style="height:3.1304490000000005em;vertical-align:-1.302113em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.07153em;">C</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.07153em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">=</span><span class="mop op-limits"><span class="vlist"><span style="top:1.202113em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span><span class="mrel">=</span><span class="mord mathrm">1</span></span></span></span><span style="top:-0.000005000000000032756em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span><span class="op-symbol large-op mop">∑</span></span></span><span style="top:-1.250005em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">N</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mord"><span class="mord mathit">A</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">×</span><span class="mord"><span class="mord mathit" style="margin-right:0.05017em;">B</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.05017em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span></span><h1 id="矩阵优化递推"><a href="#矩阵优化递推" class="headerlink" title="矩阵优化递推"></a>矩阵优化递推</h1><blockquote>
+<p>团长并不知道这种玄学方法的由来，只知道我们可以用这种技巧来转移</p>
+</blockquote>
+<div style="text-align: center; "><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="29.257ex" height="9.509ex" style="vertical-align: -4.171ex;" viewbox="0 -2298.3 12596.9 4094.3" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<path stroke-width="1" id="E1-MJMAIN-5B" d="M118 -250V750H255V710H158V-210H255V-250H118Z"/>
+<path stroke-width="1" id="E1-MJMAIN-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"/>
+<path stroke-width="1" id="E1-MJMAIN-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"/>
+<path stroke-width="1" id="E1-MJMAIN-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"/>
+<path stroke-width="1" id="E1-MJMAIN-5D" d="M22 710V750H159V-250H22V-210H119V710H22Z"/>
+<path stroke-width="1" id="E1-MJSZ4-23A1" d="M319 -645V1154H666V1070H403V-645H319Z"/>
+<path stroke-width="1" id="E1-MJSZ4-23A3" d="M319 -644V1155H403V-560H666V-644H319Z"/>
+<path stroke-width="1" id="E1-MJSZ4-23A2" d="M319 0V602H403V0H319Z"/>
+<path stroke-width="1" id="E1-MJSZ4-23A4" d="M0 1070V1154H347V-645H263V1070H0Z"/>
+<path stroke-width="1" id="E1-MJSZ4-23A6" d="M263 -560V1155H347V-644H0V-560H263Z"/>
+<path stroke-width="1" id="E1-MJSZ4-23A5" d="M263 0V602H347V0H263Z"/>
+<path stroke-width="1" id="E1-MJMAIN-D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"/>
+<path stroke-width="1" id="E1-MJMATHI-66" d="M118 -162Q120 -162 124 -164T135 -167T147 -168Q160 -168 171 -155T187 -126Q197 -99 221 27T267 267T289 382V385H242Q195 385 192 387Q188 390 188 397L195 425Q197 430 203 430T250 431Q298 431 298 432Q298 434 307 482T319 540Q356 705 465 705Q502 703 526 683T550 630Q550 594 529 578T487 561Q443 561 443 603Q443 622 454 636T478 657L487 662Q471 668 457 668Q445 668 434 658T419 630Q412 601 403 552T387 469T380 433Q380 431 435 431Q480 431 487 430T498 424Q499 420 496 407T491 391Q489 386 482 386T428 385H372L349 263Q301 15 282 -47Q255 -132 212 -173Q175 -205 139 -205Q107 -205 81 -186T55 -132Q55 -95 76 -78T118 -61Q162 -61 162 -103Q162 -122 151 -136T127 -157L118 -162Z"/>
+<path stroke-width="1" id="E1-MJMAIN-28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"/>
+<path stroke-width="1" id="E1-MJMATHI-69" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"/>
+<path stroke-width="1" id="E1-MJMAIN-2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"/>
+<path stroke-width="1" id="E1-MJMAIN-29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"/>
+</defs>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)">
+<g transform="translate(167,0)">
+<g transform="translate(-11,0)">
+<g transform="translate(0,2150)">
+ <use xlink:href="#E1-MJSZ4-23A1" x="0" y="-1155"/>
+<g transform="translate(0,-2048.5066225165565) scale(1,0.49337748344370863)">
+ <use xlink:href="#E1-MJSZ4-23A2"/>
+</g>
+ <use xlink:href="#E1-MJSZ4-23A3" x="0" y="-3155"/>
+</g>
+<g transform="translate(834,0)">
+<g transform="translate(-11,0)">
+ <use xlink:href="#E1-MJMAIN-30" x="0" y="1350"/>
+ <use xlink:href="#E1-MJMAIN-31" x="0" y="-1450"/>
+</g>
+<g transform="translate(1490,0)">
+ <use xlink:href="#E1-MJMAIN-31" x="0" y="1350"/>
+ <use xlink:href="#E1-MJMAIN-32" x="0" y="-1450"/>
+</g>
+</g>
+<g transform="translate(2992,2150)">
+ <use xlink:href="#E1-MJSZ4-23A4" x="0" y="-1155"/>
+<g transform="translate(0,-2048.5066225165565) scale(1,0.49337748344370863)">
+ <use xlink:href="#E1-MJSZ4-23A5"/>
+</g>
+ <use xlink:href="#E1-MJSZ4-23A6" x="0" y="-3155"/>
+</g>
+ <use xlink:href="#E1-MJMAIN-D7" x="4298" y="0"/>
+<g transform="translate(5299,0)">
+<g transform="translate(0,2201)">
+ <use xlink:href="#E1-MJSZ4-23A1" x="0" y="-1155"/>
+<g transform="translate(0,-2150.337748344371) scale(1,0.6622516556291391)">
+ <use xlink:href="#E1-MJSZ4-23A2"/>
+</g>
+ <use xlink:href="#E1-MJSZ4-23A3" x="0" y="-3257"/>
+</g>
+<g transform="translate(834,0)">
+<g transform="translate(-11,0)">
+<g transform="translate(0,1401)">
+ <use xlink:href="#E1-MJMATHI-66" x="0" y="0"/>
+ <use xlink:href="#E1-MJMAIN-28" x="550" y="0"/>
+ <use xlink:href="#E1-MJMATHI-69" x="940" y="0"/>
+ <use xlink:href="#E1-MJMAIN-2212" x="1507" y="0"/>
+ <use xlink:href="#E1-MJMAIN-32" x="2508" y="0"/>
+ <use xlink:href="#E1-MJMAIN-29" x="3008" y="0"/>
+</g>
+<g transform="translate(0,-1450)">
+ <use xlink:href="#E1-MJMATHI-66" x="0" y="0"/>
+ <use xlink:href="#E1-MJMAIN-28" x="550" y="0"/>
+ <use xlink:href="#E1-MJMATHI-69" x="940" y="0"/>
+ <use xlink:href="#E1-MJMAIN-2212" x="1507" y="0"/>
+ <use xlink:href="#E1-MJMAIN-31" x="2508" y="0"/>
+ <use xlink:href="#E1-MJMAIN-29" x="3008" y="0"/>
+</g>
+</g>
+<g transform="translate(4387,0)">
+ <use xlink:href="#E1-MJMAIN-30" x="0" y="1401"/>
+ <use xlink:href="#E1-MJMAIN-30" x="0" y="-1450"/>
+</g>
+</g>
+<g transform="translate(5889,2201)">
+ <use xlink:href="#E1-MJSZ4-23A4" x="0" y="-1155"/>
+<g transform="translate(0,-2150.337748344371) scale(1,0.6622516556291391)">
+ <use xlink:href="#E1-MJSZ4-23A5"/>
+</g>
+ <use xlink:href="#E1-MJSZ4-23A6" x="0" y="-3257"/>
+</g>
+</g>
+</g>
+</g>
+</g>
+</svg></div><p>这样相乘以后的结果:</p>
+<div style="text-align: center; "><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16.198ex" height="9.509ex" style="vertical-align: -4.171ex;" viewbox="0 -2298.3 6974.2 4094.3" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<path stroke-width="1" id="E1-MJMAIN-5B" d="M118 -250V750H255V710H158V-210H255V-250H118Z"/>
+<path stroke-width="1" id="E1-MJMATHI-66" d="M118 -162Q120 -162 124 -164T135 -167T147 -168Q160 -168 171 -155T187 -126Q197 -99 221 27T267 267T289 382V385H242Q195 385 192 387Q188 390 188 397L195 425Q197 430 203 430T250 431Q298 431 298 432Q298 434 307 482T319 540Q356 705 465 705Q502 703 526 683T550 630Q550 594 529 578T487 561Q443 561 443 603Q443 622 454 636T478 657L487 662Q471 668 457 668Q445 668 434 658T419 630Q412 601 403 552T387 469T380 433Q380 431 435 431Q480 431 487 430T498 424Q499 420 496 407T491 391Q489 386 482 386T428 385H372L349 263Q301 15 282 -47Q255 -132 212 -173Q175 -205 139 -205Q107 -205 81 -186T55 -132Q55 -95 76 -78T118 -61Q162 -61 162 -103Q162 -122 151 -136T127 -157L118 -162Z"/>
+<path stroke-width="1" id="E1-MJMAIN-28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"/>
+<path stroke-width="1" id="E1-MJMATHI-69" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"/>
+<path stroke-width="1" id="E1-MJMAIN-2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"/>
+<path stroke-width="1" id="E1-MJMAIN-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"/>
+<path stroke-width="1" id="E1-MJMAIN-29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"/>
+<path stroke-width="1" id="E1-MJMAIN-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"/>
+<path stroke-width="1" id="E1-MJMAIN-5D" d="M22 710V750H159V-250H22V-210H119V710H22Z"/>
+<path stroke-width="1" id="E1-MJSZ4-23A1" d="M319 -645V1154H666V1070H403V-645H319Z"/>
+<path stroke-width="1" id="E1-MJSZ4-23A3" d="M319 -644V1155H403V-560H666V-644H319Z"/>
+<path stroke-width="1" id="E1-MJSZ4-23A2" d="M319 0V602H403V0H319Z"/>
+<path stroke-width="1" id="E1-MJSZ4-23A4" d="M0 1070V1154H347V-645H263V1070H0Z"/>
+<path stroke-width="1" id="E1-MJSZ4-23A6" d="M263 -560V1155H347V-644H0V-560H263Z"/>
+<path stroke-width="1" id="E1-MJSZ4-23A5" d="M263 0V602H347V0H263Z"/>
+</defs>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)">
+<g transform="translate(0,2201)">
+ <use xlink:href="#E1-MJSZ4-23A1" x="0" y="-1155"/>
+<g transform="translate(0,-2150.337748344371) scale(1,0.6622516556291391)">
+ <use xlink:href="#E1-MJSZ4-23A2"/>
+</g>
+ <use xlink:href="#E1-MJSZ4-23A3" x="0" y="-3257"/>
+</g>
+<g transform="translate(834,0)">
+<g transform="translate(-11,0)">
+<g transform="translate(0,1401)">
+ <use xlink:href="#E1-MJMATHI-66" x="0" y="0"/>
+ <use xlink:href="#E1-MJMAIN-28" x="550" y="0"/>
+ <use xlink:href="#E1-MJMATHI-69" x="940" y="0"/>
+ <use xlink:href="#E1-MJMAIN-2212" x="1507" y="0"/>
+ <use xlink:href="#E1-MJMAIN-31" x="2508" y="0"/>
+ <use xlink:href="#E1-MJMAIN-29" x="3008" y="0"/>
+</g>
+<g transform="translate(861,-1450)">
+ <use xlink:href="#E1-MJMATHI-66" x="0" y="0"/>
+ <use xlink:href="#E1-MJMAIN-28" x="550" y="0"/>
+ <use xlink:href="#E1-MJMATHI-69" x="940" y="0"/>
+ <use xlink:href="#E1-MJMAIN-29" x="1285" y="0"/>
+</g>
+</g>
+<g transform="translate(4387,0)">
+ <use xlink:href="#E1-MJMAIN-30" x="0" y="1401"/>
+ <use xlink:href="#E1-MJMAIN-30" x="0" y="-1450"/>
+</g>
+</g>
+<g transform="translate(5889,2201)">
+ <use xlink:href="#E1-MJSZ4-23A4" x="0" y="-1155"/>
+<g transform="translate(0,-2150.337748344371) scale(1,0.6622516556291391)">
+ <use xlink:href="#E1-MJSZ4-23A5"/>
+</g>
+ <use xlink:href="#E1-MJSZ4-23A6" x="0" y="-3257"/>
+</g>
+</g>
+</svg></div><p>也就是说我们可以通过矩阵相乘的方式来求出某递推公式的某一项，即:</p>
+<div style="text-align: center; "><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="48.435ex" height="9.843ex" style="vertical-align: -4.338ex;" viewbox="0 -2370 20854 4237.8" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<path stroke-width="1" id="E1-MJMAIN-5B" d="M118 -250V750H255V710H158V-210H255V-250H118Z"/>
+<path stroke-width="1" id="E1-MJMATHI-66" d="M118 -162Q120 -162 124 -164T135 -167T147 -168Q160 -168 171 -155T187 -126Q197 -99 221 27T267 267T289 382V385H242Q195 385 192 387Q188 390 188 397L195 425Q197 430 203 430T250 431Q298 431 298 432Q298 434 307 482T319 540Q356 705 465 705Q502 703 526 683T550 630Q550 594 529 578T487 561Q443 561 443 603Q443 622 454 636T478 657L487 662Q471 668 457 668Q445 668 434 658T419 630Q412 601 403 552T387 469T380 433Q380 431 435 431Q480 431 487 430T498 424Q499 420 496 407T491 391Q489 386 482 386T428 385H372L349 263Q301 15 282 -47Q255 -132 212 -173Q175 -205 139 -205Q107 -205 81 -186T55 -132Q55 -95 76 -78T118 -61Q162 -61 162 -103Q162 -122 151 -136T127 -157L118 -162Z"/>
+<path stroke-width="1" id="E1-MJMAIN-28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"/>
+<path stroke-width="1" id="E1-MJMAIN-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"/>
+<path stroke-width="1" id="E1-MJMAIN-29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"/>
+<path stroke-width="1" id="E1-MJMAIN-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"/>
+<path stroke-width="1" id="E1-MJMAIN-5D" d="M22 710V750H159V-250H22V-210H119V710H22Z"/>
+<path stroke-width="1" id="E1-MJSZ4-23A1" d="M319 -645V1154H666V1070H403V-645H319Z"/>
+<path stroke-width="1" id="E1-MJSZ4-23A3" d="M319 -644V1155H403V-560H666V-644H319Z"/>
+<path stroke-width="1" id="E1-MJSZ4-23A2" d="M319 0V602H403V0H319Z"/>
+<path stroke-width="1" id="E1-MJSZ4-23A4" d="M0 1070V1154H347V-645H263V1070H0Z"/>
+<path stroke-width="1" id="E1-MJSZ4-23A6" d="M263 -560V1155H347V-644H0V-560H263Z"/>
+<path stroke-width="1" id="E1-MJSZ4-23A5" d="M263 0V602H347V0H263Z"/>
+<path stroke-width="1" id="E1-MJMAIN-D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"/>
+<path stroke-width="1" id="E1-MJMAIN-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"/>
+<path stroke-width="1" id="E1-MJMATHI-6E" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"/>
+<path stroke-width="1" id="E1-MJMAIN-2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"/>
+<path stroke-width="1" id="E1-MJMAIN-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"/>
+</defs>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)">
+<g transform="translate(167,0)">
+<g transform="translate(-11,0)">
+<g transform="translate(0,-74)">
+<g transform="translate(0,2201)">
+ <use xlink:href="#E1-MJSZ4-23A1" x="0" y="-1155"/>
+<g transform="translate(0,-2150.337748344371) scale(1,0.6622516556291391)">
+ <use xlink:href="#E1-MJSZ4-23A2"/>
+</g>
+ <use xlink:href="#E1-MJSZ4-23A3" x="0" y="-3257"/>
+</g>
+<g transform="translate(834,0)">
+<g transform="translate(-11,0)">
+<g transform="translate(0,1401)">
+ <use xlink:href="#E1-MJMATHI-66" x="0" y="0"/>
+ <use xlink:href="#E1-MJMAIN-28" x="550" y="0"/>
+ <use xlink:href="#E1-MJMAIN-30" x="940" y="0"/>
+ <use xlink:href="#E1-MJMAIN-29" x="1440" y="0"/>
+</g>
+<g transform="translate(0,-1450)">
+ <use xlink:href="#E1-MJMATHI-66" x="0" y="0"/>
+ <use xlink:href="#E1-MJMAIN-28" x="550" y="0"/>
+ <use xlink:href="#E1-MJMAIN-31" x="940" y="0"/>
+ <use xlink:href="#E1-MJMAIN-29" x="1440" y="0"/>
+</g>
+</g>
+<g transform="translate(2819,0)">
+ <use xlink:href="#E1-MJMAIN-30" x="0" y="1401"/>
+ <use xlink:href="#E1-MJMAIN-30" x="0" y="-1450"/>
+</g>
+</g>
+<g transform="translate(4321,2201)">
+ <use xlink:href="#E1-MJSZ4-23A4" x="0" y="-1155"/>
+<g transform="translate(0,-2150.337748344371) scale(1,0.6622516556291391)">
+ <use xlink:href="#E1-MJSZ4-23A5"/>
+</g>
+ <use xlink:href="#E1-MJSZ4-23A6" x="0" y="-3257"/>
+</g>
+ <use xlink:href="#E1-MJMAIN-D7" x="5627" y="0"/>
+<g transform="translate(6628,0)">
+<g transform="translate(0,2150)">
+ <use xlink:href="#E1-MJSZ4-23A1" x="0" y="-1155"/>
+<g transform="translate(0,-2048.5066225165565) scale(1,0.49337748344370863)">
+ <use xlink:href="#E1-MJSZ4-23A2"/>
+</g>
+ <use xlink:href="#E1-MJSZ4-23A3" x="0" y="-3155"/>
+</g>
+<g transform="translate(834,0)">
+<g transform="translate(-11,0)">
+ <use xlink:href="#E1-MJMAIN-30" x="0" y="1350"/>
+ <use xlink:href="#E1-MJMAIN-31" x="0" y="-1450"/>
+</g>
+<g transform="translate(1490,0)">
+ <use xlink:href="#E1-MJMAIN-31" x="0" y="1350"/>
+ <use xlink:href="#E1-MJMAIN-32" x="0" y="-1450"/>
+</g>
+</g>
+<g transform="translate(2992,2150)">
+ <use xlink:href="#E1-MJSZ4-23A4" x="0" y="-1155"/>
+<g transform="translate(0,-2048.5066225165565) scale(1,0.49337748344370863)">
+ <use xlink:href="#E1-MJSZ4-23A5"/>
+</g>
+ <use xlink:href="#E1-MJSZ4-23A6" x="0" y="-3155"/>
+</g>
+<g transform="translate(3659,1876)">
+ <use transform="scale(0.707)" xlink:href="#E1-MJMATHI-6E" x="0" y="0"/>
+ <use transform="scale(0.707)" xlink:href="#E1-MJMAIN-2212" x="600" y="0"/>
+ <use transform="scale(0.707)" xlink:href="#E1-MJMAIN-31" x="1379" y="0"/>
+</g>
+</g>
+</g>
+</g>
+</g>
+ <use xlink:href="#E1-MJMAIN-3D" x="12568" y="0"/>
+<g transform="translate(13624,0)">
+<g transform="translate(0,2201)">
+ <use xlink:href="#E1-MJSZ4-23A1" x="0" y="-1155"/>
+<g transform="translate(0,-2150.337748344371) scale(1,0.6622516556291391)">
+ <use xlink:href="#E1-MJSZ4-23A2"/>
+</g>
+ <use xlink:href="#E1-MJSZ4-23A3" x="0" y="-3257"/>
+</g>
+<g transform="translate(834,0)">
+<g transform="translate(-11,0)">
+<g transform="translate(0,1401)">
+ <use xlink:href="#E1-MJMATHI-66" x="0" y="0"/>
+ <use xlink:href="#E1-MJMAIN-28" x="550" y="0"/>
+ <use xlink:href="#E1-MJMATHI-6E" x="940" y="0"/>
+ <use xlink:href="#E1-MJMAIN-2212" x="1762" y="0"/>
+ <use xlink:href="#E1-MJMAIN-31" x="2763" y="0"/>
+ <use xlink:href="#E1-MJMAIN-29" x="3263" y="0"/>
+</g>
+<g transform="translate(861,-1450)">
+ <use xlink:href="#E1-MJMATHI-66" x="0" y="0"/>
+ <use xlink:href="#E1-MJMAIN-28" x="550" y="0"/>
+ <use xlink:href="#E1-MJMATHI-6E" x="940" y="0"/>
+ <use xlink:href="#E1-MJMAIN-29" x="1540" y="0"/>
+</g>
+</g>
+<g transform="translate(4642,0)">
+ <use xlink:href="#E1-MJMAIN-30" x="0" y="1401"/>
+ <use xlink:href="#E1-MJMAIN-30" x="0" y="-1450"/>
+</g>
+</g>
+<g transform="translate(6144,2201)">
+ <use xlink:href="#E1-MJSZ4-23A4" x="0" y="-1155"/>
+<g transform="translate(0,-2150.337748344371) scale(1,0.6622516556291391)">
+ <use xlink:href="#E1-MJSZ4-23A5"/>
+</g>
+ <use xlink:href="#E1-MJSZ4-23A6" x="0" y="-3257"/>
+</g>
+</g>
+</g>
+</svg></div><h2 id="如何优化"><a href="#如何优化" class="headerlink" title="如何优化"></a>如何优化</h2><ul>
+<li>矩阵满足结合律
+既然如此，我们就可以出动大杀器，<strong>快速幂</strong>，这样就可以在<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>l</mi><mi>o</mi><mi>g</mi><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(logn)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mord mathit">o</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mord mathit">n</span><span class="mclose">)</span></span></span></span>的时间内求得递推公式的某一项了。</li>
+</ul>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1e9</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> mo = <span class="number">1e9</span> + <span class="number">7</span>;</div><div class="line"></div><div class="line"><span class="keyword">struct</span> Mat &#123;</div><div class="line">    <span class="keyword">long</span> <span class="keyword">long</span> a[<span class="number">2</span>][<span class="number">2</span>];</div><div class="line"></div><div class="line">    Mat (<span class="keyword">const</span> <span class="keyword">bool</span> unit = <span class="literal">false</span>) &#123; <span class="comment">//构造函数，初始化矩阵值</span></div><div class="line">        <span class="built_in">memset</span>(a, <span class="number">0</span>, <span class="keyword">sizeof</span>(a));</div><div class="line">        <span class="keyword">if</span> (unit) <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">2</span>; i++) a[i][i] = i;<span class="comment">//此处矩阵用于快速幂中作为单位矩阵承载答案</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">long</span> <span class="keyword">long</span> &amp;<span class="title">operator</span><span class="params">()</span><span class="params">(<span class="keyword">const</span> <span class="keyword">int</span> i, <span class="keyword">const</span> <span class="keyword">int</span> j = <span class="number">0</span>)</span></span></div><div class="line">        &#123; <span class="keyword">return</span> a[i][j]; &#125;</div><div class="line">    <span class="function"><span class="keyword">const</span> <span class="keyword">long</span> <span class="keyword">long</span> &amp;<span class="title">operator</span><span class="params">()</span><span class="params">(<span class="keyword">const</span> <span class="keyword">int</span> i, <span class="keyword">const</span> <span class="keyword">int</span> j = <span class="number">0</span>)</span></span></div><div class="line">        <span class="keyword">const</span> &#123; <span class="keyword">return</span> a[i][j]; &#125; <span class="comment">//重载运算符并引用，快速取得并修改某矩阵的值</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line">Mat <span class="keyword">operator</span>*(<span class="keyword">const</span> Mat &amp;a, <span class="keyword">const</span> Mat &amp;b) &#123; <span class="comment">//重载运算符，矩阵乘法</span></div><div class="line">    <span class="function">Mat <span class="title">res</span><span class="params">(<span class="literal">false</span>)</span></span>;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">2</span>; i++)</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">2</span>; j++)</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; <span class="number">2</span>; k++)</div><div class="line">                (res(i, j) += a(i, k) * b(k, j)) %= mo;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> res;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function">Mat <span class="title">pow</span><span class="params">(Mat a, <span class="keyword">int</span> n)</span> </span>&#123; <span class="comment">//矩阵快速幂</span></div><div class="line">    <span class="function">Mat <span class="title">res</span><span class="params">(<span class="literal">true</span>)</span></span>;</div><div class="line">    <span class="keyword">for</span> (; n; n &gt;&gt;= <span class="number">1</span>, a = a * a) <span class="keyword">if</span> (n &amp; <span class="number">1</span>) res = res * a;</div><div class="line">    <span class="keyword">return</span> res;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</div><div class="line">    freopen(<span class="string">"coordinate.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</div><div class="line">    freopen(<span class="string">"coordinate.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</div><div class="line"></div><div class="line">    <span class="keyword">int</span> n; <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</div><div class="line">    </div><div class="line">    <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="built_in">printf</span>(<span class="string">"1"</span>);</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (n == <span class="number">1</span>) <span class="built_in">printf</span>(<span class="string">"3"</span>);</div><div class="line">    <span class="keyword">else</span> &#123;</div><div class="line">        Mat init(<span class="literal">false</span>); <span class="comment">//初始矩阵</span></div><div class="line">        init(<span class="number">0</span>) = <span class="number">1</span>;</div><div class="line">        init(<span class="number">1</span>) = <span class="number">3</span>;</div><div class="line"></div><div class="line">        <span class="function">Mat <span class="title">mat</span><span class="params">(<span class="literal">false</span>)</span></span>; <span class="comment">//转移矩阵</span></div><div class="line">        mat(<span class="number">0</span>, <span class="number">0</span>) = <span class="number">0</span>;</div><div class="line">        mat(<span class="number">0</span>, <span class="number">1</span>) = <span class="number">1</span>;</div><div class="line">        mat(<span class="number">1</span>, <span class="number">0</span>) = <span class="number">1</span>;</div><div class="line">        mat(<span class="number">1</span>, <span class="number">1</span>) = <span class="number">2</span>;</div><div class="line"></div><div class="line">        Mat res = <span class="built_in">pow</span>(mat, n - <span class="number">1</span>) * init; <span class="comment">//此处转移矩阵的位置和初始矩阵的位置不可颠倒，因为矩阵不满足交换律</span></div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, res(<span class="number">1</span>));</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    fclose(<span class="built_in">stdin</span>);</div><div class="line">    fclose(<span class="built_in">stdout</span>);</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="最后说几句"><a href="#最后说几句" class="headerlink" title="最后说几句"></a>最后说几句</h1><ul>
+<li>这题中使用的矩阵特性就是满足结合律但是不满足交换律</li>
+<li>因为是考试的题所以说我还是打了文件输入输出</li>
+<li>LaTeX公式和Markdown不兼容真是见鬼了</li>
+<li>公式打起来好麻烦</li>
+<li>这道题是可以分块打表的</li>
+<li>再次%表神cyr</li>
+</ul>
+
+
+            
+            
+            <blockquote>
+                <p>
+                本文地址：
+                <a href="http://sulfur6.top/matrix-increase/" target="_blank" rel="external">http://sulfur6.top/matrix-increase/</a>
+                </p>
+                <footer><cite><a href="http://sulfur6.top">@Sulfur6_L8972</a></cite></footer>
+            </blockquote>
+            </div>
+            
+<nav class="post-nav">
+  
+    <div class="waves-block waves-effect prev fl">
+      <a href="/sudoku/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Sudoku，暴力DFS，POJ2676</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next fr">
+      <a href="/buddhas-sticks/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">拯救少林神棍，POJ1011，DFS</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+            
+            
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="matrix-increase" data-title="矩阵乘法优化递推，NOIP%你赛" data-url="http://sulfur6.top/matrix-increase/index.html"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"ysblog"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+        </div>
+    </div>
+</article>
+    </div>
+  </main>
+<div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+<script>
+var BLOG_SHARE = {
+    title: "矩阵乘法优化递推，NOIP%你赛",
+    pic: "/img/sulfur.png",
+    summary: document.getElementsByName('summary')[0].content,
+    url: "http://sulfur6.top/matrix-increase/index.html"
+};
+</script>
+<div class="global-share" id="global-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<script type="text/template" id="search-tpl">
+<li class="item">
+    <a href="/{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</script>
+
+<script src="/js/search.js"></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+<!--
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+--><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>灌溉草场，线性DP，POJ2373 | Sulfur6_L8972 | Abandoned Sulfur</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="theme-color" content="#66CCFF">
+  
+  
+  <meta name="keywords" content="学习笔记,POJ,DP,线性DP">
+  <meta name="description" content="一道比较难的线性DP，主要是限制条件太多，而且我又太弱。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="灌溉草场，线性DP，POJ2373">
+<meta property="og:url" content="http://sulfur6.top/pour-the-grass/index.html">
+<meta property="og:site_name" content="Sulfur6_L8972">
+<meta property="og:description" content="一道比较难的线性DP，主要是限制条件太多，而且我又太弱。">
+<meta property="og:updated_time" content="2016-10-31T12:05:01.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="灌溉草场，线性DP，POJ2373">
+<meta name="twitter:description" content="一道比较难的线性DP，主要是限制条件太多，而且我又太弱。">
+  
+    <link rel="alternative" href="/atom.xml" title="Sulfur6_L8972" type="application/atom+xml">
+  
+  <meta name="summary" content="&lt;p&gt;一道比较难的线性DP，主要是限制条件太多，而且我又太弱。&lt;/p&gt;">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css" /><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="loading" class="active"></div>
+
+  <nav id="menu" class="hide" >
+   <div class="inner flex-row-vertical">
+  <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+      <i class="icon icon-lg icon-close"></i>
+  </a>
+  <div class="brand-wrap">
+    <div class="brand">
+      <a href="/" class="avatar"><img src="/img/sulfur.png"></a>
+      <hgroup class="introduce">
+        <h5 class="nickname">Sulfur6</h5>
+        <a href="mailto:huangchun50@icloud.com" title="huangchun50@icloud.com" class="mail">huangchun50@icloud.com</a>
+      </hgroup>
+    </div>
+  </div>
+  <div class="scroll-wrap flex-col">
+    <ul class="nav">
+      
+          <li class="waves-block waves-effect">
+            <a href="/"  >
+              <i class="icon icon-lg icon-home"></i>
+              Home
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="/archives"  >
+              <i class="icon icon-lg icon-archives"></i>
+              Archives
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="/tags"  >
+              <i class="icon icon-lg icon-tags"></i>
+              Tags
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="https://github.com/sulfur6th" target="_blank" >
+              <i class="icon icon-lg icon-github"></i>
+              Github
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="https://http://weibo.com/5143998868/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" target="_blank" >
+              <i class="icon icon-lg icon-weibo"></i>
+              Weibo
+            </a>
+          </li>
+      
+    </ul>
+
+    <footer class="footer">
+  <p><a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAPCAMAAABEF7i9AAAAllBMVEUAAAD///+rsapERER3d3eIiIjMzMzu7u4iIiKUmZO6v7rKzsoODg4RERFVVVUNDQ0NDg0PEA8zMzNLTEtbXltmZmZydnF9gn2AgICPkI+ZmZmqqqq7u7vFxsXIzMgNDQwZGRkgICAhISEkJSMnKCcuMC4xMzE5Ozk7PTtBQkFCQkJDQ0Nna2eGhoaHh4ezuLLGysbd3d1wVGpAAAAA4UlEQVR42q2T1xqCMAyFk7QsBQeKA9x7j/d/OSm22CpX0nzcpA1/T05aAOuBVkMAScQFHLnEwoCo2f1TnQIGoVMewjZEjVFN4GH1Ue1Cn2jWqwfsOOj6wDwGvotsl/c8lv7KIq1eLOsT0HMFHMIE/RZyHnlphryT9zyV+8WH5e8yQw3wnQvgAFxPTKUVi555SHR/lOfLMgVTeDlSfN+TaoUsiTyeIm+bCkHvCA2FUKG48LDtYBZBknsYP/G8NTw0gaaHyuQf4H5pecrB/FYCT2sL9zAfy1Xyjou6L8X2W7YcLyBZCRtnq/zfAAAAAElFTkSuQmCC" /></a></p>
+  <p>Sulfur6_L8972 &copy; 2016</p>
+  <p>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
+  <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></p>
+  <a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-2x icon-rss-square"></i></a>
+</footer>
+
+  </div>
+</div>
+
+  </nav>
+  <main id="main">
+    <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">灌溉草场，线性DP，POJ2373</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input " autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-share">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header">
+  <div class="container">
+    <h1 class="author">灌溉草场，线性DP，POJ2373</h1>
+    <h5 class="subtitle">
+        
+            <time datetime="2016-10-28T01:24:04.000Z" itemprop="datePublished" class="page-time">
+  2016-10-28
+</time>
+
+
+        
+    </h5>
+  </div>
+</header>
+
+    <div class="container body-wrap">
+      <article id="post-pour-the-grass" 
+  class="article article-type-post" itemprop="blogPost">
+    <div class="post-meta flex-row">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DP/">DP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/POJ/">POJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/线性DP/">线性DP</a></li></ul>
+
+    </div>
+    <div class="post-body">
+        <aside class="post-widget" id="post-widget">
+
+            
+            <div class="post-share" id="post-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+            
+
+            
+            <nav class="post-toc-wrap" id="post-toc">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#题目大意"><span class="post-toc-number">1.</span> <span class="post-toc-text">题目大意</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#问题分析"><span class="post-toc-number">2.</span> <span class="post-toc-text">问题分析</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#解题思路"><span class="post-toc-number">3.</span> <span class="post-toc-text">解题思路</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#递推计算F-X-F-X-F-X"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">递推计算F(X)F(X)F(X)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#优化"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">优化</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#可以用堆来优化哦"><span class="post-toc-number">3.2.1.</span> <span class="post-toc-text">可以用堆来优化哦</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#代码"><span class="post-toc-number">4.</span> <span class="post-toc-text">代码</span></a></li></ol>
+            </nav>
+            
+        </aside>
+
+        <div class="post-main">
+
+            <div class="post-content" id="post-content" itemprop="postContent">
+            <p>一道比较难的线性DP，主要是限制条件太多，而且我又太弱。</p>
+<a id="more"></a>
+<h1 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h1><ul>
+<li>一片草场上有长度为L<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mn>1</mn><mo>≤</mo><mi>L</mi><mo>≤</mo><mn>1</mn><msup><mn>0</mn><mn>6</mn></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">(1 \leq L \leq 10^6)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="mord mathrm">1</span><span class="mrel">≤</span><span class="mord mathit">L</span><span class="mrel">≤</span><span class="mord mathrm">1</span><span class="mord"><span class="mord mathrm">0</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">6</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose">)</span></span></span></span>，且为偶数的线段</li>
+<li>John的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">N</span></span></span></span>头奶牛在操场上沿着这条线段吃草</li>
+<li>每头奶牛的活动范围是一个开区间<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>S</mi><mo separator="true">,</mo><mi>E</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">(S,E)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.05764em;">S</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05764em;">E</span><span class="mclose">)</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi><mo separator="true">,</mo><mi>E</mi></mrow><annotation encoding="application/x-tex">S,E</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.05764em;">S</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05764em;">E</span></span></span></span>都是整数</li>
+<li>不同奶牛活动范围有重叠</li>
+<li>现在要安装若干个可调节的喷水头灌溉草场，每个喷水头的工作半径在可<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>[</mo><mi>A</mi><mo separator="true">,</mo><mi>B</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">[A,B]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">[</span><span class="mord mathit">A</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05017em;">B</span><span class="mclose">]</span></span></span></span>中调节</li>
+<li>要求喷水头满足下列要求<ul>
+<li>线段上每个整点恰好位于<strong>一个</strong>喷水头的喷洒范围内</li>
+<li>每头奶牛的活动范围要位于<strong>一个</strong>喷水头的喷洒范围</li>
+<li>任何喷水头的喷洒范围不得超过线段两端</li>
+</ul>
+</li>
+</ul>
+<p>求John最少要安装多少个喷水头，若无法刚好安装则输出<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord">−</span><span class="mord mathrm">1</span></span></span></span></p>
+<h1 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h1><ul>
+<li>从左端点向右端点安装喷水头，设<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>F</mi><mo>(</mo><mi>X</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">F(X)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.07847em;">X</span><span class="mclose">)</span></span></span></span>表示:所安装喷水头的喷洒范围恰好覆盖直线上的区间<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>[</mo><mn>0</mn><mo separator="true">,</mo><mi>X</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">[0,X]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">[</span><span class="mord mathrm">0</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.07847em;">X</span><span class="mclose">]</span></span></span></span>时，最少需要多少个喷水头</li>
+<li>显然，X满足：<ul>
+<li>X为偶数</li>
+<li>X所在位置不会出现奶牛，即<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>X</mi></mrow><annotation encoding="application/x-tex">X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.07847em;">X</span></span></span></span>不属于任何一个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>S</mi><mo separator="true">,</mo><mi>E</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">(S,E)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.05764em;">S</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05764em;">E</span><span class="mclose">)</span></span></span></span></li>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>X</mi><mo>≥</mo><mn>2</mn><mi>A</mi></mrow><annotation encoding="application/x-tex">X\geq2A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.8193em;vertical-align:-0.13597em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.07847em;">X</span><span class="mrel">≥</span><span class="mord mathrm">2</span><span class="mord mathit">A</span></span></span></span></li>
+<li>当<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>X</mi><mo>&gt;</mo><mn>2</mn><mi>B</mi></mrow><annotation encoding="application/x-tex">X&gt;2B</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.72243em;vertical-align:-0.0391em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.07847em;">X</span><span class="mrel">&gt;</span><span class="mord mathrm">2</span><span class="mord mathit" style="margin-right:0.05017em;">B</span></span></span></span>时，存在<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>Y</mi><mo>∈</mo><mo>[</mo><mi>X</mi><mo>−</mo><mn>2</mn><mi>B</mi><mo separator="true">,</mo><mi>X</mi><mo>−</mo><mn>2</mn><mi>A</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">Y\in [X-2B,X-2A]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.22222em;">Y</span><span class="mrel">∈</span><span class="mopen">[</span><span class="mord mathit" style="margin-right:0.07847em;">X</span><span class="mbin">−</span><span class="mord mathrm">2</span><span class="mord mathit" style="margin-right:0.05017em;">B</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.07847em;">X</span><span class="mbin">−</span><span class="mord mathrm">2</span><span class="mord mathit">A</span><span class="mclose">]</span></span></span></span>且<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>Y</mi></mrow><annotation encoding="application/x-tex">Y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.22222em;">Y</span></span></span></span>满足上述三个条件使得<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>F</mi><mo>(</mo><mi>X</mi><mo>)</mo><mo>=</mo><mi>F</mi><mo>(</mo><mi>Y</mi><mo>)</mo><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">F(X)=F(Y)+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.07847em;">X</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord mathit" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.22222em;">Y</span><span class="mclose">)</span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span></li>
+</ul>
+</li>
+</ul>
+<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><h2 id="递推计算F-X-F-X-F-X"><a href="#递推计算F-X-F-X-F-X" class="headerlink" title="递推计算F(X)F(X)F(X)"></a>递推计算<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>F</mi><mo>(</mo><mi>X</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">F(X)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.07847em;">X</span><span class="mclose">)</span></span></span></span></h2><ul>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>F</mi><mo>(</mo><mi>X</mi><mo>)</mo><mo>=</mo><mi mathvariant="normal">∞</mi><mo>:</mo><mi>X</mi></mrow><annotation encoding="application/x-tex">F(X)=\infty:X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.07847em;">X</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord mathrm">∞</span><span class="mrel">:</span><span class="mord mathit" style="margin-right:0.07847em;">X</span></span></span></span>是奇数</li>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>F</mi><mo>(</mo><mi>X</mi><mo>)</mo><mo>=</mo><mi mathvariant="normal">∞</mi><mo>:</mo><mi>X</mi><mo>&lt;</mo><mn>2</mn><mi>A</mi></mrow><annotation encoding="application/x-tex">F(X)=\infty:X&lt;2A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.07847em;">X</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord mathrm">∞</span><span class="mrel">:</span><span class="mord mathit" style="margin-right:0.07847em;">X</span><span class="mrel">&lt;</span><span class="mord mathrm">2</span><span class="mord mathit">A</span></span></span></span></li>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>F</mi><mo>(</mo><mi>X</mi><mo>)</mo><mo>=</mo><mi mathvariant="normal">∞</mi><mo>:</mo><mi>X</mi></mrow><annotation encoding="application/x-tex">F(X)=\infty:X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.07847em;">X</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord mathrm">∞</span><span class="mrel">:</span><span class="mord mathit" style="margin-right:0.07847em;">X</span></span></span></span>处可能有奶牛出没</li>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>F</mi><mo>(</mo><mi>X</mi><mo>)</mo><mo>=</mo><mn>1</mn><mo>:</mo><mn>2</mn><mi>A</mi><mo>≤</mo><mi>X</mi><mo>≤</mo><mn>2</mn><mi>B</mi></mrow><annotation encoding="application/x-tex">F(X)=1:2A\leq X \leq 2B</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.07847em;">X</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord mathrm">1</span><span class="mrel">:</span><span class="mord mathrm">2</span><span class="mord mathit">A</span><span class="mrel">≤</span><span class="mord mathit" style="margin-right:0.07847em;">X</span><span class="mrel">≤</span><span class="mord mathrm">2</span><span class="mord mathit" style="margin-right:0.05017em;">B</span></span></span></span>，且<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>X</mi></mrow><annotation encoding="application/x-tex">X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.07847em;">X</span></span></span></span>位于任何奶牛活动范围之外</li>
+<li><p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>F</mi><mo>(</mo><mi>X</mi><mo>)</mo><mo>=</mo><mn>1</mn><mo>+</mo><msubsup><mi>min</mi><mrow><mi>Y</mi><mo>=</mo><mi>X</mi><mo>−</mo><mn>2</mn><mi>B</mi></mrow><mrow><mi>X</mi><mo>−</mo><mn>2</mn><mi>A</mi></mrow></msubsup><mi>F</mi><mo>(</mo><mi>Y</mi><mo>)</mo><mo separator="true">,</mo><mi>Y</mi></mrow><annotation encoding="application/x-tex">F(X)=1 +\min\limits_{Y=X-2B}^{X-2A} F(Y),Y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.4461910000000002em;"></span><span class="strut bottom" style="height:2.2488530000000004em;vertical-align:-0.802662em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.07847em;">X</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord mathrm">1</span><span class="mbin">+</span><span class="mop op-limits"><span class="vlist"><span style="top:0.644331em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit" style="margin-right:0.22222em;">Y</span><span class="mrel">=</span><span class="mord mathit" style="margin-right:0.07847em;">X</span><span class="mbin">−</span><span class="mord mathrm">2</span><span class="mord mathit" style="margin-right:0.05017em;">B</span></span></span></span><span style="top:2.7755575615628914e-17em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span><span class="mop">min</span></span></span><span style="top:-0.8678600000000001em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathit" style="margin-right:0.07847em;">X</span><span class="mbin">−</span><span class="mord mathrm">2</span><span class="mord mathit">A</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mord mathit" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.22222em;">Y</span><span class="mclose">)</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.22222em;">Y</span></span></span></span>位于任何奶牛的活动范围之外，且X&gt;2B</p>
+<h2 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h2><p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>F</mi><mo>(</mo><mi>X</mi><mo>)</mo><mo>=</mo><mn>1</mn><mo>+</mo><msubsup><mi>min</mi><mrow><mi>Y</mi><mo>=</mo><mi>X</mi><mo>−</mo><mn>2</mn><mi>B</mi></mrow><mrow><mi>X</mi><mo>−</mo><mn>2</mn><mi>A</mi></mrow></msubsup><mi>F</mi><mo>(</mo><mi>Y</mi><mo>)</mo><mo separator="true">,</mo><mi>Y</mi></mrow><annotation encoding="application/x-tex">F(X)=1 +\min\limits_{Y=X-2B}^{X-2A} F(Y),Y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.4461910000000002em;"></span><span class="strut bottom" style="height:2.2488530000000004em;vertical-align:-0.802662em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.07847em;">X</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord mathrm">1</span><span class="mbin">+</span><span class="mop op-limits"><span class="vlist"><span style="top:0.644331em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit" style="margin-right:0.22222em;">Y</span><span class="mrel">=</span><span class="mord mathit" style="margin-right:0.07847em;">X</span><span class="mbin">−</span><span class="mord mathrm">2</span><span class="mord mathit" style="margin-right:0.05017em;">B</span></span></span></span><span style="top:2.7755575615628914e-17em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span><span class="mop">min</span></span></span><span style="top:-0.8678600000000001em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathit" style="margin-right:0.07847em;">X</span><span class="mbin">−</span><span class="mord mathrm">2</span><span class="mord mathit">A</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mord mathit" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.22222em;">Y</span><span class="mclose">)</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.22222em;">Y</span></span></span></span>位于任何奶牛的活动范围之外，且X&gt;2B。</p>
+</li>
+<li><p>对于此转移中的每个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>X</mi></mrow><annotation encoding="application/x-tex">X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.07847em;">X</span></span></span></span>求<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>F</mi><mo>(</mo><mi>X</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">F(X)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.07847em;">X</span><span class="mclose">)</span></span></span></span>都要便利区间<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>[</mo><mi>X</mi><mo>−</mo><mn>2</mn><mi>B</mi><mo separator="true">,</mo><mi>X</mi><mo>−</mo><mn>2</mn><mi>A</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">[X-2B,X-2A]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">[</span><span class="mord mathit" style="margin-right:0.07847em;">X</span><span class="mbin">−</span><span class="mord mathrm">2</span><span class="mord mathit" style="margin-right:0.05017em;">B</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.07847em;">X</span><span class="mbin">−</span><span class="mord mathrm">2</span><span class="mord mathit">A</span><span class="mclose">]</span></span></span></span>,太慢</p>
+</li>
+<li>所以快速找到此区间使得<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>F</mi><mo>(</mo><mi>Y</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">F(Y)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.22222em;">Y</span><span class="mclose">)</span></span></span></span>最小的元素是解题的关键。<h3 id="可以用堆来优化哦"><a href="#可以用堆来优化哦" class="headerlink" title="可以用堆来优化哦"></a>可以用堆来优化哦</h3></li>
+<li>使用C++的STL中的priority_queue</li>
+<li>求<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>F</mi><mo>(</mo><mi>X</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">F(X)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.07847em;">X</span><span class="mclose">)</span></span></span></span>时，我们维护一个小根堆，保证堆中包含所有的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi><mo>∈</mo><mo>[</mo><mi>X</mi><mo>−</mo><mn>2</mn><mi>B</mi><mo separator="true">,</mo><mi>X</mi><mo>−</mo><mn>2</mn><mi>A</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">i\in [X-2B,X-2A]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span><span class="mrel">∈</span><span class="mopen">[</span><span class="mord mathit" style="margin-right:0.07847em;">X</span><span class="mbin">−</span><span class="mord mathrm">2</span><span class="mord mathit" style="margin-right:0.05017em;">B</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.07847em;">X</span><span class="mbin">−</span><span class="mord mathrm">2</span><span class="mord mathit">A</span><span class="mclose">]</span></span></span></span>所对应的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>F</mi><mo>(</mo><mi>i</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">F(i)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord mathit">i</span><span class="mclose">)</span></span></span></span>值，这样操作时间就从扫区间的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>N</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(N)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.10903em;">N</span><span class="mclose">)</span></span></span></span>级别变成了<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msub><mi>log</mi><mn>2</mn></msub><mi>N</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(\log_2N)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mop"><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="vlist"><span style="top:0.24444em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mord mathit" style="margin-right:0.10903em;">N</span><span class="mclose">)</span></span></span></span>级别了</li>
+<li>求解<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>X</mi></mrow><annotation encoding="application/x-tex">X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.07847em;">X</span></span></span></span>对应的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>F</mi><mo>(</mo><mi>X</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">F(X)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.07847em;">X</span><span class="mclose">)</span></span></span></span>时，不允许堆中出现坐标大于<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>X</mi><mo>−</mo><mn>2</mn><mi>A</mi></mrow><annotation encoding="application/x-tex">X-2A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.07847em;">X</span><span class="mbin">−</span><span class="mord mathrm">2</span><span class="mord mathit">A</span></span></span></span>的点，这样的点不能用来转移<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>F</mi><mo>(</mo><mi>X</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">F(X)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.07847em;">X</span><span class="mclose">)</span></span></span></span>，又不能抛弃之，因为它可能对求后续点的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>F</mi></mrow><annotation encoding="application/x-tex">F</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.13889em;">F</span></span></span></span>值有用</li>
+<li>堆中可以出现坐标小于<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>X</mi><mo>−</mo><mn>2</mn><mi>B</mi></mrow><annotation encoding="application/x-tex">X-2B</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.07847em;">X</span><span class="mbin">−</span><span class="mord mathrm">2</span><span class="mord mathit" style="margin-right:0.05017em;">B</span></span></span></span>的点，若其出现在对头，则抛弃</li>
+<li>求出<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>X</mi></mrow><annotation encoding="application/x-tex">X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.07847em;">X</span></span></span></span>点的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>F</mi></mrow><annotation encoding="application/x-tex">F</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.13889em;">F</span></span></span></span>值后，将<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>X</mi><mo>−</mo><mn>2</mn><mi>A</mi><mo>+</mo><mn>2</mn><mo separator="true">,</mo><mo>(</mo><mi>F</mi><mo>(</mo><mi>X</mi><mo>−</mo><mn>2</mn><mi>A</mi><mo>+</mo><mn>2</mn><mo>)</mo><mo>)</mo><mo>)</mo></mrow><annotation encoding="application/x-tex">(X-2A+2,(F(X-2A+2)))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.07847em;">X</span><span class="mbin">−</span><span class="mord mathrm">2</span><span class="mord mathit">A</span><span class="mbin">+</span><span class="mord mathrm">2</span><span class="mpunct">,</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.07847em;">X</span><span class="mbin">−</span><span class="mord mathrm">2</span><span class="mord mathit">A</span><span class="mbin">+</span><span class="mord mathrm">2</span><span class="mclose">)</span><span class="mclose">)</span><span class="mclose">)</span></span></span></span>放入堆，为求<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>F</mi><mo>(</mo><mi>X</mi><mo>+</mo><mn>2</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">F(X+2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.07847em;">X</span><span class="mbin">+</span><span class="mord mathrm">2</span><span class="mclose">)</span></span></span></span>作准备</li>
+<li>堆中点坐标皆为偶数</li>
+</ul>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> INF = <span class="number">1</span> &lt;&lt; <span class="number">31</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXL = <span class="number">1000010</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXN = <span class="number">1010</span>;</div><div class="line"></div><div class="line"><span class="keyword">int</span> F[MAXL];</div><div class="line"><span class="keyword">int</span> cowThere[MAXL];<span class="comment">//用于记录某点是否有奶牛出没</span></div><div class="line"><span class="keyword">int</span> n, l, a, b;</div><div class="line"></div><div class="line"><span class="keyword">struct</span> Fx &#123;</div><div class="line">    <span class="keyword">int</span> x, f;</div><div class="line">    <span class="keyword">bool</span> <span class="keyword">operator</span>&lt;(<span class="keyword">const</span> Fx &amp;a) <span class="keyword">const</span> &#123;<span class="keyword">return</span> f &gt; a.f;&#125;</div><div class="line">    Fx(<span class="keyword">int</span> xx = <span class="number">0</span>, <span class="keyword">int</span> ff = <span class="number">0</span>): x(xx), f(ff) &#123;&#125;</div><div class="line">&#125;;<span class="comment">//优先队列用结构体</span></div><div class="line"></div><div class="line">priority_queue&lt;Fx&gt; q;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</div><div class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; l;</div><div class="line">    <span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b;</div><div class="line">    a &lt;&lt;= <span class="number">1</span>; b &lt;&lt;= <span class="number">1</span>;<span class="comment">//线性操作，所以先将半径处理成直径</span></div><div class="line">    <span class="built_in">memset</span>(cowThere, <span class="number">0</span>, <span class="keyword">sizeof</span>(cowThere));</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</div><div class="line">        <span class="keyword">int</span> s, e;</div><div class="line">        <span class="built_in">cin</span> &gt;&gt; s &gt;&gt; e;</div><div class="line">        cowThere[s + <span class="number">1</span>]++;</div><div class="line">        cowThere[e]--;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">int</span> inCows = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= l; i++) &#123;</div><div class="line">        F[i] = INF;</div><div class="line">        inCows += cowThere[i];</div><div class="line">        cowThere[i] = inCows &gt; <span class="number">0</span>;</div><div class="line">    &#125;<span class="comment">//利用差分思想实现快速记录某点是否有奶牛出没</span></div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = a; i &lt;= b; i += <span class="number">2</span>) &#123;</div><div class="line">        <span class="keyword">if</span> (!cowThere[i]) &#123;</div><div class="line">            F[i] = <span class="number">1</span>;</div><div class="line">            <span class="keyword">if</span> (i &lt;= b + <span class="number">2</span> - a) q.push(Fx(i, <span class="number">1</span>));<span class="comment">//确保提前进堆的点可以用于首轮递推</span></div><div class="line">        &#125;</div><div class="line">    &#125;<span class="comment">//首先初始化初始区间，为最开始的边界做准备</span></div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = b + <span class="number">2</span>; i &lt;= l; i += <span class="number">2</span>) &#123;<span class="comment">//dp()</span></div><div class="line">        <span class="keyword">if</span> (!cowThere[i]) &#123;</div><div class="line">            Fx fx;</div><div class="line">            <span class="keyword">while</span> (!q.empty()) &#123;</div><div class="line">                fx = q.top();</div><div class="line">                <span class="keyword">if</span> (fx.x &lt; i - b) q.pop();<span class="comment">//如果堆顶元素坐标小于X-2B，抛弃不用</span></div><div class="line">                <span class="keyword">else</span> <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (!q.empty()) F[i] = fx.f + <span class="number">1</span>;<span class="comment">//如果堆空了，说明原来所有堆中元素全部不可用</span></div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (F[i - a + <span class="number">2</span>] != INF) q.push(Fx(i - a + <span class="number">2</span>, F[i - a + <span class="number">2</span>]));</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (F[l] == INF) <span class="built_in">cout</span> &lt;&lt; <span class="number">-1</span> &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">    <span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; F[l] &lt;&lt; <span class="built_in">endl</span>;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+
+            
+            
+            <blockquote>
+                <p>
+                本文地址：
+                <a href="http://sulfur6.top/pour-the-grass/" target="_blank" rel="external">http://sulfur6.top/pour-the-grass/</a>
+                </p>
+                <footer><cite><a href="http://sulfur6.top">@Sulfur6_L8972</a></cite></footer>
+            </blockquote>
+            </div>
+            
+<nav class="post-nav">
+  
+    <div class="waves-block waves-effect prev fl">
+      <a href="/landlord-NOIP2015/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">斗地主，DFS，状态压缩，记忆化搜索</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next fr">
+      <a href="/gaogay/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">小机房的树，LCA，倍增</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+            
+            
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="pour-the-grass" data-title="灌溉草场，线性DP，POJ2373" data-url="http://sulfur6.top/pour-the-grass/index.html"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"ysblog"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+        </div>
+    </div>
+</article>
+    </div>
+  </main>
+<div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+<script>
+var BLOG_SHARE = {
+    title: "灌溉草场，线性DP，POJ2373",
+    pic: "/img/sulfur.png",
+    summary: document.getElementsByName('summary')[0].content,
+    url: "http://sulfur6.top/pour-the-grass/index.html"
+};
+</script>
+<div class="global-share" id="global-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<script type="text/template" id="search-tpl">
+<li class="item">
+    <a href="/{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</script>
+
+<script src="/js/search.js"></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+<!--
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+--><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+
+
+
+
+
+
+</body>
+</html>
