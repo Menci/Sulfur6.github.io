@@ -3,10 +3,12 @@
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
+  
+  
   <title>矩阵乘法优化递推，NOIP%你赛 | Sulfur6_L8972 | Abandoned Sulfur</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="theme-color" content="#66CCFF">
+  <meta name="theme-color" content="#3F51B5">
   
   
   <meta name="keywords" content="学习笔记,递推,矩阵乘法">
@@ -23,74 +25,65 @@
   
     <link rel="alternative" href="/atom.xml" title="Sulfur6_L8972" type="application/atom+xml">
   
-  <meta name="summary" content="&lt;p&gt;今天的欢乐%你赛，由于第一题是大水题，第二题良心出题人良心部分分，第三题不严格卡迪杰斯特拉，让人心神愉悦，话虽如此，第二题想要拿满分还是很麻烦的（我才不要分块打表），所以，我们要请出矩阵乘法来优化递推&lt;/p&gt;">
-  <link rel="shortcut icon" href="/favicon.ico">
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css" /><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <meta name="summary" content="今天的欢乐%你赛，由于第一题是大水题，第二题良心出题人良心部分分，第三题不严格卡迪杰斯特拉，让人心神愉悦，话虽如此，第二题想要拿满分还是很麻烦的（我才不要分块打表），所以，我们要请出矩阵乘法来优化递推">
+  <link rel="shortcut icon" href="/">
+  <link rel="stylesheet" href="/css/style.css?v=1.1.9"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="loading" class="active"></div>
 
-  <nav id="menu" class="hide" >
-   <div class="inner flex-row-vertical">
-  <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-      <i class="icon icon-lg icon-close"></i>
-  </a>
-  <div class="brand-wrap">
-    <div class="brand">
-      <a href="/" class="avatar"><img src="/img/sulfur.png"></a>
-      <hgroup class="introduce">
-        <h5 class="nickname">Sulfur6</h5>
-        <a href="mailto:huangchun50@icloud.com" title="huangchun50@icloud.com" class="mail">huangchun50@icloud.com</a>
-      </hgroup>
+  <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light"><img src="/img/sulfur.png"></a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Sulfur6</h5>
+          <a href="mailto:huangchun50@icloud.com" title="huangchun50@icloud.com" class="mail">huangchun50@icloud.com</a>
+        </hgroup>
+      </div>
     </div>
-  </div>
-  <div class="scroll-wrap flex-col">
-    <ul class="nav">
-      
-          <li class="waves-block waves-effect">
-            <a href="/"  >
-              <i class="icon icon-lg icon-home"></i>
-              Home
-            </a>
-          </li>
-      
-          <li class="waves-block waves-effect">
-            <a href="/archives"  >
-              <i class="icon icon-lg icon-archives"></i>
-              Archives
-            </a>
-          </li>
-      
-          <li class="waves-block waves-effect">
-            <a href="https://github.com/sulfur6th" target="_blank" >
-              <i class="icon icon-lg icon-github"></i>
-              Github
-            </a>
-          </li>
-      
-          <li class="waves-block waves-effect">
-            <a href="https://http://weibo.com/5143998868/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" target="_blank" >
-              <i class="icon icon-lg icon-weibo"></i>
-              Weibo
-            </a>
-          </li>
-      
-    </ul>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/sulfur6th" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
 
-    <footer class="footer">
+      <footer class="footer">
   <p><a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAPCAMAAABEF7i9AAAAllBMVEUAAAD///+rsapERER3d3eIiIjMzMzu7u4iIiKUmZO6v7rKzsoODg4RERFVVVUNDQ0NDg0PEA8zMzNLTEtbXltmZmZydnF9gn2AgICPkI+ZmZmqqqq7u7vFxsXIzMgNDQwZGRkgICAhISEkJSMnKCcuMC4xMzE5Ozk7PTtBQkFCQkJDQ0Nna2eGhoaHh4ezuLLGysbd3d1wVGpAAAAA4UlEQVR42q2T1xqCMAyFk7QsBQeKA9x7j/d/OSm22CpX0nzcpA1/T05aAOuBVkMAScQFHLnEwoCo2f1TnQIGoVMewjZEjVFN4GH1Ue1Cn2jWqwfsOOj6wDwGvotsl/c8lv7KIq1eLOsT0HMFHMIE/RZyHnlphryT9zyV+8WH5e8yQw3wnQvgAFxPTKUVi555SHR/lOfLMgVTeDlSfN+TaoUsiTyeIm+bCkHvCA2FUKG48LDtYBZBknsYP/G8NTw0gaaHyuQf4H5pecrB/FYCT2sL9zAfy1Xyjou6L8X2W7YcLyBZCRtnq/zfAAAAAElFTkSuQmCC" /></a></p>
-  <p>Sulfur6_L8972 &copy; 2016</p>
+  <p>Sulfur6_L8972 &copy; 2006 - 2016</p>
   <p>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
   <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></p>
   <a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-2x icon-rss-square"></i></a>
 </footer>
 
+    </div>
   </div>
-</div>
-
-  </nav>
+</aside>
   <main id="main">
     <header class="top-header" id="header">
     <div class="flex-row">
@@ -103,7 +96,7 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input " autocomplete="off" placeholder="输入感兴趣的关键字">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -116,81 +109,50 @@
         
     </div>
 </header>
-<header class="content-header">
-  <div class="container">
-    <h1 class="author">矩阵乘法优化递推，NOIP%你赛</h1>
-    <h5 class="subtitle">
-        
-            <time datetime="2016-10-23T07:27:35.000Z" itemprop="datePublished" class="page-time">
+<header class="content-header post-header">
+
+    <div class="container">
+        <h1 class="title">矩阵乘法优化递推，NOIP%你赛</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2016-10-23T07:27:35.000Z" itemprop="datePublished" class="page-time">
   2016-10-23
 </time>
 
 
-        
-    </h5>
-  </div>
+            
+        </h5>
+    </div>
+
+    
+
 </header>
 
-    <div class="container body-wrap">
-      <article id="post-matrix-increase" 
-  class="article article-type-post" itemprop="blogPost">
-    <div class="post-meta flex-row">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/矩阵乘法/">矩阵乘法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/递推/">递推</a></li></ul>
 
-    </div>
-    <div class="post-body">
-        <aside class="post-widget" id="post-widget">
-
-            
-            <div class="post-share" id="post-share">
-    <div class="tit">分享到：</div>
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
-          豆
-        </a>
-      </li>
-    </ul>
- </div>
-
-            
-
-            
-            <nav class="post-toc-wrap" id="post-toc">
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
             <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#题目大意"><span class="post-toc-number">1.</span> <span class="post-toc-text">题目大意</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#题目分析"><span class="post-toc-number">2.</span> <span class="post-toc-text">题目分析</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#矩阵"><span class="post-toc-number">3.</span> <span class="post-toc-text">矩阵</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#矩阵乘法"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">矩阵乘法</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#矩阵优化递推"><span class="post-toc-number">4.</span> <span class="post-toc-text">矩阵优化递推</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#如何优化"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">如何优化</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#代码"><span class="post-toc-number">5.</span> <span class="post-toc-text">代码</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#最后说几句"><span class="post-toc-number">6.</span> <span class="post-toc-text">最后说几句</span></a></li></ol>
-            </nav>
+        </nav>
+    </aside>
+    
+<article id="post-matrix-increase" 
+  class="post-article article-type-post" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">矩阵乘法优化递推，NOIP%你赛</h1>
+        <div class="post-meta">
+            <time datetime="2016-10-23T07:27:35.000Z" itemprop="datePublished" class="post-time">
+  2016-10-23
+</time>
+
             
-        </aside>
 
-        <div class="post-main">
 
-            <div class="post-content" id="post-content" itemprop="postContent">
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
             <p>今天的欢乐%你赛，由于第一题是大水题，第二题良心出题人良心部分分，第三题不严格卡迪杰斯特拉，让人心神愉悦，话虽如此，第二题想要拿满分还是很麻烦的（我才不要分块打表），所以，我们要请出矩阵乘法来优化递推</p>
 <a id="more"></a>
 <h1 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h1><p>给定一个坐标系，可以往左，右，上走，已经走过的点（单次访问中）不可以重复走，一共可以走<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">N</span></span></span></span>步，求一共有多少种走法。</p>
@@ -688,21 +650,77 @@ C_{i,j} = \sum\limits_{k = 1}^{N} A_{i,k} \times B_{k,j}
 <li>再次%表神cyr</li>
 </ul>
 
+        </div>
+        
+        <blockquote class="post-copyright">
+    <div class="content">
+        这里写留言或版权声明：<a href="/matrix-increase/" target="_blank" rel="external">http://sulfur6.top/matrix-increase/</a>
+    </div>
+    <footer>
+        <a href="http://sulfur6.top">
+            <img src="/img/sulfur.png" alt="Sulfur6">
+            Sulfur6
+        </a>
+    </footer>
+</blockquote>
+        
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/矩阵乘法/">矩阵乘法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/递推/">递推</a></li></ul>
+
 
             
-            
-            <blockquote>
-                <p>
-                本文地址：
-                <a href="http://sulfur6.top/matrix-increase/" target="_blank" rel="external">http://sulfur6.top/matrix-increase/</a>
-                </p>
-                <footer><cite><a href="http://sulfur6.top">@Sulfur6_L8972</a></cite></footer>
-            </blockquote>
-            </div>
-            
-<nav class="post-nav">
+<div class="post-share-wrap">
+    <div class="post-share" id="post-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+    <a href="javascript:;" id="share-fab" class="post-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+        </div>
+    </div>   
+
+    
+<nav class="post-nav flex-row flex-justify-between">
   
-    <div class="waves-block waves-effect prev fl">
+    <div class="waves-block waves-effect prev">
       <a href="/sudoku/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
         <h4 class="title">Sudoku，暴力DFS，POJ2676</h4>
@@ -711,7 +729,7 @@ C_{i,j} = \sum\limits_{k = 1}^{N} A_{i,k} \times B_{k,j}
   
 
   
-    <div class="waves-block waves-effect next fr">
+    <div class="waves-block waves-effect next">
       <a href="/buddhas-sticks/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
         <h4 class="title">拯救少林神棍，POJ1011，DFS</h4>
@@ -722,45 +740,33 @@ C_{i,j} = \sum\limits_{k = 1}^{N} A_{i,k} \times B_{k,j}
 
 
             
-            
+    
 <div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="matrix-increase" data-title="矩阵乘法优化递推，NOIP%你赛" data-url="http://sulfur6.top/matrix-increase/index.html"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"ysblog"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
+	<div class="ds-thread" data-thread-key="matrix-increase" data-title="矩阵乘法优化递推，NOIP%你赛" data-url="http://sulfur6.top/matrix-increase/"></div>
 </div>
+<script src="/js/embed.min.js?v=1.1.9"></script>
+<script src="//cdn.bootcss.com/marked/0.3.6/marked.min.js" async="async"></script>
+<script>
+var duoshuoQuery = {short_name:'ysblog', theme: 'none'}
+</script>
 
 
 
 
-
-        </div>
-    </div>
 </article>
-    </div>
+
+
+</div>
   </main>
-<div class="mask" id="mask"></div>
+  <div class="mask" id="mask"></div>
 <a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
-<script>
-var BLOG_SHARE = {
-    title: "矩阵乘法优化递推，NOIP%你赛",
-    pic: "/img/sulfur.png",
-    summary: document.getElementsByName('summary')[0].content,
-    url: "http://sulfur6.top/matrix-increase/index.html"
-};
+<script>var BLOG = { ROOT: '/' };
+BLOG.SHARE = {
+title: "矩阵乘法优化递推，NOIP%你赛",
+pic: "/img/sulfur.png",
+summary: document.getElementsByName('summary')[0].content,
+url: "http://sulfur6.top/matrix-increase/" }
 </script>
 <div class="global-share" id="global-share">
     <div class="tit">分享到：</div>
@@ -799,20 +805,17 @@ var BLOG_SHARE = {
  </div>
 
 
-
-
-<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
-
-<script src="/js/main.js"></script>
+  <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script src="/js/main.min.js?v=1.1.9"></script>
 
 
 
 <div class="search-panel" id="search-panel">
     <ul class="search-result" id="search-result"></ul>
 </div>
-<script type="text/template" id="search-tpl">
+<template id="search-tpl">
 <li class="item">
-    <a href="/{path}" class="waves-block waves-effect">
+    <a href="{path}" class="waves-block waves-effect">
         <div class="title ellipsis" title="{title}">{title}</div>
         <div class="flex-row flex-middle">
             <div class="tags ellipsis">
@@ -822,50 +825,10 @@ var BLOG_SHARE = {
         </div>
     </a>
 </li>
-</script>
+</template>
 
-<script src="/js/search.js"></script>
+<script src="/js/search.min.js?v=1.1.9"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
-
-
-<!-- mathjax config similar to math.stackexchange -->
-<!--
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-});
-
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';                 
-    }       
-});
-</script>
-
-<script type="text/javascript" async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
---><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
 
 
 
