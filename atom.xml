@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://sulfur6.top/"/>
-  <updated>2016-11-30T11:52:05.000Z</updated>
+  <updated>2016-11-30T12:32:31.000Z</updated>
   <id>http://sulfur6.top/</id>
   
   <author>
@@ -14,6 +14,40 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>石子归并，区间DP</title>
+    <link href="http://sulfur6.top/mergeStone/"/>
+    <id>http://sulfur6.top/mergeStone/</id>
+    <published>2016-11-30T12:31:45.000Z</published>
+    <updated>2016-11-30T12:32:31.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>区间动态规划入门题，难度并不大，注意认真读题。。。</p>
+<a id="more"></a>
+<h1 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h1><p>有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span>堆石子排成一列，每堆石子有一个重量<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>w</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">w_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.02691em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>, 每次合并可以合并相邻的两堆石子，一次合并的代价为两堆石子的重量和<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>w</mi><mi>i</mi></msub><mo>+</mo><msub><mi>w</mi><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">w_i+w_{i+1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.58333em;"></span><span class="strut bottom" style="height:0.791661em;vertical-align:-0.208331em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.02691em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mord"><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.02691em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>，求怎样合并能使合并代价最小，输出最小代价。</p>
+<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p>区间DP</p>
+<p>记合并<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>[</mo><mi>l</mi><mo separator="true">,</mo><mi>r</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">[l,r]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">[</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mclose">]</span></span></span></span>这段区间内的石子所需的代价为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mi>l</mi><mo separator="true">,</mo><mi>r</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">f(l,r)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mclose">)</span></span></span></span>，则有:</p>
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mi>l</mi><mo separator="true">,</mo><mi>r</mi><mo>)</mo><mo>=</mo><msubsup><mi>min</mi><mrow><mi>k</mi><mo>=</mo><mi>l</mi></mrow><mrow><mi>r</mi><mo>−</mo><mn>1</mn></mrow></msubsup><mo>(</mo><mi>f</mi><mo>(</mo><mi>l</mi><mo separator="true">,</mo><mi>r</mi><mo>)</mo><mo separator="true">,</mo><mtext> </mtext><mi>f</mi><mo>(</mo><mi>l</mi><mo separator="true">,</mo><mi>k</mi><mo>)</mo><mo>+</mo><mi>f</mi><mo>(</mo><mi>k</mi><mo>+</mo><mn>1</mn><mo separator="true">,</mo><mi>r</mi><mo>)</mo><mo>)</mo><mo>+</mo><mi>s</mi><mi>u</mi><mi>m</mi><mo>(</mo><mi>l</mi><mo separator="true">,</mo><mi>r</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">
+f(l,r)=\min_{k=l}^{r-1}(f(l,r),\ f(l,k) + f(k+1,r))+sum(l,r)
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.418968em;"></span><span class="strut bottom" style="height:2.1710760000000002em;vertical-align:-0.752108em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mclose">)</span><span class="mrel">=</span><span class="mop op-limits"><span class="vlist"><span style="top:0.652108em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span><span class="mrel">=</span><span class="mord mathit" style="margin-right:0.01968em;">l</span></span></span></span><span style="top:8.326672684688674e-17em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span><span class="mop">min</span></span></span><span style="top:-0.86786em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mclose">)</span><span class="mpunct">,</span><span class="mord mspace"> </span><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.03148em;">k</span><span class="mclose">)</span><span class="mbin">+</span><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.03148em;">k</span><span class="mbin">+</span><span class="mord mathrm">1</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mclose">)</span><span class="mclose">)</span><span class="mbin">+</span><span class="mord mathit">s</span><span class="mord mathit">u</span><span class="mord mathit">m</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mclose">)</span></span></span></span></span><p>记<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>u</mi><mi>m</mi><mo>(</mo><mi>l</mi><mo separator="true">,</mo><mi>r</mi><mo>)</mo><mo>=</mo><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mi>l</mi></mrow><mrow><mi>r</mi></mrow></msubsup><msub><mi>w</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">sum(l,r)=\sum\limits_{i=l}^{r}w_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.351397em;"></span><span class="strut bottom" style="height:2.35351em;vertical-align:-1.002113em;"></span><span class="base textstyle uncramped"><span class="mord mathit">s</span><span class="mord mathit">u</span><span class="mord mathit">m</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mclose">)</span><span class="mrel">=</span><span class="mop op-limits"><span class="vlist"><span style="top:0.902113em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mrel">=</span><span class="mord mathit" style="margin-right:0.01968em;">l</span></span></span></span><span style="top:-0.0000049999999998662226em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span><span class="op-symbol small-op mop">∑</span></span></span><span style="top:-0.950005em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">r</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mord"><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.02691em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span></p>
+<p>那么接下来的工作就是确定递推顺序，这题的递推顺序是从短区间向长区间递推，因为我们发现状态中每次转移需要用到的状态只需要用到从之前的较短的区间中得到的值。</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;climits&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXN = <span class="number">100</span>;</div><div class="line"></div><div class="line"><span class="keyword">int</span> a[MAXN + <span class="number">1</span>], f[MAXN + <span class="number">1</span>][MAXN + <span class="number">1</span>];</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> n; <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</div><div class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;a[i]);</div><div class="line">        a[i] = a[i] + a[i - <span class="number">1</span>];</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) f[i][i] = <span class="number">0</span>;</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> len = <span class="number">1</span>; len &lt; n; len++) &#123;</div><div class="line">        <span class="keyword">int</span> r;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> l = <span class="number">1</span>; l &lt;= n - len; l++) &#123;</div><div class="line">            r = l + len;</div><div class="line">            <span class="keyword">int</span> minn = INT_MAX;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> k = l; k &lt; r; k++) &#123;</div><div class="line">                minn = min(f[l][k] + f[k + <span class="number">1</span>][r], minn);</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            f[l][r] = minn + a[r] - a[l - <span class="number">1</span>];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, f[<span class="number">1</span>][n]);</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;区间动态规划入门题，难度并不大，注意认真读题。。。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="学习笔记" scheme="http://sulfur6.top/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="DP" scheme="http://sulfur6.top/tags/DP/"/>
+    
+      <category term="区间DP" scheme="http://sulfur6.top/tags/%E5%8C%BA%E9%97%B4DP/"/>
+    
+  </entry>
   
   <entry>
     <title>火柴排队，贪心，逆序对，NOIP2013</title>
@@ -123,9 +157,9 @@ f(i,j)=\min(f(i-1,j-X_{i-1})+1,f(i,j-X_{i-1})+1)
     
       <category term="学习笔记" scheme="http://sulfur6.top/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="NOIP" scheme="http://sulfur6.top/tags/NOIP/"/>
-    
       <category term="DP" scheme="http://sulfur6.top/tags/DP/"/>
+    
+      <category term="NOIP" scheme="http://sulfur6.top/tags/NOIP/"/>
     
       <category term="背包" scheme="http://sulfur6.top/tags/%E8%83%8C%E5%8C%85/"/>
     
@@ -223,9 +257,9 @@ g(i-1,j,t) &amp; A_i\neq B_j
     
       <category term="学习笔记" scheme="http://sulfur6.top/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="NOIP" scheme="http://sulfur6.top/tags/NOIP/"/>
-    
       <category term="DP" scheme="http://sulfur6.top/tags/DP/"/>
+    
+      <category term="NOIP" scheme="http://sulfur6.top/tags/NOIP/"/>
     
   </entry>
   
@@ -378,9 +412,9 @@ f(i,m)=\max(\max\limits_{k=0}^{m-1}(f(i.child,k)+f(i.next,m-k-1)), f(i,next,m))
     
       <category term="学习笔记" scheme="http://sulfur6.top/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="NOIP" scheme="http://sulfur6.top/tags/NOIP/"/>
-    
       <category term="DFS" scheme="http://sulfur6.top/tags/DFS/"/>
+    
+      <category term="NOIP" scheme="http://sulfur6.top/tags/NOIP/"/>
     
       <category term="状态压缩" scheme="http://sulfur6.top/tags/%E7%8A%B6%E6%80%81%E5%8E%8B%E7%BC%A9/"/>
     
@@ -451,9 +485,9 @@ f(i,m)=\max(\max\limits_{k=0}^{m-1}(f(i.child,k)+f(i.next,m-k-1)), f(i,next,m))
     
       <category term="学习笔记" scheme="http://sulfur6.top/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="POJ" scheme="http://sulfur6.top/tags/POJ/"/>
-    
       <category term="DP" scheme="http://sulfur6.top/tags/DP/"/>
+    
+      <category term="POJ" scheme="http://sulfur6.top/tags/POJ/"/>
     
       <category term="线性DP" scheme="http://sulfur6.top/tags/%E7%BA%BF%E6%80%A7DP/"/>
     
