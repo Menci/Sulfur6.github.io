@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://sulfur6.top/"/>
-  <updated>2016-11-30T12:32:31.000Z</updated>
+  <updated>2016-12-24T01:03:03.000Z</updated>
   <id>http://sulfur6.top/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://sulfur6.top/mergeStone/"/>
     <id>http://sulfur6.top/mergeStone/</id>
     <published>2016-11-30T12:31:45.000Z</published>
-    <updated>2016-11-30T12:32:31.000Z</updated>
+    <updated>2016-12-24T01:03:03.000Z</updated>
     
     <content type="html"><![CDATA[<p>区间动态规划入门题，难度并不大，注意认真读题。。。</p>
 <a id="more"></a>
@@ -40,8 +40,8 @@ f(l,r)=\min_{k=l}^{r-1}(f(l,r),\ f(l,k) + f(k+1,r))+sum(l,r)
     
     </summary>
     
+      <category term="学习笔记" scheme="http://sulfur6.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="学习笔记" scheme="http://sulfur6.top/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
       <category term="DP" scheme="http://sulfur6.top/tags/DP/"/>
     
@@ -54,7 +54,7 @@ f(l,r)=\min_{k=l}^{r-1}(f(l,r),\ f(l,k) + f(k+1,r))+sum(l,r)
     <link href="http://sulfur6.top/Sticks-NOIP/"/>
     <id>http://sulfur6.top/Sticks-NOIP/</id>
     <published>2016-11-10T11:47:10.000Z</published>
-    <updated>2016-11-30T11:52:05.000Z</updated>
+    <updated>2016-12-24T01:02:52.000Z</updated>
     
     <content type="html"><![CDATA[<p>一道NOIP的贪心题，代码难度一般，然而思维含量蛮高（也可以说是很绕）。。</p>
 <a id="more"></a>
@@ -69,8 +69,8 @@ f(l,r)=\min_{k=l}^{r-1}(f(l,r),\ f(l,k) + f(k+1,r))+sum(l,r)
     
     </summary>
     
+      <category term="学习笔记" scheme="http://sulfur6.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="学习笔记" scheme="http://sulfur6.top/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
       <category term="NOIP" scheme="http://sulfur6.top/tags/NOIP/"/>
     
@@ -85,7 +85,7 @@ f(l,r)=\min_{k=l}^{r-1}(f(l,r),\ f(l,k) + f(k+1,r))+sum(l,r)
     <link href="http://sulfur6.top/Gavin-NicholasAndHisFlower/"/>
     <id>http://sulfur6.top/Gavin-NicholasAndHisFlower/</id>
     <published>2016-11-10T11:47:01.000Z</published>
-    <updated>2016-11-30T11:52:11.000Z</updated>
+    <updated>2016-12-24T01:02:57.000Z</updated>
     
     <content type="html"><![CDATA[<p>经典的栋栋系列题目！好吧我承认这是一道很不错的贪心题</p>
 <a id="more"></a>
@@ -101,8 +101,8 @@ f(l,r)=\min_{k=l}^{r-1}(f(l,r),\ f(l,k) + f(k+1,r))+sum(l,r)
     
     </summary>
     
+      <category term="学习笔记" scheme="http://sulfur6.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="学习笔记" scheme="http://sulfur6.top/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
       <category term="NOIP" scheme="http://sulfur6.top/tags/NOIP/"/>
     
@@ -115,7 +115,7 @@ f(l,r)=\min_{k=l}^{r-1}(f(l,r),\ f(l,k) + f(k+1,r))+sum(l,r)
     <link href="http://sulfur6.top/Flappy-Bird/"/>
     <id>http://sulfur6.top/Flappy-Bird/</id>
     <published>2016-11-08T00:15:09.000Z</published>
-    <updated>2016-11-08T00:19:24.000Z</updated>
+    <updated>2016-12-24T01:02:46.000Z</updated>
     
     <content type="html"><![CDATA[<p>四个月前我尝试着做过这道题，当时在天宇哥哥的课上自认为听懂了，然后。。就没有然后了</p>
 <a id="more"></a>
@@ -154,12 +154,12 @@ f(i,j)=\min(f(i-1,j-X_{i-1})+1,f(i,j-X_{i-1})+1)
     
     </summary>
     
+      <category term="学习笔记" scheme="http://sulfur6.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="学习笔记" scheme="http://sulfur6.top/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-      <category term="DP" scheme="http://sulfur6.top/tags/DP/"/>
     
       <category term="NOIP" scheme="http://sulfur6.top/tags/NOIP/"/>
+    
+      <category term="DP" scheme="http://sulfur6.top/tags/DP/"/>
     
       <category term="背包" scheme="http://sulfur6.top/tags/%E8%83%8C%E5%8C%85/"/>
     
@@ -172,7 +172,7 @@ f(i,j)=\min(f(i-1,j-X_{i-1})+1,f(i,j-X_{i-1})+1)
     <link href="http://sulfur6.top/mining-dp/"/>
     <id>http://sulfur6.top/mining-dp/</id>
     <published>2016-11-07T12:01:29.000Z</published>
-    <updated>2016-11-07T12:03:12.000Z</updated>
+    <updated>2016-12-24T01:02:39.000Z</updated>
     
     <content type="html"><![CDATA[<p>模拟赛上的题，贪心贪了一上午，然后，就没有然后了</p>
 <a id="more"></a>
@@ -203,8 +203,8 @@ f(i)=\max(f(i-4),f(i-7))+w_i
     
     </summary>
     
+      <category term="学习笔记" scheme="http://sulfur6.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="学习笔记" scheme="http://sulfur6.top/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
       <category term="DP" scheme="http://sulfur6.top/tags/DP/"/>
     
@@ -219,7 +219,7 @@ f(i)=\max(f(i-4),f(i-7))+w_i
     <link href="http://sulfur6.top/substring/"/>
     <id>http://sulfur6.top/substring/</id>
     <published>2016-11-06T11:56:57.000Z</published>
-    <updated>2016-11-06T11:58:45.000Z</updated>
+    <updated>2016-12-24T01:02:33.000Z</updated>
     
     <content type="html"><![CDATA[<p>一个子序列可以不连续，子串必须连续，遂有一句笑话：连续的子序列。。。某蒟蒻因为没搞清子串和子序列看了一晚上题解都没看懂。。。。。</p>
 <a id="more"></a>
@@ -254,12 +254,12 @@ g(i-1,j,t) &amp; A_i\neq B_j
     
     </summary>
     
+      <category term="学习笔记" scheme="http://sulfur6.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="学习笔记" scheme="http://sulfur6.top/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-      <category term="DP" scheme="http://sulfur6.top/tags/DP/"/>
     
       <category term="NOIP" scheme="http://sulfur6.top/tags/NOIP/"/>
+    
+      <category term="DP" scheme="http://sulfur6.top/tags/DP/"/>
     
   </entry>
   
@@ -268,7 +268,7 @@ g(i-1,j,t) &amp; A_i\neq B_j
     <link href="http://sulfur6.top/chose-class/"/>
     <id>http://sulfur6.top/chose-class/</id>
     <published>2016-11-03T12:16:14.000Z</published>
-    <updated>2016-11-03T12:18:47.000Z</updated>
+    <updated>2016-12-24T01:02:11.000Z</updated>
     
     <content type="html"><![CDATA[<p>据说存储树的结构叫做左儿子右兄弟，管他呢，我也不知道，当年CTSC的一道树形DP。</p>
 <a id="more"></a>
@@ -299,8 +299,8 @@ f(i,m)=\max(\max\limits_{k=0}^{m-1}(f(i.child,k)+f(i.next,m-k-1)), f(i,next,m))
     
     </summary>
     
+      <category term="学习笔记" scheme="http://sulfur6.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="学习笔记" scheme="http://sulfur6.top/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
       <category term="DP" scheme="http://sulfur6.top/tags/DP/"/>
     
@@ -315,7 +315,7 @@ f(i,m)=\max(\max\limits_{k=0}^{m-1}(f(i.child,k)+f(i.next,m-k-1)), f(i,next,m))
     <link href="http://sulfur6.top/birthday-cake/"/>
     <id>http://sulfur6.top/birthday-cake/</id>
     <published>2016-10-31T12:07:43.000Z</published>
-    <updated>2016-10-31T12:09:11.000Z</updated>
+    <updated>2016-12-24T01:02:28.000Z</updated>
     
     <content type="html"><![CDATA[<p>生日蛋糕带我走上深搜不归路</p>
 <a id="more"></a>
@@ -360,8 +360,8 @@ f(i,m)=\max(\max\limits_{k=0}^{m-1}(f(i.child,k)+f(i.next,m-k-1)), f(i,next,m))
     
     </summary>
     
+      <category term="学习笔记" scheme="http://sulfur6.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="学习笔记" scheme="http://sulfur6.top/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
       <category term="DFS" scheme="http://sulfur6.top/tags/DFS/"/>
     
@@ -374,7 +374,7 @@ f(i,m)=\max(\max\limits_{k=0}^{m-1}(f(i.child,k)+f(i.next,m-k-1)), f(i,next,m))
     <link href="http://sulfur6.top/landlord-NOIP2015/"/>
     <id>http://sulfur6.top/landlord-NOIP2015/</id>
     <published>2016-10-29T12:56:32.000Z</published>
-    <updated>2016-10-31T12:06:00.000Z</updated>
+    <updated>2016-12-24T01:01:54.000Z</updated>
     
     <content type="html"><![CDATA[<p>大概两周前，我还是一个不会DFS的小蒟蒻，当时看到斗地主这题，心中简直是千万匹草泥马飘过</p>
 <a id="more"></a>
@@ -409,12 +409,12 @@ f(i,m)=\max(\max\limits_{k=0}^{m-1}(f(i.child,k)+f(i.next,m-k-1)), f(i,next,m))
     
     </summary>
     
+      <category term="学习笔记" scheme="http://sulfur6.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="学习笔记" scheme="http://sulfur6.top/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-      <category term="DFS" scheme="http://sulfur6.top/tags/DFS/"/>
     
       <category term="NOIP" scheme="http://sulfur6.top/tags/NOIP/"/>
+    
+      <category term="DFS" scheme="http://sulfur6.top/tags/DFS/"/>
     
       <category term="状态压缩" scheme="http://sulfur6.top/tags/%E7%8A%B6%E6%80%81%E5%8E%8B%E7%BC%A9/"/>
     
@@ -427,7 +427,7 @@ f(i,m)=\max(\max\limits_{k=0}^{m-1}(f(i.child,k)+f(i.next,m-k-1)), f(i,next,m))
     <link href="http://sulfur6.top/pour-the-grass/"/>
     <id>http://sulfur6.top/pour-the-grass/</id>
     <published>2016-10-28T01:24:04.000Z</published>
-    <updated>2016-10-31T12:05:01.000Z</updated>
+    <updated>2016-12-24T01:01:40.000Z</updated>
     
     <content type="html"><![CDATA[<p>一道比较难的线性DP，主要是限制条件太多，而且我又太弱。</p>
 <a id="more"></a>
@@ -482,12 +482,12 @@ f(i,m)=\max(\max\limits_{k=0}^{m-1}(f(i.child,k)+f(i.next,m-k-1)), f(i,next,m))
     
     </summary>
     
+      <category term="学习笔记" scheme="http://sulfur6.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="学习笔记" scheme="http://sulfur6.top/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-      <category term="DP" scheme="http://sulfur6.top/tags/DP/"/>
     
       <category term="POJ" scheme="http://sulfur6.top/tags/POJ/"/>
+    
+      <category term="DP" scheme="http://sulfur6.top/tags/DP/"/>
     
       <category term="线性DP" scheme="http://sulfur6.top/tags/%E7%BA%BF%E6%80%A7DP/"/>
     
@@ -498,7 +498,7 @@ f(i,m)=\max(\max\limits_{k=0}^{m-1}(f(i.child,k)+f(i.next,m-k-1)), f(i,next,m))
     <link href="http://sulfur6.top/gaogay/"/>
     <id>http://sulfur6.top/gaogay/</id>
     <published>2016-10-26T09:14:34.000Z</published>
-    <updated>2016-10-31T12:07:09.000Z</updated>
+    <updated>2016-12-24T00:25:22.000Z</updated>
     
     <content type="html"><![CDATA[<p>终于学会了三个多月前学习的倍增求LCA，最近几年经常出很恶心的带LCA的题。。看看就浑身难受。。</p>
 <a id="more"></a>
@@ -551,8 +551,8 @@ g(i,j)=g(i,j-1)+g(f(i,j-1),j-1)
     
     </summary>
     
+      <category term="学习笔记" scheme="http://sulfur6.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="学习笔记" scheme="http://sulfur6.top/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
       <category term="倍增" scheme="http://sulfur6.top/tags/%E5%80%8D%E5%A2%9E/"/>
     
@@ -565,7 +565,7 @@ g(i,j)=g(i,j-1)+g(f(i,j-1),j-1)
     <link href="http://sulfur6.top/welcome-ceremony/"/>
     <id>http://sulfur6.top/welcome-ceremony/</id>
     <published>2016-10-25T12:07:34.000Z</published>
-    <updated>2016-10-31T12:05:44.000Z</updated>
+    <updated>2016-12-24T01:01:08.000Z</updated>
     
     <content type="html"><![CDATA[<p>这种DP让人不知所措，果然我还是Too young..</p>
 <p>多做题多积累。。</p>
@@ -605,8 +605,8 @@ f(i,j,z)=\max(f(i-2,j-1,z),f(i-2,j,z-1),f(i-2,j-1,z-1),f(i-2,j,z))
     
     </summary>
     
+      <category term="学习笔记" scheme="http://sulfur6.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="学习笔记" scheme="http://sulfur6.top/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
       <category term="DP" scheme="http://sulfur6.top/tags/DP/"/>
     
@@ -619,7 +619,7 @@ f(i,j,z)=\max(f(i-2,j-1,z),f(i-2,j,z-1),f(i-2,j-1,z-1),f(i-2,j,z))
     <link href="http://sulfur6.top/segment-tree/"/>
     <id>http://sulfur6.top/segment-tree/</id>
     <published>2016-10-24T08:27:26.000Z</published>
-    <updated>2016-10-31T12:05:30.000Z</updated>
+    <updated>2016-12-24T01:01:25.000Z</updated>
     
     <content type="html"><![CDATA[<p>中国高级数据结构领导者，唐氏线段树！【雾</p>
 <p>其实并不是，下面即将介绍的是不会TLE的正版线段树哦</p>
@@ -675,8 +675,8 @@ f(i,j,z)=\max(f(i-2,j-1,z),f(i-2,j,z-1),f(i-2,j-1,z-1),f(i-2,j,z))
     
     </summary>
     
+      <category term="学习笔记" scheme="http://sulfur6.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="学习笔记" scheme="http://sulfur6.top/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
       <category term="区间操作" scheme="http://sulfur6.top/tags/%E5%8C%BA%E9%97%B4%E6%93%8D%E4%BD%9C/"/>
     
@@ -689,7 +689,7 @@ f(i,j,z)=\max(f(i-2,j-1,z),f(i-2,j,z-1),f(i-2,j-1,z-1),f(i-2,j,z))
     <link href="http://sulfur6.top/sudoku/"/>
     <id>http://sulfur6.top/sudoku/</id>
     <published>2016-10-23T11:53:10.000Z</published>
-    <updated>2016-10-31T12:06:10.000Z</updated>
+    <updated>2016-12-24T01:00:48.000Z</updated>
     
     <content type="html"><![CDATA[<p>数独有趣，爆搜无脑。</p>
 <p>还有回不去的还记得的一张张写满算式的纸，和解不出的Sudoku。</p>
@@ -731,680 +731,12 @@ f(i,j,z)=\max(f(i-2,j-1,z),f(i-2,j,z-1),f(i-2,j-1,z-1),f(i-2,j,z))
     
     </summary>
     
+      <category term="学习笔记" scheme="http://sulfur6.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="学习笔记" scheme="http://sulfur6.top/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
       <category term="DFS" scheme="http://sulfur6.top/tags/DFS/"/>
     
       <category term="POJ" scheme="http://sulfur6.top/tags/POJ/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>矩阵乘法优化递推，NOIP%你赛</title>
-    <link href="http://sulfur6.top/matrix-increase/"/>
-    <id>http://sulfur6.top/matrix-increase/</id>
-    <published>2016-10-23T07:27:35.000Z</published>
-    <updated>2016-10-31T12:06:33.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>今天的欢乐%你赛，由于第一题是大水题，第二题良心出题人良心部分分，第三题不严格卡迪杰斯特拉，让人心神愉悦，话虽如此，第二题想要拿满分还是很麻烦的（我才不要分块打表），所以，我们要请出矩阵乘法来优化递推</p>
-<a id="more"></a>
-<h1 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h1><p>给定一个坐标系，可以往左，右，上走，已经走过的点（单次访问中）不可以重复走，一共可以走<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">N</span></span></span></span>步，求一共有多少种走法。</p>
-<h1 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h1><blockquote>
-<p>表神，各单位提供丰富成功地证明了递推公式，然而，不适合这样做的蒟蒻Sulfur6更喜欢打表找规律。</p>
-</blockquote>
-<p>这里我们就假装我们已经打完了这个表，然后发现它的前几项分别是：</p>
-<span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mn>0</mn><mo>)</mo><mo>=</mo><mn>1</mn><mo separator="true">,</mo><mi>f</mi><mo>(</mo><mn>1</mn><mo>)</mo><mo>=</mo><mn>3</mn><mo separator="true">,</mo><mi>f</mi><mo>(</mo><mn>2</mn><mo>)</mo><mo>=</mo><mn>7</mn><mo separator="true">,</mo><mi>f</mi><mo>(</mo><mn>3</mn><mo>)</mo><mo>=</mo><mn>1</mn><mn>7</mn><mo separator="true">,</mo><mi>f</mi><mo>(</mo><mn>4</mn><mo>)</mo><mo>=</mo><mn>4</mn><mn>1</mn><mo separator="true">,</mo><mi>f</mi><mo>(</mo><mn>5</mn><mo>)</mo><mo>=</mo><mn>9</mn><mn>9</mn></mrow><annotation encoding="application/x-tex">
-f(0) = 1, f(1) = 3, f(2) = 7, f(3) = 17, f(4) = 41, f(5) = 99
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathrm">0</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord mathrm">1</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathrm">1</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord mathrm">3</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathrm">2</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord mathrm">7</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathrm">3</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord mathrm">1</span><span class="mord mathrm">7</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathrm">4</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord mathrm">4</span><span class="mord mathrm">1</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathrm">5</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord mathrm">9</span><span class="mord mathrm">9</span></span></span></span></span><p>后面不打了T ^ T，所以我们发现了一个递推公式：</p>
-<span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mi>i</mi><mo>)</mo><mo>=</mo><mi>f</mi><mo>(</mo><mi>i</mi><mo>−</mo><mn>2</mn><mo>)</mo><mo>+</mo><mn>2</mn><mo>×</mo><mi>f</mi><mo>(</mo><mi>i</mi><mo>−</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">
-f(i) = f(i - 2) + 2 \times f(i - 1)
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathit">i</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathit">i</span><span class="mbin">−</span><span class="mord mathrm">2</span><span class="mclose">)</span><span class="mbin">+</span><span class="mord mathrm">2</span><span class="mbin">×</span><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathit">i</span><span class="mbin">−</span><span class="mord mathrm">1</span><span class="mclose">)</span></span></span></span></span><p>时间复杂度降至<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mclose">)</span></span></span></span>，但是极限数据高达<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><msup><mn>0</mn><mn>9</mn></msup></mrow><annotation encoding="application/x-tex">10^9</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span><span class="mord"><span class="mord mathrm">0</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">9</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>，这时<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mclose">)</span></span></span></span>不靠谱。<del>而且会MLE</del></p>
-<h1 id="矩阵"><a href="#矩阵" class="headerlink" title="矩阵"></a>矩阵</h1><blockquote>
-<p>说矩阵优化之前先说说矩阵</p>
-</blockquote>
-<p>形如</p>
-<div style="text-align: center; "><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="53.847ex" height="9.176ex" style="vertical-align: -4.005ex;" viewbox="0 -2226.5 23184.1 3950.7" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<path stroke-width="1" id="E1-MJMAIN-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"/>
-<path stroke-width="1" id="E1-MJMAIN-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"/>
-<path stroke-width="1" id="E1-MJMAIN-28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"/>
-<path stroke-width="1" id="E1-MJMAIN-2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"/>
-<path stroke-width="1" id="E1-MJMATHI-69" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"/>
-<path stroke-width="1" id="E1-MJMAIN-29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"/>
-<path stroke-width="1" id="E1-MJSZ4-239B" d="M837 1154Q843 1148 843 1145Q843 1141 818 1106T753 1002T667 841T574 604T494 299Q417 -84 417 -609Q417 -641 416 -647T411 -654Q409 -655 366 -655Q299 -655 297 -654Q292 -652 292 -643T291 -583Q293 -400 304 -242T347 110T432 470T574 813T785 1136Q787 1139 790 1142T794 1147T796 1150T799 1152T802 1153T807 1154T813 1154H819H837Z"/>
-<path stroke-width="1" id="E1-MJSZ4-239D" d="M843 -635Q843 -638 837 -644H820Q801 -644 800 -643Q792 -635 785 -626Q684 -503 605 -363T473 -75T385 216T330 518T302 809T291 1093Q291 1144 291 1153T296 1164Q298 1165 366 1165Q409 1165 411 1164Q415 1163 416 1157T417 1119Q417 529 517 109T833 -617Q843 -631 843 -635Z"/>
-<path stroke-width="1" id="E1-MJSZ4-239C" d="M413 -9Q412 -9 407 -9T388 -10T354 -10Q300 -10 297 -9Q294 -8 293 -5Q291 5 291 127V300Q291 602 292 605L296 609Q298 610 366 610Q382 610 392 610T407 610T412 609Q416 609 416 592T417 473V127Q417 -9 413 -9Z"/>
-<path stroke-width="1" id="E1-MJSZ4-239E" d="M31 1143Q31 1154 49 1154H59Q72 1154 75 1152T89 1136Q190 1013 269 873T401 585T489 294T544 -8T572 -299T583 -583Q583 -634 583 -643T577 -654Q575 -655 508 -655Q465 -655 463 -654Q459 -653 458 -647T457 -609Q457 -58 371 340T100 1037Q87 1059 61 1098T31 1143Z"/>
-<path stroke-width="1" id="E1-MJSZ4-23A0" d="M56 -644H50Q31 -644 31 -635Q31 -632 37 -622Q69 -579 100 -527Q286 -228 371 170T457 1119Q457 1161 462 1164Q464 1165 520 1165Q575 1165 577 1164Q582 1162 582 1153T583 1093Q581 910 570 752T527 400T442 40T300 -303T89 -626Q78 -640 75 -642T61 -644H56Z"/>
-<path stroke-width="1" id="E1-MJSZ4-239F" d="M579 -9Q578 -9 573 -9T554 -10T520 -10Q466 -10 463 -9Q460 -8 459 -5Q457 5 457 127V300Q457 602 458 605L462 609Q464 610 532 610Q548 610 558 610T573 610T578 609Q582 609 582 592T583 473V127Q583 -9 579 -9Z"/>
-<path stroke-width="1" id="E1-MJMAIN-5B" d="M118 -250V750H255V710H158V-210H255V-250H118Z"/>
-<path stroke-width="1" id="E1-MJMAIN-5D" d="M22 710V750H159V-250H22V-210H119V710H22Z"/>
-<path stroke-width="1" id="E1-MJSZ4-23A1" d="M319 -645V1154H666V1070H403V-645H319Z"/>
-<path stroke-width="1" id="E1-MJSZ4-23A3" d="M319 -644V1155H403V-560H666V-644H319Z"/>
-<path stroke-width="1" id="E1-MJSZ4-23A2" d="M319 0V602H403V0H319Z"/>
-<path stroke-width="1" id="E1-MJSZ4-23A4" d="M0 1070V1154H347V-645H263V1070H0Z"/>
-<path stroke-width="1" id="E1-MJSZ4-23A6" d="M263 -560V1155H347V-644H0V-560H263Z"/>
-<path stroke-width="1" id="E1-MJSZ4-23A5" d="M263 0V602H347V0H263Z"/>
-<path stroke-width="1" id="E1-MJMAIN-7B" d="M434 -231Q434 -244 428 -250H410Q281 -250 230 -184Q225 -177 222 -172T217 -161T213 -148T211 -133T210 -111T209 -84T209 -47T209 0Q209 21 209 53Q208 142 204 153Q203 154 203 155Q189 191 153 211T82 231Q71 231 68 234T65 250T68 266T82 269Q116 269 152 289T203 345Q208 356 208 377T209 529V579Q209 634 215 656T244 698Q270 724 324 740Q361 748 377 749Q379 749 390 749T408 750H428Q434 744 434 732Q434 719 431 716Q429 713 415 713Q362 710 332 689T296 647Q291 634 291 499V417Q291 370 288 353T271 314Q240 271 184 255L170 250L184 245Q202 239 220 230T262 196T290 137Q291 131 291 1Q291 -134 296 -147Q306 -174 339 -192T415 -213Q429 -213 431 -216Q434 -219 434 -231Z"/>
-<path stroke-width="1" id="E1-MJMAIN-7D" d="M65 731Q65 745 68 747T88 750Q171 750 216 725T279 670Q288 649 289 635T291 501Q292 362 293 357Q306 312 345 291T417 269Q428 269 431 266T434 250T431 234T417 231Q380 231 345 210T298 157Q293 143 292 121T291 -28V-79Q291 -134 285 -156T256 -198Q202 -250 89 -250Q71 -250 68 -247T65 -230Q65 -224 65 -223T66 -218T69 -214T77 -213Q91 -213 108 -210T146 -200T183 -177T207 -139Q208 -134 209 3L210 139Q223 196 280 230Q315 247 330 250Q305 257 280 270Q225 304 212 352L210 362L209 498Q208 635 207 640Q195 680 154 696T77 713Q68 713 67 716T65 731Z"/>
-<path stroke-width="1" id="E1-MJSZ4-23A7" d="M712 899L718 893V876V865Q718 854 704 846Q627 793 577 710T510 525Q510 524 509 521Q505 493 504 349Q504 345 504 334Q504 277 504 240Q504 -2 503 -4Q502 -8 494 -9T444 -10Q392 -10 390 -9Q387 -8 386 -5Q384 5 384 230Q384 262 384 312T383 382Q383 481 392 535T434 656Q510 806 664 892L677 899H712Z"/>
-<path stroke-width="1" id="E1-MJSZ4-23A9" d="M718 -893L712 -899H677L666 -893Q542 -825 468 -714T385 -476Q384 -466 384 -282Q384 3 385 5L389 9Q392 10 444 10Q486 10 494 9T503 4Q504 2 504 -239V-310V-366Q504 -470 508 -513T530 -609Q546 -657 569 -698T617 -767T661 -812T699 -843T717 -856T718 -876V-893Z"/>
-<path stroke-width="1" id="E1-MJSZ4-23A8" d="M389 1159Q391 1160 455 1160Q496 1160 498 1159Q501 1158 502 1155Q504 1145 504 924Q504 691 503 682Q494 549 425 439T243 259L229 250L243 241Q349 175 421 66T503 -182Q504 -191 504 -424Q504 -600 504 -629T499 -659H498Q496 -660 444 -660T390 -659Q387 -658 386 -655Q384 -645 384 -425V-282Q384 -176 377 -116T342 10Q325 54 301 92T255 155T214 196T183 222T171 232Q170 233 170 250T171 268Q171 269 191 284T240 331T300 407T354 524T383 679Q384 691 384 925Q384 1152 385 1155L389 1159Z"/>
-<path stroke-width="1" id="E1-MJSZ4-23AA" d="M384 150V266Q384 304 389 309Q391 310 455 310Q496 310 498 309Q502 308 503 298Q504 283 504 150Q504 32 504 12T499 -9H498Q496 -10 444 -10T390 -9Q386 -8 385 2Q384 17 384 150Z"/>
-<path stroke-width="1" id="E1-MJSZ4-23AB" d="M170 875Q170 892 172 895T189 899H194H211L222 893Q345 826 420 715T503 476Q504 467 504 230Q504 51 504 21T499 -9H498Q496 -10 444 -10Q402 -10 394 -9T385 -4Q384 -2 384 240V311V366Q384 469 380 513T358 609Q342 657 319 698T271 767T227 812T189 843T171 856T170 875Z"/>
-<path stroke-width="1" id="E1-MJSZ4-23AD" d="M384 -239V-57Q384 4 389 9Q391 10 455 10Q496 10 498 9Q501 8 502 5Q504 -5 504 -230Q504 -261 504 -311T505 -381Q505 -486 492 -551T435 -691Q357 -820 222 -893L211 -899H195Q176 -899 173 -896T170 -874Q170 -858 171 -855T184 -846Q262 -793 312 -709T378 -525Q378 -524 379 -522Q383 -493 384 -351Q384 -345 384 -334Q384 -276 384 -239Z"/>
-<path stroke-width="1" id="E1-MJSZ4-23AC" d="M389 1159Q391 1160 455 1160Q496 1160 498 1159Q501 1158 502 1155Q504 1145 504 925V782Q504 676 511 616T546 490Q563 446 587 408T633 345T674 304T705 278T717 268Q718 267 718 250T717 232Q717 231 697 216T648 169T588 93T534 -24T505 -179Q504 -191 504 -425Q504 -600 504 -629T499 -659H498Q496 -660 444 -660T390 -659Q387 -658 386 -655Q384 -645 384 -424Q384 -191 385 -182Q394 -49 463 61T645 241L659 250L645 259Q539 325 467 434T385 682Q384 692 384 873Q384 1153 385 1155L389 1159Z"/>
-<path stroke-width="1" id="E1-MJMAIN-7C" d="M139 -249H137Q125 -249 119 -235V251L120 737Q130 750 139 750Q152 750 159 735V-235Q151 -249 141 -249H139Z"/>
-<path stroke-width="1" id="E1-MJMATHI-61" d="M33 157Q33 258 109 349T280 441Q331 441 370 392Q386 422 416 422Q429 422 439 414T449 394Q449 381 412 234T374 68Q374 43 381 35T402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487Q506 153 506 144Q506 138 501 117T481 63T449 13Q436 0 417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157ZM351 328Q351 334 346 350T323 385T277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q217 26 254 59T298 110Q300 114 325 217T351 328Z"/>
-<path stroke-width="1" id="E1-MJMATHI-62" d="M73 647Q73 657 77 670T89 683Q90 683 161 688T234 694Q246 694 246 685T212 542Q204 508 195 472T180 418L176 399Q176 396 182 402Q231 442 283 442Q345 442 383 396T422 280Q422 169 343 79T173 -11Q123 -11 82 27T40 150V159Q40 180 48 217T97 414Q147 611 147 623T109 637Q104 637 101 637H96Q86 637 83 637T76 640T73 647ZM336 325V331Q336 405 275 405Q258 405 240 397T207 376T181 352T163 330L157 322L136 236Q114 150 114 114Q114 66 138 42Q154 26 178 26Q211 26 245 58Q270 81 285 114T318 219Q336 291 336 325Z"/>
-<path stroke-width="1" id="E1-MJMATHI-63" d="M34 159Q34 268 120 355T306 442Q362 442 394 418T427 355Q427 326 408 306T360 285Q341 285 330 295T319 325T330 359T352 380T366 386H367Q367 388 361 392T340 400T306 404Q276 404 249 390Q228 381 206 359Q162 315 142 235T121 119Q121 73 147 50Q169 26 205 26H209Q321 26 394 111Q403 121 406 121Q410 121 419 112T429 98T420 83T391 55T346 25T282 0T202 -11Q127 -11 81 37T34 159Z"/>
-<path stroke-width="1" id="E1-MJMATHI-64" d="M366 683Q367 683 438 688T511 694Q523 694 523 686Q523 679 450 384T375 83T374 68Q374 26 402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487H491Q506 153 506 145Q506 140 503 129Q490 79 473 48T445 8T417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157Q33 205 53 255T101 341Q148 398 195 420T280 442Q336 442 364 400Q369 394 369 396Q370 400 396 505T424 616Q424 629 417 632T378 637H357Q351 643 351 645T353 664Q358 683 366 683ZM352 326Q329 405 277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q233 26 290 98L298 109L352 326Z"/>
-<path stroke-width="1" id="E1-MJMAIN-2223" d="M139 -249H137Q125 -249 119 -235V251L120 737Q130 750 139 750Q152 750 159 735V-235Q151 -249 141 -249H139Z"/>
-</defs>
-<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)">
-<g transform="translate(167,0)">
-<g transform="translate(-11,0)">
-<g transform="translate(167,0)">
-<g transform="translate(-11,0)">
- <use xlink:href="#E1-MJMAIN-30" x="0" y="1350"/>
- <use xlink:href="#E1-MJMAIN-31" x="0" y="-1450"/>
-</g>
-<g transform="translate(1490,0)">
- <use xlink:href="#E1-MJMAIN-31" x="0" y="1350"/>
- <use xlink:href="#E1-MJMAIN-30" x="0" y="-1450"/>
-</g>
-</g>
-<g transform="translate(3741,0)">
-<g transform="translate(0,2150)">
- <use xlink:href="#E1-MJSZ4-239B" x="0" y="-1156"/>
-<g transform="translate(0,-2033.6645264847511) scale(1,0.4446227929373997)">
- <use xlink:href="#E1-MJSZ4-239C"/>
-</g>
- <use xlink:href="#E1-MJSZ4-239D" x="0" y="-3155"/>
-</g>
-<g transform="translate(1042,0)">
-<g transform="translate(-11,0)">
- <use xlink:href="#E1-MJMAIN-30" x="0" y="1350"/>
- <use xlink:href="#E1-MJMATHI-69" x="77" y="-1450"/>
-</g>
-<g transform="translate(1490,0)">
-<g transform="translate(0,1350)">
- <use xlink:href="#E1-MJMAIN-2212" x="0" y="0"/>
- <use xlink:href="#E1-MJMATHI-69" x="778" y="0"/>
-</g>
- <use xlink:href="#E1-MJMAIN-30" x="311" y="-1450"/>
-</g>
-</g>
-<g transform="translate(3823,2150)">
- <use xlink:href="#E1-MJSZ4-239E" x="0" y="-1155"/>
-<g transform="translate(0,-2033.645264847512) scale(1,0.4462279293739968)">
- <use xlink:href="#E1-MJSZ4-239F"/>
-</g>
- <use xlink:href="#E1-MJSZ4-23A0" x="0" y="-3155"/>
-</g>
-</g>
-<g transform="translate(9023,0)">
-<g transform="translate(0,2150)">
- <use xlink:href="#E1-MJSZ4-23A1" x="0" y="-1155"/>
-<g transform="translate(0,-2048.5066225165565) scale(1,0.49337748344370863)">
- <use xlink:href="#E1-MJSZ4-23A2"/>
-</g>
- <use xlink:href="#E1-MJSZ4-23A3" x="0" y="-3155"/>
-</g>
-<g transform="translate(834,0)">
-<g transform="translate(-11,0)">
- <use xlink:href="#E1-MJMAIN-30" x="0" y="1350"/>
- <use xlink:href="#E1-MJMAIN-31" x="0" y="-1450"/>
-</g>
-<g transform="translate(1490,0)">
-<g transform="translate(0,1350)">
- <use xlink:href="#E1-MJMAIN-2212" x="0" y="0"/>
- <use xlink:href="#E1-MJMAIN-31" x="778" y="0"/>
-</g>
- <use xlink:href="#E1-MJMAIN-30" x="389" y="-1450"/>
-</g>
-</g>
-<g transform="translate(3770,2150)">
- <use xlink:href="#E1-MJSZ4-23A4" x="0" y="-1155"/>
-<g transform="translate(0,-2048.5066225165565) scale(1,0.49337748344370863)">
- <use xlink:href="#E1-MJSZ4-23A5"/>
-</g>
- <use xlink:href="#E1-MJSZ4-23A6" x="0" y="-3155"/>
-</g>
-</g>
-<g transform="translate(14044,0)">
-<g transform="translate(0,2150)">
- <use xlink:href="#E1-MJSZ4-23A7" x="0" y="-900"/>
-<g transform="translate(0,-1032.9192546583852) scale(1,0.5527950310559007)">
- <use xlink:href="#E1-MJSZ4-23AA"/>
-</g>
- <use xlink:href="#E1-MJSZ4-23A8" x="0" y="-2150"/>
-<g transform="translate(0,-2932.919254658385) scale(1,0.5527950310559007)">
- <use xlink:href="#E1-MJSZ4-23AA"/>
-</g>
- <use xlink:href="#E1-MJSZ4-23A9" x="0" y="-2900"/>
-</g>
-<g transform="translate(1056,0)">
-<g transform="translate(-11,0)">
- <use xlink:href="#E1-MJMAIN-31" x="0" y="1350"/>
- <use xlink:href="#E1-MJMAIN-30" x="0" y="-1450"/>
-</g>
-<g transform="translate(1490,0)">
- <use xlink:href="#E1-MJMAIN-30" x="389" y="1350"/>
-<g transform="translate(0,-1450)">
- <use xlink:href="#E1-MJMAIN-2212" x="0" y="0"/>
- <use xlink:href="#E1-MJMAIN-31" x="778" y="0"/>
-</g>
-</g>
-</g>
-<g transform="translate(3992,2150)">
- <use xlink:href="#E1-MJSZ4-23AB" x="0" y="-900"/>
-<g transform="translate(0,-1032.9192546583852) scale(1,0.5527950310559007)">
- <use xlink:href="#E1-MJSZ4-23AA"/>
-</g>
- <use xlink:href="#E1-MJSZ4-23AC" x="0" y="-2150"/>
-<g transform="translate(0,-2932.919254658385) scale(1,0.5527950310559007)">
- <use xlink:href="#E1-MJSZ4-23AA"/>
-</g>
- <use xlink:href="#E1-MJSZ4-23AD" x="0" y="-2900"/>
-</g>
-</g>
-<g transform="translate(19510,0)">
-<g transform="translate(0,2150)">
- <use xlink:href="#E1-MJMAIN-2223" x="0" y="-751"/>
-<g transform="translate(0,-2374.9740259740256) scale(1,1.896103896103896)">
- <use xlink:href="#E1-MJMAIN-2223"/>
-</g>
- <use xlink:href="#E1-MJMAIN-2223" x="0" y="-3550"/>
-</g>
-<g transform="translate(445,0)">
-<g transform="translate(-11,0)">
- <use xlink:href="#E1-MJMATHI-61" x="0" y="1350"/>
- <use xlink:href="#E1-MJMATHI-63" x="48" y="-1450"/>
-</g>
-<g transform="translate(1519,0)">
- <use xlink:href="#E1-MJMATHI-62" x="47" y="1350"/>
- <use xlink:href="#E1-MJMATHI-64" x="0" y="-1450"/>
-</g>
-</g>
-<g transform="translate(2655,2150)">
- <use xlink:href="#E1-MJMAIN-2223" x="0" y="-751"/>
-<g transform="translate(0,-2374.9740259740256) scale(1,1.896103896103896)">
- <use xlink:href="#E1-MJMAIN-2223"/>
-</g>
- <use xlink:href="#E1-MJMAIN-2223" x="0" y="-3550"/>
-</g>
-</g>
-</g>
-</g>
-</g>
-</svg></div><p>简而言之，矩阵是一坨数</p>
-<h2 id="矩阵乘法"><a href="#矩阵乘法" class="headerlink" title="矩阵乘法"></a>矩阵乘法</h2><p>对于两个大小为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi><mo>×</mo><mi>M</mi></mrow><annotation encoding="application/x-tex">N \times M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">N</span><span class="mbin">×</span><span class="mord mathit" style="margin-right:0.10903em;">M</span></span></span></span>和<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi><mo>×</mo><mi>N</mi></mrow><annotation encoding="application/x-tex">P \times N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mbin">×</span><span class="mord mathit" style="margin-right:0.10903em;">N</span></span></span></span>的矩阵<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mo separator="true">,</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">A,B</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit">A</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05017em;">B</span></span></span></span>，他们相乘后的结果矩阵<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>C</mi></mrow><annotation encoding="application/x-tex">C</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.07153em;">C</span></span></span></span>是一个大小为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>M</mi><mo>×</mo><mi>P</mi></mrow><annotation encoding="application/x-tex">M \times P</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">M</span><span class="mbin">×</span><span class="mord mathit" style="margin-right:0.13889em;">P</span></span></span></span>的矩阵。
-对于矩阵<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>C</mi></mrow><annotation encoding="application/x-tex">C</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.07153em;">C</span></span></span></span>的每一位<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>C</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub></mrow><annotation encoding="application/x-tex">C_{i,j}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.07153em;">C</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.07153em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>，有:</p>
-<span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>C</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub><mo>=</mo><msubsup><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mrow><mi>N</mi></mrow></msubsup><msub><mi>A</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>k</mi></mrow></msub><mo>×</mo><msub><mi>B</mi><mrow><mi>k</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub></mrow><annotation encoding="application/x-tex">
-C_{i,j} = \sum\limits_{k = 1}^{N} A_{i,k} \times B_{k,j}
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.8283360000000002em;"></span><span class="strut bottom" style="height:3.1304490000000005em;vertical-align:-1.302113em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.07153em;">C</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.07153em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">=</span><span class="mop op-limits"><span class="vlist"><span style="top:1.202113em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span><span class="mrel">=</span><span class="mord mathrm">1</span></span></span></span><span style="top:-0.000005000000000032756em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span><span class="op-symbol large-op mop">∑</span></span></span><span style="top:-1.250005em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">N</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mord"><span class="mord mathit">A</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">×</span><span class="mord"><span class="mord mathit" style="margin-right:0.05017em;">B</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.05017em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span></span><h1 id="矩阵优化递推"><a href="#矩阵优化递推" class="headerlink" title="矩阵优化递推"></a>矩阵优化递推</h1><blockquote>
-<p>团长并不知道这种玄学方法的由来，只知道我们可以用这种技巧来转移</p>
-</blockquote>
-<div style="text-align: center; "><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="29.257ex" height="9.509ex" style="vertical-align: -4.171ex;" viewbox="0 -2298.3 12596.9 4094.3" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<path stroke-width="1" id="E1-MJMAIN-5B" d="M118 -250V750H255V710H158V-210H255V-250H118Z"/>
-<path stroke-width="1" id="E1-MJMAIN-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"/>
-<path stroke-width="1" id="E1-MJMAIN-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"/>
-<path stroke-width="1" id="E1-MJMAIN-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"/>
-<path stroke-width="1" id="E1-MJMAIN-5D" d="M22 710V750H159V-250H22V-210H119V710H22Z"/>
-<path stroke-width="1" id="E1-MJSZ4-23A1" d="M319 -645V1154H666V1070H403V-645H319Z"/>
-<path stroke-width="1" id="E1-MJSZ4-23A3" d="M319 -644V1155H403V-560H666V-644H319Z"/>
-<path stroke-width="1" id="E1-MJSZ4-23A2" d="M319 0V602H403V0H319Z"/>
-<path stroke-width="1" id="E1-MJSZ4-23A4" d="M0 1070V1154H347V-645H263V1070H0Z"/>
-<path stroke-width="1" id="E1-MJSZ4-23A6" d="M263 -560V1155H347V-644H0V-560H263Z"/>
-<path stroke-width="1" id="E1-MJSZ4-23A5" d="M263 0V602H347V0H263Z"/>
-<path stroke-width="1" id="E1-MJMAIN-D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"/>
-<path stroke-width="1" id="E1-MJMATHI-66" d="M118 -162Q120 -162 124 -164T135 -167T147 -168Q160 -168 171 -155T187 -126Q197 -99 221 27T267 267T289 382V385H242Q195 385 192 387Q188 390 188 397L195 425Q197 430 203 430T250 431Q298 431 298 432Q298 434 307 482T319 540Q356 705 465 705Q502 703 526 683T550 630Q550 594 529 578T487 561Q443 561 443 603Q443 622 454 636T478 657L487 662Q471 668 457 668Q445 668 434 658T419 630Q412 601 403 552T387 469T380 433Q380 431 435 431Q480 431 487 430T498 424Q499 420 496 407T491 391Q489 386 482 386T428 385H372L349 263Q301 15 282 -47Q255 -132 212 -173Q175 -205 139 -205Q107 -205 81 -186T55 -132Q55 -95 76 -78T118 -61Q162 -61 162 -103Q162 -122 151 -136T127 -157L118 -162Z"/>
-<path stroke-width="1" id="E1-MJMAIN-28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"/>
-<path stroke-width="1" id="E1-MJMATHI-69" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"/>
-<path stroke-width="1" id="E1-MJMAIN-2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"/>
-<path stroke-width="1" id="E1-MJMAIN-29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"/>
-</defs>
-<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)">
-<g transform="translate(167,0)">
-<g transform="translate(-11,0)">
-<g transform="translate(0,2150)">
- <use xlink:href="#E1-MJSZ4-23A1" x="0" y="-1155"/>
-<g transform="translate(0,-2048.5066225165565) scale(1,0.49337748344370863)">
- <use xlink:href="#E1-MJSZ4-23A2"/>
-</g>
- <use xlink:href="#E1-MJSZ4-23A3" x="0" y="-3155"/>
-</g>
-<g transform="translate(834,0)">
-<g transform="translate(-11,0)">
- <use xlink:href="#E1-MJMAIN-30" x="0" y="1350"/>
- <use xlink:href="#E1-MJMAIN-31" x="0" y="-1450"/>
-</g>
-<g transform="translate(1490,0)">
- <use xlink:href="#E1-MJMAIN-31" x="0" y="1350"/>
- <use xlink:href="#E1-MJMAIN-32" x="0" y="-1450"/>
-</g>
-</g>
-<g transform="translate(2992,2150)">
- <use xlink:href="#E1-MJSZ4-23A4" x="0" y="-1155"/>
-<g transform="translate(0,-2048.5066225165565) scale(1,0.49337748344370863)">
- <use xlink:href="#E1-MJSZ4-23A5"/>
-</g>
- <use xlink:href="#E1-MJSZ4-23A6" x="0" y="-3155"/>
-</g>
- <use xlink:href="#E1-MJMAIN-D7" x="4298" y="0"/>
-<g transform="translate(5299,0)">
-<g transform="translate(0,2201)">
- <use xlink:href="#E1-MJSZ4-23A1" x="0" y="-1155"/>
-<g transform="translate(0,-2150.337748344371) scale(1,0.6622516556291391)">
- <use xlink:href="#E1-MJSZ4-23A2"/>
-</g>
- <use xlink:href="#E1-MJSZ4-23A3" x="0" y="-3257"/>
-</g>
-<g transform="translate(834,0)">
-<g transform="translate(-11,0)">
-<g transform="translate(0,1401)">
- <use xlink:href="#E1-MJMATHI-66" x="0" y="0"/>
- <use xlink:href="#E1-MJMAIN-28" x="550" y="0"/>
- <use xlink:href="#E1-MJMATHI-69" x="940" y="0"/>
- <use xlink:href="#E1-MJMAIN-2212" x="1507" y="0"/>
- <use xlink:href="#E1-MJMAIN-32" x="2508" y="0"/>
- <use xlink:href="#E1-MJMAIN-29" x="3008" y="0"/>
-</g>
-<g transform="translate(0,-1450)">
- <use xlink:href="#E1-MJMATHI-66" x="0" y="0"/>
- <use xlink:href="#E1-MJMAIN-28" x="550" y="0"/>
- <use xlink:href="#E1-MJMATHI-69" x="940" y="0"/>
- <use xlink:href="#E1-MJMAIN-2212" x="1507" y="0"/>
- <use xlink:href="#E1-MJMAIN-31" x="2508" y="0"/>
- <use xlink:href="#E1-MJMAIN-29" x="3008" y="0"/>
-</g>
-</g>
-<g transform="translate(4387,0)">
- <use xlink:href="#E1-MJMAIN-30" x="0" y="1401"/>
- <use xlink:href="#E1-MJMAIN-30" x="0" y="-1450"/>
-</g>
-</g>
-<g transform="translate(5889,2201)">
- <use xlink:href="#E1-MJSZ4-23A4" x="0" y="-1155"/>
-<g transform="translate(0,-2150.337748344371) scale(1,0.6622516556291391)">
- <use xlink:href="#E1-MJSZ4-23A5"/>
-</g>
- <use xlink:href="#E1-MJSZ4-23A6" x="0" y="-3257"/>
-</g>
-</g>
-</g>
-</g>
-</g>
-</svg></div><p>这样相乘以后的结果:</p>
-<div style="text-align: center; "><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16.198ex" height="9.509ex" style="vertical-align: -4.171ex;" viewbox="0 -2298.3 6974.2 4094.3" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<path stroke-width="1" id="E1-MJMAIN-5B" d="M118 -250V750H255V710H158V-210H255V-250H118Z"/>
-<path stroke-width="1" id="E1-MJMATHI-66" d="M118 -162Q120 -162 124 -164T135 -167T147 -168Q160 -168 171 -155T187 -126Q197 -99 221 27T267 267T289 382V385H242Q195 385 192 387Q188 390 188 397L195 425Q197 430 203 430T250 431Q298 431 298 432Q298 434 307 482T319 540Q356 705 465 705Q502 703 526 683T550 630Q550 594 529 578T487 561Q443 561 443 603Q443 622 454 636T478 657L487 662Q471 668 457 668Q445 668 434 658T419 630Q412 601 403 552T387 469T380 433Q380 431 435 431Q480 431 487 430T498 424Q499 420 496 407T491 391Q489 386 482 386T428 385H372L349 263Q301 15 282 -47Q255 -132 212 -173Q175 -205 139 -205Q107 -205 81 -186T55 -132Q55 -95 76 -78T118 -61Q162 -61 162 -103Q162 -122 151 -136T127 -157L118 -162Z"/>
-<path stroke-width="1" id="E1-MJMAIN-28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"/>
-<path stroke-width="1" id="E1-MJMATHI-69" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"/>
-<path stroke-width="1" id="E1-MJMAIN-2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"/>
-<path stroke-width="1" id="E1-MJMAIN-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"/>
-<path stroke-width="1" id="E1-MJMAIN-29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"/>
-<path stroke-width="1" id="E1-MJMAIN-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"/>
-<path stroke-width="1" id="E1-MJMAIN-5D" d="M22 710V750H159V-250H22V-210H119V710H22Z"/>
-<path stroke-width="1" id="E1-MJSZ4-23A1" d="M319 -645V1154H666V1070H403V-645H319Z"/>
-<path stroke-width="1" id="E1-MJSZ4-23A3" d="M319 -644V1155H403V-560H666V-644H319Z"/>
-<path stroke-width="1" id="E1-MJSZ4-23A2" d="M319 0V602H403V0H319Z"/>
-<path stroke-width="1" id="E1-MJSZ4-23A4" d="M0 1070V1154H347V-645H263V1070H0Z"/>
-<path stroke-width="1" id="E1-MJSZ4-23A6" d="M263 -560V1155H347V-644H0V-560H263Z"/>
-<path stroke-width="1" id="E1-MJSZ4-23A5" d="M263 0V602H347V0H263Z"/>
-</defs>
-<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)">
-<g transform="translate(0,2201)">
- <use xlink:href="#E1-MJSZ4-23A1" x="0" y="-1155"/>
-<g transform="translate(0,-2150.337748344371) scale(1,0.6622516556291391)">
- <use xlink:href="#E1-MJSZ4-23A2"/>
-</g>
- <use xlink:href="#E1-MJSZ4-23A3" x="0" y="-3257"/>
-</g>
-<g transform="translate(834,0)">
-<g transform="translate(-11,0)">
-<g transform="translate(0,1401)">
- <use xlink:href="#E1-MJMATHI-66" x="0" y="0"/>
- <use xlink:href="#E1-MJMAIN-28" x="550" y="0"/>
- <use xlink:href="#E1-MJMATHI-69" x="940" y="0"/>
- <use xlink:href="#E1-MJMAIN-2212" x="1507" y="0"/>
- <use xlink:href="#E1-MJMAIN-31" x="2508" y="0"/>
- <use xlink:href="#E1-MJMAIN-29" x="3008" y="0"/>
-</g>
-<g transform="translate(861,-1450)">
- <use xlink:href="#E1-MJMATHI-66" x="0" y="0"/>
- <use xlink:href="#E1-MJMAIN-28" x="550" y="0"/>
- <use xlink:href="#E1-MJMATHI-69" x="940" y="0"/>
- <use xlink:href="#E1-MJMAIN-29" x="1285" y="0"/>
-</g>
-</g>
-<g transform="translate(4387,0)">
- <use xlink:href="#E1-MJMAIN-30" x="0" y="1401"/>
- <use xlink:href="#E1-MJMAIN-30" x="0" y="-1450"/>
-</g>
-</g>
-<g transform="translate(5889,2201)">
- <use xlink:href="#E1-MJSZ4-23A4" x="0" y="-1155"/>
-<g transform="translate(0,-2150.337748344371) scale(1,0.6622516556291391)">
- <use xlink:href="#E1-MJSZ4-23A5"/>
-</g>
- <use xlink:href="#E1-MJSZ4-23A6" x="0" y="-3257"/>
-</g>
-</g>
-</svg></div><p>也就是说我们可以通过矩阵相乘的方式来求出某递推公式的某一项，即:</p>
-<div style="text-align: center; "><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="48.435ex" height="9.843ex" style="vertical-align: -4.338ex;" viewbox="0 -2370 20854 4237.8" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<path stroke-width="1" id="E1-MJMAIN-5B" d="M118 -250V750H255V710H158V-210H255V-250H118Z"/>
-<path stroke-width="1" id="E1-MJMATHI-66" d="M118 -162Q120 -162 124 -164T135 -167T147 -168Q160 -168 171 -155T187 -126Q197 -99 221 27T267 267T289 382V385H242Q195 385 192 387Q188 390 188 397L195 425Q197 430 203 430T250 431Q298 431 298 432Q298 434 307 482T319 540Q356 705 465 705Q502 703 526 683T550 630Q550 594 529 578T487 561Q443 561 443 603Q443 622 454 636T478 657L487 662Q471 668 457 668Q445 668 434 658T419 630Q412 601 403 552T387 469T380 433Q380 431 435 431Q480 431 487 430T498 424Q499 420 496 407T491 391Q489 386 482 386T428 385H372L349 263Q301 15 282 -47Q255 -132 212 -173Q175 -205 139 -205Q107 -205 81 -186T55 -132Q55 -95 76 -78T118 -61Q162 -61 162 -103Q162 -122 151 -136T127 -157L118 -162Z"/>
-<path stroke-width="1" id="E1-MJMAIN-28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"/>
-<path stroke-width="1" id="E1-MJMAIN-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"/>
-<path stroke-width="1" id="E1-MJMAIN-29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"/>
-<path stroke-width="1" id="E1-MJMAIN-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"/>
-<path stroke-width="1" id="E1-MJMAIN-5D" d="M22 710V750H159V-250H22V-210H119V710H22Z"/>
-<path stroke-width="1" id="E1-MJSZ4-23A1" d="M319 -645V1154H666V1070H403V-645H319Z"/>
-<path stroke-width="1" id="E1-MJSZ4-23A3" d="M319 -644V1155H403V-560H666V-644H319Z"/>
-<path stroke-width="1" id="E1-MJSZ4-23A2" d="M319 0V602H403V0H319Z"/>
-<path stroke-width="1" id="E1-MJSZ4-23A4" d="M0 1070V1154H347V-645H263V1070H0Z"/>
-<path stroke-width="1" id="E1-MJSZ4-23A6" d="M263 -560V1155H347V-644H0V-560H263Z"/>
-<path stroke-width="1" id="E1-MJSZ4-23A5" d="M263 0V602H347V0H263Z"/>
-<path stroke-width="1" id="E1-MJMAIN-D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"/>
-<path stroke-width="1" id="E1-MJMAIN-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"/>
-<path stroke-width="1" id="E1-MJMATHI-6E" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"/>
-<path stroke-width="1" id="E1-MJMAIN-2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"/>
-<path stroke-width="1" id="E1-MJMAIN-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"/>
-</defs>
-<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)">
-<g transform="translate(167,0)">
-<g transform="translate(-11,0)">
-<g transform="translate(0,-74)">
-<g transform="translate(0,2201)">
- <use xlink:href="#E1-MJSZ4-23A1" x="0" y="-1155"/>
-<g transform="translate(0,-2150.337748344371) scale(1,0.6622516556291391)">
- <use xlink:href="#E1-MJSZ4-23A2"/>
-</g>
- <use xlink:href="#E1-MJSZ4-23A3" x="0" y="-3257"/>
-</g>
-<g transform="translate(834,0)">
-<g transform="translate(-11,0)">
-<g transform="translate(0,1401)">
- <use xlink:href="#E1-MJMATHI-66" x="0" y="0"/>
- <use xlink:href="#E1-MJMAIN-28" x="550" y="0"/>
- <use xlink:href="#E1-MJMAIN-30" x="940" y="0"/>
- <use xlink:href="#E1-MJMAIN-29" x="1440" y="0"/>
-</g>
-<g transform="translate(0,-1450)">
- <use xlink:href="#E1-MJMATHI-66" x="0" y="0"/>
- <use xlink:href="#E1-MJMAIN-28" x="550" y="0"/>
- <use xlink:href="#E1-MJMAIN-31" x="940" y="0"/>
- <use xlink:href="#E1-MJMAIN-29" x="1440" y="0"/>
-</g>
-</g>
-<g transform="translate(2819,0)">
- <use xlink:href="#E1-MJMAIN-30" x="0" y="1401"/>
- <use xlink:href="#E1-MJMAIN-30" x="0" y="-1450"/>
-</g>
-</g>
-<g transform="translate(4321,2201)">
- <use xlink:href="#E1-MJSZ4-23A4" x="0" y="-1155"/>
-<g transform="translate(0,-2150.337748344371) scale(1,0.6622516556291391)">
- <use xlink:href="#E1-MJSZ4-23A5"/>
-</g>
- <use xlink:href="#E1-MJSZ4-23A6" x="0" y="-3257"/>
-</g>
- <use xlink:href="#E1-MJMAIN-D7" x="5627" y="0"/>
-<g transform="translate(6628,0)">
-<g transform="translate(0,2150)">
- <use xlink:href="#E1-MJSZ4-23A1" x="0" y="-1155"/>
-<g transform="translate(0,-2048.5066225165565) scale(1,0.49337748344370863)">
- <use xlink:href="#E1-MJSZ4-23A2"/>
-</g>
- <use xlink:href="#E1-MJSZ4-23A3" x="0" y="-3155"/>
-</g>
-<g transform="translate(834,0)">
-<g transform="translate(-11,0)">
- <use xlink:href="#E1-MJMAIN-30" x="0" y="1350"/>
- <use xlink:href="#E1-MJMAIN-31" x="0" y="-1450"/>
-</g>
-<g transform="translate(1490,0)">
- <use xlink:href="#E1-MJMAIN-31" x="0" y="1350"/>
- <use xlink:href="#E1-MJMAIN-32" x="0" y="-1450"/>
-</g>
-</g>
-<g transform="translate(2992,2150)">
- <use xlink:href="#E1-MJSZ4-23A4" x="0" y="-1155"/>
-<g transform="translate(0,-2048.5066225165565) scale(1,0.49337748344370863)">
- <use xlink:href="#E1-MJSZ4-23A5"/>
-</g>
- <use xlink:href="#E1-MJSZ4-23A6" x="0" y="-3155"/>
-</g>
-<g transform="translate(3659,1876)">
- <use transform="scale(0.707)" xlink:href="#E1-MJMATHI-6E" x="0" y="0"/>
- <use transform="scale(0.707)" xlink:href="#E1-MJMAIN-2212" x="600" y="0"/>
- <use transform="scale(0.707)" xlink:href="#E1-MJMAIN-31" x="1379" y="0"/>
-</g>
-</g>
-</g>
-</g>
-</g>
- <use xlink:href="#E1-MJMAIN-3D" x="12568" y="0"/>
-<g transform="translate(13624,0)">
-<g transform="translate(0,2201)">
- <use xlink:href="#E1-MJSZ4-23A1" x="0" y="-1155"/>
-<g transform="translate(0,-2150.337748344371) scale(1,0.6622516556291391)">
- <use xlink:href="#E1-MJSZ4-23A2"/>
-</g>
- <use xlink:href="#E1-MJSZ4-23A3" x="0" y="-3257"/>
-</g>
-<g transform="translate(834,0)">
-<g transform="translate(-11,0)">
-<g transform="translate(0,1401)">
- <use xlink:href="#E1-MJMATHI-66" x="0" y="0"/>
- <use xlink:href="#E1-MJMAIN-28" x="550" y="0"/>
- <use xlink:href="#E1-MJMATHI-6E" x="940" y="0"/>
- <use xlink:href="#E1-MJMAIN-2212" x="1762" y="0"/>
- <use xlink:href="#E1-MJMAIN-31" x="2763" y="0"/>
- <use xlink:href="#E1-MJMAIN-29" x="3263" y="0"/>
-</g>
-<g transform="translate(861,-1450)">
- <use xlink:href="#E1-MJMATHI-66" x="0" y="0"/>
- <use xlink:href="#E1-MJMAIN-28" x="550" y="0"/>
- <use xlink:href="#E1-MJMATHI-6E" x="940" y="0"/>
- <use xlink:href="#E1-MJMAIN-29" x="1540" y="0"/>
-</g>
-</g>
-<g transform="translate(4642,0)">
- <use xlink:href="#E1-MJMAIN-30" x="0" y="1401"/>
- <use xlink:href="#E1-MJMAIN-30" x="0" y="-1450"/>
-</g>
-</g>
-<g transform="translate(6144,2201)">
- <use xlink:href="#E1-MJSZ4-23A4" x="0" y="-1155"/>
-<g transform="translate(0,-2150.337748344371) scale(1,0.6622516556291391)">
- <use xlink:href="#E1-MJSZ4-23A5"/>
-</g>
- <use xlink:href="#E1-MJSZ4-23A6" x="0" y="-3257"/>
-</g>
-</g>
-</g>
-</svg></div><h2 id="如何优化"><a href="#如何优化" class="headerlink" title="如何优化"></a>如何优化</h2><ul>
-<li>矩阵满足结合律
-既然如此，我们就可以出动大杀器，<strong>快速幂</strong>，这样就可以在<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>l</mi><mi>o</mi><mi>g</mi><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(logn)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mord mathit">o</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mord mathit">n</span><span class="mclose">)</span></span></span></span>的时间内求得递推公式的某一项了。</li>
-</ul>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1e9</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> mo = <span class="number">1e9</span> + <span class="number">7</span>;</div><div class="line"></div><div class="line"><span class="keyword">struct</span> Mat &#123;</div><div class="line">    <span class="keyword">long</span> <span class="keyword">long</span> a[<span class="number">2</span>][<span class="number">2</span>];</div><div class="line"></div><div class="line">    Mat (<span class="keyword">const</span> <span class="keyword">bool</span> unit = <span class="literal">false</span>) &#123; <span class="comment">//构造函数，初始化矩阵值</span></div><div class="line">        <span class="built_in">memset</span>(a, <span class="number">0</span>, <span class="keyword">sizeof</span>(a));</div><div class="line">        <span class="keyword">if</span> (unit) <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">2</span>; i++) a[i][i] = i;<span class="comment">//此处矩阵用于快速幂中作为单位矩阵承载答案</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">long</span> <span class="keyword">long</span> &amp;<span class="title">operator</span><span class="params">()</span><span class="params">(<span class="keyword">const</span> <span class="keyword">int</span> i, <span class="keyword">const</span> <span class="keyword">int</span> j = <span class="number">0</span>)</span></span></div><div class="line">        &#123; <span class="keyword">return</span> a[i][j]; &#125;</div><div class="line">    <span class="function"><span class="keyword">const</span> <span class="keyword">long</span> <span class="keyword">long</span> &amp;<span class="title">operator</span><span class="params">()</span><span class="params">(<span class="keyword">const</span> <span class="keyword">int</span> i, <span class="keyword">const</span> <span class="keyword">int</span> j = <span class="number">0</span>)</span></span></div><div class="line">        <span class="keyword">const</span> &#123; <span class="keyword">return</span> a[i][j]; &#125; <span class="comment">//重载运算符并引用，快速取得并修改某矩阵的值</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line">Mat <span class="keyword">operator</span>*(<span class="keyword">const</span> Mat &amp;a, <span class="keyword">const</span> Mat &amp;b) &#123; <span class="comment">//重载运算符，矩阵乘法</span></div><div class="line">    <span class="function">Mat <span class="title">res</span><span class="params">(<span class="literal">false</span>)</span></span>;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">2</span>; i++)</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">2</span>; j++)</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; <span class="number">2</span>; k++)</div><div class="line">                (res(i, j) += a(i, k) * b(k, j)) %= mo;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> res;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function">Mat <span class="title">pow</span><span class="params">(Mat a, <span class="keyword">int</span> n)</span> </span>&#123; <span class="comment">//矩阵快速幂</span></div><div class="line">    <span class="function">Mat <span class="title">res</span><span class="params">(<span class="literal">true</span>)</span></span>;</div><div class="line">    <span class="keyword">for</span> (; n; n &gt;&gt;= <span class="number">1</span>, a = a * a) <span class="keyword">if</span> (n &amp; <span class="number">1</span>) res = res * a;</div><div class="line">    <span class="keyword">return</span> res;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</div><div class="line">    freopen(<span class="string">"coordinate.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</div><div class="line">    freopen(<span class="string">"coordinate.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</div><div class="line"></div><div class="line">    <span class="keyword">int</span> n; <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</div><div class="line">    </div><div class="line">    <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="built_in">printf</span>(<span class="string">"1"</span>);</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (n == <span class="number">1</span>) <span class="built_in">printf</span>(<span class="string">"3"</span>);</div><div class="line">    <span class="keyword">else</span> &#123;</div><div class="line">        Mat init(<span class="literal">false</span>); <span class="comment">//初始矩阵</span></div><div class="line">        init(<span class="number">0</span>) = <span class="number">1</span>;</div><div class="line">        init(<span class="number">1</span>) = <span class="number">3</span>;</div><div class="line"></div><div class="line">        <span class="function">Mat <span class="title">mat</span><span class="params">(<span class="literal">false</span>)</span></span>; <span class="comment">//转移矩阵</span></div><div class="line">        mat(<span class="number">0</span>, <span class="number">0</span>) = <span class="number">0</span>;</div><div class="line">        mat(<span class="number">0</span>, <span class="number">1</span>) = <span class="number">1</span>;</div><div class="line">        mat(<span class="number">1</span>, <span class="number">0</span>) = <span class="number">1</span>;</div><div class="line">        mat(<span class="number">1</span>, <span class="number">1</span>) = <span class="number">2</span>;</div><div class="line"></div><div class="line">        Mat res = <span class="built_in">pow</span>(mat, n - <span class="number">1</span>) * init; <span class="comment">//此处转移矩阵的位置和初始矩阵的位置不可颠倒，因为矩阵不满足交换律</span></div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, res(<span class="number">1</span>));</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    fclose(<span class="built_in">stdin</span>);</div><div class="line">    fclose(<span class="built_in">stdout</span>);</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h1 id="最后说几句"><a href="#最后说几句" class="headerlink" title="最后说几句"></a>最后说几句</h1><ul>
-<li>这题中使用的矩阵特性就是满足结合律但是不满足交换律</li>
-<li>因为是考试的题所以说我还是打了文件输入输出</li>
-<li>LaTeX公式和Markdown不兼容真是见鬼了</li>
-<li>公式打起来好麻烦</li>
-<li>这道题是可以分块打表的</li>
-<li>再次%表神cyr</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;今天的欢乐%你赛，由于第一题是大水题，第二题良心出题人良心部分分，第三题不严格卡迪杰斯特拉，让人心神愉悦，话虽如此，第二题想要拿满分还是很麻烦的（我才不要分块打表），所以，我们要请出矩阵乘法来优化递推&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="学习笔记" scheme="http://sulfur6.top/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-      <category term="递推" scheme="http://sulfur6.top/tags/%E9%80%92%E6%8E%A8/"/>
-    
-      <category term="矩阵乘法" scheme="http://sulfur6.top/tags/%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>拯救少林神棍，POJ1011，DFS</title>
-    <link href="http://sulfur6.top/buddhas-sticks/"/>
-    <id>http://sulfur6.top/buddhas-sticks/</id>
-    <published>2016-10-22T00:34:21.000Z</published>
-    <updated>2016-10-31T12:06:49.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>一般的，在碰到搜索题的时候，我的反应是：woc，这也能搜索？事实证明，我还是too young.</p>
-<p>这是一道重在剪枝的神奇DFS题。</p>
-<a id="more"></a>
-<h1 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h1><ul>
-<li>据说,少林寺的镇寺之宝,是救秦王李世民的十三棍僧留下的若干根一样长的棍子。</li>
-<li>在民国某年,少林寺被军阀炮轰,这些棍子被炸成<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex"> N </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">N</span></span></span></span>节长度各异的小木棒。</li>
-<li>战火过后,少林方丈想要用这些木棒拼回原来的棍子。可他记不得原来到底有几根棍子了,只知道古人比较矮,且为了携带方便,棍子一定比较短。他想知道这些棍子最短可能有多短。</li>
-</ul>
-<blockquote>
-<p>看到这个题面之后，我整个人都不好了qwq</p>
-</blockquote>
-<h1 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h1><ul>
-<li>给定<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">N</span></span></span></span>节长度各异的小木棒，不剩余地拼成若干节长度相等的少林神棍，求神棍最短可以有多短。</li>
-</ul>
-<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><h2 id="枚举"><a href="#枚举" class="headerlink" title="枚举"></a>枚举</h2><ul>
-<li>可能拼成的棍子长度</li>
-<li>长度从最长的那根木棒开始枚举到木棒总长的一半</li>
-<li>若枚举到的长度不能整除木棒总长度，则不去搜索</li>
-</ul>
-<h2 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h2><blockquote>
-<p>搜索的过程，就是我们尝试着拼神棍的过程</p>
-</blockquote>
-<ul>
-<li>如何拼完这一组神棍呢？<ul>
-<li>一根一根的拼棍子</li>
-<li>如果拼完第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.65952em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span></span></span></span>根棍子之后，发现第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">i+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.74285em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span>根棍子拼不成了，那就推翻第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.65952em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span></span></span></span>根棍子的拼法</li>
-<li>有可能一直向前推翻第一根的拼法</li>
-</ul>
-</li>
-</ul>
-<h2 id="搜索状态"><a href="#搜索状态" class="headerlink" title="搜索状态"></a>搜索状态</h2><blockquote>
-<p>发现能搜索以后，就要确定搜索状态了</p>
-</blockquote>
-<ul>
-<li>我们设状态为一个二元组<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>R</mi><mo separator="true">,</mo><mi>M</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">(R,M)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.00773em;">R</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.10903em;">M</span><span class="mclose">)</span></span></span></span>。<ul>
-<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>R</mi></mrow><annotation encoding="application/x-tex">R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.00773em;">R</span></span></span></span>表示还没有用的木棒数</li>
-<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>M</mi></mrow><annotation encoding="application/x-tex">M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">M</span></span></span></span>表示当前拼的这根棍子剩余未填满的长度</li>
-</ul>
-</li>
-<li>本题的初始状态和结束状态是什么？</li>
-<li>假设共有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">N</span></span></span></span>根木棒，当前枚举到的长度为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>L</mi></mrow><annotation encoding="application/x-tex">L</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">L</span></span></span></span>。<ul>
-<li>初始状态：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>N</mi><mo separator="true">,</mo><mi>L</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">(N,L)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.10903em;">N</span><span class="mpunct">,</span><span class="mord mathit">L</span><span class="mclose">)</span></span></span></span> </li>
-<li>结束状态：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">(0,0)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="mord mathrm">0</span><span class="mpunct">,</span><span class="mord mathrm">0</span><span class="mclose">)</span></span></span></span></li>
-</ul>
-</li>
-</ul>
-<h2 id="开始搜索"><a href="#开始搜索" class="headerlink" title="开始搜索"></a>开始搜索</h2><blockquote>
-<p>我也不废话了，伪代码参上</p>
-</blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Dfs的基本递推关系:<span class="function"><span class="keyword">bool</span> <span class="title">Dfs</span><span class="params">(<span class="keyword">int</span> R, <span class="keyword">int</span> M)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span>( R == <span class="number">0</span> &amp;&amp; M == <span class="number">0</span>)	<span class="keyword">return</span> <span class="literal">true</span>; <span class="comment">//拼接任务完成 </span></div><div class="line">    如果能找到一根长为S(S &lt;= M)的木棒,拼在当前棍子上,然后	Dfs(R – <span class="number">1</span>,M - S);	如果找不到:<span class="keyword">return</span> <span class="literal">false</span>; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>这里要注意的是我们首先要对长度排序，从大到小枚举</p>
-</blockquote>
-<h2 id="剪枝"><a href="#剪枝" class="headerlink" title="剪枝"></a>剪枝</h2><blockquote>
-<p>如果按照之前的搜法，那么一定会TLE</p>
-<p>所以，我们需要出动暴力大杀器——剪枝</p>
-</blockquote>
-<h3 id="剪枝1"><a href="#剪枝1" class="headerlink" title="剪枝1"></a>剪枝1</h3><ul>
-<li>如果在当前状态下确定了一根不能使用的木棒，那么当我们弃用它以后，当前状态下和它长度同的木棒都不再使用。</li>
-<li>正确性显然</li>
-</ul>
-<h3 id="剪枝2"><a href="#剪枝2" class="headerlink" title="剪枝2"></a>剪枝2</h3><ul>
-<li>由于拼接失败，我们需要拆掉某根棍子时，如果我们一直拆解到它的第一根木棒，那么我们就不再动它，去看它的上一根棍子，如果它没有上一根棍子，则此长度不合法</li>
-<li>如果拆掉第一根木棒，我们假设它在之后能被使用，而现在已知序列是有序的，那么如果之后某种拼法能使得当前第一根棍子被用到，那么它在之前序列一定不会被拆掉。</li>
-</ul>
-<h3 id="剪枝3"><a href="#剪枝3" class="headerlink" title="剪枝3"></a>剪枝3</h3><ul>
-<li>当我们需要拆解某根已经拼好的棍子时，不要拆掉最后的那根木棒反而用更小的木棒来代替。</li>
-<li>如果这样就能拼上，那么我们用用来代替最后长木棒的几根短木棒来代替那根长木棒也能拼上。</li>
-</ul>
-<h3 id="剪枝4"><a href="#剪枝4" class="headerlink" title="剪枝4"></a>剪枝4</h3><ul>
-<li>如果当前需要加的木棒不是当前棍子的第一根，那么我们不能从最长的木棒往下枚举，而是从最近使用过的那根之后的一根开始向下枚举。</li>
-<li>这样可以避免先使用长的后使用短的的情况。</li>
-</ul>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="keyword">int</span> n, l; <span class="keyword">bool</span> used[<span class="number">65</span>];</div><div class="line"><span class="built_in">vector</span> &lt;<span class="keyword">int</span>&gt; len;</div><div class="line"></div><div class="line"><span class="keyword">int</span> last;</div><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">dfs</span> <span class="params">(<span class="keyword">int</span> r, <span class="keyword">int</span> m)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (r == <span class="number">0</span> &amp;&amp; m == <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">true</span>;<span class="comment">//搜索停止，达到条件返回true，表示枚举的长度可行</span></div><div class="line">    <span class="keyword">if</span> (m == <span class="number">0</span>) m = l;<span class="comment">//如果已经拼完一根，那么就再接着往下拼</span></div><div class="line">    <span class="keyword">int</span> S = <span class="number">0</span>;</div><div class="line">    <span class="keyword">if</span> (m != l) S = last + <span class="number">1</span>;<span class="comment">//剪枝4，保证递减拼</span></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = S; i &lt; n; i++) &#123;</div><div class="line">        <span class="keyword">if</span> (!used[i] &amp;&amp; len[i] &lt;= m) &#123;</div><div class="line">            <span class="keyword">if</span> (i &gt; <span class="number">0</span>) &#123;</div><div class="line">                <span class="keyword">if</span> (!used[i - <span class="number">1</span>] &amp;&amp; len[i] == len[i - <span class="number">1</span>]) <span class="keyword">continue</span>;<span class="comment">//剪枝1，保证相同长度的木棒不在同一位置多次用</span></div><div class="line">            &#125;</div><div class="line">            used[i] = <span class="literal">true</span>; last = i;<span class="comment">//标记此根为使用过，记录本次加入的木棒</span></div><div class="line">            <span class="keyword">if</span> (dfs(r - <span class="number">1</span>, m - len[i])) <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">            <span class="keyword">else</span> &#123;</div><div class="line">                used[i] = <span class="number">0</span>;<span class="comment">//回溯，有可能之后还能用到这根木棒</span></div><div class="line">                <span class="keyword">if</span> (len[i] == m || m == l) <span class="keyword">return</span> <span class="literal">false</span>;<span class="comment">//剪枝2，3</span></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">while</span> (<span class="number">1</span>) &#123;</div><div class="line">        <span class="built_in">cin</span> &gt;&gt; n;</div><div class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="keyword">break</span>;<span class="comment">//Blocks of datas, 读入0终止</span></div><div class="line">        len.clear();<span class="comment">//每次清一遍储存长度的数组</span></div><div class="line">        <span class="keyword">int</span> totallen = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</div><div class="line">            <span class="keyword">int</span> x; <span class="built_in">cin</span> &gt;&gt; x;</div><div class="line">            len.push_back(x);</div><div class="line">            totallen += x;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        sort (len.begin(), len.end(), greater&lt;<span class="keyword">int</span>&gt;());<span class="comment">//从小到大排序</span></div><div class="line"></div><div class="line">        <span class="keyword">for</span> (l = len[<span class="number">0</span>]; l &lt;= totallen / <span class="number">2</span>; l++) &#123;</div><div class="line">            <span class="keyword">if</span> (totallen % l) <span class="keyword">continue</span>;</div><div class="line">            <span class="built_in">memset</span>(used, <span class="number">0</span>, <span class="keyword">sizeof</span>(used));</div><div class="line">            <span class="keyword">if</span> (dfs(n, l)) &#123;<span class="built_in">cout</span> &lt;&lt; l &lt;&lt; <span class="built_in">endl</span>; <span class="keyword">break</span>;&#125;<span class="comment">//因为是从小到大枚举，所以验证一个答案正确就可以输出了</span></div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (l &gt; totallen / <span class="number">2</span>) <span class="built_in">cout</span> &lt;&lt; totallen &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>团长在POJ和HDU上都成功拯救了少林神棍，但是原题并不叫拯救少林神棍，而是叫Sticks，很无聊的题面，某不远透露姓名的薛定谔同学竟然告诉我这是一道POJ上的中文题，害的我一阵好找。。。。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;一般的，在碰到搜索题的时候，我的反应是：woc，这也能搜索？事实证明，我还是too young.&lt;/p&gt;
-&lt;p&gt;这是一道重在剪枝的神奇DFS题。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="学习笔记" scheme="http://sulfur6.top/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-      <category term="DFS" scheme="http://sulfur6.top/tags/DFS/"/>
-    
-      <category term="POJ" scheme="http://sulfur6.top/tags/POJ/"/>
-    
-      <category term="剪枝" scheme="http://sulfur6.top/tags/%E5%89%AA%E6%9E%9D/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>杨威利与莱因哈特的爱恨情仇</title>
-    <link href="http://sulfur6.top/ywl/"/>
-    <id>http://sulfur6.top/ywl/</id>
-    <published>2016-10-20T13:05:09.000Z</published>
-    <updated>2016-10-31T12:06:59.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>蒟蒻Sulfur6在第一次看见这道题的时候感觉它好水啊，然后五分钟打了个自以为是的正解。。肯定是错的太离谱了，那天晚上的代码带崩了我的三个系统。。。</p>
-<p>刚刚学习并查集的时候就见过那个题，当时连最水的家族都做不出，真的是连题面都没看就跳过去了。</p>
-<a id="more"></a>
-<h1 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h1><p>给定一个最多有30000艘船的船队，初始状态一字排开。
-接下来你要读入 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>T</mi></mrow><annotation encoding="application/x-tex"> T </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.13889em;">T</span></span></span></span> 个指令 (<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>≤</mo><mi>T</mi><mo>≤</mo><mn>5</mn><mn>0</mn><mn>0</mn><mn>0</mn><mn>0</mn><mn>0</mn></mrow><annotation encoding="application/x-tex">1 \leq T  \leq 500000</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.8193em;vertical-align:-0.13597em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span><span class="mrel">≤</span><span class="mord mathit" style="margin-right:0.13889em;">T</span><span class="mrel">≤</span><span class="mord mathrm">5</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span></span></span></span>)：
-若为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>M</mi><mi>i</mi><mi>j</mi></mrow><annotation encoding="application/x-tex">M i j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">M</span><span class="mord mathit">i</span><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span>，则将<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.65952em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span></span></span></span>所在的舰队移动到<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>j</mi></mrow><annotation encoding="application/x-tex">j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span>所在舰队的后面（即将第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.65952em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span></span></span></span>艘舰船所在的战舰队列全部移动到第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>j</mi></mrow><annotation encoding="application/x-tex">j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span>列舰船所在战舰队列的后面）；
-若为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>C</mi><mi>i</mi><mi>j</mi></mrow><annotation encoding="application/x-tex">C i j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.07153em;">C</span><span class="mord mathit">i</span><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span>，如果第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow><annotation encoding="application/x-tex">i,j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span>艘舰船在同一列中，则输出它们中间有的舰船数，如果不在同一列中，则输出<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord">−</span><span class="mord mathrm">1</span></span></span></span>。</p>
-<blockquote>
-<p>这里要注意的是（可能只有我一个人这么智障），就是给定合并操作的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi><mi>j</mi></mrow><annotation encoding="application/x-tex">i j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span>可能只是一列舰船中间或末尾的那个，不一定就是某列舰船的第一个。【天真的以为一定给定第一艘的蒟蒻就这么WA挺了。</p>
-</blockquote>
-<h1 id="压缩路径"><a href="#压缩路径" class="headerlink" title="压缩路径"></a>压缩路径</h1><ul>
-<li>分析完题目大意之后我们会自然而然的想到一种做法，那就是记录每一列舰船所在的位置</li>
-<li>但是这样显然不靠谱，因为不路径压缩的UFS会爆炸。</li>
-<li>怎么在压缩路径的基础上维护战舰所在位置的信息呢？<h2 id="某优化"><a href="#某优化" class="headerlink" title="某优化"></a>某优化</h2>如果说大家和我一样记得并查集路径压缩的代码的话，我们会发现，在路径压缩之前并没有维护什么信息，所以我们尝试着来搞一些事情</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> a[MAXN];<span class="comment">//某列战舰现有的战舰数，初始化为1</span></div><div class="line"><span class="keyword">int</span> b[MAXN];<span class="comment">/*某列战舰现在在本列战舰内的深度，初始化为0*/</span></div><div class="line"><span class="keyword">int</span> fa[MAXN];<span class="comment">//UFS中用的father数组</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span> <span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> t;</div><div class="line">    <span class="keyword">if</span> (x != fa[x]) &#123;</div><div class="line">        t = find(fa[x]);</div><div class="line">        b[x] += b[fa[x]];<span class="comment">//这一句包括上面一句类似于递归求解确定x战舰在本列中的位置</span></div><div class="line">        fa[x] = t;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> fa[x];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h1 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">30000</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxt = <span class="number">500000</span>;</div><div class="line"></div><div class="line"><span class="keyword">int</span> fa[maxn + <span class="number">5</span>], a[maxn + <span class="number">5</span>], b[maxn + <span class="number">5</span>];</div><div class="line"><span class="keyword">int</span> ans;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span> <span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> t;</div><div class="line">    <span class="keyword">if</span> (x != fa[x]) &#123;</div><div class="line">        t = find(fa[x]);</div><div class="line">        b[x] += b[fa[x]];</div><div class="line">        fa[x] = t;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> fa[x];</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">int</span> T;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;T);</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= maxn + <span class="number">1</span>; i++) &#123;</div><div class="line">        fa[i] = i;</div><div class="line">        a[i] = <span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">char</span> c; <span class="keyword">int</span> x, y;</div><div class="line">    <span class="keyword">while</span> (T--) &#123;</div><div class="line">        <span class="built_in">scanf</span>(<span class="string">"\n%c %d %d"</span>, &amp;c, &amp;x, &amp;y);</div><div class="line">        <span class="keyword">int</span> f1 = find(x); <span class="keyword">int</span> f2 = find(y);</div><div class="line">        <span class="keyword">if</span> (c == <span class="string">'M'</span>) &#123;<span class="comment">//合并操作</span></div><div class="line">            fa[f1] = f2;<span class="comment">//修改战舰头</span></div><div class="line">            b[f1] = a[f2];<span class="comment">//修改战舰层数</span></div><div class="line">            a[f2] += a[f1];<span class="comment">//增加合并后该列的战舰数</span></div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">if</span> (f1 == f2) &#123;</div><div class="line">                ans = <span class="built_in">abs</span>(b[x] - b[y]) - <span class="number">1</span>;<span class="comment">//这里要记得-1，因为编号从0开始</span></div><div class="line">                <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans);</div><div class="line">            &#125; <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"-1\n"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>看这个难度也知道是NOI的一道水题，毕竟我这样的蒟蒻都能A。。
-当年看着唐氏Pascal学并查集就死活学不会了，思想都不懂，这里要感谢教会我并查集的神犇Menci和Gty.</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;蒟蒻Sulfur6在第一次看见这道题的时候感觉它好水啊，然后五分钟打了个自以为是的正解。。肯定是错的太离谱了，那天晚上的代码带崩了我的三个系统。。。&lt;/p&gt;
-&lt;p&gt;刚刚学习并查集的时候就见过那个题，当时连最水的家族都做不出，真的是连题面都没看就跳过去了。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="学习笔记" scheme="http://sulfur6.top/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-      <category term="并查集" scheme="http://sulfur6.top/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/"/>
-    
-      <category term="路径压缩" scheme="http://sulfur6.top/tags/%E8%B7%AF%E5%BE%84%E5%8E%8B%E7%BC%A9/"/>
-    
-      <category term="NOI" scheme="http://sulfur6.top/tags/NOI/"/>
     
   </entry>
   
