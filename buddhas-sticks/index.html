@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    
+    
+    
+    <title>拯救少林神棍，POJ1011，DFS | Sulfur6_L8972 | Abandoned Sulfur</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="DFS,POJ,剪枝">
+    <meta name="description" content="一般的，在碰到搜索题的时候，我的反应是：woc，这也能搜索？事实证明，我还是too young.
+这是一道重在剪枝的神奇DFS题。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="拯救少林神棍，POJ1011，DFS">
+<meta property="og:url" content="http://sulfur6.top/buddhas-sticks/index.html">
+<meta property="og:site_name" content="Sulfur6_L8972">
+<meta property="og:description" content="一般的，在碰到搜索题的时候，我的反应是：woc，这也能搜索？事实证明，我还是too young.
+这是一道重在剪枝的神奇DFS题。">
+<meta property="og:updated_time" content="2016-12-27T13:35:56.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="拯救少林神棍，POJ1011，DFS">
+<meta name="twitter:description" content="一般的，在碰到搜索题的时候，我的反应是：woc，这也能搜索？事实证明，我还是too young.
+这是一道重在剪枝的神奇DFS题。">
+    
+        <link rel="alternative" href="/atom.xml" title="Sulfur6_L8972" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.2">
+    <script>window.lazyScripts=[]</script>
+	<link rel="stylesheet" href="/css/style.css?v=undefined">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css" /><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/sulfur.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Sulfur6</h5>
+          <a href="mailto:huangchun50@icloud.com" title="huangchun50@icloud.com" class="mail">huangchun50@icloud.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Sulfur6" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">拯救少林神棍，POJ1011，DFS</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">拯救少林神棍，POJ1011，DFS</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2016-10-22T00:34:21.000Z" itemprop="datePublished" class="page-time">
+  2016-10-22
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/OI/">OI</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#题面"><span class="post-toc-number">1.</span> <span class="post-toc-text">题面</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#题目大意"><span class="post-toc-number">2.</span> <span class="post-toc-text">题目大意</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#解题思路"><span class="post-toc-number">3.</span> <span class="post-toc-text">解题思路</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#枚举"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">枚举</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#搜索"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">搜索</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#搜索状态"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">搜索状态</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#开始搜索"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">开始搜索</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#剪枝"><span class="post-toc-number">3.5.</span> <span class="post-toc-text">剪枝</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#剪枝1"><span class="post-toc-number">3.5.1.</span> <span class="post-toc-text">剪枝1</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#剪枝2"><span class="post-toc-number">3.5.2.</span> <span class="post-toc-text">剪枝2</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#剪枝3"><span class="post-toc-number">3.5.3.</span> <span class="post-toc-text">剪枝3</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#剪枝4"><span class="post-toc-number">3.5.4.</span> <span class="post-toc-text">剪枝4</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#代码"><span class="post-toc-number">4.</span> <span class="post-toc-text">代码</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-buddhas-sticks"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">拯救少林神棍，POJ1011，DFS</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2016-10-22 8:34" datetime="2016-10-22T00:34:21.000Z"  itemprop="datePublished">2016-10-22</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/OI/">OI</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>一般的，在碰到搜索题的时候，我的反应是：woc，这也能搜索？事实证明，我还是too young.</p>
+<p>这是一道重在剪枝的神奇DFS题。</p>
+<a id="more"></a>
+<h1 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h1><ul>
+<li>据说,少林寺的镇寺之宝,是救秦王李世民的十三棍僧留下的若干根一样长的棍子。</li>
+<li>在民国某年,少林寺被军阀炮轰,这些棍子被炸成<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex"> N </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">N</span></span></span></span>节长度各异的小木棒。</li>
+<li>战火过后,少林方丈想要用这些木棒拼回原来的棍子。可他记不得原来到底有几根棍子了,只知道古人比较矮,且为了携带方便,棍子一定比较短。他想知道这些棍子最短可能有多短。</li>
+</ul>
+<blockquote>
+<p>看到这个题面之后，我整个人都不好了qwq</p>
+</blockquote>
+<h1 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h1><ul>
+<li>给定<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">N</span></span></span></span>节长度各异的小木棒，不剩余地拼成若干节长度相等的少林神棍，求神棍最短可以有多短。</li>
+</ul>
+<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><h2 id="枚举"><a href="#枚举" class="headerlink" title="枚举"></a>枚举</h2><ul>
+<li>可能拼成的棍子长度</li>
+<li>长度从最长的那根木棒开始枚举到木棒总长的一半</li>
+<li>若枚举到的长度不能整除木棒总长度，则不去搜索</li>
+</ul>
+<h2 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h2><blockquote>
+<p>搜索的过程，就是我们尝试着拼神棍的过程</p>
+</blockquote>
+<ul>
+<li>如何拼完这一组神棍呢？<ul>
+<li>一根一根的拼棍子</li>
+<li>如果拼完第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.65952em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span></span></span></span>根棍子之后，发现第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">i+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.74285em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span>根棍子拼不成了，那就推翻第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.65952em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span></span></span></span>根棍子的拼法</li>
+<li>有可能一直向前推翻第一根的拼法</li>
+</ul>
+</li>
+</ul>
+<h2 id="搜索状态"><a href="#搜索状态" class="headerlink" title="搜索状态"></a>搜索状态</h2><blockquote>
+<p>发现能搜索以后，就要确定搜索状态了</p>
+</blockquote>
+<ul>
+<li>我们设状态为一个二元组<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>R</mi><mo separator="true">,</mo><mi>M</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">(R,M)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.00773em;">R</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.10903em;">M</span><span class="mclose">)</span></span></span></span>。<ul>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>R</mi></mrow><annotation encoding="application/x-tex">R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.00773em;">R</span></span></span></span>表示还没有用的木棒数</li>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>M</mi></mrow><annotation encoding="application/x-tex">M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">M</span></span></span></span>表示当前拼的这根棍子剩余未填满的长度</li>
+</ul>
+</li>
+<li>本题的初始状态和结束状态是什么？</li>
+<li>假设共有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">N</span></span></span></span>根木棒，当前枚举到的长度为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>L</mi></mrow><annotation encoding="application/x-tex">L</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">L</span></span></span></span>。<ul>
+<li>初始状态：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>N</mi><mo separator="true">,</mo><mi>L</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">(N,L)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.10903em;">N</span><span class="mpunct">,</span><span class="mord mathit">L</span><span class="mclose">)</span></span></span></span> </li>
+<li>结束状态：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">(0,0)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="mord mathrm">0</span><span class="mpunct">,</span><span class="mord mathrm">0</span><span class="mclose">)</span></span></span></span></li>
+</ul>
+</li>
+</ul>
+<h2 id="开始搜索"><a href="#开始搜索" class="headerlink" title="开始搜索"></a>开始搜索</h2><blockquote>
+<p>我也不废话了，伪代码参上</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Dfs的基本递推关系:<span class="function"><span class="keyword">bool</span> <span class="title">Dfs</span><span class="params">(<span class="keyword">int</span> R, <span class="keyword">int</span> M)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span>( R == <span class="number">0</span> &amp;&amp; M == <span class="number">0</span>)	<span class="keyword">return</span> <span class="literal">true</span>; <span class="comment">//拼接任务完成 </span></div><div class="line">    如果能找到一根长为S(S &lt;= M)的木棒,拼在当前棍子上,然后	Dfs(R – <span class="number">1</span>,M - S);	如果找不到:<span class="keyword">return</span> <span class="literal">false</span>; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>这里要注意的是我们首先要对长度排序，从大到小枚举</p>
+</blockquote>
+<h2 id="剪枝"><a href="#剪枝" class="headerlink" title="剪枝"></a>剪枝</h2><blockquote>
+<p>如果按照之前的搜法，那么一定会TLE</p>
+<p>所以，我们需要出动暴力大杀器——剪枝</p>
+</blockquote>
+<h3 id="剪枝1"><a href="#剪枝1" class="headerlink" title="剪枝1"></a>剪枝1</h3><ul>
+<li>如果在当前状态下确定了一根不能使用的木棒，那么当我们弃用它以后，当前状态下和它长度同的木棒都不再使用。</li>
+<li>正确性显然</li>
+</ul>
+<h3 id="剪枝2"><a href="#剪枝2" class="headerlink" title="剪枝2"></a>剪枝2</h3><ul>
+<li>由于拼接失败，我们需要拆掉某根棍子时，如果我们一直拆解到它的第一根木棒，那么我们就不再动它，去看它的上一根棍子，如果它没有上一根棍子，则此长度不合法</li>
+<li>如果拆掉第一根木棒，我们假设它在之后能被使用，而现在已知序列是有序的，那么如果之后某种拼法能使得当前第一根棍子被用到，那么它在之前序列一定不会被拆掉。</li>
+</ul>
+<h3 id="剪枝3"><a href="#剪枝3" class="headerlink" title="剪枝3"></a>剪枝3</h3><ul>
+<li>当我们需要拆解某根已经拼好的棍子时，不要拆掉最后的那根木棒反而用更小的木棒来代替。</li>
+<li>如果这样就能拼上，那么我们用用来代替最后长木棒的几根短木棒来代替那根长木棒也能拼上。</li>
+</ul>
+<h3 id="剪枝4"><a href="#剪枝4" class="headerlink" title="剪枝4"></a>剪枝4</h3><ul>
+<li>如果当前需要加的木棒不是当前棍子的第一根，那么我们不能从最长的木棒往下枚举，而是从最近使用过的那根之后的一根开始向下枚举。</li>
+<li>这样可以避免先使用长的后使用短的的情况。</li>
+</ul>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="keyword">int</span> n, l; <span class="keyword">bool</span> used[<span class="number">65</span>];</div><div class="line"><span class="built_in">vector</span> &lt;<span class="keyword">int</span>&gt; len;</div><div class="line"></div><div class="line"><span class="keyword">int</span> last;</div><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">dfs</span> <span class="params">(<span class="keyword">int</span> r, <span class="keyword">int</span> m)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (r == <span class="number">0</span> &amp;&amp; m == <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">true</span>;<span class="comment">//搜索停止，达到条件返回true，表示枚举的长度可行</span></div><div class="line">    <span class="keyword">if</span> (m == <span class="number">0</span>) m = l;<span class="comment">//如果已经拼完一根，那么就再接着往下拼</span></div><div class="line">    <span class="keyword">int</span> S = <span class="number">0</span>;</div><div class="line">    <span class="keyword">if</span> (m != l) S = last + <span class="number">1</span>;<span class="comment">//剪枝4，保证递减拼</span></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = S; i &lt; n; i++) &#123;</div><div class="line">        <span class="keyword">if</span> (!used[i] &amp;&amp; len[i] &lt;= m) &#123;</div><div class="line">            <span class="keyword">if</span> (i &gt; <span class="number">0</span>) &#123;</div><div class="line">                <span class="keyword">if</span> (!used[i - <span class="number">1</span>] &amp;&amp; len[i] == len[i - <span class="number">1</span>]) <span class="keyword">continue</span>;<span class="comment">//剪枝1，保证相同长度的木棒不在同一位置多次用</span></div><div class="line">            &#125;</div><div class="line">            used[i] = <span class="literal">true</span>; last = i;<span class="comment">//标记此根为使用过，记录本次加入的木棒</span></div><div class="line">            <span class="keyword">if</span> (dfs(r - <span class="number">1</span>, m - len[i])) <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">            <span class="keyword">else</span> &#123;</div><div class="line">                used[i] = <span class="number">0</span>;<span class="comment">//回溯，有可能之后还能用到这根木棒</span></div><div class="line">                <span class="keyword">if</span> (len[i] == m || m == l) <span class="keyword">return</span> <span class="literal">false</span>;<span class="comment">//剪枝2，3</span></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">while</span> (<span class="number">1</span>) &#123;</div><div class="line">        <span class="built_in">cin</span> &gt;&gt; n;</div><div class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="keyword">break</span>;<span class="comment">//Blocks of datas, 读入0终止</span></div><div class="line">        len.clear();<span class="comment">//每次清一遍储存长度的数组</span></div><div class="line">        <span class="keyword">int</span> totallen = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</div><div class="line">            <span class="keyword">int</span> x; <span class="built_in">cin</span> &gt;&gt; x;</div><div class="line">            len.push_back(x);</div><div class="line">            totallen += x;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        sort (len.begin(), len.end(), greater&lt;<span class="keyword">int</span>&gt;());<span class="comment">//从小到大排序</span></div><div class="line"></div><div class="line">        <span class="keyword">for</span> (l = len[<span class="number">0</span>]; l &lt;= totallen / <span class="number">2</span>; l++) &#123;</div><div class="line">            <span class="keyword">if</span> (totallen % l) <span class="keyword">continue</span>;</div><div class="line">            <span class="built_in">memset</span>(used, <span class="number">0</span>, <span class="keyword">sizeof</span>(used));</div><div class="line">            <span class="keyword">if</span> (dfs(n, l)) &#123;<span class="built_in">cout</span> &lt;&lt; l &lt;&lt; <span class="built_in">endl</span>; <span class="keyword">break</span>;&#125;<span class="comment">//因为是从小到大枚举，所以验证一个答案正确就可以输出了</span></div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (l &gt; totallen / <span class="number">2</span>) <span class="built_in">cout</span> &lt;&lt; totallen &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>团长在POJ和HDU上都成功拯救了少林神棍，但是原题并不叫拯救少林神棍，而是叫Sticks，很无聊的题面，某不远透露姓名的薛定谔同学竟然告诉我这是一道POJ上的中文题，害的我一阵好找。。。。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2016-12-27T13:35:56.000Z" title="2016-12-27 21:35" itemprop="dateUpdated">2016年12月27日 21:35</time>
+</span><br>
+
+
+        这里写留言或版权声明：<a href="/buddhas-sticks/" target="_blank" rel="external">http://sulfur6.top/buddhas-sticks/</a>
+    </div>
+    <footer>
+        <a href="http://sulfur6.top">
+            <img src="/img/sulfur.png" alt="Sulfur6">
+            Sulfur6
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DFS/">DFS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/POJ/">POJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剪枝/">剪枝</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://sulfur6.top/buddhas-sticks/&title=《拯救少林神棍，POJ1011，DFS》 — Sulfur6_L8972&pic=http://sulfur6.top/img/sulfur.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://sulfur6.top/buddhas-sticks/&title=《拯救少林神棍，POJ1011，DFS》 — Sulfur6_L8972&source=一般的，在碰到搜索题的时候，我的反应是：woc，这也能搜索？事实证明，我还是too young.
+这是一道重在剪枝的神奇DFS题。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://sulfur6.top/buddhas-sticks/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《拯救少林神棍，POJ1011，DFS》 — Sulfur6_L8972&url=http://sulfur6.top/buddhas-sticks/&via=http://sulfur6.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://sulfur6.top/buddhas-sticks/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/matrix-increase/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">矩阵乘法优化递推，NOIP%你赛</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/ywl/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">杨威利与莱因哈特的爱恨情仇</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+<div class="comments" id="comments">
+    <div class="ds-thread" data-thread-key="buddhas-sticks" data-title="拯救少林神棍，POJ1011，DFS" data-url="http://sulfur6.top/buddhas-sticks/"></div>
+</div>
+<script>
+lazyScripts.push('//cdn.bootcss.com/marked/0.3.6/marked.min.js');
+
+var duoshuoQuery = {short_name:'ysblog', theme: 'none'};
+lazyScripts.push('/js/embed.min.js?v=1.4.2');
+
+
+</script>
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>Sulfur6_L8972 &copy; 2015 - 2016</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://sulfur6.top/buddhas-sticks/&title=《拯救少林神棍，POJ1011，DFS》 — Sulfur6_L8972&pic=http://sulfur6.top/img/sulfur.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://sulfur6.top/buddhas-sticks/&title=《拯救少林神棍，POJ1011，DFS》 — Sulfur6_L8972&source=一般的，在碰到搜索题的时候，我的反应是：woc，这也能搜索？事实证明，我还是too young.
+这是一道重在剪枝的神奇DFS题。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://sulfur6.top/buddhas-sticks/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《拯救少林神棍，POJ1011，DFS》 — Sulfur6_L8972&url=http://sulfur6.top/buddhas-sticks/&via=http://sulfur6.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://sulfur6.top/buddhas-sticks/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://sulfur6.top/buddhas-sticks/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.2" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+</body>
+</html>
