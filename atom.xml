@@ -325,9 +325,9 @@ f(1, 0, 0) &amp;= 0
       <category term="OI" scheme="http://sulfur6.top/categories/OI/"/>
     
     
-      <category term="模拟" scheme="http://sulfur6.top/tags/%E6%A8%A1%E6%8B%9F/"/>
-    
       <category term="NOIP" scheme="http://sulfur6.top/tags/NOIP/"/>
+    
+      <category term="模拟" scheme="http://sulfur6.top/tags/%E6%A8%A1%E6%8B%9F/"/>
     
   </entry>
   
@@ -730,9 +730,9 @@ f(i,m)=\max(\max\limits_{k=0}^{m-1}(f(i.child,k)+f(i.next,m-k-1)), f(i,next,m))
     
       <category term="NOIP" scheme="http://sulfur6.top/tags/NOIP/"/>
     
-      <category term="DFS" scheme="http://sulfur6.top/tags/DFS/"/>
-    
       <category term="状态压缩" scheme="http://sulfur6.top/tags/%E7%8A%B6%E6%80%81%E5%8E%8B%E7%BC%A9/"/>
+    
+      <category term="DFS" scheme="http://sulfur6.top/tags/DFS/"/>
     
       <category term="记忆化搜索" scheme="http://sulfur6.top/tags/%E8%AE%B0%E5%BF%86%E5%8C%96%E6%90%9C%E7%B4%A2/"/>
     
