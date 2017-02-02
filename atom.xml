@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Sulfur6_L8972</title>
-  <subtitle>Abandoned Sulfur</subtitle>
+  <title>Sulfur6&#39;s Blog</title>
+  <subtitle>但行好事，莫问前程</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://sulfur6.top/"/>
@@ -281,13 +281,13 @@ f(1, 0, 0) &amp;= 0
       <category term="OI" scheme="http://sulfur6.top/categories/OI/"/>
     
     
-      <category term="NOIP" scheme="http://sulfur6.top/tags/NOIP/"/>
-    
       <category term="Floyd" scheme="http://sulfur6.top/tags/Floyd/"/>
     
       <category term="概率" scheme="http://sulfur6.top/tags/%E6%A6%82%E7%8E%87/"/>
     
       <category term="数学期望" scheme="http://sulfur6.top/tags/%E6%95%B0%E5%AD%A6%E6%9C%9F%E6%9C%9B/"/>
+    
+      <category term="NOIP" scheme="http://sulfur6.top/tags/NOIP/"/>
     
   </entry>
   
