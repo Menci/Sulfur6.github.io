@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    
+    
+    
+    <title>Link-Cut Tree 学习笔记 | Sulfur6&#39;s Blog | 但行好事，莫问前程</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="LCT,学习笔记">
+    <meta name="description" content="LCT 学习笔记，防忘">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Link-Cut Tree 学习笔记">
+<meta property="og:url" content="http://sulfur6.top/lct-note/index.html">
+<meta property="og:site_name" content="Sulfur6's Blog">
+<meta property="og:description" content="LCT 学习笔记，防忘">
+<meta property="og:updated_time" content="2017-04-02T14:51:41.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Link-Cut Tree 学习笔记">
+<meta name="twitter:description" content="LCT 学习笔记，防忘">
+    
+        <link rel="alternative" href="/atom.xml" title="Sulfur6&#39;s Blog" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.6">
+    <script>window.lazyScripts=[]</script>
+	<link rel="stylesheet" href="/css/style.css?v=undefined">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css" /><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/sulfur.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Sulfur6</h5>
+          <a href="mailto:huangchun50@icloud.com" title="huangchun50@icloud.com" class="mail">huangchun50@icloud.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Sulfur6" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/Friends"  >
+                <i class="icon icon-lg icon-Friends"></i>
+                Friends
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Link-Cut Tree 学习笔记</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Link-Cut Tree 学习笔记</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-04-02T14:48:46.000Z" itemprop="datePublished" class="page-time">
+  2017-04-02
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/OI/">OI</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#动态树"><span class="post-toc-number">1.</span> <span class="post-toc-text">动态树</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Link-Cut-Tree"><span class="post-toc-number">2.</span> <span class="post-toc-text">Link-Cut Tree</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#基本定义"><span class="post-toc-number">3.</span> <span class="post-toc-text">基本定义</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#基本操作"><span class="post-toc-number">4.</span> <span class="post-toc-text">基本操作</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-lct-note"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Link-Cut Tree 学习笔记</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年04月02日 22:48" datetime="2017-04-02T14:48:46.000Z"  itemprop="datePublished">2017-04-02</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/OI/">OI</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>LCT 学习笔记，防忘</p>
+<a id="more"></a>
+<h1 id="动态树"><a href="#动态树" class="headerlink" title="动态树"></a>动态树</h1><p>有一类问题，要求我们维护树上路径的信息，如果树是静态的，即树的结构是不会变的，树链剖分可以解决这类问题。但是如果要求支持我们修改树的结构，比如加边，删边等操作，树剖就 gg 了。。</p>
+<p>这种动态维护树上信息的问题，我们称之为动态树问题，上述例子是比较简单的动态树问题，不存在对子树进行操作等丧心病狂的操作，所以我们可以用 <code>Link-Cut Tree</code> 来解决。</p>
+<h1 id="Link-Cut-Tree"><a href="#Link-Cut-Tree" class="headerlink" title="Link-Cut Tree"></a>Link-Cut Tree</h1><p><code>Link-Cut Tree</code> 是一种能在 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>log</mi><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex"> O(\log n) </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mord mathit">n</span><span class="mclose">)</span></span></span></span> 的时间内解决上述问题的数据结构。</p>
+<p>简单来说， <code>LCT</code> 与树链剖分一样，会对树中节点的儿子进行划分，轻重链剖分根据子树大小将节点的儿子分为轻儿子和重儿子， <code>LCT</code> 则会将儿子划分为实、虚两种儿子，相应的边被称为实边和虚边，而且任意时刻，一个节点最多会有一个实儿子，也可能没有。</p>
+<p>与树剖不同的是， <code>LCT</code> 并不固定划分实虚儿子，由于树的形态不断改变，实虚儿子也有可能变化。</p>
+<h1 id="基本定义"><a href="#基本定义" class="headerlink" title="基本定义"></a>基本定义</h1><p>深度：深度越大，到根节点越远，反之亦然。</p>
+<p>实边：一个非叶节点，向它的实儿子连的一条边叫做实边，向其他所有儿子连的边均为虚边。注意，一个非叶节点可以没有实儿子，此时它向所有儿子连边均为虚边。</p>
+<p>实路径：由若干条实边首尾相连的，不可伸长的路径称之为实路径。实路径之间并非孤立的，各条实路径之间通过虚边连接。一条实路径中深度最小的点在树中的父节点被称之为实路径的父亲，在代码中用 <code>pathFa</code> 体现。</p>
+<h1 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h1><p>用 <code>Splay</code> 来维护实路径。由于实路径中的任意两个节点都是祖先和子孙的关系，则如果我们按照节点的深度进行排序，我们会得到一个唯一的有序深度序列，换言之，在某条实路径对应的 <code>Splay</code> 中，一个节点的左子树中的所有节点一定是其祖先，右子树中的所有子树一定是其子孙，这也是我们用<code>Splay</code>维护实路径的原因。</p>
+<p>在实际维护中，并不需要真的在 <code>Splay</code> 中用维护有序集的方法去排序，我们只需要在修改 <code>Splay</code> 的时候满足其中序遍历满足我们的需求即可。</p>
+<p>我们设 <code>v</code> 是树中某个节点，<code>v.OPERATION</code>可以使得这个节点进行<code>OPERATION</code>这个操作。</p>
+<ol>
+<li><p><code>v.access</code> 使得节点 <code>v</code> 到根节点的路径成为实路径。</p>
+<p>节点 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>v</mi></mrow><annotation encoding="application/x-tex"> v </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03588em;">v</span></span></span></span> 可能不是目前属实路径的尾部，所以我们将其旋转到其所属<code>Splay</code>的根节点，此时如果它有右子树，则它右子树中所有的节点都是它目前所处实路径的下方的节点，我们要断掉这条边（注意不是真的断掉，只是转换成虚边），要做的操作是将其右儿子的 <code>pathFa</code> 设成它，同时将其右儿子置空。</p>
+<p>如果此时这条实路径包含根节点，操作结束</p>
+<p>然后我们要做的是将以节点<code>v</code>为尾部的这条实路径和它的父亲相连，此时我们对这条实路径的父亲执行上述操作，并且将这条实路径的父亲向实路径的顶部节点的边置为实边，即在这条实路径对应的 <code>Splay</code> 中将原来的 <code>pathFa</code> 设为 <code>fa</code> 即可。</p>
+<p>继续查询该实路径是否包含根节点，若不包含，则继续执行上述操作。</p>
+</li>
+<li><p><code>v.find</code> 找到节点<code>v</code>所处这棵树的根节点。<br>我们只需要执行<code>v.access</code>，此时节点<code>v</code>与根节点处在一条实路径中，而且根节点一定是深度最小的那个节点，所以查找实路径对应<code>Splay</code>的最左节点即可。</p>
+</li>
+<li><p><code>v.evert</code> 将节点<code>v</code>置为整棵树的根<br>首先我们将节点<code>v</code>和根置于一条实路径上，即执行<code>v.access</code>，此时我们只需让这条实路径反转即可将<code>v</code>置为整棵树的根。利用平衡树打标记处理即可。
+注：维护根不变的树时，不需要此操作。</p>
+</li>
+<li><p><code>link(u, v)</code> 将节点<code>u</code>和节点<code>v</code>连起来<br>首先<code>u.evert</code>，然后将<code>u</code>所在实路径上的<code>pathFa</code>置成<code>v</code>即可。
+注：这样操作，让节点<code>u</code>成为了节点<code>v</code>的儿子</p>
+</li>
+<li><p><code>cut(u, v)</code> 删掉节点<code>u</code>和节点<code>v</code>之间的边
+先<code>u.evert</code>使得<code>u</code>成为有根树的根节点，这样保证<code>v</code>一定是节点<code>u</code>的子节点，然后<code>v.access</code>，再将<code>v</code>旋转至<code>Splay</code>的根，这样如果原树中有边<code>(u, v)</code>，那么<code>v</code>的左子树一定只有<code>u</code>这个节点。</p>
+</li>
+</ol>
+<p>附上「BZOJ2049」洞穴勘探 的代码</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXN = <span class="number">10000</span>;</div><div class="line"></div><div class="line"><span class="keyword">struct</span> LinkCutTree &#123;</div><div class="line">    <span class="keyword">struct</span> Node &#123;</div><div class="line">        Node *fa, *ch[<span class="number">2</span>], *pathFa;</div><div class="line">        <span class="keyword">bool</span> rev;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">void</span> <span class="title">pushDown</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="keyword">if</span> (rev) &#123;</div><div class="line">                <span class="built_in">std</span>::swap(ch[<span class="number">0</span>], ch[<span class="number">1</span>]);</div><div class="line">                <span class="keyword">if</span> (ch[<span class="number">0</span>]) ch[<span class="number">0</span>]-&gt;rev ^= <span class="number">1</span>;</div><div class="line">                <span class="keyword">if</span> (ch[<span class="number">1</span>]) ch[<span class="number">1</span>]-&gt;rev ^= <span class="number">1</span>;</div><div class="line"></div><div class="line">                rev = <span class="literal">false</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">int</span> <span class="title">relation</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">this</span> == fa-&gt;ch[<span class="number">1</span>];</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">void</span> <span class="title">rotate</span><span class="params">()</span> </span>&#123;</div><div class="line">            pushDown();</div><div class="line"></div><div class="line">            <span class="built_in">std</span>::swap(pathFa, fa-&gt;pathFa);</div><div class="line"></div><div class="line">            Node *old = fa;</div><div class="line">            <span class="keyword">int</span> x = relation();</div><div class="line"></div><div class="line">            fa = old-&gt;fa;</div><div class="line">            <span class="keyword">if</span> (old-&gt;fa) old-&gt;fa-&gt;ch[old-&gt;relation()] = <span class="keyword">this</span>;</div><div class="line"></div><div class="line">            old-&gt;ch[x] = ch[x ^ <span class="number">1</span>];</div><div class="line">            <span class="keyword">if</span> (ch[x ^ <span class="number">1</span>]) ch[x ^ <span class="number">1</span>]-&gt;fa = old;</div><div class="line"></div><div class="line">            ch[x ^ <span class="number">1</span>] = old;</div><div class="line">            old-&gt;fa = <span class="keyword">this</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">void</span> <span class="title">splay</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="keyword">while</span> (fa) &#123;</div><div class="line">                <span class="keyword">if</span> (fa-&gt;fa) fa-&gt;fa-&gt;pushDown();</div><div class="line">                fa-&gt;pushDown();</div><div class="line"></div><div class="line">                <span class="keyword">if</span> (!fa-&gt;fa) rotate();</div><div class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (fa-&gt;relation() == relation()) fa-&gt;rotate(), rotate();</div><div class="line">                <span class="keyword">else</span> rotate(), rotate();</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">void</span> <span class="title">expose</span><span class="params">()</span> </span>&#123;</div><div class="line">            splay();</div><div class="line">            pushDown();</div><div class="line"></div><div class="line">            <span class="keyword">if</span> (ch[<span class="number">1</span>]) &#123;</div><div class="line">                <span class="built_in">std</span>::swap(ch[<span class="number">1</span>]-&gt;pathFa, ch[<span class="number">1</span>]-&gt;fa);</div><div class="line">                ch[<span class="number">1</span>] = <span class="literal">NULL</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">bool</span> <span class="title">splice</span><span class="params">()</span> </span>&#123;</div><div class="line">            splay();</div><div class="line"></div><div class="line">            <span class="keyword">if</span> (!pathFa) <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line"></div><div class="line">            pathFa-&gt;expose();</div><div class="line">            pathFa-&gt;ch[<span class="number">1</span>] = <span class="keyword">this</span>;</div><div class="line">            <span class="built_in">std</span>::swap(pathFa, fa);</div><div class="line"></div><div class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">void</span> <span class="title">access</span><span class="params">()</span> </span>&#123;</div><div class="line">            expose();</div><div class="line">            <span class="keyword">while</span> (splice());</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">void</span> <span class="title">evert</span><span class="params">()</span> </span>&#123;</div><div class="line">            access();</div><div class="line">            splay();</div><div class="line">            rev ^= <span class="number">1</span>;</div><div class="line">        &#125;</div><div class="line">    &#125; N[MAXN + <span class="number">1</span>];</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">link</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</div><div class="line">        Node *u = &amp;N[a], *v = &amp;N[b];</div><div class="line"></div><div class="line">        u-&gt;evert();</div><div class="line">        u-&gt;pathFa = v;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">cut</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</div><div class="line">        Node *u = &amp;N[a], *v = &amp;N[b];</div><div class="line"></div><div class="line">        u-&gt;evert();</div><div class="line">        v-&gt;access();</div><div class="line"></div><div class="line">        u-&gt;splay();</div><div class="line">        u-&gt;pushDown();</div><div class="line"></div><div class="line">        u-&gt;ch[<span class="number">1</span>] = <span class="literal">NULL</span>;</div><div class="line">        v-&gt;fa = <span class="literal">NULL</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> a)</span> </span>&#123;</div><div class="line">        Node *v = &amp;N[a];</div><div class="line">        v-&gt;access();</div><div class="line"></div><div class="line">        v-&gt;splay();</div><div class="line">        <span class="keyword">while</span> (v-&gt;pushDown(), v-&gt;ch[<span class="number">0</span>]) v = v-&gt;ch[<span class="number">0</span>];</div><div class="line"></div><div class="line">        <span class="keyword">return</span> v - N;</div><div class="line">    &#125;</div><div class="line">&#125; lct;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> n, m;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>, &amp;n, &amp;m);</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i++) &#123;</div><div class="line">        <span class="keyword">char</span> s[<span class="number">8</span>];</div><div class="line">        <span class="keyword">int</span> u, v;</div><div class="line">        <span class="built_in">scanf</span>(<span class="string">"%s %d %d"</span>, s, &amp;u, &amp;v);</div><div class="line">        <span class="keyword">if</span> (s[<span class="number">0</span>] == <span class="string">'C'</span>) lct.link(u, v);</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (s[<span class="number">0</span>] == <span class="string">'D'</span>) lct.cut(u, v);</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (s[<span class="number">0</span>] == <span class="string">'Q'</span>) <span class="built_in">puts</span>(lct.find(u) == lct.find(v) ? <span class="string">"Yes"</span> : <span class="string">"No"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-04-02T14:51:41.000Z" itemprop="dateUpdated">2017年4月2日 22:51</time>
+</span><br>
+
+
+        这里写留言或版权声明：<a href="/lct-note/" target="_blank" rel="external">http://sulfur6.top/lct-note/</a>
+    </div>
+    <footer>
+        <a href="http://sulfur6.top">
+            <img src="/img/sulfur.png" alt="Sulfur6">
+            Sulfur6
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LCT/">LCT</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://sulfur6.top/lct-note/&title=《Link-Cut Tree 学习笔记》 — Sulfur6's Blog&pic=http://sulfur6.top/img/sulfur.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://sulfur6.top/lct-note/&title=《Link-Cut Tree 学习笔记》 — Sulfur6's Blog&source=LCT 学习笔记，防忘" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://sulfur6.top/lct-note/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Link-Cut Tree 学习笔记》 — Sulfur6's Blog&url=http://sulfur6.top/lct-note/&via=http://sulfur6.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://sulfur6.top/lct-note/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/bzoj3223/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">「BZOJ3223」文艺平衡树</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+<div class="comments" id="comments">
+    <div class="ds-thread" data-thread-key="lct-note" data-title="Link-Cut Tree 学习笔记" data-url="http://sulfur6.top/lct-note/"></div>
+</div>
+<script>
+lazyScripts.push('//cdn.bootcss.com/marked/0.3.6/marked.min.js');
+
+var duoshuoQuery = {short_name:'ysblog', theme: 'none'};
+lazyScripts.push('/js/embed.min.js?v=1.4.6');
+
+
+</script>
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>Sulfur6's Blog &copy; 2015 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://sulfur6.top/lct-note/&title=《Link-Cut Tree 学习笔记》 — Sulfur6's Blog&pic=http://sulfur6.top/img/sulfur.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://sulfur6.top/lct-note/&title=《Link-Cut Tree 学习笔记》 — Sulfur6's Blog&source=LCT 学习笔记，防忘" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://sulfur6.top/lct-note/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Link-Cut Tree 学习笔记》 — Sulfur6's Blog&url=http://sulfur6.top/lct-note/&via=http://sulfur6.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://sulfur6.top/lct-note/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://sulfur6.top/lct-note/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.6"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.6" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+</body>
+</html>
