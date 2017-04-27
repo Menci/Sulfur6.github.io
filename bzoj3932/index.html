@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="「CQOI 2015」任务查询系统 - 可持久化权值线段树"/>
+
+
+
+
+  <meta name="keywords" content="BZOJ,主席树,可持久化," />
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Sulfur6's Blog">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.4.x" />
+
+
+
+<link rel="canonical" href="http://sulfur6.top/bzoj3932/"/>
+
+
+<meta name="description" content="哎呀奇怪的类名什么的不要在意了啦。还有当时忽略多个相同优先级的任务调了好久 T^T..">
+<meta property="og:type" content="article">
+<meta property="og:title" content="「CQOI 2015」任务查询系统 - 可持久化权值线段树">
+<meta property="og:url" content="http://sulfur6.top/bzoj3932/index.html">
+<meta property="og:site_name" content="Sulfur6's Blog">
+<meta property="og:description" content="哎呀奇怪的类名什么的不要在意了啦。还有当时忽略多个相同优先级的任务调了好久 T^T..">
+<meta property="og:updated_time" content="2017-04-22T01:35:55.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="「CQOI 2015」任务查询系统 - 可持久化权值线段树">
+<meta name="twitter:description" content="哎呀奇怪的类名什么的不要在意了啦。还有当时忽略多个相同优先级的任务调了好久 T^T..">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.4.x" />
+<link rel="stylesheet" href="<%= url_for('/css/style.css?v='+ theme.version) %>">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css" />
+
+
+
+
+
+
+
+<script>
+  var CONFIG = {
+    search: false,
+    searchPath: "/search.xml",
+    fancybox: false,
+    toc: true,
+  }
+</script>
+
+
+
+
+  
+
+
+
+    <title> 「CQOI 2015」任务查询系统 - 可持久化权值线段树 · Sulfur6's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="mobile-header-logo">
+    <a href="/." class="logo">Sulfur6's Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            Home
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            Archives
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Sulfur6's Blog</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              首页
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              归档
+            
+          </a>
+        </li>
+      
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          「CQOI 2015」任务查询系统 - 可持久化权值线段树
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017年2月15日
+        </span>
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#题目大意"><span class="toc-text">题目大意</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#题解"><span class="toc-text">题解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a></li></ol>
+    </div>
+  </div>
+
+
+    <div class="post-content">
+      
+        <p>哎呀奇怪的类名什么的不要在意了啦。还有当时忽略多个相同优先级的任务调了好久 T^T..</p>
+<a id="more"></a>
+<h1 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h1><p>给定若干个任务 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><msub><mi>s</mi><mi>i</mi></msub><mo separator="true">,</mo><msub><mi>e</mi><mi>i</mi></msub><mo separator="true">,</mo><msub><mi>p</mi><mi>i</mi></msub><mo>)</mo></mrow><annotation encoding="application/x-tex"> (s_i, e_i, p_i) </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="mord"><span class="mord mathit">s</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mpunct">,</span><span class="mord"><span class="mord mathit">e</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mpunct">,</span><span class="mord"><span class="mord mathit">p</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose">)</span></span></span></span>，表示该任务从第 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>s</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex"> s_i </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">s</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span> 秒运行到第 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>e</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex"> e_i </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">e</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span> 秒，它的价值为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>p</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex"> p_i </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">p</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>，每次询问给定一个 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex"> x </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">x</span></span></span></span> 并由你计算一个 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex"> k </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span></span>，查询第 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex"> x </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">x</span></span></span></span> 秒时价值最小的 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex"> k </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span></span> 个任务的价值之和，如果第 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex"> x </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">x</span></span></span></span> 秒时运行的任务不足 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex"> k </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span></span> 个，则输出此时所有任务的价值和。</p>
+<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p>这里用一种差分的思想来建主席树。</p>
+<p>考虑当我们接受到一个任务时，它会从第 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>s</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex"> s_i </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">s</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span> 秒存在到第 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>e</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex"> e_i </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">e</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span> 秒，而且查询是查询第 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex"> x </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">x</span></span></span></span> 秒存在的的所有任务，所以我们对于时间建主席树，对于一个任务 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex"> i </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.65952em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span></span></span></span>，我们在建第 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>s</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex"> s_i </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">s</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span> 棵线段树时把它插入主席树，在建 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>e</mi><mi>i</mi></msub><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex"> e_i + 1  </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.79444em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">e</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span> 棵线段树时把它删掉，这样我们可以保证第 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex"> i </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.65952em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span></span></span></span> 棵线段树中存储的任务是所有在第 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex"> i </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.65952em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span></span></span></span> 秒中运行的任务，剩下的就是主席树上二分查询了。。</p>
+<p>注意，相同优先级的任务可能有多个。</p>
+<p>顺便吐个槽，感觉这种写法叫做可持久化权值线段树更好。。</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><p>奇怪的类名实例名什么的不要在意啦 qwq</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cassert&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;climits&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXN = <span class="number">100000</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXM = <span class="number">100000</span>;</div><div class="line"></div><div class="line"><span class="keyword">struct</span> Mission &#123;</div><div class="line">    <span class="keyword">int</span> val;</div><div class="line">    <span class="keyword">bool</span> isDelete;</div><div class="line"></div><div class="line">    Mission() &#123;&#125;</div><div class="line">    Mission(<span class="keyword">int</span> val, <span class="keyword">bool</span> isDelete) : val(val), isDelete(isDelete) &#123;&#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="built_in">std</span>::<span class="built_in">vector</span>&lt;Mission&gt; a[MAXM + <span class="number">50</span>];</div><div class="line"></div><div class="line"><span class="keyword">struct</span> PresentTreeByGoldYeInInternationalOlympidInInformaticsHellc &#123;</div><div class="line">    <span class="keyword">struct</span> Node &#123;</div><div class="line">        <span class="keyword">int</span> l, r;</div><div class="line">        Node *lc, *rc;</div><div class="line">        <span class="keyword">int</span> size, sum;</div><div class="line"></div><div class="line">        Node() &#123;&#125;</div><div class="line">        Node(<span class="keyword">int</span> l, <span class="keyword">int</span> r, Node *lc, Node *rc) : l(l), r(r), lc(lc), rc(rc), size(lc-&gt;size + rc-&gt;size), sum(lc-&gt;sum + rc-&gt;sum) &#123;&#125;</div><div class="line">        Node(<span class="keyword">int</span> l, <span class="keyword">int</span> r, Node *lc, Node *rc, <span class="keyword">int</span> size, <span class="keyword">int</span> sum) : l(l), r(r), lc(lc), rc(rc), size(size), sum(sum) &#123;&#125;</div><div class="line">    &#125; *roots[MAXN + <span class="number">50</span>], *null, _pool[MAXN * <span class="number">200</span>], *_curr;</div><div class="line"></div><div class="line">    <span class="keyword">int</span> l, r;</div><div class="line"></div><div class="line">    PresentTreeByGoldYeInInternationalOlympidInInformaticsHellc() &#123;</div><div class="line">        null = <span class="keyword">new</span> Node(<span class="number">-1</span>, <span class="number">-1</span>, <span class="literal">NULL</span>, <span class="literal">NULL</span>, <span class="number">0</span>, <span class="number">0</span>);</div><div class="line">        null-&gt;lc = null, null-&gt;rc = null;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function">Node *<span class="title">insert</span><span class="params">(Node *v, <span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="keyword">int</span> x, <span class="keyword">bool</span> isDelete)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (!isDelete) &#123;</div><div class="line">            <span class="keyword">if</span> (x &lt; l || x &gt; r) <span class="keyword">return</span> v;</div><div class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (l == r) <span class="keyword">return</span> <span class="keyword">new</span> (_curr++) Node(l, r, null, null, v-&gt;size + <span class="number">1</span>, v-&gt;sum + x);</div><div class="line">            <span class="keyword">else</span> &#123;</div><div class="line">                <span class="keyword">int</span> mid = l + (r - l) / <span class="number">2</span>;</div><div class="line">                <span class="keyword">return</span> <span class="keyword">new</span> (_curr++) Node(l, r, insert(v-&gt;lc, l, mid, x, isDelete), insert(v-&gt;rc, mid + <span class="number">1</span>, r, x, isDelete));</div><div class="line">            &#125;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">if</span> (x &lt; l || x &gt; r) <span class="keyword">return</span> v;</div><div class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (l == r) <span class="keyword">return</span> <span class="keyword">new</span> (_curr++) Node(l, r, null, null, v-&gt;size - <span class="number">1</span>, v-&gt;sum - x);</div><div class="line">            <span class="keyword">else</span> &#123;</div><div class="line">                <span class="keyword">int</span> mid = l + (r - l) / <span class="number">2</span>;</div><div class="line">                <span class="keyword">return</span> <span class="keyword">new</span> (_curr++) Node(l, r, insert(v-&gt;lc, l, mid, x, isDelete), insert(v-&gt;rc, mid + <span class="number">1</span>, r, x, isDelete));</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line">    void update(Node *v, int x, bool isDelete) &#123;</div><div class="line">        if (!isDelete) &#123;</div><div class="line">            v-&gt;size++, v-&gt;sum += x;</div><div class="line">            if (v-&gt;l == v-&gt;r) return;</div><div class="line">            else &#123;</div><div class="line">                int mid = v-&gt;l + (v-&gt;r - v-&gt;l) / 2;</div><div class="line">                if (x &lt;= mid) update(v-&gt;lc, x, isDelete);</div><div class="line">                else update(v-&gt;rc, x, isDelete);</div><div class="line">            &#125;</div><div class="line">        &#125; else &#123;</div><div class="line">            v-&gt;size--, v-&gt;sum -= x;</div><div class="line">            if (v-&gt;l == v-&gt;r) return;</div><div class="line">            else &#123;</div><div class="line">                int mid = v-&gt;l + (v-&gt;r - v-&gt;l) / 2;</div><div class="line">                if (x &lt;= mid) update(v-&gt;lc, x, isDelete);</div><div class="line">                else update(v-&gt;rc, x, isDelete);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">*/</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">build</span><span class="params">(<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;Mission&gt; *a, <span class="keyword">int</span> n, <span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;</div><div class="line">        _curr = _pool;</div><div class="line">        roots[<span class="number">0</span>] = null;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</div><div class="line">            <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;Mission&gt;::iterator it = a[i].begin();</div><div class="line">            <span class="keyword">if</span> (it == a[i].end()) &#123; roots[i] = roots[i - <span class="number">1</span>]; <span class="keyword">continue</span>; &#125;</div><div class="line">            <span class="keyword">else</span> &#123;</div><div class="line">                roots[i] = insert(roots[i - <span class="number">1</span>], l, r, it-&gt;val, it-&gt;isDelete);</div><div class="line">                it++;</div><div class="line">                <span class="keyword">for</span> (; it != a[i].end(); it++) &#123;</div><div class="line">                    assert(it != a[i].end());</div><div class="line">                    roots[i] = insert(roots[i], l, r, it-&gt;val, it-&gt;isDelete);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">this</span>-&gt;l = l, <span class="keyword">this</span>-&gt;r = r;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">query</span><span class="params">(<span class="keyword">int</span> qr, <span class="keyword">int</span> k)</span> </span>&#123;</div><div class="line">        <span class="keyword">long</span> <span class="keyword">long</span> ans = <span class="number">0</span>, lsize;</div><div class="line">        Node *v = roots[qr];</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (k &gt;= v-&gt;size) <span class="keyword">return</span> v-&gt;sum;</div><div class="line"></div><div class="line">        lsize = v-&gt;lc-&gt;size;</div><div class="line">        <span class="keyword">while</span> (v-&gt;l != v-&gt;r) &#123;</div><div class="line">            <span class="keyword">if</span> (k &lt;= lsize) &#123;</div><div class="line">                v = v-&gt;lc;</div><div class="line">                lsize = v-&gt;lc-&gt;size;</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                k -= lsize;</div><div class="line">                ans += v-&gt;lc-&gt;sum;</div><div class="line">                v = v-&gt;rc;</div><div class="line">                lsize = v-&gt;lc-&gt;size;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (k) ans += v-&gt;l * k;</div><div class="line">        <span class="keyword">return</span> ans;</div><div class="line">    &#125;</div><div class="line">&#125; presentTreeByGoldYeInInternationalOlympidInInformaticsHellc;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> m, n;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>, &amp;m, &amp;n);</div><div class="line">    <span class="keyword">int</span> max = INT_MIN, min = INT_MAX;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i++) &#123;</div><div class="line">        <span class="keyword">int</span> s, t, val;</div><div class="line">        <span class="built_in">scanf</span>(<span class="string">"%d %d %d"</span>, &amp;s, &amp;t, &amp;val);</div><div class="line">        max = <span class="built_in">std</span>::max(max, val);</div><div class="line">        min = <span class="built_in">std</span>::min(min, val);</div><div class="line">        a[s].push_back(Mission(val, <span class="literal">false</span>));</div><div class="line">        a[t + <span class="number">1</span>].push_back(Mission(val, <span class="literal">true</span>));</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    presentTreeByGoldYeInInternationalOlympidInInformaticsHellc.build(a, n, min, max);</div><div class="line"></div><div class="line">    <span class="keyword">long</span> <span class="keyword">long</span> pre = <span class="number">1</span>;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</div><div class="line">        <span class="keyword">int</span> x, k;</div><div class="line">        <span class="keyword">long</span> <span class="keyword">long</span> a, b, c;</div><div class="line">        <span class="built_in">scanf</span>(<span class="string">"%d %lld %lld %lld"</span>, &amp;x, &amp;a, &amp;b, &amp;c);</div><div class="line">        k = <span class="number">1</span> + (a * pre + b) % c;</div><div class="line">        pre = presentTreeByGoldYeInInternationalOlympidInInformaticsHellc.query(x, k);</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, pre);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+      
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>作者: </span>
+      <span>Sulfur6</span>
+    </p>
+    <p class="copyright-item">
+      <span>来源: </span>
+      <a href="http://sulfur6.top">http://sulfur6.top</a>
+    </p>
+    <p class="copyright-item">
+      <span>链接: </span>
+      <a href="http://sulfur6.top/bzoj3932/">http://sulfur6.top/bzoj3932/</a>
+    </p>
+
+    <p class="copyright-item lincese">
+      
+      本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+    </p>
+  </div>
+
+
+
+      
+      
+  <div class="post-reward">
+    <input type="checkbox" name="reward" id="reward" hidden />
+    <label class="reward-button" for="reward">赞赏支持</label>
+    <div class="qr-code">
+      
+      
+        <label class="qr-code-image" for="reward">
+          <img class="image" src="/image/reward/wechat.png" title="wechat">
+        </label>
+      
+      
+        <label class="qr-code-image" for="reward">
+          <img class="image" src="/image/reward/alipay.png" title="alipay">
+        </label>
+      
+    </div>
+  </div>
+
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/BZOJ/">BZOJ</a>
+            
+              <a href="/tags/主席树/">主席树</a>
+            
+              <a href="/tags/可持久化/">可持久化</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/lct-note/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">Link-Cut Tree 学习笔记</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    
+    
+      <a class="next" href="/hdu5791/">
+        <span class="next-text nav-default">「HDU 5791」Two - DP</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>  
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2017
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Sulfur6</span>
+  </span>
+</div>
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+
+  
+  
+
+
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.4.x"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.4.x"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+    
+  </body>
+</html>
