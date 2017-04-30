@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="「SDOI2011」染色 - 树链剖分，线段树"/>
+
+
+
+
+  <meta name="keywords" content="树链剖分,线段树,BZOJ,SDOI," />
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Sulfur6's Blog">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.4.x" />
+
+
+
+<link rel="canonical" href="http://sulfur6.github.io/bzoj2243/"/>
+
+
+<meta name="description" content="不知为何我曾经下意识地觉得这道题十分不可做 qwq">
+<meta name="keywords" content="树链剖分,线段树,BZOJ,SDOI">
+<meta property="og:type" content="article">
+<meta property="og:title" content="「SDOI2011」染色 - 树链剖分，线段树">
+<meta property="og:url" content="http://sulfur6.github.io/bzoj2243/index.html">
+<meta property="og:site_name" content="Sulfur6's Blog">
+<meta property="og:description" content="不知为何我曾经下意识地觉得这道题十分不可做 qwq">
+<meta property="og:updated_time" content="2017-04-30T15:06:52.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="「SDOI2011」染色 - 树链剖分，线段树">
+<meta name="twitter:description" content="不知为何我曾经下意识地觉得这道题十分不可做 qwq">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.4.x" />
+<link rel="stylesheet" href="<%= url_for('/css/style.css?v='+ theme.version) %>">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css" />
+
+
+
+
+
+
+
+<script>
+  var CONFIG = {
+    search: false,
+    searchPath: "/search.xml",
+    fancybox: false,
+    toc: true,
+  }
+</script>
+
+
+
+
+  
+
+
+
+    <title> 「SDOI2011」染色 - 树链剖分，线段树 · Sulfur6's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="mobile-header-logo">
+    <a href="/." class="logo">Sulfur6's Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            Home
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            Archives
+          
+        </li>
+      </a>
+    
+      <a href="/tags">
+        <li class="mobile-menu-item">
+          
+          
+            Tags
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Sulfur6's Blog</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              Home
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              Archives
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/tags">
+            
+            
+              Tags
+            
+          </a>
+        </li>
+      
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          「SDOI2011」染色 - 树链剖分，线段树
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017年4月30日
+        </span>
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#题目大意"><span class="toc-text">题目大意</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#题解"><span class="toc-text">题解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a></li></ol>
+    </div>
+  </div>
+
+
+    <div class="post-content">
+      
+        <p>不知为何我曾经下意识地觉得这道题十分不可做 qwq</p>
+<a id="more"></a>
+<h1 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h1><p>给定一棵 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex"> n </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span> 个节点的树，每个节点上有颜色，要求支持两种操作：</p>
+<ol>
+<li>询问两点 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>u</mi><mo separator="true">,</mo><mi>v</mi><mo>)</mo></mrow><annotation encoding="application/x-tex"> (u, v) </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="mord mathit">u</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.03588em;">v</span><span class="mclose">)</span></span></span></span> 之间有多少段颜色</li>
+<li>将两点 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>u</mi><mo separator="true">,</mo><mi>v</mi><mo>)</mo></mrow><annotation encoding="application/x-tex"> (u, v) </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="mord mathit">u</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.03588em;">v</span><span class="mclose">)</span></span></span></span> 之间所有的节点的颜色染成 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>c</mi></mrow><annotation encoding="application/x-tex"> c </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">c</span></span></span></span></li>
+</ol>
+<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p>树链剖分线段树维护，注意线段树每个节点要维护这个区间最左边和最右边位置上节点的颜色，两段区间的答案合并时如果左区间的最右节点和右区间的最左节点颜色相同的话答案要减 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex"> 1 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span></span></span></span>。</p>
+<p>树剖统计答案的时候也要注意这一点。</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight c++"><table><tr><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;climits&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"> </div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAX_N = <span class="number">100000</span>;</div><div class="line"> </div><div class="line"><span class="keyword">struct</span> Node;</div><div class="line"><span class="keyword">struct</span> Edge;</div><div class="line"> </div><div class="line"><span class="keyword">int</span> a[MAX_N + <span class="number">1</span>];</div><div class="line"> </div><div class="line"><span class="keyword">struct</span> Node &#123;</div><div class="line">    Edge *e;</div><div class="line">    Node *fa, *top, *maxc;</div><div class="line">    <span class="keyword">int</span> col, dep, size, dfn;</div><div class="line">    <span class="keyword">bool</span> vis;</div><div class="line">&#125; N[MAX_N + <span class="number">1</span>];</div><div class="line"> </div><div class="line"><span class="keyword">struct</span> Edge &#123;</div><div class="line">    Node *to;</div><div class="line">    Edge *ne;</div><div class="line"> </div><div class="line">    Edge(Node *fr, Node *to) : to(to), ne(fr-&gt;e) &#123;&#125;</div><div class="line">&#125;;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">addEdge</span><span class="params">(<span class="keyword">int</span> fr, <span class="keyword">int</span> to)</span> </span>&#123;</div><div class="line">    N[fr].e = <span class="keyword">new</span> Edge(&amp;N[fr], &amp;N[to]);</div><div class="line">    N[to].e = <span class="keyword">new</span> Edge(&amp;N[to], &amp;N[fr]);</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs1</span><span class="params">(Node *v)</span> </span>&#123;</div><div class="line">    v-&gt;size = <span class="number">1</span>;</div><div class="line">    v-&gt;vis = <span class="literal">true</span>;</div><div class="line"> </div><div class="line">    <span class="keyword">for</span> (Edge *e = v-&gt;e; e; e = e-&gt;ne) &#123;</div><div class="line">        <span class="keyword">if</span> (!e-&gt;to-&gt;vis) &#123;</div><div class="line">            e-&gt;to-&gt;dep = v-&gt;dep + <span class="number">1</span>;</div><div class="line">            e-&gt;to-&gt;fa = v;</div><div class="line">            dfs1(e-&gt;to);</div><div class="line">            v-&gt;size += e-&gt;to-&gt;size;</div><div class="line">            <span class="keyword">if</span> (!v-&gt;maxc || e-&gt;to-&gt;size &gt; v-&gt;maxc-&gt;size) v-&gt;maxc = e-&gt;to;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs2</span><span class="params">(Node *v)</span> </span>&#123;</div><div class="line">    <span class="keyword">static</span> <span class="keyword">int</span> ts = <span class="number">0</span>;</div><div class="line">    v-&gt;dfn = ++ts;</div><div class="line"> </div><div class="line">    <span class="keyword">if</span> (!v-&gt;fa || v != v-&gt;fa-&gt;maxc) v-&gt;top = v;</div><div class="line">    <span class="keyword">else</span> v-&gt;top = v-&gt;fa-&gt;top;</div><div class="line"> </div><div class="line">    <span class="keyword">if</span> (v-&gt;maxc) dfs2(v-&gt;maxc);</div><div class="line">    <span class="keyword">for</span> (Edge *e = v-&gt;e; e; e = e-&gt;ne) &#123;</div><div class="line">        <span class="keyword">if</span> (e-&gt;to-&gt;fa == v &amp;&amp; e-&gt;to != v-&gt;maxc) dfs2(e-&gt;to);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">split</span><span class="params">(Node *root)</span> </span>&#123;</div><div class="line">    root-&gt;dep = <span class="number">1</span>;</div><div class="line">    dfs1(root);</div><div class="line">    dfs2(root);</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="keyword">struct</span> Segt &#123;</div><div class="line">    <span class="keyword">int</span> l, r;</div><div class="line">    Segt *lc, *rc;</div><div class="line">    <span class="keyword">int</span> sum, tag;</div><div class="line">    <span class="keyword">int</span> lcol, rcol;</div><div class="line"> </div><div class="line">    Segt(<span class="keyword">int</span> l, <span class="keyword">int</span> r, Segt *lc, Segt *rc, <span class="keyword">int</span> sum = <span class="number">0</span>, <span class="keyword">int</span> lcol = <span class="number">-1</span>, <span class="keyword">int</span> rcol = <span class="number">-1</span>) :</div><div class="line">        l(l), r(r), lc(lc), rc(rc), sum(sum), tag(<span class="number">-1</span>), lcol(lcol), rcol(rcol) &#123;&#125;</div><div class="line"> </div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">maintain</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (lc-&gt;rcol == rc-&gt;lcol) sum = lc-&gt;sum + rc-&gt;sum - <span class="number">1</span>;</div><div class="line">        <span class="keyword">else</span> sum = lc-&gt;sum + rc-&gt;sum;</div><div class="line">        lcol = lc-&gt;lcol, rcol = rc-&gt;rcol;</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">change</span><span class="params">(<span class="keyword">int</span> col)</span> </span>&#123;</div><div class="line">        sum = <span class="number">1</span>;</div><div class="line">        lcol = rcol = col;</div><div class="line">        tag = col;</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">pushDown</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (tag != <span class="number">-1</span>) &#123;</div><div class="line">            lc-&gt;change(tag);</div><div class="line">            rc-&gt;change(tag);</div><div class="line"> </div><div class="line">            tag = <span class="number">-1</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">modify</span><span class="params">(<span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="keyword">int</span> col)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (l &gt; <span class="keyword">this</span>-&gt;r || r &lt; <span class="keyword">this</span>-&gt;l) <span class="keyword">return</span>;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (l &lt;= <span class="keyword">this</span>-&gt;l &amp;&amp; r &gt;= <span class="keyword">this</span>-&gt;r) change(col);</div><div class="line">        <span class="keyword">else</span> pushDown(), lc-&gt;modify(l, r, col), rc-&gt;modify(l, r, col), maintain();</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">query</span><span class="params">(<span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (l &lt;= <span class="keyword">this</span>-&gt;l &amp;&amp; r &gt;= <span class="keyword">this</span>-&gt;r) <span class="keyword">return</span> sum;</div><div class="line">        <span class="keyword">else</span> &#123;</div><div class="line">            pushDown();</div><div class="line">            <span class="keyword">int</span> mid = <span class="keyword">this</span>-&gt;l + (<span class="keyword">this</span>-&gt;r - <span class="keyword">this</span>-&gt;l) / <span class="number">2</span>;</div><div class="line">            <span class="keyword">if</span> (l &gt; mid) <span class="keyword">return</span> rc-&gt;query(l, r);</div><div class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (r &lt;= mid) <span class="keyword">return</span> lc-&gt;query(l, r);</div><div class="line">            <span class="keyword">else</span> &#123;</div><div class="line">                <span class="keyword">int</span> lsum = lc-&gt;query(l, r), rsum = rc-&gt;query(l, r);</div><div class="line">                <span class="keyword">if</span> (lc-&gt;rcol == rc-&gt;lcol) <span class="keyword">return</span> lsum + rsum - <span class="number">1</span>;</div><div class="line">                <span class="keyword">else</span> <span class="keyword">return</span> lsum + rsum;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">query</span><span class="params">(<span class="keyword">int</span> pos)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (l == r) <span class="keyword">return</span> lcol;</div><div class="line">        <span class="keyword">else</span> &#123;</div><div class="line">            pushDown();</div><div class="line">            <span class="keyword">int</span> mid = l + (r - l) / <span class="number">2</span>;</div><div class="line">            <span class="keyword">if</span> (pos &lt;= mid) <span class="keyword">return</span> lc-&gt;query(pos);</div><div class="line">            <span class="keyword">else</span> <span class="keyword">return</span> rc-&gt;query(pos);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    <span class="function"><span class="keyword">static</span> Segt *<span class="title">build</span><span class="params">(<span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (l == r) <span class="keyword">return</span> <span class="keyword">new</span> Segt(l, r, <span class="literal">NULL</span>, <span class="literal">NULL</span>, <span class="number">1</span>, a[l], a[r]);</div><div class="line">        <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">int</span> mid = l + (r - l) / <span class="number">2</span>;</div><div class="line">            Segt *v = <span class="keyword">new</span> Segt(l, r, build(l, mid), build(mid + <span class="number">1</span>, r));</div><div class="line">            v-&gt;maintain();</div><div class="line">            <span class="keyword">return</span> v;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125; *segt;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">change</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span> c)</span> </span>&#123;</div><div class="line">    Node *u = &amp;N[a], *v = &amp;N[b];</div><div class="line">    <span class="keyword">while</span> (u-&gt;top != v-&gt;top) &#123;</div><div class="line">        <span class="keyword">if</span> (u-&gt;top-&gt;dep &lt; v-&gt;top-&gt;dep) <span class="built_in">std</span>::swap(u, v);</div><div class="line">        segt-&gt;modify(u-&gt;top-&gt;dfn, u-&gt;dfn, c);</div><div class="line">        u = u-&gt;top-&gt;fa;</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    <span class="keyword">if</span> (u-&gt;dep &gt; v-&gt;dep) <span class="built_in">std</span>::swap(u, v);</div><div class="line">    segt-&gt;modify(u-&gt;dfn, v-&gt;dfn, c);</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">query</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</div><div class="line">    Node *u = &amp;N[a], *v = &amp;N[b];</div><div class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span> (u-&gt;top != v-&gt;top) &#123;</div><div class="line">        <span class="keyword">if</span> (u-&gt;top-&gt;dep &lt; v-&gt;top-&gt;dep) <span class="built_in">std</span>::swap(u, v);</div><div class="line">        res += segt-&gt;query(u-&gt;top-&gt;dfn, u-&gt;dfn);</div><div class="line">        <span class="keyword">if</span> (segt-&gt;query(u-&gt;top-&gt;dfn) == segt-&gt;query(u-&gt;top-&gt;fa-&gt;dfn)) res--;</div><div class="line">        u = u-&gt;top-&gt;fa;</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    <span class="keyword">if</span> (u-&gt;dep &gt; v-&gt;dep) <span class="built_in">std</span>::swap(u, v);</div><div class="line">    res += segt-&gt;query(u-&gt;dfn, v-&gt;dfn);</div><div class="line">    <span class="keyword">return</span> res;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line"><span class="comment">//  freopen("data.in", "r", stdin);</span></div><div class="line">    <span class="keyword">int</span> n, m;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>, &amp;n, &amp;m);</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;N[i].col);</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++) &#123;</div><div class="line">        <span class="keyword">int</span> u, v;</div><div class="line">        <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>, &amp;u, &amp;v);</div><div class="line">        addEdge(u, v);</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    split(&amp;N[<span class="number">1</span>]);</div><div class="line"> </div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</div><div class="line">        a[N[i].dfn] = N[i].col;</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    segt = Segt::build(<span class="number">1</span>, n);</div><div class="line"> </div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i++) &#123;</div><div class="line">        <span class="keyword">char</span> cmd[<span class="number">2</span>];</div><div class="line">        <span class="built_in">scanf</span>(<span class="string">"%s"</span>, cmd);</div><div class="line">        <span class="keyword">if</span> (cmd[<span class="number">0</span>] == <span class="string">'C'</span>) &#123;</div><div class="line">            <span class="keyword">int</span> a, b, c;</div><div class="line">            <span class="built_in">scanf</span>(<span class="string">"%d %d %d"</span>, &amp;a, &amp;b, &amp;c);</div><div class="line">            change(a, b, c);</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (cmd[<span class="number">0</span>] == <span class="string">'Q'</span>) &#123;</div><div class="line">            <span class="keyword">int</span> a, b;</div><div class="line">            <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>, &amp;a, &amp;b);</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, query(a, b));</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+      
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>作者: </span>
+      <span>Sulfur6</span>
+    </p>
+    <p class="copyright-item">
+      <span>来源: </span>
+      <a href="http://sulfur6.github.io">http://sulfur6.github.io</a>
+    </p>
+    <p class="copyright-item">
+      <span>链接: </span>
+      <a href="http://sulfur6.github.io/bzoj2243/">http://sulfur6.github.io/bzoj2243/</a>
+    </p>
+
+    <p class="copyright-item lincese">
+      
+      本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+    </p>
+  </div>
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/树链剖分/">树链剖分</a>
+            
+              <a href="/tags/线段树/">线段树</a>
+            
+              <a href="/tags/BZOJ/">BZOJ</a>
+            
+              <a href="/tags/SDOI/">SDOI</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/NOIP2016-running/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">「NOIP2016」天天爱跑步</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>  
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2017
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Sulfur6</span>
+  </span>
+</div>
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+
+  
+  
+
+
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.4.x"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.4.x"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+    
+  </body>
+</html>
