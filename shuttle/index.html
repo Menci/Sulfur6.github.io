@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="「网络流24题」太空飞行计划 - 最大权闭合子图"/>
+
+
+
+
+  <meta name="keywords" content="网络流,最大流,最大权闭合子图," />
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Sulfur6's Blog">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.4.x" />
+
+
+
+<link rel="canonical" href="http://sulfur6.github.io/shuttle/"/>
+
+
+<meta name="description" content="一切要求输出方案的网络流题都是耍流氓">
+<meta name="keywords" content="网络流,最大流,最大权闭合子图">
+<meta property="og:type" content="article">
+<meta property="og:title" content="「网络流24题」太空飞行计划 - 最大权闭合子图">
+<meta property="og:url" content="http://sulfur6.github.io/shuttle/index.html">
+<meta property="og:site_name" content="Sulfur6's Blog">
+<meta property="og:description" content="一切要求输出方案的网络流题都是耍流氓">
+<meta property="og:updated_time" content="2017-05-01T07:44:05.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="「网络流24题」太空飞行计划 - 最大权闭合子图">
+<meta name="twitter:description" content="一切要求输出方案的网络流题都是耍流氓">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.4.x" />
+<link rel="stylesheet" href="<%= url_for('/css/style.css?v='+ theme.version) %>">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css" />
+
+
+
+
+
+
+
+<script>
+  var CONFIG = {
+    search: true,
+    searchPath: "/search.json",
+    fancybox: false,
+    toc: true,
+  }
+</script>
+
+
+
+
+  
+
+
+
+    <title> 「网络流24题」太空飞行计划 - 最大权闭合子图 · Sulfur6's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="mobile-header-logo">
+    <a href="/." class="logo">Sulfur6's Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            Home
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            Archives
+          
+        </li>
+      </a>
+    
+      <a href="/tags">
+        <li class="mobile-menu-item">
+          
+          
+            Tags
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Sulfur6's Blog</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              Home
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              Archives
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/tags">
+            
+            
+              Tags
+            
+          </a>
+        </li>
+      
+      
+        <li class="menu-search">
+          <form>
+            <i class="iconfont icon-search" id="open-search"></i>
+            <input type="text" class="search-input" id="search-input" />
+            <i class="iconfont icon-close" id="close-search"></i>
+          </form>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          「网络流24题」太空飞行计划 - 最大权闭合子图
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017年2月16日
+        </span>
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#题目描述"><span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#链接"><span class="toc-text">链接</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#题解"><span class="toc-text">题解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a></li></ol>
+    </div>
+  </div>
+
+
+    <div class="post-content">
+      
+        <p>一切要求输出方案的网络流题都是耍流氓</p>
+<a id="more"></a>
+<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>W 教授正在为国家航天中心计划一系列的太空飞行。每次太空飞行可进行一系列商业性实验而获取利润。现已确定了一个可供选择的实验集合 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>E</mi><mo>=</mo><mo>{</mo><msub><mi>E</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>E</mi><mn>2</mn></msub><mo separator="true">,</mo><mo>⋯</mo><mo separator="true">,</mo><msub><mi>E</mi><mi>m</mi></msub><mo>}</mo></mrow><annotation encoding="application/x-tex"> E = \{ E_1, E_2, \cdots, E_m \} </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.05764em;">E</span><span class="mrel">=</span><span class="mopen">{</span><span class="mord"><span class="mord mathit" style="margin-right:0.05764em;">E</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.05764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">1</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mpunct">,</span><span class="mord"><span class="mord mathit" style="margin-right:0.05764em;">E</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.05764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mpunct">,</span><span class="minner">⋯</span><span class="mpunct">,</span><span class="mord"><span class="mord mathit" style="margin-right:0.05764em;">E</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.05764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">m</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose">}</span></span></span></span>，和进行这些实验需要使用的全部仪器的集合 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>I</mi><mo>=</mo><mo>{</mo><msub><mi>I</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>I</mi><mn>2</mn></msub><mo separator="true">,</mo><mo>⋯</mo><mo separator="true">,</mo><msub><mi>I</mi><mi>n</mi></msub><mo>}</mo></mrow><annotation encoding="application/x-tex"> I = \{ I_1, I_2, \cdots, I_n \} </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.07847em;">I</span><span class="mrel">=</span><span class="mopen">{</span><span class="mord"><span class="mord mathit" style="margin-right:0.07847em;">I</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.07847em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">1</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mpunct">,</span><span class="mord"><span class="mord mathit" style="margin-right:0.07847em;">I</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.07847em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mpunct">,</span><span class="minner">⋯</span><span class="mpunct">,</span><span class="mord"><span class="mord mathit" style="margin-right:0.07847em;">I</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.07847em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">n</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose">}</span></span></span></span>。实验 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>E</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex"> E_j </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.05764em;">E</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.05764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span> 需要用到的仪器是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>I</mi></mrow><annotation encoding="application/x-tex"> I </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.07847em;">I</span></span></span></span> 的子集 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>R</mi><mi>j</mi></msub><mo>⊆</mo><mi>I</mi></mrow><annotation encoding="application/x-tex"> R_j \subseteq I </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.00773em;">R</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.00773em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">⊆</span><span class="mord mathit" style="margin-right:0.07847em;">I</span></span></span></span>。</p>
+<p>配置仪器 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>I</mi><mi>k</mi></msub></mrow><annotation encoding="application/x-tex"> I_k </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.07847em;">I</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.07847em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span> 的费用为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>c</mi><mi>k</mi></msub></mrow><annotation encoding="application/x-tex"> c_k </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">c</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span> 美元。实验 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>E</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex"> E_j </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.05764em;">E</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.05764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span> 的赞助商已同意为该实验结果支付 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>p</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex"> p_j </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.716668em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">p</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span> 美元。W 教授的任务是找出一个有效算法，确定在一次太空飞行中要进行哪些实验并因此而配置哪些仪器才能使太空飞行的净收益最大。这里净收益是指进行实验所获得的全部收入与配置仪器的全部费用的差额。</p>
+<p>对于给定的实验和仪器配置情况，编程找出净收益最大的试验计划。</p>
+<h1 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h1><p><a href="https://ly.men.ci/problem/118" target="_blank" rel="external">LYOI #118</a>
+<a href="http://cogs.pro/cogs/problem/problem.php?pid=727" target="_blank" rel="external">COGS #727</a></p>
+<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p>源点与正权点连边，容量为点权值
+正权点与负权点连边，容量为负无穷
+负权点与汇点连边，容量为点权值绝对值
+最大权闭合子图的点权和 = 正点权和 - 最大流</p>
+<p>上面讲述了一种通过最大权闭合子图来思考的模式，具体证明见胡伯涛论文。</p>
+<p>按照上述方式建图，考虑这张图中割的意义。</p>
+<p>割中不应该存在实验连向仪器的边，因为它们的容量是正无穷。那么如果一条源点到实验的边被割开，意味着这个实验被抛弃不做，一条仪器到汇点的边被割去了，意味着这个仪器会被使用，也就是最后的收益要减去仪器的价格。这样求出最小割以后，就可以最小化弃置实验的价值和使用仪器的代价，最终把期望总收益（所有实验的收益和）减去我们得到的最小代价，得到的就是最终的答案。</p>
+<p>求最小割:
+在包含负权边的网络中沿着未满流的边 bfs，
+到达的点打上标记，一条跨越标记点和未标记点的边属于最小割。</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><p>我才不要用什么 <code>set_difference</code> 呢。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;climits&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cassert&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;new&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sstream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXN = <span class="number">100</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXM = <span class="number">100</span>;</div><div class="line"></div><div class="line"><span class="keyword">struct</span> Node;</div><div class="line"><span class="keyword">struct</span> Edge;</div><div class="line"></div><div class="line"><span class="keyword">struct</span> Node &#123;</div><div class="line">    Edge *e, *c;</div><div class="line">    <span class="keyword">int</span> level;</div><div class="line">    <span class="keyword">bool</span> chosen, flag;</div><div class="line"></div><div class="line">    Node() : e(<span class="literal">NULL</span>), c(<span class="literal">NULL</span>), level(<span class="number">0</span>), chosen(<span class="literal">false</span>), flag(<span class="literal">false</span>) &#123;&#125;;</div><div class="line">&#125; N[MAXM + MAXN + <span class="number">2</span>];</div><div class="line"></div><div class="line"><span class="keyword">struct</span> Edge &#123;</div><div class="line">    Node *fr, *to;</div><div class="line">    Edge *ne, *rev;</div><div class="line">    <span class="keyword">int</span> cap, flow;</div><div class="line">    <span class="keyword">bool</span> isCut;</div><div class="line"></div><div class="line">    Edge() &#123;&#125;</div><div class="line">    Edge(Node *fr, Node *to, <span class="keyword">int</span> cap) : fr(fr), to(to), ne(fr-&gt;e), cap(cap), flow(<span class="number">0</span>), isCut(<span class="literal">false</span>) &#123;&#125;</div><div class="line">&#125; _pool[MAXN * MAXM + MAXN + MAXM + <span class="number">1000</span>], *_end;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;</div><div class="line">    _end = _pool;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">addEdge</span><span class="params">(<span class="keyword">int</span> fr, <span class="keyword">int</span> to, <span class="keyword">int</span> cap)</span> </span>&#123;</div><div class="line">    N[fr].e = <span class="keyword">new</span> (_end++) Edge(&amp;N[fr], &amp;N[to], cap);</div><div class="line">    N[to].e = <span class="keyword">new</span> (_end++) Edge(&amp;N[to], &amp;N[fr], <span class="number">0</span>);</div><div class="line"></div><div class="line">    N[fr].e-&gt;rev = N[to].e, N[to].e-&gt;rev = N[fr].e;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">struct</span> Dinic &#123;</div><div class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">makeLevelGraph</span><span class="params">(Node *s, Node *t, <span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= n; i++) N[i].c = N[i].e, N[i].level = <span class="number">0</span>;</div><div class="line"></div><div class="line">        <span class="built_in">std</span>::<span class="built_in">queue</span>&lt;Node *&gt; q;</div><div class="line">        q.push(s);</div><div class="line">        s-&gt;level = <span class="number">1</span>;</div><div class="line"></div><div class="line">        <span class="keyword">while</span> (!q.empty()) &#123;</div><div class="line">            Node *v = q.front();</div><div class="line">            q.pop();</div><div class="line"></div><div class="line">            <span class="keyword">for</span> (Edge *e = v-&gt;e; e; e = e-&gt;ne) &#123;</div><div class="line">                <span class="keyword">if</span> (e-&gt;cap &gt; e-&gt;flow &amp;&amp; e-&gt;to-&gt;level == <span class="number">0</span>) &#123;</div><div class="line">                    e-&gt;to-&gt;level = v-&gt;level + <span class="number">1</span>;</div><div class="line">                    <span class="keyword">if</span> (e-&gt;to == t) <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">                    q.push(e-&gt;to);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">findPath</span><span class="params">(Node *s, Node *t, <span class="keyword">int</span> limit = INT_MAX)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (s == t) <span class="keyword">return</span> limit;</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (Edge *&amp;e = s-&gt;c; e; e = e-&gt;ne) &#123;</div><div class="line">            <span class="keyword">if</span> (e-&gt;cap &gt; e-&gt;flow &amp;&amp; e-&gt;to-&gt;level == s-&gt;level + <span class="number">1</span>) &#123;</div><div class="line">                <span class="keyword">int</span> flow = findPath(e-&gt;to, t, <span class="built_in">std</span>::min(limit, e-&gt;cap - e-&gt;flow));</div><div class="line">                <span class="keyword">if</span> (flow &gt; <span class="number">0</span>) &#123;</div><div class="line">                    e-&gt;flow += flow;</div><div class="line">                    e-&gt;rev-&gt;flow -= flow;</div><div class="line">                    <span class="keyword">return</span> flow;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">operator</span><span class="params">()</span><span class="params">(<span class="keyword">int</span> s, <span class="keyword">int</span> t, <span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</div><div class="line">        <span class="keyword">while</span> (makeLevelGraph(&amp;N[s], &amp;N[t], n)) &#123;</div><div class="line">            <span class="keyword">int</span> flow;</div><div class="line">            <span class="keyword">if</span> ((flow = findPath(&amp;N[s], &amp;N[t])) &gt; <span class="number">0</span>) res += flow;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> res;</div><div class="line">    &#125;</div><div class="line">&#125; dinic;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">minCut</span><span class="params">(<span class="keyword">int</span> s)</span> </span>&#123;</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">queue</span>&lt;Node *&gt; q;</div><div class="line">    q.push(&amp;N[s]);</div><div class="line">    N[s].flag = <span class="literal">true</span>;</div><div class="line"></div><div class="line">    <span class="keyword">while</span> (!q.empty()) &#123;</div><div class="line">        Node *v = q.front();</div><div class="line">        q.pop();</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (Edge *e = v-&gt;e; e; e = e-&gt;ne) &#123;</div><div class="line">            <span class="keyword">if</span> (e-&gt;flow &lt; e-&gt;cap &amp;&amp; !e-&gt;to-&gt;flag) &#123;</div><div class="line">                e-&gt;to-&gt;flag = <span class="literal">true</span>;</div><div class="line">                q.push(e-&gt;to);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (Edge *e = _pool; e != _end; e++) &#123;</div><div class="line">        <span class="keyword">if</span> (e-&gt;fr-&gt;flag &amp;&amp; !e-&gt;to-&gt;flag) e-&gt;isCut = <span class="literal">true</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    init();</div><div class="line">    <span class="keyword">int</span> n, m, sum = <span class="number">0</span>;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d %d\n"</span>, &amp;m, &amp;n);</div><div class="line">    <span class="keyword">const</span> <span class="keyword">int</span> s = <span class="number">0</span>, t = n + m + <span class="number">1</span>;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i++) &#123;</div><div class="line">        <span class="built_in">std</span>::<span class="built_in">string</span> str;</div><div class="line">        <span class="built_in">std</span>::getline(<span class="built_in">std</span>::<span class="built_in">cin</span>, str);</div><div class="line"></div><div class="line">        <span class="built_in">std</span>::<span class="built_in">stringstream</span> ss;</div><div class="line">        ss &lt;&lt; str;</div><div class="line"></div><div class="line">        <span class="keyword">int</span> x;</div><div class="line">        ss &gt;&gt; x;</div><div class="line">        sum += x;</div><div class="line">        addEdge(s, n + i, x);</div><div class="line"></div><div class="line">        <span class="keyword">while</span> (!ss.eof()) &#123;</div><div class="line">            ss &gt;&gt; x;</div><div class="line">            addEdge(n + i, x, INT_MAX);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</div><div class="line">        <span class="keyword">int</span> x;</div><div class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;x);</div><div class="line">        addEdge(i, t, x);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">int</span> maxFlow = dinic(s, t, t);</div><div class="line">    minCut(s);</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (Edge *e = _pool; e != _end; e++) &#123;</div><div class="line">        <span class="keyword">if</span> (e-&gt;isCut) &#123;</div><div class="line">            <span class="keyword">if</span> (e-&gt;fr - N == s) e-&gt;to-&gt;chosen = <span class="literal">true</span>;</div><div class="line">            <span class="keyword">if</span> (e-&gt;to - N == t) e-&gt;fr-&gt;chosen = <span class="literal">true</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = n + <span class="number">1</span>; i &lt;= n + m; i++) &#123;</div><div class="line">        <span class="keyword">if</span> (!N[i].chosen) <span class="built_in">printf</span>(<span class="string">"%d "</span>, i - n);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="built_in">puts</span>(<span class="string">""</span>);</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</div><div class="line">        <span class="keyword">if</span> (N[i].chosen) <span class="built_in">printf</span>(<span class="string">"%d "</span>, i);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="built_in">printf</span>(<span class="string">"\n%d\n"</span>, sum - maxFlow);</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+      
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>作者: </span>
+      <span>Sulfur6</span>
+    </p>
+    <p class="copyright-item">
+      <span>来源: </span>
+      <a href="http://sulfur6.github.io">http://sulfur6.github.io</a>
+    </p>
+    <p class="copyright-item">
+      <span>链接: </span>
+      <a href="http://sulfur6.github.io/shuttle/">http://sulfur6.github.io/shuttle/</a>
+    </p>
+
+    <p class="copyright-item lincese">
+      
+      本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+    </p>
+  </div>
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/网络流/">网络流</a>
+            
+              <a href="/tags/最大流/">最大流</a>
+            
+              <a href="/tags/最大权闭合子图/">最大权闭合子图</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/bzoj3932/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">「CQOI 2015」任务查询系统 - 可持久化权值线段树</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/road-network-flow/">
+        <span class="next-text nav-default">「网络流24题」最小路径覆盖</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>  
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:huangchun50@icloud.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/Sulfur6" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2016 - 
+    
+    2017
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Sulfur6</span>
+  </span>
+</div>
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+
+  
+  
+
+
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.4.x"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.4.x"></script>
+
+    
+  <script type="text/html" id="search-result">
+    <article class="post">
+      <header class="post-header">
+        <h1 class="post-title">
+          <a href="$url$" class="post-link">
+            $title$
+          </a>
+        </h1>
+      </header>
+      <div class="post-content">
+        $content$
+        <div class="read-more">
+          <a href="$url$" class="read-more-link">
+            Read more..
+          </a>
+        </div>
+      </div>
+    </article>
+  </script>
+  <script type="text/html" id="no-search-result">
+    <div class="no-result">
+      <h2>No result found!</h2>
+    </div>
+  </script>
+  <script type="text/javascript" src="/js/src/search.js?v=2.4.x"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  </body>
+</html>
