@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="「BZOJ1756」小白逛公园 - 线段树"/>
+
+
+
+
+  <meta name="keywords" content="线段树,BZOJ," />
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Sulfur6's Blog">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.4.x" />
+
+
+
+<link rel="canonical" href="http://sulfur6.github.io/bzoj1756/"/>
+
+
+<meta name="description" content="区间最大子段和，分治做法">
+<meta name="keywords" content="线段树,BZOJ">
+<meta property="og:type" content="article">
+<meta property="og:title" content="「BZOJ1756」小白逛公园 - 线段树">
+<meta property="og:url" content="http://sulfur6.github.io/bzoj1756/index.html">
+<meta property="og:site_name" content="Sulfur6's Blog">
+<meta property="og:description" content="区间最大子段和，分治做法">
+<meta property="og:updated_time" content="2017-05-01T12:59:26.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="「BZOJ1756」小白逛公园 - 线段树">
+<meta name="twitter:description" content="区间最大子段和，分治做法">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.4.x" />
+<link rel="stylesheet" href="<%= url_for('/css/style.css?v='+ theme.version) %>">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css" />
+
+
+
+
+
+
+
+<script>
+  var CONFIG = {
+    search: true,
+    searchPath: "/search.json",
+    fancybox: false,
+    toc: true,
+  }
+</script>
+
+
+
+
+  
+
+
+
+    <title> 「BZOJ1756」小白逛公园 - 线段树 · Sulfur6's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="mobile-header-logo">
+    <a href="/." class="logo">Sulfur6's Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            Home
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            Archives
+          
+        </li>
+      </a>
+    
+      <a href="/tags">
+        <li class="mobile-menu-item">
+          
+          
+            Tags
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Sulfur6's Blog</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              Home
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              Archives
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/tags">
+            
+            
+              Tags
+            
+          </a>
+        </li>
+      
+      
+        <li class="menu-search">
+          <form>
+            <i class="iconfont icon-search" id="open-search"></i>
+            <input type="text" class="search-input" id="search-input" />
+            <i class="iconfont icon-close" id="close-search"></i>
+          </form>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          「BZOJ1756」小白逛公园 - 线段树
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017年2月20日
+        </span>
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#题目大意"><span class="toc-text">题目大意</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#题解"><span class="toc-text">题解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a></li></ol>
+    </div>
+  </div>
+
+
+    <div class="post-content">
+      
+        <p>区间最大子段和，分治做法</p>
+<a id="more"></a>
+<h1 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h1><p>给定一个序列，需要支持两种操作：</p>
+<ol>
+<li>询问给定区间 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>[</mo><mi>l</mi><mo separator="true">,</mo><mi>r</mi><mo>]</mo></mrow><annotation encoding="application/x-tex"> [l, r] </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">[</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mclose">]</span></span></span></span> 中的最大子段和</li>
+<li>修改序列中某个元素的值</li>
+</ol>
+<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p>最大子段和问题的最优复杂度显然是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex"> O(n) </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mclose">)</span></span></span></span> 的 dp，但是我们要求的是某个区间中的最大子段和，并且需要支持对区间上的某个位置修改其值，所以我们用分治法来求，用线段树来维护信息。</p>
+<p>我们考虑对于求解一个区间的最大子段和的分治做法，首先将其分为两个子区间。</p>
+<p>整个大区间的最大子段和可能等于某一个小区间的最大子段和，但是也有可能存在最大子段和中的子段跨过区间中点的情况，所以我们需要左半边区间强制包含右端点的最大子段和，以及右半边区间强制包含左端点的最大子段和，这样将这两个加起来，得到大区间跨过区间中点的最大子段和，三者取最大即可。</p>
+<p>对于线段树而言，我们对于每个节点都记录该区间的最大子段和，该区间包含左端点，包含右端点的最大子段和，具体实现见代码。</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight c++"><table><tr><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;climits&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXN = <span class="number">500000</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXM = <span class="number">100000</span>;</div><div class="line"></div><div class="line"><span class="keyword">struct</span> SegmentTree &#123;</div><div class="line">    <span class="keyword">struct</span> Node &#123;</div><div class="line">        Node *lc, *rc;</div><div class="line">        <span class="keyword">int</span> l, r, val;</div><div class="line">        <span class="keyword">int</span> sum, lsum, rsum, maxSum;</div><div class="line"></div><div class="line">        Node() &#123;&#125;</div><div class="line">        Node(Node *lc, Node *rc, <span class="keyword">int</span> l, <span class="keyword">int</span> r) : lc(lc), rc(rc), l(l), r(r) &#123;&#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">()</span> </span>&#123;</div><div class="line">            sum = val;</div><div class="line">            <span class="keyword">if</span> (lc) sum += lc-&gt;sum;</div><div class="line">            <span class="keyword">if</span> (rc) sum += rc-&gt;sum;</div><div class="line"></div><div class="line">            lsum = rsum = sum;</div><div class="line">            <span class="keyword">if</span> (lc) &#123;</div><div class="line">                lsum = <span class="built_in">std</span>::max(lsum, lc-&gt;lsum);</div><div class="line">                <span class="keyword">if</span> (rc) lsum = <span class="built_in">std</span>::max(lsum, lc-&gt;sum + rc-&gt;lsum);</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (rc) &#123;</div><div class="line">                rsum = <span class="built_in">std</span>::max(rsum, rc-&gt;rsum);</div><div class="line">                <span class="keyword">if</span> (lc) rsum = <span class="built_in">std</span>::max(rsum, rc-&gt;sum + lc-&gt;rsum);</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            maxSum = sum;</div><div class="line">            maxSum = <span class="built_in">std</span>::max(maxSum, lsum);</div><div class="line">            maxSum = <span class="built_in">std</span>::max(maxSum, rsum);</div><div class="line">            <span class="keyword">if</span> (lc) maxSum = <span class="built_in">std</span>::max(maxSum, lc-&gt;maxSum);</div><div class="line">            <span class="keyword">if</span> (rc) maxSum = <span class="built_in">std</span>::max(maxSum, rc-&gt;maxSum);</div><div class="line">            <span class="keyword">if</span> (lc &amp;&amp; rc) maxSum = <span class="built_in">std</span>::max(maxSum, lc-&gt;rsum + rc-&gt;lsum);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">void</span> <span class="title">query</span><span class="params">(<span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="keyword">int</span> &amp;sum, <span class="keyword">int</span> &amp;lsum, <span class="keyword">int</span> &amp;rsum, <span class="keyword">int</span> &amp;maxSum)</span> </span>&#123;</div><div class="line">            <span class="keyword">if</span> (<span class="keyword">this</span>-&gt;l &gt; r || <span class="keyword">this</span>-&gt;r &lt; l) <span class="keyword">return</span>;</div><div class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">this</span>-&gt;l &gt;= l &amp;&amp; <span class="keyword">this</span>-&gt;r &lt;= r) &#123;</div><div class="line">                sum = <span class="keyword">this</span>-&gt;sum;</div><div class="line">                lsum = <span class="keyword">this</span>-&gt;lsum;</div><div class="line">                rsum = <span class="keyword">this</span>-&gt;rsum;</div><div class="line">                maxSum = <span class="keyword">this</span>-&gt;maxSum;</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                <span class="keyword">int</span> mid = (<span class="keyword">this</span>-&gt;l + <span class="keyword">this</span>-&gt;r) &gt;&gt; <span class="number">1</span>;</div><div class="line">                <span class="keyword">if</span> (r &lt;= mid) <span class="keyword">return</span> lc-&gt;query(l, r, sum, lsum, rsum, maxSum);</div><div class="line">                <span class="keyword">if</span> (l &gt;= mid + <span class="number">1</span>) <span class="keyword">return</span> rc-&gt;query(l, r, sum, lsum, rsum, maxSum);</div><div class="line">                <span class="keyword">else</span> &#123;</div><div class="line">                    <span class="keyword">int</span> suml, lsuml, rsuml, maxSuml;</div><div class="line">                    <span class="keyword">int</span> sumr, lsumr, rsumr, maxSumr;</div><div class="line">                    lc-&gt;query(l, r, suml, lsuml, rsuml, maxSuml);</div><div class="line">                    rc-&gt;query(l, r, sumr, lsumr, rsumr, maxSumr);</div><div class="line"></div><div class="line">                    maxSum = sum = suml + sumr;</div><div class="line">                    lsum = <span class="built_in">std</span>::max(lsuml, suml + lsumr);</div><div class="line">                    rsum = <span class="built_in">std</span>::max(rsumr, sumr + rsuml);</div><div class="line">                    maxSum = <span class="built_in">std</span>::max(maxSum, maxSuml);</div><div class="line">                    maxSum = <span class="built_in">std</span>::max(maxSum, maxSumr);</div><div class="line">                    maxSum = <span class="built_in">std</span>::max(maxSum, rsuml + lsumr);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">void</span> <span class="title">modify</span><span class="params">(<span class="keyword">int</span> pos, <span class="keyword">int</span> val)</span> </span>&#123;</div><div class="line">            <span class="keyword">if</span> (<span class="keyword">this</span>-&gt;l &gt; pos || <span class="keyword">this</span>-&gt;r &lt; pos) <span class="keyword">return</span>;</div><div class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">this</span>-&gt;l == pos &amp;&amp; <span class="keyword">this</span>-&gt;r == pos) <span class="keyword">this</span>-&gt;val = val, update();</div><div class="line">            <span class="keyword">else</span> &#123;</div><div class="line">                <span class="keyword">if</span> (lc) lc-&gt;modify(pos, val);</div><div class="line">                <span class="keyword">if</span> (rc) rc-&gt;modify(pos, val);</div><div class="line">                update();</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125; *root;</div><div class="line"></div><div class="line">    SegmentTree(<span class="keyword">int</span> l, <span class="keyword">int</span> r) &#123;</div><div class="line">        root = build(l, r);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function">Node *<span class="title">build</span><span class="params">(<span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (l &gt; r) <span class="keyword">return</span> <span class="literal">NULL</span>;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (l == r) <span class="keyword">return</span> <span class="keyword">new</span> Node(<span class="literal">NULL</span>, <span class="literal">NULL</span>, l, r);</div><div class="line">        <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">int</span> mid = (l + r) &gt;&gt; <span class="number">1</span>;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> Node(build(l, mid), build(mid + <span class="number">1</span>, r), l, r);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">modify</span><span class="params">(<span class="keyword">int</span> pos, <span class="keyword">int</span> val)</span> </span>&#123;</div><div class="line">        root-&gt;modify(pos, val);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">query</span><span class="params">(<span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> sum, lsum, rsum, maxSum;</div><div class="line">        root-&gt;query(l, r, sum, lsum, rsum, maxSum);</div><div class="line">        <span class="keyword">return</span> maxSum;</div><div class="line">    &#125;</div><div class="line">&#125; *segt;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> n, m;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>, &amp;n, &amp;m);</div><div class="line">    segt = <span class="keyword">new</span> SegmentTree(<span class="number">1</span>, n);</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</div><div class="line">        <span class="keyword">int</span> x;</div><div class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;x);</div><div class="line">        segt-&gt;modify(i, x);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;</div><div class="line">        <span class="keyword">int</span> k;</div><div class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;k);</div><div class="line">        <span class="keyword">if</span> (k == <span class="number">1</span>) &#123;</div><div class="line">            <span class="keyword">int</span> l, r;</div><div class="line">            <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>, &amp;l, &amp;r);</div><div class="line">            <span class="keyword">if</span> (l &gt; r) <span class="built_in">std</span>::swap(l, r);</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, segt-&gt;query(l, r));</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">int</span> pos, val;</div><div class="line">            <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>, &amp;pos, &amp;val);</div><div class="line">            segt-&gt;modify(pos, val);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+      
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>Author: </span>
+      <span>Sulfur6</span>
+    </p>
+    <p class="copyright-item">
+      <span>Origin: </span>
+      <a href="http://sulfur6.github.io">http://sulfur6.github.io</a>
+    </p>
+    <p class="copyright-item">
+      <span>Link: </span>
+      <a href="http://sulfur6.github.io/bzoj1756/">http://sulfur6.github.io/bzoj1756/</a>
+    </p>
+
+    <p class="copyright-item lincese">
+      
+      本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+    </p>
+  </div>
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/线段树/">线段树</a>
+            
+              <a href="/tags/BZOJ/">BZOJ</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/lcp-network-flow/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">「网络流24题」最长递增子序列 - 网络流</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/bzoj3531/">
+        <span class="next-text nav-default">「SDOI2014」旅行</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>  
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:huangchun50@icloud.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/Sulfur6" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2016 - 
+    
+    2017
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Sulfur6</span>
+  </span>
+</div>
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+
+  
+  
+
+
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.4.x"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.4.x"></script>
+
+    
+  <script type="text/html" id="search-result">
+    <article class="post">
+      <header class="post-header">
+        <h1 class="post-title">
+          <a href="$url$" class="post-link">
+            $title$
+          </a>
+        </h1>
+      </header>
+      <div class="post-content">
+        $content$
+        <div class="read-more">
+          <a href="$url$" class="read-more-link">
+            Read more..
+          </a>
+        </div>
+      </div>
+    </article>
+  </script>
+  <script type="text/html" id="no-search-result">
+    <div class="no-result">
+      <h2>No result found!</h2>
+    </div>
+  </script>
+  <script type="text/javascript" src="/js/src/search.js?v=2.4.x"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  </body>
+</html>
