@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="「HNOI2017」单旋 - LCT"/>
+
+
+
+
+  <meta name="keywords" content="LCT," />
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Sulfur6's Blog">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.4.x" />
+
+
+
+<link rel="canonical" href="http://sulfur6.github.io/hnoi2017-spaly/"/>
+
+
+<meta name="description" content="单旋啊是坠吼的！">
+<meta name="keywords" content="LCT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="「HNOI2017」单旋 - LCT">
+<meta property="og:url" content="http://sulfur6.github.io/hnoi2017-spaly/index.html">
+<meta property="og:site_name" content="Sulfur6's Blog">
+<meta property="og:description" content="单旋啊是坠吼的！">
+<meta property="og:updated_time" content="2017-05-20T01:31:56.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="「HNOI2017」单旋 - LCT">
+<meta name="twitter:description" content="单旋啊是坠吼的！">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.4.x" />
+<link rel="stylesheet" href="<%= url_for('/css/style.css?v='+ theme.version) %>">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css" />
+
+
+
+
+
+
+
+<script>
+  var CONFIG = {
+    search: true,
+    searchPath: "/search.json",
+    fancybox: false,
+    toc: true,
+  }
+</script>
+
+
+
+
+  
+
+
+
+    <title> 「HNOI2017」单旋 - LCT · Sulfur6's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="mobile-header-logo">
+    <a href="/." class="logo">Sulfur6's Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            Home
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            Archives
+          
+        </li>
+      </a>
+    
+      <a href="/tags">
+        <li class="mobile-menu-item">
+          
+          
+            Tags
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Sulfur6's Blog</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              Home
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              Archives
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/tags">
+            
+            
+              Tags
+            
+          </a>
+        </li>
+      
+      
+        <li class="menu-search">
+          <form>
+            <i class="iconfont icon-search" id="open-search"></i>
+            <input type="text" class="search-input" id="search-input" />
+            <i class="iconfont icon-close" id="close-search"></i>
+          </form>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          「HNOI2017」单旋 - LCT
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017年5月20日
+        </span>
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#题目大意"><span class="toc-text">题目大意</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#题解"><span class="toc-text">题解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a></li></ol>
+    </div>
+  </div>
+
+
+    <div class="post-content">
+      
+        <p>单旋啊是坠吼的！</p>
+<a id="more"></a>
+<h1 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h1><p>题目要求你维护一棵 <code>Spaly</code>，也就是单旋 <code>splay</code>。</p>
+<p>并支持:</p>
+<ol>
+<li>单旋最大值</li>
+<li>单旋最小值</li>
+<li>删除最大值</li>
+<li>删除最小值</li>
+<li>插入一个值</li>
+</ol>
+<p>对于前四种操作，输出最大或最小值所在的深度，对于最后一种操作，输出插入后该节点的深度。</p>
+<p>关于单旋的定义详见题目描述。</p>
+<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p>首先，写一棵 <code>spaly</code> 显然不符合题目要求。</p>
+<p>我们发现，由于本题只会单旋最大值或者最小值，结合单旋的优秀（暴力）性质，可以发现这棵树的形态只会发生非常少的变化。</p>
+<p>对于插入操作，可以证明对于一个值，如果它在 <code>spaly</code> 中同时具有前驱和后继，那么前驱和后继对应书中的节点一定是父子关系，这时候只需要插入到深度较大的点的下面就可以了。这个新插入的节点一定会变成前驱的右儿子或者后继的左儿子。没有前驱或者没有后继的话就有哪个往哪个插。</p>
+<p>单旋操作，这里以单旋最小值为例。在树中只会使得最小值的右子树变成其父节点的左子树，并让原来的根节点变成它的右子树。单旋最大值类似，总之 YY 一下就好了。</p>
+<p>这样想的话直接用 LCT 维护一下就好了，还有一种维护 dfs序 和 深度 的做法，我太弱了只会 LCT。</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><p>好蠢的代码，只是懒得重构了。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;climits&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;set&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAX_N = <span class="number">100000</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAX_VAL = <span class="number">1e9</span>;</div><div class="line"></div><div class="line"><span class="keyword">struct</span> Spaly &#123;</div><div class="line">    <span class="keyword">struct</span> Node &#123;</div><div class="line">        Node *fa, *c[<span class="number">2</span>], *pathFa;</div><div class="line">        Node *lc, *rc, *par;</div><div class="line">        <span class="keyword">int</span> size;</div><div class="line"></div><div class="line">        Node() : fa(<span class="literal">NULL</span>), pathFa(<span class="literal">NULL</span>), lc(<span class="literal">NULL</span>), rc(<span class="literal">NULL</span>), par(<span class="literal">NULL</span>), size(<span class="number">1</span>) &#123; c[<span class="number">0</span>] = c[<span class="number">1</span>] = <span class="literal">NULL</span>; &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">void</span> <span class="title">maintain</span><span class="params">()</span> </span>&#123;</div><div class="line">            size = (c[<span class="number">0</span>] ? c[<span class="number">0</span>]-&gt;size : <span class="number">0</span>) + (c[<span class="number">1</span>] ? c[<span class="number">1</span>]-&gt;size : <span class="number">0</span>) + <span class="number">1</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">int</span> <span class="title">relation</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">this</span> == fa-&gt;c[<span class="number">1</span>];</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">void</span> <span class="title">rotate</span><span class="params">()</span> </span>&#123;</div><div class="line">            Node *old = fa;</div><div class="line">            <span class="keyword">int</span> x = relation();</div><div class="line"></div><div class="line">            <span class="built_in">std</span>::swap(fa-&gt;pathFa, pathFa);</div><div class="line"></div><div class="line">            fa = old-&gt;fa;</div><div class="line">            <span class="keyword">if</span> (old-&gt;fa) old-&gt;fa-&gt;c[old-&gt;relation()] = <span class="keyword">this</span>;</div><div class="line"></div><div class="line">            old-&gt;c[x] = c[x ^ <span class="number">1</span>];</div><div class="line">            <span class="keyword">if</span> (c[x ^ <span class="number">1</span>]) c[x ^ <span class="number">1</span>]-&gt;fa = old;</div><div class="line"></div><div class="line">            c[x ^ <span class="number">1</span>] = old;</div><div class="line">            old-&gt;fa = <span class="keyword">this</span>;</div><div class="line"></div><div class="line">            old-&gt;maintain(), maintain();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">void</span> <span class="title">splay</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="keyword">while</span> (fa) &#123;</div><div class="line">                <span class="keyword">if</span> (!fa-&gt;fa) rotate();</div><div class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (fa-&gt;relation() == relation()) fa-&gt;rotate(), rotate();</div><div class="line">                <span class="keyword">else</span> rotate(), rotate();</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">void</span> <span class="title">expose</span><span class="params">()</span> </span>&#123;</div><div class="line">            splay();</div><div class="line"></div><div class="line">            <span class="keyword">if</span> (c[<span class="number">1</span>]) &#123;</div><div class="line">                <span class="built_in">std</span>::swap(c[<span class="number">1</span>]-&gt;fa, c[<span class="number">1</span>]-&gt;pathFa);</div><div class="line">                c[<span class="number">1</span>] = <span class="literal">NULL</span>;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            maintain();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">bool</span> <span class="title">splice</span><span class="params">()</span> </span>&#123;</div><div class="line">            splay();</div><div class="line"></div><div class="line">            <span class="keyword">if</span> (!pathFa) <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line"></div><div class="line">            pathFa-&gt;expose();</div><div class="line">            pathFa-&gt;c[<span class="number">1</span>] = <span class="keyword">this</span>;</div><div class="line">            <span class="built_in">std</span>::swap(fa, pathFa);</div><div class="line">            fa-&gt;maintain();</div><div class="line"></div><div class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">void</span> <span class="title">access</span><span class="params">()</span> </span>&#123;</div><div class="line">            expose();</div><div class="line">            <span class="keyword">while</span> (splice());</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">int</span> <span class="title">depth</span><span class="params">()</span> </span>&#123;</div><div class="line">            access();</div><div class="line">            splay();</div><div class="line">            <span class="keyword">return</span> size;</div><div class="line">        &#125;</div><div class="line">    &#125; N[MAX_N], *root;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">link</span><span class="params">(Node *u, Node *par)</span> </span>&#123;</div><div class="line">        u-&gt;access();</div><div class="line">        u-&gt;splay();</div><div class="line">        u-&gt;pathFa = par;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">cut</span><span class="params">(Node *u)</span> </span>&#123;</div><div class="line">        u-&gt;access();</div><div class="line">        u-&gt;splay();</div><div class="line">        <span class="keyword">if</span> (u-&gt;c[<span class="number">0</span>]) u-&gt;c[<span class="number">0</span>]-&gt;fa = <span class="literal">NULL</span>;</div><div class="line">        u-&gt;c[<span class="number">0</span>] = <span class="literal">NULL</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"><span class="comment">/*	Node *findRoot(Node *v) &#123;</span></div><div class="line">        v-&gt;access();</div><div class="line">        v-&gt;splay();</div><div class="line">        while (v-&gt;c[0]) v = v-&gt;c[0];</div><div class="line">        return v;</div><div class="line">    &#125; */</div><div class="line">&#125; spaly;</div><div class="line"></div><div class="line"><span class="keyword">int</span> _end = <span class="number">0</span>;</div><div class="line"></div><div class="line"><span class="keyword">struct</span> SetNode &#123;</div><div class="line">    <span class="keyword">int</span> val;</div><div class="line">    Spaly::Node *v;</div><div class="line"></div><div class="line">    SetNode(<span class="keyword">int</span> val, Spaly::Node *v) : val(val), v(v) &#123;&#125;</div><div class="line"></div><div class="line">    <span class="keyword">bool</span> <span class="keyword">operator</span>&lt;(<span class="keyword">const</span> SetNode &amp;other) <span class="keyword">const</span> &#123;</div><div class="line">        <span class="keyword">return</span> val &lt; other.val;</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="built_in">std</span>::<span class="built_in">set</span>&lt;SetNode&gt; <span class="built_in">set</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">spalyMax</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">set</span>&lt;SetNode&gt;::const_iterator it = <span class="built_in">set</span>.end();</div><div class="line">    it--;</div><div class="line">    <span class="keyword">int</span> ans = it-&gt;v-&gt;depth();</div><div class="line">    <span class="keyword">if</span> (ans == <span class="number">1</span>) <span class="keyword">return</span> ans;</div><div class="line">    <span class="keyword">if</span> (it-&gt;v-&gt;lc &amp;&amp; it-&gt;v-&gt;par) &#123;</div><div class="line"><span class="comment">//		Spaly::Node *spaly.root = spaly.findRoot(it-&gt;v);</span></div><div class="line">        spaly.cut(it-&gt;v-&gt;lc);</div><div class="line">        spaly.cut(it-&gt;v);</div><div class="line">        spaly.link(it-&gt;v-&gt;lc, it-&gt;v-&gt;par);</div><div class="line"></div><div class="line">        it-&gt;v-&gt;par-&gt;rc = it-&gt;v-&gt;lc;</div><div class="line">        it-&gt;v-&gt;lc-&gt;par = it-&gt;v-&gt;par;</div><div class="line">        it-&gt;v-&gt;lc = <span class="literal">NULL</span>;</div><div class="line">        it-&gt;v-&gt;par = <span class="literal">NULL</span>;</div><div class="line"></div><div class="line">        spaly.link(spaly.root, it-&gt;v);</div><div class="line">        it-&gt;v-&gt;lc = spaly.root;</div><div class="line">        spaly.root-&gt;par = it-&gt;v;</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (it-&gt;v-&gt;par) &#123;</div><div class="line"><span class="comment">//		Spaly::Node *spaly.root = spaly.findRoot(it-&gt;v);</span></div><div class="line">        spaly.cut(it-&gt;v);</div><div class="line">        it-&gt;v-&gt;par-&gt;rc = <span class="literal">NULL</span>;</div><div class="line">        it-&gt;v-&gt;par = <span class="literal">NULL</span>;</div><div class="line"></div><div class="line">        spaly.link(spaly.root, it-&gt;v);</div><div class="line">        spaly.root-&gt;par = it-&gt;v;</div><div class="line">        it-&gt;v-&gt;lc = spaly.root;</div><div class="line">    &#125;</div><div class="line">    spaly.root = it-&gt;v;</div><div class="line">    <span class="keyword">return</span> ans;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">spalyMin</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">set</span>&lt;SetNode&gt;::const_iterator it = <span class="built_in">set</span>.begin();</div><div class="line">    <span class="keyword">int</span> ans = it-&gt;v-&gt;depth();</div><div class="line">    <span class="keyword">if</span> (ans == <span class="number">1</span>) <span class="keyword">return</span> ans;</div><div class="line">    <span class="keyword">if</span> (it-&gt;v-&gt;rc &amp;&amp; it-&gt;v-&gt;par) &#123;</div><div class="line"><span class="comment">//		Spaly::Node *spaly.root = spaly.findRoot(it-&gt;v);</span></div><div class="line">        spaly.cut(it-&gt;v-&gt;rc);</div><div class="line">        spaly.cut(it-&gt;v);</div><div class="line">        spaly.link(it-&gt;v-&gt;rc, it-&gt;v-&gt;par);</div><div class="line"></div><div class="line">        it-&gt;v-&gt;rc-&gt;par = it-&gt;v-&gt;par;</div><div class="line">        it-&gt;v-&gt;par-&gt;lc = it-&gt;v-&gt;rc;</div><div class="line">        it-&gt;v-&gt;rc = <span class="literal">NULL</span>;</div><div class="line">        it-&gt;v-&gt;par = <span class="literal">NULL</span>;</div><div class="line"></div><div class="line">        spaly.link(spaly.root, it-&gt;v);</div><div class="line">        spaly.root-&gt;par = it-&gt;v;</div><div class="line">        it-&gt;v-&gt;rc = spaly.root;</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (it-&gt;v-&gt;par) &#123;</div><div class="line"><span class="comment">//		Spaly::Node *spaly.root = spaly.findRoot(it-&gt;v);</span></div><div class="line">        spaly.cut(it-&gt;v);</div><div class="line">        it-&gt;v-&gt;par-&gt;lc = <span class="literal">NULL</span>;</div><div class="line">        it-&gt;v-&gt;par = <span class="literal">NULL</span>;</div><div class="line"></div><div class="line">        spaly.link(spaly.root, it-&gt;v);</div><div class="line">        spaly.root-&gt;par = it-&gt;v;</div><div class="line">        it-&gt;v-&gt;rc = spaly.root;</div><div class="line">    &#125;</div><div class="line">    spaly.root = it-&gt;v;</div><div class="line">    <span class="keyword">return</span> ans;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">delMax</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">set</span>&lt;SetNode&gt;::const_iterator it = <span class="built_in">set</span>.end();</div><div class="line">    it--;</div><div class="line">    <span class="keyword">int</span> ans = spalyMax();</div><div class="line">    <span class="keyword">if</span> (it-&gt;v-&gt;lc) spaly.cut(it-&gt;v-&gt;lc), it-&gt;v-&gt;lc-&gt;par = <span class="literal">NULL</span>, spaly.root = it-&gt;v-&gt;lc;</div><div class="line">    <span class="built_in">set</span>.erase(it);</div><div class="line">    <span class="keyword">return</span> ans;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">delMin</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">set</span>&lt;SetNode&gt;::const_iterator it = <span class="built_in">set</span>.begin();</div><div class="line">    <span class="keyword">int</span> ans = spalyMin();</div><div class="line">    <span class="keyword">if</span> (it-&gt;v-&gt;rc) spaly.cut(it-&gt;v-&gt;rc), it-&gt;v-&gt;rc-&gt;par = <span class="literal">NULL</span>, spaly.root = it-&gt;v-&gt;rc;</div><div class="line">    <span class="built_in">set</span>.erase(it);</div><div class="line">    <span class="keyword">return</span> ans;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">insert</span><span class="params">(<span class="keyword">int</span> val)</span> </span>&#123;</div><div class="line">    <span class="function">SetNode <span class="title">v</span><span class="params">(val, &amp;spaly.N[_end++])</span></span>;</div><div class="line">    <span class="keyword">if</span> (<span class="built_in">set</span>.empty()) <span class="keyword">return</span> <span class="built_in">set</span>.insert(v), spaly.root = v.v, <span class="number">1</span>;</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">set</span>&lt;SetNode&gt;::const_iterator suc = <span class="built_in">set</span>.lower_bound(v), pre = suc;</div><div class="line">    <span class="keyword">if</span> (suc == <span class="built_in">set</span>.end()) &#123;</div><div class="line">        pre--;</div><div class="line">        spaly.link(v.v, pre-&gt;v);</div><div class="line">        v.v-&gt;par = pre-&gt;v;</div><div class="line">        pre-&gt;v-&gt;rc = v.v;</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (suc == <span class="built_in">set</span>.begin()) &#123;</div><div class="line">        spaly.link(v.v, suc-&gt;v);</div><div class="line">        v.v-&gt;par = suc-&gt;v;</div><div class="line">        suc-&gt;v-&gt;lc = v.v;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        pre--;</div><div class="line">        <span class="keyword">if</span> (pre-&gt;v-&gt;depth() &gt; suc-&gt;v-&gt;depth()) &#123;</div><div class="line">            spaly.link(v.v, pre-&gt;v);</div><div class="line">            v.v-&gt;par = pre-&gt;v;</div><div class="line">            pre-&gt;v-&gt;rc = v.v;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            spaly.link(v.v, suc-&gt;v);</div><div class="line">            v.v-&gt;par = suc-&gt;v;</div><div class="line">            suc-&gt;v-&gt;lc = v.v;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">set</span>.insert(v);</div><div class="line">    <span class="keyword">return</span> v.v-&gt;depth();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> m;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;m);</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i++) &#123;</div><div class="line">        <span class="keyword">int</span> cmd;</div><div class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;cmd);</div><div class="line">        <span class="keyword">if</span> (cmd == <span class="number">1</span>) &#123;</div><div class="line">            <span class="keyword">int</span> key;</div><div class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;key);</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, insert(key));</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (cmd == <span class="number">2</span>) &#123;</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, spalyMin());</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (cmd == <span class="number">3</span>) &#123;</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, spalyMax());</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (cmd == <span class="number">4</span>) &#123;</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, delMin());</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (cmd == <span class="number">5</span>) &#123;</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, delMax());</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+      
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>作者: </span>
+      <span>Sulfur6</span>
+    </p>
+    <p class="copyright-item">
+      <span>来源: </span>
+      <a href="http://sulfur6.github.io">http://sulfur6.github.io</a>
+    </p>
+    <p class="copyright-item">
+      <span>链接: </span>
+      <a href="http://sulfur6.github.io/hnoi2017-spaly/">http://sulfur6.github.io/hnoi2017-spaly/</a>
+    </p>
+
+    <p class="copyright-item lincese">
+      
+      本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+    </p>
+  </div>
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/LCT/">LCT</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/rabbit/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">「BeiJing2006」狼爪兔子 - 平面图最小割</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/bzoj1003/">
+        <span class="next-text nav-default">「ZJOI2006」物流运输 - 最短路，DP</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>  
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:huangchun50@icloud.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/Sulfur6" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2016 - 
+    
+    2017
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Sulfur6</span>
+  </span>
+</div>
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+
+  
+  
+
+
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.4.x"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.4.x"></script>
+
+    
+  <script type="text/html" id="search-result">
+    <article class="post">
+      <header class="post-header">
+        <h1 class="post-title">
+          <a href="$url$" class="post-link">
+            $title$
+          </a>
+        </h1>
+      </header>
+      <div class="post-content">
+        $content$
+        <div class="read-more">
+          <a href="$url$" class="read-more-link">
+            Read more..
+          </a>
+        </div>
+      </div>
+    </article>
+  </script>
+  <script type="text/html" id="no-search-result">
+    <div class="no-result">
+      <h2>No result found!</h2>
+    </div>
+  </script>
+  <script type="text/javascript" src="/js/src/search.js?v=2.4.x"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  </body>
+</html>

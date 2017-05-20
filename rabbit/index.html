@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="「BeiJing2006」狼爪兔子 - 平面图最小割"/>
+
+
+
+
+  <meta name="keywords" content="平面图,最小割,最段路," />
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Sulfur6's Blog">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.4.x" />
+
+
+
+<link rel="canonical" href="http://sulfur6.github.io/rabbit/"/>
+
+
+<meta name="description" content="哎呀团长是咸鱼，团长拒绝搬运论文！">
+<meta name="keywords" content="平面图,最小割,最段路">
+<meta property="og:type" content="article">
+<meta property="og:title" content="「BeiJing2006」狼爪兔子 - 平面图最小割">
+<meta property="og:url" content="http://sulfur6.github.io/rabbit/index.html">
+<meta property="og:site_name" content="Sulfur6's Blog">
+<meta property="og:description" content="哎呀团长是咸鱼，团长拒绝搬运论文！">
+<meta property="og:image" content="http://www.lydsy.com/JudgeOnline/images/1001.jpg">
+<meta property="og:updated_time" content="2017-05-20T01:30:37.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="「BeiJing2006」狼爪兔子 - 平面图最小割">
+<meta name="twitter:description" content="哎呀团长是咸鱼，团长拒绝搬运论文！">
+<meta name="twitter:image" content="http://www.lydsy.com/JudgeOnline/images/1001.jpg">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.4.x" />
+<link rel="stylesheet" href="<%= url_for('/css/style.css?v='+ theme.version) %>">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css" />
+
+
+
+
+
+
+
+<script>
+  var CONFIG = {
+    search: true,
+    searchPath: "/search.json",
+    fancybox: false,
+    toc: true,
+  }
+</script>
+
+
+
+
+  
+
+
+
+    <title> 「BeiJing2006」狼爪兔子 - 平面图最小割 · Sulfur6's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="mobile-header-logo">
+    <a href="/." class="logo">Sulfur6's Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            Home
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            Archives
+          
+        </li>
+      </a>
+    
+      <a href="/tags">
+        <li class="mobile-menu-item">
+          
+          
+            Tags
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Sulfur6's Blog</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              Home
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              Archives
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/tags">
+            
+            
+              Tags
+            
+          </a>
+        </li>
+      
+      
+        <li class="menu-search">
+          <form>
+            <i class="iconfont icon-search" id="open-search"></i>
+            <input type="text" class="search-input" id="search-input" />
+            <i class="iconfont icon-close" id="close-search"></i>
+          </form>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          「BeiJing2006」狼爪兔子 - 平面图最小割
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017年5月20日
+        </span>
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#题意"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#题解"><span class="toc-text">题解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a></li></ol>
+    </div>
+  </div>
+
+
+    <div class="post-content">
+      
+        <p>哎呀团长是咸鱼，团长拒绝搬运论文！</p>
+<a id="more"></a>
+<h1 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h1><p><img src="http://www.lydsy.com/JudgeOnline/images/1001.jpg" alt="">
+给定这种形式的一个图，求其最大流。</p>
+<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p>据 Hellc 说，直接 <code>dinic</code> 就可以了，但是我没写，认真学习了一下正解，「平面图最大流」。</p>
+<p>论文东西太多了，我转述也转述不清，详情见 <a href="https://wenku.baidu.com/view/5a7df375a417866fb84a8e54.html" target="_blank" rel="external">《两极相通 —— 浅析最大最小定理在信息学竞赛中的应用》</a>，写的很好很形象。</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><p>注意只有一行或者只有一列时的特判。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;climits&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;functional&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAX_N = <span class="number">1000</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAX_M = <span class="number">1000</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAX_NODE = MAX_N * MAX_M * <span class="number">2</span> + <span class="number">2</span>;</div><div class="line"></div><div class="line"><span class="keyword">struct</span> Node;</div><div class="line"><span class="keyword">struct</span> Edge;</div><div class="line"></div><div class="line"><span class="keyword">struct</span> Node &#123;</div><div class="line">    Edge *e;</div><div class="line">    <span class="keyword">int</span> dist;</div><div class="line">    <span class="keyword">bool</span> vis;</div><div class="line">&#125; N[MAX_NODE];</div><div class="line"></div><div class="line"><span class="keyword">struct</span> Edge &#123;</div><div class="line">    Node *fr, *to;</div><div class="line">    Edge *ne;</div><div class="line">    <span class="keyword">int</span> w;</div><div class="line"></div><div class="line">    Edge(Node *fr, Node *to, <span class="keyword">int</span> w) : fr(fr), to(to), ne(fr-&gt;e), w(w) &#123;&#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">addEdge</span><span class="params">(<span class="keyword">int</span> fr, <span class="keyword">int</span> to, <span class="keyword">int</span> w)</span> </span>&#123;</div><div class="line">    N[fr].e = <span class="keyword">new</span> Edge(&amp;N[fr], &amp;N[to], w);</div><div class="line">    N[to].e = <span class="keyword">new</span> Edge(&amp;N[to], &amp;N[fr], w);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">djk</span><span class="params">(<span class="keyword">int</span> begin, <span class="keyword">int</span> end, <span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">    Node *s = &amp;N[begin], *t = &amp;N[end];</div><div class="line">    <span class="built_in">std</span>::priority_queue&lt; <span class="built_in">std</span>::pair&lt;<span class="keyword">int</span>, Node *&gt;, <span class="built_in">std</span>::<span class="built_in">vector</span>&lt; <span class="built_in">std</span>::pair&lt;<span class="keyword">int</span>, Node *&gt; &gt;, <span class="built_in">std</span>::greater&lt; <span class="built_in">std</span>::pair&lt;<span class="keyword">int</span>, Node *&gt; &gt; &gt; q;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) N[i].dist = INT_MAX, N[i].vis = <span class="literal">false</span>;</div><div class="line"></div><div class="line">    s-&gt;dist = <span class="number">0</span>;</div><div class="line">    q.push(<span class="built_in">std</span>::make_pair(s-&gt;dist, s));</div><div class="line">    <span class="keyword">while</span> (!q.empty()) &#123;</div><div class="line">        Node *v = q.top().second;</div><div class="line">        q.pop();</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (v-&gt;vis) <span class="keyword">continue</span>;</div><div class="line">        v-&gt;vis = <span class="literal">true</span>;</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (Edge *e = v-&gt;e; e; e = e-&gt;ne) &#123;</div><div class="line">            <span class="keyword">if</span> (e-&gt;to-&gt;dist &gt; v-&gt;dist + e-&gt;w) &#123;</div><div class="line">                e-&gt;to-&gt;dist = v-&gt;dist + e-&gt;w;</div><div class="line">                q.push(<span class="built_in">std</span>::make_pair(e-&gt;to-&gt;dist, e-&gt;to));</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> t-&gt;dist;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">int</span> n, m;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">id</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> (i - <span class="number">1</span>) * <span class="number">2</span> * (m - <span class="number">1</span>) + j;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (n == <span class="number">1</span> &amp;&amp; m == <span class="number">1</span>) <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (n == <span class="number">1</span>) &#123;</div><div class="line">        <span class="keyword">int</span> ans = INT_MAX;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m - <span class="number">1</span>; i++) &#123;</div><div class="line">            <span class="keyword">int</span> w;</div><div class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;w);</div><div class="line">            ans = <span class="built_in">std</span>::min(ans, w);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> ans;</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (m == <span class="number">1</span>) &#123;</div><div class="line">        <span class="keyword">int</span> ans = INT_MAX;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n - <span class="number">1</span>; i++) &#123;</div><div class="line">            <span class="keyword">int</span> w;</div><div class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;w);</div><div class="line">            ans = <span class="built_in">std</span>::min(ans, w);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> ans;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">int</span> s = <span class="number">2</span> * (m - <span class="number">1</span>) * (n - <span class="number">1</span>), t = s + <span class="number">1</span>;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; m - <span class="number">1</span>; j++) &#123;</div><div class="line">            <span class="keyword">int</span> w;</div><div class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;w);</div><div class="line">            <span class="keyword">if</span> (i == <span class="number">1</span>) &#123;</div><div class="line">                addEdge(id(i, (j * <span class="number">2</span>) ^ <span class="number">1</span>), t, w);</div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (i == n) &#123;</div><div class="line">                addEdge(s, id(i - <span class="number">1</span>, j * <span class="number">2</span>), w);</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                addEdge(id(i, (j * <span class="number">2</span>) ^ <span class="number">1</span>), id(i - <span class="number">1</span>, j * <span class="number">2</span>), w);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++) &#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; m; j++) &#123;</div><div class="line">            <span class="keyword">int</span> w;</div><div class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;w);</div><div class="line">            <span class="keyword">if</span> (j == <span class="number">0</span>) &#123;</div><div class="line">                addEdge(s, id(i, j * <span class="number">2</span>), w);</div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (j == m - <span class="number">1</span>) &#123;</div><div class="line">                addEdge(id(i, ((j - <span class="number">1</span>) * <span class="number">2</span>) ^ <span class="number">1</span>), t, w);</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                addEdge(id(i, ((j - <span class="number">1</span>) * <span class="number">2</span>) ^ <span class="number">1</span>), id(i, (j * <span class="number">2</span>)), w);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++) &#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; m - <span class="number">1</span>; j++) &#123;</div><div class="line">            <span class="keyword">int</span> w;</div><div class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;w);</div><div class="line">            addEdge(id(i, j * <span class="number">2</span>), id(i, (j * <span class="number">2</span>) ^ <span class="number">1</span>), w);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> djk(s, t, t + <span class="number">1</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line"><span class="comment">//	freopen("bjrabbit.in", "r", stdin), freopen("bjrabbit.out", "w", stdout);</span></div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>, &amp;n, &amp;m);</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, solve());</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+      
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>作者: </span>
+      <span>Sulfur6</span>
+    </p>
+    <p class="copyright-item">
+      <span>来源: </span>
+      <a href="http://sulfur6.github.io">http://sulfur6.github.io</a>
+    </p>
+    <p class="copyright-item">
+      <span>链接: </span>
+      <a href="http://sulfur6.github.io/rabbit/">http://sulfur6.github.io/rabbit/</a>
+    </p>
+
+    <p class="copyright-item lincese">
+      
+      本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+    </p>
+  </div>
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/平面图/">平面图</a>
+            
+              <a href="/tags/最小割/">最小割</a>
+            
+              <a href="/tags/最段路/">最段路</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/SDOI2017Round1Day2T3/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">「SDOI2017」相关分析 - 线段树</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/hnoi2017-spaly/">
+        <span class="next-text nav-default">「HNOI2017」单旋 - LCT</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>  
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:huangchun50@icloud.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/Sulfur6" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2016 - 
+    
+    2017
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Sulfur6</span>
+  </span>
+</div>
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+
+  
+  
+
+
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.4.x"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.4.x"></script>
+
+    
+  <script type="text/html" id="search-result">
+    <article class="post">
+      <header class="post-header">
+        <h1 class="post-title">
+          <a href="$url$" class="post-link">
+            $title$
+          </a>
+        </h1>
+      </header>
+      <div class="post-content">
+        $content$
+        <div class="read-more">
+          <a href="$url$" class="read-more-link">
+            Read more..
+          </a>
+        </div>
+      </div>
+    </article>
+  </script>
+  <script type="text/html" id="no-search-result">
+    <div class="no-result">
+      <h2>No result found!</h2>
+    </div>
+  </script>
+  <script type="text/javascript" src="/js/src/search.js?v=2.4.x"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  </body>
+</html>
