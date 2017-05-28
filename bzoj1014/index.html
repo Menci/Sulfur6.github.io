@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="「JSOI2008」火星人Prefix - Splay，Hash"/>
+
+
+
+
+  <meta name="keywords" content="Splay,Hash," />
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Sulfur6's Blog">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.4.x" />
+
+
+
+<link rel="canonical" href="http://sulfur6.github.io/bzoj1014/"/>
+
+
+<meta name="description" content="不得不说当年的 OI 不卡自然溢出真的是太棒啦">
+<meta name="keywords" content="Splay,Hash">
+<meta property="og:type" content="article">
+<meta property="og:title" content="「JSOI2008」火星人Prefix - Splay，Hash">
+<meta property="og:url" content="http://sulfur6.github.io/bzoj1014/index.html">
+<meta property="og:site_name" content="Sulfur6's Blog">
+<meta property="og:description" content="不得不说当年的 OI 不卡自然溢出真的是太棒啦">
+<meta property="og:updated_time" content="2017-05-28T02:57:30.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="「JSOI2008」火星人Prefix - Splay，Hash">
+<meta name="twitter:description" content="不得不说当年的 OI 不卡自然溢出真的是太棒啦">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.4.x" />
+<link rel="stylesheet" href="<%= url_for('/css/style.css?v='+ theme.version) %>">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css" />
+
+
+
+
+
+
+
+<script>
+  var CONFIG = {
+    search: true,
+    searchPath: "/search.json",
+    fancybox: false,
+    toc: true,
+  }
+</script>
+
+
+
+
+  
+
+
+
+    <title> 「JSOI2008」火星人Prefix - Splay，Hash · Sulfur6's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="mobile-header-logo">
+    <a href="/." class="logo">Sulfur6's Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            Home
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            Archives
+          
+        </li>
+      </a>
+    
+      <a href="/tags">
+        <li class="mobile-menu-item">
+          
+          
+            Tags
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Sulfur6's Blog</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              Home
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              Archives
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/tags">
+            
+            
+              Tags
+            
+          </a>
+        </li>
+      
+      
+        <li class="menu-search">
+          <form>
+            <i class="iconfont icon-search" id="open-search"></i>
+            <input type="text" class="search-input" id="search-input" />
+            <i class="iconfont icon-close" id="close-search"></i>
+          </form>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          「JSOI2008」火星人Prefix - Splay，Hash
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017年5月28日
+        </span>
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#题目大意"><span class="toc-text">题目大意</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#题解"><span class="toc-text">题解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a></li></ol>
+    </div>
+  </div>
+
+
+    <div class="post-content">
+      
+        <p>不得不说当年的 OI 不卡自然溢出真的是太棒啦</p>
+<a id="more"></a>
+<h1 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h1><p>给定一个字符串，要求支持修改串中某个字符，在指定位置添加字符，以及求指定两个后缀的LCP长度。</p>
+<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p>提到LCP当然会想到后缀家族，不过我才疏学浅，并不知道后缀家族怎么支持修改和插入。</p>
+<p>所以，Hash 大法好！</p>
+<p>话说回来当时在长乐的时候写字符串哈希的暴力，可能是我姿势不太对？模数一直取不对。。这道题没有卡自然溢出，感觉还是很良心的。</p>
+<p>好啦言归正传，对这个字符串建立一棵Splay，保证其中序遍历结果为原字符串。这样每一个Splay的节点都可以代表一个字串。如果要获得某个指定字串的哈希值，用Splay提区间就可以了。。</p>
+<p>合并左右子树信息的时候，不知诸君喜欢以左为高位还是右为高位啊。。这里就不引战啦哈哈。</p>
+<p>提示一个细节，这里为了Splay操作方便引入的左右端点节点会对某些节点的哈希值产生影响，但是由于Splay提取区间以后提取出来的区间对应的子树不会包括左右端点节点，而且这道题只需要用到提取区间，所以这样写没有错误。如果要让它的哈希值是正确的特判一下就好啦。</p>
+<p>还有讲实话哈希那一套理论我真的是不怎么懂啊 T^T</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight c++"><table><tr><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;climits&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAX_N = <span class="number">100000</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAX_M = <span class="number">150000</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> BASE = <span class="number">233</span>;</div><div class="line"></div><div class="line"><span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> base[MAX_N + <span class="number">1</span>];</div><div class="line"></div><div class="line"><span class="keyword">struct</span> Splay &#123;</div><div class="line">    <span class="keyword">struct</span> Node &#123;</div><div class="line">        Node *fa, *c[<span class="number">2</span>], **root;</div><div class="line">        <span class="keyword">int</span> size;</div><div class="line">        <span class="keyword">char</span> val;</div><div class="line">        <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> hash;</div><div class="line"></div><div class="line">        Node(Node *fa, Node **root, <span class="keyword">char</span> val) : fa(fa), root(root), size(<span class="number">1</span>), val(val), hash(val) &#123;</div><div class="line">            c[<span class="number">0</span>] = c[<span class="number">1</span>] = <span class="literal">NULL</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">void</span> <span class="title">maintain</span><span class="params">()</span> </span>&#123;</div><div class="line">            size = (c[<span class="number">0</span>] ? c[<span class="number">0</span>]-&gt;size : <span class="number">0</span>) + (c[<span class="number">1</span>] ? c[<span class="number">1</span>]-&gt;size : <span class="number">0</span>) + <span class="number">1</span>;</div><div class="line"></div><div class="line">            hash = val;</div><div class="line">            <span class="keyword">if</span> (c[<span class="number">1</span>]) hash += c[<span class="number">1</span>]-&gt;hash * BASE;</div><div class="line">            <span class="keyword">if</span> (c[<span class="number">0</span>]) hash = hash * base[c[<span class="number">0</span>]-&gt;size] + c[<span class="number">0</span>]-&gt;hash;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">int</span> <span class="title">lsize</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="keyword">return</span> c[<span class="number">0</span>] ? c[<span class="number">0</span>]-&gt;size : <span class="number">0</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">int</span> <span class="title">relation</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">this</span> == fa-&gt;c[<span class="number">1</span>];</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">void</span> <span class="title">rotate</span><span class="params">()</span> </span>&#123;</div><div class="line">            Node *old = fa;</div><div class="line">            <span class="keyword">int</span> x = relation();</div><div class="line"></div><div class="line">            fa = old-&gt;fa;</div><div class="line">            <span class="keyword">if</span> (old-&gt;fa) old-&gt;fa-&gt;c[old-&gt;relation()] = <span class="keyword">this</span>;</div><div class="line"></div><div class="line">            old-&gt;c[x] = c[x ^ <span class="number">1</span>];</div><div class="line">            <span class="keyword">if</span> (c[x ^ <span class="number">1</span>]) c[x ^ <span class="number">1</span>]-&gt;fa = old;</div><div class="line"></div><div class="line">            c[x ^ <span class="number">1</span>] = old;</div><div class="line">            old-&gt;fa = <span class="keyword">this</span>;</div><div class="line"></div><div class="line">            old-&gt;maintain(), maintain();</div><div class="line">            <span class="keyword">if</span> (!fa) *root = <span class="keyword">this</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function">Node *<span class="title">splay</span><span class="params">(Node *target = <span class="literal">NULL</span>)</span> </span>&#123;</div><div class="line">            <span class="keyword">while</span> (fa != target) &#123;</div><div class="line">                <span class="keyword">if</span> (fa-&gt;fa == target) rotate();</div><div class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (fa-&gt;relation() == relation()) fa-&gt;rotate(), rotate();</div><div class="line">                <span class="keyword">else</span> rotate(), rotate();</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">        &#125;</div><div class="line">    &#125; *root;</div><div class="line"></div><div class="line">    Splay() : root(<span class="literal">NULL</span>) &#123;&#125;</div><div class="line"></div><div class="line">    <span class="function">Node *<span class="title">build</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *begin, <span class="keyword">const</span> <span class="keyword">char</span> *end, Node *par)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (begin &gt; end) <span class="keyword">return</span> <span class="literal">NULL</span>;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (begin == end) <span class="keyword">return</span> <span class="keyword">new</span> Node(par, &amp;root, *begin);</div><div class="line">        <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">const</span> <span class="keyword">char</span> *mid = begin + (end - begin) / <span class="number">2</span>;</div><div class="line">            Node *v = <span class="keyword">new</span> Node(par, &amp;root, *mid);</div><div class="line">            v-&gt;c[<span class="number">0</span>] = build(begin, mid - <span class="number">1</span>, v);</div><div class="line">            v-&gt;c[<span class="number">1</span>] = build(mid + <span class="number">1</span>, end, v);</div><div class="line">            v-&gt;maintain();</div><div class="line">            <span class="keyword">return</span> v;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">buildBound</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</div><div class="line">        Node *v = root;</div><div class="line">        <span class="keyword">while</span> (v-&gt;c[x]) v = v-&gt;c[x];</div><div class="line">        v-&gt;c[x] = <span class="keyword">new</span> Node(v, &amp;root, <span class="number">0</span>);</div><div class="line">        Node *u = v;</div><div class="line">        <span class="keyword">do</span> &#123;</div><div class="line">            u-&gt;maintain();</div><div class="line">            u = u-&gt;fa;</div><div class="line">        &#125; <span class="keyword">while</span> (u);</div><div class="line">        v-&gt;c[x]-&gt;splay();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">build</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *begin, <span class="keyword">const</span> <span class="keyword">char</span> *end)</span> </span>&#123;</div><div class="line">        root = build(begin, end, <span class="literal">NULL</span>);</div><div class="line">        buildBound(<span class="number">0</span>);</div><div class="line">        buildBound(<span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function">Node *<span class="title">select</span><span class="params">(<span class="keyword">int</span> k)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> x = k + <span class="number">1</span>;</div><div class="line">        Node *v = root;</div><div class="line">        <span class="keyword">while</span> (x != v-&gt;lsize() + <span class="number">1</span>) &#123;</div><div class="line">            <span class="keyword">if</span> (x &lt;= v-&gt;lsize()) v = v-&gt;c[<span class="number">0</span>];</div><div class="line">            <span class="keyword">else</span> x -= v-&gt;lsize() + <span class="number">1</span>, v = v-&gt;c[<span class="number">1</span>];</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> v-&gt;splay();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function">Node *<span class="title">select</span><span class="params">(<span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;</div><div class="line">        Node *u = select(l - <span class="number">1</span>), *v = select(r + <span class="number">1</span>);</div><div class="line">        u-&gt;splay();</div><div class="line">        v-&gt;splay(u);</div><div class="line">        <span class="keyword">return</span> v-&gt;c[<span class="number">0</span>];</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function">Node *<span class="title">insert</span><span class="params">(<span class="keyword">int</span> pos, <span class="keyword">char</span> val)</span> </span>&#123;</div><div class="line">        Node *u = select(pos), *v = select(pos + <span class="number">1</span>);</div><div class="line">        u-&gt;splay();</div><div class="line">        v-&gt;splay(u);</div><div class="line">        v-&gt;c[<span class="number">0</span>] = <span class="keyword">new</span> Node(v, &amp;root, val);</div><div class="line">        Node *q = v-&gt;c[<span class="number">0</span>];</div><div class="line">        <span class="keyword">do</span> &#123;</div><div class="line">            q-&gt;maintain();</div><div class="line">            q = q-&gt;fa;</div><div class="line">        &#125; <span class="keyword">while</span> (q);</div><div class="line">        <span class="keyword">return</span> v-&gt;c[<span class="number">0</span>]-&gt;splay();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">modify</span><span class="params">(<span class="keyword">int</span> pos, <span class="keyword">char</span> val)</span> </span>&#123;</div><div class="line">        Node *v = select(pos);</div><div class="line">        v-&gt;val = val;</div><div class="line">        v-&gt;maintain();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> <span class="title">query</span><span class="params">(<span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> select(l, r)-&gt;hash;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">size</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> root-&gt;size - <span class="number">2</span>;</div><div class="line">    &#125;</div><div class="line">&#125; splay;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">lcp</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> l = <span class="number">0</span>, r = <span class="built_in">std</span>::min(splay.size() - a + <span class="number">1</span>, splay.size() - b + <span class="number">1</span>);</div><div class="line">    <span class="keyword">while</span> (l != r) &#123;</div><div class="line">        <span class="keyword">int</span> mid = l + (r - l) / <span class="number">2</span> + <span class="number">1</span>;</div><div class="line">        <span class="keyword">if</span> (splay.query(a, a + mid - <span class="number">1</span>) == splay.query(b, b + mid - <span class="number">1</span>))</div><div class="line">            l = mid;</div><div class="line">        <span class="keyword">else</span></div><div class="line">            r = mid - <span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> l;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">char</span> s[MAX_N + <span class="number">1</span>];</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    base[<span class="number">0</span>] = <span class="number">1</span>;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= MAX_N; i++) base[i] = base[i - <span class="number">1</span>] * BASE;</div><div class="line"></div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%s"</span>, s);</div><div class="line">    <span class="keyword">int</span> n = <span class="built_in">strlen</span>(s);</div><div class="line">    splay.build(s, s + n - <span class="number">1</span>);</div><div class="line"></div><div class="line">    <span class="keyword">int</span> m;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;m);</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i++) &#123;</div><div class="line">        <span class="keyword">char</span> cmd[<span class="number">2</span>];</div><div class="line">        <span class="built_in">scanf</span>(<span class="string">"%s"</span>, cmd);</div><div class="line">        <span class="keyword">if</span> (cmd[<span class="number">0</span>] == <span class="string">'Q'</span>) &#123;</div><div class="line">            <span class="keyword">int</span> a, b;</div><div class="line">            <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>, &amp;a, &amp;b);</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, lcp(a, b));</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (cmd[<span class="number">0</span>] == <span class="string">'R'</span>) &#123;</div><div class="line">            <span class="keyword">int</span> pos;</div><div class="line">            <span class="keyword">char</span> val[<span class="number">2</span>];</div><div class="line">            <span class="built_in">scanf</span>(<span class="string">"%d %s"</span>, &amp;pos, val);</div><div class="line">            splay.modify(pos, val[<span class="number">0</span>]);</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (cmd[<span class="number">0</span>] == <span class="string">'I'</span>) &#123;</div><div class="line">            <span class="keyword">int</span> pos;</div><div class="line">            <span class="keyword">char</span> val[<span class="number">2</span>];</div><div class="line">            <span class="built_in">scanf</span>(<span class="string">"%d %s"</span>, &amp;pos, val);</div><div class="line">            splay.insert(pos, val[<span class="number">0</span>]);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+      
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>作者: </span>
+      <span>Sulfur6</span>
+    </p>
+    <p class="copyright-item">
+      <span>来源: </span>
+      <a href="http://sulfur6.github.io">http://sulfur6.github.io</a>
+    </p>
+    <p class="copyright-item">
+      <span>链接: </span>
+      <a href="http://sulfur6.github.io/bzoj1014/">http://sulfur6.github.io/bzoj1014/</a>
+    </p>
+
+    <p class="copyright-item lincese">
+      
+      本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+    </p>
+  </div>
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/Splay/">Splay</a>
+            
+              <a href="/tags/Hash/">Hash</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/bzoj1009/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">「HNOI2008」GT考试 - DP，矩阵乘法，KMP</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/cf811c/">
+        <span class="next-text nav-default">「Codeforces Round 416 (Div. 2) C」Vladik and Memorable Trip - DP</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>  
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:huangchun50@icloud.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/Sulfur6" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2016 - 
+    
+    2017
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Sulfur6</span>
+  </span>
+</div>
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+
+  
+  
+
+
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.4.x"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.4.x"></script>
+
+    
+  <script type="text/html" id="search-result">
+    <article class="post">
+      <header class="post-header">
+        <h1 class="post-title">
+          <a href="$url$" class="post-link">
+            $title$
+          </a>
+        </h1>
+      </header>
+      <div class="post-content">
+        $content$
+        <div class="read-more">
+          <a href="$url$" class="read-more-link">
+            Read more..
+          </a>
+        </div>
+      </div>
+    </article>
+  </script>
+  <script type="text/html" id="no-search-result">
+    <div class="no-result">
+      <h2>No result found!</h2>
+    </div>
+  </script>
+  <script type="text/javascript" src="/js/src/search.js?v=2.4.x"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  </body>
+</html>
