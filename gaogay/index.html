@@ -34,17 +34,17 @@
 <link rel="canonical" href="http://sulfur6.github.io/gaogay/"/>
 
 
-<meta name="description" content="终于学会了三个多月前学习的倍增求LCA，最近几年经常出很恶心的带LCA的题。。看看就浑身难受。。">
+<meta name="description" content="一棵NNN个节点的树，节点编号从000到N−1N-1N−1 每条边有为ccc的边权 求从两个不同的叶节点移动到同一节点最少花费 共MMM次询问">
 <meta name="keywords" content="LCA,倍增">
 <meta property="og:type" content="article">
 <meta property="og:title" content="小机房的树，LCA，倍增">
 <meta property="og:url" content="http://sulfur6.github.io/gaogay/index.html">
 <meta property="og:site_name" content="Sulfur6's Blog">
-<meta property="og:description" content="终于学会了三个多月前学习的倍增求LCA，最近几年经常出很恶心的带LCA的题。。看看就浑身难受。。">
-<meta property="og:updated_time" content="2016-12-27T13:22:18.000Z">
+<meta property="og:description" content="一棵NNN个节点的树，节点编号从000到N−1N-1N−1 每条边有为ccc的边权 求从两个不同的叶节点移动到同一节点最少花费 共MMM次询问">
+<meta property="og:updated_time" content="2017-06-02T13:44:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="小机房的树，LCA，倍增">
-<meta name="twitter:description" content="终于学会了三个多月前学习的倍增求LCA，最近几年经常出很恶心的带LCA的题。。看看就浑身难受。。">
+<meta name="twitter:description" content="一棵NNN个节点的树，节点编号从000到N−1N-1N−1 每条边有为ccc的边权 求从两个不同的叶节点移动到同一节点最少花费 共MMM次询问">
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.4.x" />
@@ -196,21 +196,20 @@
   <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">Contents</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#题目大意"><span class="toc-text">题目大意</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#思路"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#做法"><span class="toc-text">做法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#求LCA"><span class="toc-text">求LCA</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#倍增求解"><span class="toc-text">倍增求解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#朴素算法"><span class="toc-text">朴素算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何优化？"><span class="toc-text">如何优化？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BFS预处理"><span class="toc-text">BFS预处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查询"><span class="toc-text">查询</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#思路"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#做法"><span class="toc-text">做法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#求LCA"><span class="toc-text">求LCA</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#倍增求解"><span class="toc-text">倍增求解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#朴素算法"><span class="toc-text">朴素算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何优化？"><span class="toc-text">如何优化？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BFS预处理"><span class="toc-text">BFS预处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查询"><span class="toc-text">查询</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a></li></ol>
     </div>
   </div>
 
 
     <div class="post-content">
       
-        <p>终于学会了三个多月前学习的倍增求LCA，最近几年经常出很恶心的带LCA的题。。看看就浑身难受。。</p>
-<a id="more"></a>
-<h1 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h1><ul>
+        <ul>
 <li>一棵<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">N</span></span></span></span>个节点的树，节点编号从<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">0</span></span></span></span>到<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">N-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">N</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span></li>
 <li>每条边有为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>c</mi></mrow><annotation encoding="application/x-tex">c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">c</span></span></span></span>的边权</li>
 <li>求从两个不同的叶节点移动到同一节点最少花费</li>
 <li>共<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>M</mi></mrow><annotation encoding="application/x-tex">M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">M</span></span></span></span>次询问</li>
 </ul>
+<a id="more"></a>
 <h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><blockquote>
 <p>如果只有一次询问，可以用最短路算法，然而询问次数过多，使用堆优化迪杰斯特拉在极限数据下计算次数将会达到<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><msup><mn>0</mn><mrow><mn>1</mn><mn>0</mn></mrow></msup></mrow><annotation encoding="application/x-tex">10^{10}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span><span class="mord"><span class="mord mathrm">0</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathrm">1</span><span class="mord mathrm">0</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>级别</p>
 </blockquote>

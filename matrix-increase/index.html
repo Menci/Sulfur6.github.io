@@ -34,17 +34,17 @@
 <link rel="canonical" href="http://sulfur6.github.io/matrix-increase/"/>
 
 
-<meta name="description" content="今天的欢乐%你赛，由于第一题是大水题，第二题良心出题人良心部分分，第三题不严格卡迪杰斯特拉，让人心神愉悦，话虽如此，第二题想要拿满分还是很麻烦的（我才不要分块打表），所以，我们要请出矩阵乘法来优化递推">
+<meta name="description" content="给定一个坐标系，可以往左，右，上走，已经走过的点（单次访问中）不可以重复走，一共可以走NNN步，求一共有多少种走法。">
 <meta name="keywords" content="递推,矩阵乘法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="矩阵乘法优化递推，NOIP%你赛">
 <meta property="og:url" content="http://sulfur6.github.io/matrix-increase/index.html">
 <meta property="og:site_name" content="Sulfur6's Blog">
-<meta property="og:description" content="今天的欢乐%你赛，由于第一题是大水题，第二题良心出题人良心部分分，第三题不严格卡迪杰斯特拉，让人心神愉悦，话虽如此，第二题想要拿满分还是很麻烦的（我才不要分块打表），所以，我们要请出矩阵乘法来优化递推">
-<meta property="og:updated_time" content="2016-12-27T13:35:38.000Z">
+<meta property="og:description" content="给定一个坐标系，可以往左，右，上走，已经走过的点（单次访问中）不可以重复走，一共可以走NNN步，求一共有多少种走法。">
+<meta property="og:updated_time" content="2017-06-02T13:45:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="矩阵乘法优化递推，NOIP%你赛">
-<meta name="twitter:description" content="今天的欢乐%你赛，由于第一题是大水题，第二题良心出题人良心部分分，第三题不严格卡迪杰斯特拉，让人心神愉悦，话虽如此，第二题想要拿满分还是很麻烦的（我才不要分块打表），所以，我们要请出矩阵乘法来优化递推">
+<meta name="twitter:description" content="给定一个坐标系，可以往左，右，上走，已经走过的点（单次访问中）不可以重复走，一共可以走NNN步，求一共有多少种走法。">
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.4.x" />
@@ -196,16 +196,15 @@
   <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">Contents</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#题目大意"><span class="toc-text">题目大意</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#题目分析"><span class="toc-text">题目分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#矩阵"><span class="toc-text">矩阵</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#矩阵乘法"><span class="toc-text">矩阵乘法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#矩阵优化递推"><span class="toc-text">矩阵优化递推</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#如何优化"><span class="toc-text">如何优化</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#最后说几句"><span class="toc-text">最后说几句</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#题目分析"><span class="toc-text">题目分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#矩阵"><span class="toc-text">矩阵</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#矩阵乘法"><span class="toc-text">矩阵乘法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#矩阵优化递推"><span class="toc-text">矩阵优化递推</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#如何优化"><span class="toc-text">如何优化</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#最后说几句"><span class="toc-text">最后说几句</span></a></li></ol>
     </div>
   </div>
 
 
     <div class="post-content">
       
-        <p>今天的欢乐%你赛，由于第一题是大水题，第二题良心出题人良心部分分，第三题不严格卡迪杰斯特拉，让人心神愉悦，话虽如此，第二题想要拿满分还是很麻烦的（我才不要分块打表），所以，我们要请出矩阵乘法来优化递推</p>
+        <p>给定一个坐标系，可以往左，右，上走，已经走过的点（单次访问中）不可以重复走，一共可以走<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">N</span></span></span></span>步，求一共有多少种走法。</p>
 <a id="more"></a>
-<h1 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h1><p>给定一个坐标系，可以往左，右，上走，已经走过的点（单次访问中）不可以重复走，一共可以走<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">N</span></span></span></span>步，求一共有多少种走法。</p>
 <h1 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h1><blockquote>
 <p>表神，各单位提供丰富成功地证明了递推公式，然而，不适合这样做的蒟蒻Sulfur6更喜欢打表找规律。</p>
 </blockquote>

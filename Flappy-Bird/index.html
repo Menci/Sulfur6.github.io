@@ -34,17 +34,17 @@
 <link rel="canonical" href="http://sulfur6.github.io/Flappy-Bird/"/>
 
 
-<meta name="description" content="四个月前我尝试着做过这道题，当时在天宇哥哥的课上自认为听懂了，然后。。就没有然后了">
+<meta name="description" content="给定一个长为nnn，高为mmm的二位平面，其中有kkk个管道（不计宽度） 小鸟从平面最左边出发，到达平面最右边时游戏完成 小鸟每单位时间沿横坐标方向右移距离为1，竖直移动距离由玩家控制，如果点击屏幕，小鸟会上升一定高度XXX，每单位时间内可以点击多次，效果叠加，如果不点击屏幕，小鸟会下降一定高度YYY 小鸟位于不同的横坐标位置时，上升高度XXX和下降高度YYY可能互不相同 小鸟高度为mmm时，无">
 <meta name="keywords" content="NOIP,DP,背包,完全背包">
 <meta property="og:type" content="article">
 <meta property="og:title" content="飞扬的小鸟，DP，背包，NOIP2014">
 <meta property="og:url" content="http://sulfur6.github.io/Flappy-Bird/index.html">
 <meta property="og:site_name" content="Sulfur6's Blog">
-<meta property="og:description" content="四个月前我尝试着做过这道题，当时在天宇哥哥的课上自认为听懂了，然后。。就没有然后了">
-<meta property="og:updated_time" content="2016-12-27T13:23:49.000Z">
+<meta property="og:description" content="给定一个长为nnn，高为mmm的二位平面，其中有kkk个管道（不计宽度） 小鸟从平面最左边出发，到达平面最右边时游戏完成 小鸟每单位时间沿横坐标方向右移距离为1，竖直移动距离由玩家控制，如果点击屏幕，小鸟会上升一定高度XXX，每单位时间内可以点击多次，效果叠加，如果不点击屏幕，小鸟会下降一定高度YYY 小鸟位于不同的横坐标位置时，上升高度XXX和下降高度YYY可能互不相同 小鸟高度为mmm时，无">
+<meta property="og:updated_time" content="2017-06-02T13:46:22.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="飞扬的小鸟，DP，背包，NOIP2014">
-<meta name="twitter:description" content="四个月前我尝试着做过这道题，当时在天宇哥哥的课上自认为听懂了，然后。。就没有然后了">
+<meta name="twitter:description" content="给定一个长为nnn，高为mmm的二位平面，其中有kkk个管道（不计宽度） 小鸟从平面最左边出发，到达平面最右边时游戏完成 小鸟每单位时间沿横坐标方向右移距离为1，竖直移动距离由玩家控制，如果点击屏幕，小鸟会上升一定高度XXX，每单位时间内可以点击多次，效果叠加，如果不点击屏幕，小鸟会下降一定高度YYY 小鸟位于不同的横坐标位置时，上升高度XXX和下降高度YYY可能互不相同 小鸟高度为mmm时，无">
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.4.x" />
@@ -196,16 +196,14 @@
   <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">Contents</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#题目大意"><span class="toc-text">题目大意</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#题解"><span class="toc-text">题解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#题解"><span class="toc-text">题解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a></li></ol>
     </div>
   </div>
 
 
     <div class="post-content">
       
-        <p>四个月前我尝试着做过这道题，当时在天宇哥哥的课上自认为听懂了，然后。。就没有然后了</p>
-<a id="more"></a>
-<h1 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h1><ul>
+        <ul>
 <li>给定一个长为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span>，高为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">m</span></span></span></span>的二位平面，其中有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span></span>个管道（不计宽度）</li>
 <li>小鸟从平面最左边出发，到达平面最右边时游戏完成</li>
 <li>小鸟每单位时间沿横坐标方向右移距离为1，竖直移动距离由玩家控制，如果点击屏幕，小鸟会上升一定高度<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>X</mi></mrow><annotation encoding="application/x-tex">X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.07847em;">X</span></span></span></span>，每单位时间内可以点击多次，效果叠加，如果不点击屏幕，小鸟会下降一定高度<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>Y</mi></mrow><annotation encoding="application/x-tex">Y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.22222em;">Y</span></span></span></span></li>
@@ -218,6 +216,7 @@
 </ul>
 </li>
 </ul>
+<a id="more"></a>
 <h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p>由于每单位时间可以点击多次屏幕，所以对于上升的过程，可以看做一个完全背包。</p>
 <p>设<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mi>i</mi><mo separator="true">,</mo><mi>j</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">f(i,j)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span><span class="mclose">)</span></span></span></span>表示到达坐标为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>i</mi><mo separator="true">,</mo><mi>j</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">(i,j)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span><span class="mclose">)</span></span></span></span>的点时，所需最少点击次数，这个状态由可以由前一个单位时间中点击若干次屏幕得到，也可以由前一个单位时间中不点击屏幕掉落一段高度得到，由此可得方程：</p>
 <span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mi>i</mi><mo separator="true">,</mo><mi>j</mi><mo>)</mo><mo>=</mo><msubsup><mi>min</mi><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mrow><mi>j</mi><mo>÷</mo><msub><mi>X</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow></msubsup><mo>(</mo><mi>f</mi><mo>(</mo><mi>i</mi><mo>−</mo><mn>1</mn><mo separator="true">,</mo><mi>j</mi><mo>−</mo><mi>k</mi><msub><mi>X</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn></mrow></msub><mo>)</mo><mo>+</mo><mi>k</mi><mo separator="true">,</mo><mi>f</mi><mo>(</mo><mi>i</mi><mo>−</mo><mn>1</mn><mo separator="true">,</mo><mi>j</mi><mo>+</mo><msub><mi>Y</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn></mrow></msub><mo>)</mo><mo>)</mo></mrow><annotation encoding="application/x-tex">

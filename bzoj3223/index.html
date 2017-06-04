@@ -34,17 +34,17 @@
 <link rel="canonical" href="http://sulfur6.github.io/bzoj3223/"/>
 
 
-<meta name="description" content="Splay 维护序列入门">
+<meta name="description" content="给定一个序列，以及若干次反转区间的操作，要求输出经过若干次反转操作之后的序列。">
 <meta name="keywords" content="BZOJ,Splay">
 <meta property="og:type" content="article">
 <meta property="og:title" content="「BZOJ3223」文艺平衡树">
 <meta property="og:url" content="http://sulfur6.github.io/bzoj3223/index.html">
 <meta property="og:site_name" content="Sulfur6's Blog">
-<meta property="og:description" content="Splay 维护序列入门">
-<meta property="og:updated_time" content="2017-04-02T14:46:59.000Z">
+<meta property="og:description" content="给定一个序列，以及若干次反转区间的操作，要求输出经过若干次反转操作之后的序列。">
+<meta property="og:updated_time" content="2017-06-02T13:41:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="「BZOJ3223」文艺平衡树">
-<meta name="twitter:description" content="Splay 维护序列入门">
+<meta name="twitter:description" content="给定一个序列，以及若干次反转区间的操作，要求输出经过若干次反转操作之后的序列。">
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.4.x" />
@@ -196,16 +196,15 @@
   <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">Contents</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#题目大意"><span class="toc-text">题目大意</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#题解"><span class="toc-text">题解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#题解"><span class="toc-text">题解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a></li></ol>
     </div>
   </div>
 
 
     <div class="post-content">
       
-        <p>Splay 维护序列入门</p>
+        <p>给定一个序列，以及若干次反转区间的操作，要求输出经过若干次反转操作之后的序列。</p>
 <a id="more"></a>
-<h1 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h1><p>给定一个序列，以及若干次反转区间的操作，要求输出经过若干次反转操作之后的序列。</p>
 <h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p>用 <code>Splay</code> 维护序列即可。</p>
 <p>对于一棵平衡树，满足旋转后其中序遍历始终不变的性质，所以我们按照序列来确定初始的 <code>Splay</code> ，这样做的话， <code>Splay</code> 的每个节点代表的是序列上的某个位置。</p>
 <p>而后，对于每次反转，其实就是反转某一棵中序遍历为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>[</mo><mi>l</mi><mo separator="true">,</mo><mi>r</mi><mo>]</mo></mrow><annotation encoding="application/x-tex"> [l, r] </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">[</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mclose">]</span></span></span></span> 的子树，这里我们将 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>l</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex"> l - 1 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span> 位置上的节点旋转到根，将 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>r</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex"> r + 1 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span> 位置上的节点旋转到根的右子树，由于这棵 <code>Splay</code> 的中序遍历就是原来的序列，那么 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>r</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex"> r + 1 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span> 位置上的节点的左子树的中序遍历一定是我们要的 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>[</mo><mi>l</mi><mo separator="true">,</mo><mi>r</mi><mo>]</mo></mrow><annotation encoding="application/x-tex"> [l, r] </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">[</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mclose">]</span></span></span></span> 这段区间，将这个节点打上反转标记即可。</p>

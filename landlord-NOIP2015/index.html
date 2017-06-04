@@ -34,17 +34,17 @@
 <link rel="canonical" href="http://sulfur6.github.io/landlord-NOIP2015/"/>
 
 
-<meta name="description" content="大概两周前，我还是一个不会DFS的小蒟蒻，当时看到斗地主这题，心中简直是千万匹草泥马飘过">
+<meta name="description" content="给定一副扑克牌，牌面随机，按照斗地主的方式打出，求最少出完要多少次 规则: 单顺子五个起，最多到A，不包括2和王 连对从三对起，最多到A，不包括2和王 飞机两个起，最多到A，不包括2和王，不可带牌 三张可以带一张也可以带一对，可以单打 四张可以带两张或者两对，可以单打 大小王可以当火箭出，但是打带牌的时候不能当对牌带 一对和单牌和斗地主完全一样">
 <meta name="keywords" content="NOIP,状态压缩,DFS,记忆化搜索">
 <meta property="og:type" content="article">
 <meta property="og:title" content="斗地主，DFS，状态压缩，记忆化搜索">
 <meta property="og:url" content="http://sulfur6.github.io/landlord-NOIP2015/index.html">
 <meta property="og:site_name" content="Sulfur6's Blog">
-<meta property="og:description" content="大概两周前，我还是一个不会DFS的小蒟蒻，当时看到斗地主这题，心中简直是千万匹草泥马飘过">
-<meta property="og:updated_time" content="2016-12-27T13:22:57.000Z">
+<meta property="og:description" content="给定一副扑克牌，牌面随机，按照斗地主的方式打出，求最少出完要多少次 规则: 单顺子五个起，最多到A，不包括2和王 连对从三对起，最多到A，不包括2和王 飞机两个起，最多到A，不包括2和王，不可带牌 三张可以带一张也可以带一对，可以单打 四张可以带两张或者两对，可以单打 大小王可以当火箭出，但是打带牌的时候不能当对牌带 一对和单牌和斗地主完全一样">
+<meta property="og:updated_time" content="2017-06-02T13:44:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="斗地主，DFS，状态压缩，记忆化搜索">
-<meta name="twitter:description" content="大概两周前，我还是一个不会DFS的小蒟蒻，当时看到斗地主这题，心中简直是千万匹草泥马飘过">
+<meta name="twitter:description" content="给定一副扑克牌，牌面随机，按照斗地主的方式打出，求最少出完要多少次 规则: 单顺子五个起，最多到A，不包括2和王 连对从三对起，最多到A，不包括2和王 飞机两个起，最多到A，不包括2和王，不可带牌 三张可以带一张也可以带一对，可以单打 四张可以带两张或者两对，可以单打 大小王可以当火箭出，但是打带牌的时候不能当对牌带 一对和单牌和斗地主完全一样">
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.4.x" />
@@ -196,16 +196,14 @@
   <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">Contents</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#题目大意"><span class="toc-text">题目大意</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#思路"><span class="toc-text">思路</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#DFS"><span class="toc-text">DFS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#状态压缩优化"><span class="toc-text">状态压缩优化</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#思路"><span class="toc-text">思路</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#DFS"><span class="toc-text">DFS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#状态压缩优化"><span class="toc-text">状态压缩优化</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a></li></ol>
     </div>
   </div>
 
 
     <div class="post-content">
       
-        <p>大概两周前，我还是一个不会DFS的小蒟蒻，当时看到斗地主这题，心中简直是千万匹草泥马飘过</p>
-<a id="more"></a>
-<h1 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h1><ul>
+        <ul>
 <li>给定一副扑克牌，牌面随机，按照斗地主的方式打出，求最少出完要多少次</li>
 <li>规则:<ul>
 <li>单顺子五个起，最多到A，不包括2和王</li>
@@ -218,6 +216,7 @@
 </ul>
 </li>
 </ul>
+<a id="more"></a>
 <h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><h2 id="DFS"><a href="#DFS" class="headerlink" title="DFS"></a>DFS</h2><ul>
 <li>大暴力搜索</li>
 <li>考虑暴力枚举每一种出发，进行爆搜</li>

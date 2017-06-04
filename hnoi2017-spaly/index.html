@@ -34,17 +34,17 @@
 <link rel="canonical" href="http://sulfur6.github.io/hnoi2017-spaly/"/>
 
 
-<meta name="description" content="单旋啊是坠吼的！">
+<meta name="description" content="题目要求你维护一棵 Spaly，也就是单旋 splay。 并支持:  单旋最大值 单旋最小值 删除最大值 删除最小值 插入一个值  对于前四种操作，输出最大或最小值所在的深度，对于最后一种操作，输出插入后该节点的深度。 关于单旋的定义详见题目描述。">
 <meta name="keywords" content="LCT">
 <meta property="og:type" content="article">
 <meta property="og:title" content="「HNOI2017」单旋 - LCT">
 <meta property="og:url" content="http://sulfur6.github.io/hnoi2017-spaly/index.html">
 <meta property="og:site_name" content="Sulfur6's Blog">
-<meta property="og:description" content="单旋啊是坠吼的！">
-<meta property="og:updated_time" content="2017-05-20T01:31:56.000Z">
+<meta property="og:description" content="题目要求你维护一棵 Spaly，也就是单旋 splay。 并支持:  单旋最大值 单旋最小值 删除最大值 删除最小值 插入一个值  对于前四种操作，输出最大或最小值所在的深度，对于最后一种操作，输出插入后该节点的深度。 关于单旋的定义详见题目描述。">
+<meta property="og:updated_time" content="2017-06-02T13:41:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="「HNOI2017」单旋 - LCT">
-<meta name="twitter:description" content="单旋啊是坠吼的！">
+<meta name="twitter:description" content="题目要求你维护一棵 Spaly，也就是单旋 splay。 并支持:  单旋最大值 单旋最小值 删除最大值 删除最小值 插入一个值  对于前四种操作，输出最大或最小值所在的深度，对于最后一种操作，输出插入后该节点的深度。 关于单旋的定义详见题目描述。">
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.4.x" />
@@ -196,16 +196,14 @@
   <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">Contents</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#题目大意"><span class="toc-text">题目大意</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#题解"><span class="toc-text">题解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#题解"><span class="toc-text">题解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a></li></ol>
     </div>
   </div>
 
 
     <div class="post-content">
       
-        <p>单旋啊是坠吼的！</p>
-<a id="more"></a>
-<h1 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h1><p>题目要求你维护一棵 <code>Spaly</code>，也就是单旋 <code>splay</code>。</p>
+        <p>题目要求你维护一棵 <code>Spaly</code>，也就是单旋 <code>splay</code>。</p>
 <p>并支持:</p>
 <ol>
 <li>单旋最大值</li>
@@ -216,6 +214,7 @@
 </ol>
 <p>对于前四种操作，输出最大或最小值所在的深度，对于最后一种操作，输出插入后该节点的深度。</p>
 <p>关于单旋的定义详见题目描述。</p>
+<a id="more"></a>
 <h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p>首先，写一棵 <code>spaly</code> 显然不符合题目要求。</p>
 <p>我们发现，由于本题只会单旋最大值或者最小值，结合单旋的优秀（暴力）性质，可以发现这棵树的形态只会发生非常少的变化。</p>
 <p>对于插入操作，可以证明对于一个值，如果它在 <code>spaly</code> 中同时具有前驱和后继，那么前驱和后继对应书中的节点一定是父子关系，这时候只需要插入到深度较大的点的下面就可以了。这个新插入的节点一定会变成前驱的右儿子或者后继的左儿子。没有前驱或者没有后继的话就有哪个往哪个插。</p>

@@ -34,17 +34,17 @@
 <link rel="canonical" href="http://sulfur6.github.io/hdu5900/"/>
 
 
-<meta name="description" content="比较有趣的区间DP">
+<meta name="description" content="给定 n n n 个二元组，每个二元组由键和值构成，当且仅当相邻的两个二元组的键互质的时候，它们可以被消去，这时得到的价值为它们值的和，然后两边的元素链接在一起。 求能够获得的最大价值。">
 <meta name="keywords" content="HDU,区间DP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="「HDU5900」QSC and Master - 区间DP">
 <meta property="og:url" content="http://sulfur6.github.io/hdu5900/index.html">
 <meta property="og:site_name" content="Sulfur6's Blog">
-<meta property="og:description" content="比较有趣的区间DP">
-<meta property="og:updated_time" content="2017-05-01T00:57:51.000Z">
+<meta property="og:description" content="给定 n n n 个二元组，每个二元组由键和值构成，当且仅当相邻的两个二元组的键互质的时候，它们可以被消去，这时得到的价值为它们值的和，然后两边的元素链接在一起。 求能够获得的最大价值。">
+<meta property="og:updated_time" content="2017-06-02T13:42:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="「HDU5900」QSC and Master - 区间DP">
-<meta name="twitter:description" content="比较有趣的区间DP">
+<meta name="twitter:description" content="给定 n n n 个二元组，每个二元组由键和值构成，当且仅当相邻的两个二元组的键互质的时候，它们可以被消去，这时得到的价值为它们值的和，然后两边的元素链接在一起。 求能够获得的最大价值。">
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.4.x" />
@@ -196,17 +196,16 @@
   <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">Contents</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#题意"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#题解"><span class="toc-text">题解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#题解"><span class="toc-text">题解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a></li></ol>
     </div>
   </div>
 
 
     <div class="post-content">
       
-        <p>比较有趣的区间DP</p>
-<a id="more"></a>
-<h1 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h1><p>给定 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex"> n </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span> 个二元组，每个二元组由键和值构成，当且仅当相邻的两个二元组的键互质的时候，它们可以被消去，这时得到的价值为它们值的和，然后两边的元素链接在一起。</p>
+        <p>给定 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex"> n </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span> 个二元组，每个二元组由键和值构成，当且仅当相邻的两个二元组的键互质的时候，它们可以被消去，这时得到的价值为它们值的和，然后两边的元素链接在一起。</p>
 <p>求能够获得的最大价值。</p>
+<a id="more"></a>
 <h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p>两遍 dp ，第一遍处理出某个区间 [l, r] 中的 value 能否被全部得到，方法如下:
 <figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">let canEarnAll(l, r) equal to if all the value in [l, r] can be earned;</div><div class="line">canEarnAll(l, r) |= (canEarnAll(l + 1, r - 1) &amp; (gcd(l, r) != 1));</div><div class="line">for (int k = l; k &lt; r; k++) canEarnAll |= (canEarnAll(l, k) &amp; canEarnAll(k + 1, r));</div></pre></td></tr></table></figure></p>
 <p>然后按照做出来的结果继续 dp，方法如下:

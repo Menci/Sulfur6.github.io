@@ -34,17 +34,17 @@
 <link rel="canonical" href="http://sulfur6.github.io/bzoj1005/"/>
 
 
-<meta name="description" content="不要和我一样老是用 Python 水高精度啊。。">
+<meta name="description" content="给出标号为 1 1 1 到 N N N 的点，以及某些点最终的度数，允许在任意两点间连线，可产生多少棵度数满足要求的树？">
 <meta name="keywords" content="组合数学,prufer序列">
 <meta property="og:type" content="article">
 <meta property="og:title" content="「HNOI2008」明明的烦恼 - prufer序列">
 <meta property="og:url" content="http://sulfur6.github.io/bzoj1005/index.html">
 <meta property="og:site_name" content="Sulfur6's Blog">
-<meta property="og:description" content="不要和我一样老是用 Python 水高精度啊。。">
-<meta property="og:updated_time" content="2017-05-23T12:49:37.000Z">
+<meta property="og:description" content="给出标号为 1 1 1 到 N N N 的点，以及某些点最终的度数，允许在任意两点间连线，可产生多少棵度数满足要求的树？">
+<meta property="og:updated_time" content="2017-06-02T13:39:15.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="「HNOI2008」明明的烦恼 - prufer序列">
-<meta name="twitter:description" content="不要和我一样老是用 Python 水高精度啊。。">
+<meta name="twitter:description" content="给出标号为 1 1 1 到 N N N 的点，以及某些点最终的度数，允许在任意两点间连线，可产生多少棵度数满足要求的树？">
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.4.x" />
@@ -196,16 +196,15 @@
   <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">Contents</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#题目描述"><span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#题解"><span class="toc-text">题解</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#题解"><span class="toc-text">题解</span></a></li></ol>
     </div>
   </div>
 
 
     <div class="post-content">
       
-        <p>不要和我一样老是用 Python 水高精度啊。。</p>
+        <p>给出标号为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex"> 1 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span></span></span></span> 到 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex"> N </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">N</span></span></span></span> 的点，以及某些点最终的度数，允许在任意两点间连线，可产生多少棵度数满足要求的树？</p>
 <a id="more"></a>
-<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>给出标号为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex"> 1 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span></span></span></span> 到 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex"> N </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">N</span></span></span></span> 的点，以及某些点最终的度数，允许在任意两点间连线，可产生多少棵度数满足要求的树？</p>
 <h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p>首先要知道一个叫「prufer序列」的东西。</p>
 <p>首先，从有标号无根树生成「prufer序列」的方法我就不瞎逼逼了。
 其次，一个「prufer序列」唯一对应一棵有标号无根树。

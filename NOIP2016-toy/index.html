@@ -34,17 +34,17 @@
 <link rel="canonical" href="http://sulfur6.github.io/NOIP2016-toy/"/>
 
 
-<meta name="description" content="场上30分钟写完的，手造了几组数据，最后 A 掉了，没翻车很棒">
+<meta name="description" content="小南有一套可爱的玩具小人，它们各有不同的职业。 有一天，这些玩具小人把小南的眼镜藏了起来。小南发现玩具小人们围成了一个圈，它们有的面朝圈内，有的面朝圈外。 这时 singer 告诉小南一个谜题：「眼镜藏在我左数第 3 3 个玩具小人的右数第 111 个玩具小人的左数第 222 个玩具小人那里。」 小南发现，这个谜题中玩具小人的朝向非常关键， 因为朝内和朝外的玩具小人的左右方向是相反的：面朝圈内的玩">
 <meta name="keywords" content="NOIP,模拟">
 <meta property="og:type" content="article">
 <meta property="og:title" content="玩具迷题 - NOIP2016，模拟">
 <meta property="og:url" content="http://sulfur6.github.io/NOIP2016-toy/index.html">
 <meta property="og:site_name" content="Sulfur6's Blog">
-<meta property="og:description" content="场上30分钟写完的，手造了几组数据，最后 A 掉了，没翻车很棒">
-<meta property="og:updated_time" content="2016-12-27T13:29:50.000Z">
+<meta property="og:description" content="小南有一套可爱的玩具小人，它们各有不同的职业。 有一天，这些玩具小人把小南的眼镜藏了起来。小南发现玩具小人们围成了一个圈，它们有的面朝圈内，有的面朝圈外。 这时 singer 告诉小南一个谜题：「眼镜藏在我左数第 3 3 个玩具小人的右数第 111 个玩具小人的左数第 222 个玩具小人那里。」 小南发现，这个谜题中玩具小人的朝向非常关键， 因为朝内和朝外的玩具小人的左右方向是相反的：面朝圈内的玩">
+<meta property="og:updated_time" content="2017-06-02T13:34:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="玩具迷题 - NOIP2016，模拟">
-<meta name="twitter:description" content="场上30分钟写完的，手造了几组数据，最后 A 掉了，没翻车很棒">
+<meta name="twitter:description" content="小南有一套可爱的玩具小人，它们各有不同的职业。 有一天，这些玩具小人把小南的眼镜藏了起来。小南发现玩具小人们围成了一个圈，它们有的面朝圈内，有的面朝圈外。 这时 singer 告诉小南一个谜题：「眼镜藏在我左数第 3 3 个玩具小人的右数第 111 个玩具小人的左数第 222 个玩具小人那里。」 小南发现，这个谜题中玩具小人的朝向非常关键， 因为朝内和朝外的玩具小人的左右方向是相反的：面朝圈内的玩">
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.4.x" />
@@ -196,16 +196,14 @@
   <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">Contents</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#题面"><span class="toc-text">题面</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#链接"><span class="toc-text">链接</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#题解"><span class="toc-text">题解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#链接"><span class="toc-text">链接</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#题解"><span class="toc-text">题解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a></li></ol>
     </div>
   </div>
 
 
     <div class="post-content">
       
-        <p>场上30分钟写完的，手造了几组数据，最后 A 掉了，没翻车很棒</p>
-<a id="more"></a>
-<h1 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h1><p>小南有一套可爱的玩具小人，它们各有不同的职业。</p>
+        <p>小南有一套可爱的玩具小人，它们各有不同的职业。</p>
 <p>有一天，这些玩具小人把小南的眼镜藏了起来。小南发现玩具小人们围成了一个圈，它们有的面朝圈内，有的面朝圈外。</p>
 <p>这时 <code>singer</code> 告诉小南一个谜题：「眼镜藏在我左数第 3 3 个玩具小人的右数第 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span></span></span></span> 个玩具小人的左数第 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">2</span></span></span></span> 个玩具小人那里。」</p>
 <p>小南发现，这个谜题中玩具小人的朝向非常关键， 因为朝内和朝外的玩具小人的左右方向是相反的：面朝圈内的玩具小人，它的左边是顺时针方向，右边是逆时针方向；而面向圈外的玩具小人，它的左边是逆时针方向，右边是顺时针方向。</p>
@@ -216,6 +214,7 @@
 <p>所以眼镜藏在 <code>writer</code> 这里！</p>
 <p>虽然成功找回了眼镜，但小南并没有放心。如果下次有更多的玩具小人藏他的眼镜，或是谜题的长度更长，他可能就无法找到眼镜了。所以小南希望你写程序帮他解决类似的谜题。这样的谜题具体可以描述为：</p>
 <p>有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex"> n </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span>个玩具小人围成一圈，已知它们的职业和朝向。现在第 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span></span></span></span> 个玩具小人告诉小南一个包含 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">m</span></span></span></span> 条指令的谜题。其中第 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.65952em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span></span></span></span> 条指令形如「左数/右数第 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>s</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">s_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">s</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span> 个玩具小人」。你需要输出依次数完这些指令后，到达的玩具小人的职业。</p>
+<a id="more"></a>
 <h1 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h1><p><a href="https://ly.men.ci/problem/99" target="_blank" rel="external">LYOI#99</a></p>
 <h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p>模拟。</p>
 <p>根据朝向，顺加逆减，每次取模，防止越界</p>

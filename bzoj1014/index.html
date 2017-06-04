@@ -34,17 +34,17 @@
 <link rel="canonical" href="http://sulfur6.github.io/bzoj1014/"/>
 
 
-<meta name="description" content="不得不说当年的 OI 不卡自然溢出真的是太棒啦">
+<meta name="description" content="给定一个字符串，要求支持修改串中某个字符，在指定位置添加字符，以及求指定两个后缀的 LCP LCP LCP 长度。">
 <meta name="keywords" content="Splay,Hash">
 <meta property="og:type" content="article">
 <meta property="og:title" content="「JSOI2008」火星人Prefix - Splay，Hash">
 <meta property="og:url" content="http://sulfur6.github.io/bzoj1014/index.html">
 <meta property="og:site_name" content="Sulfur6's Blog">
-<meta property="og:description" content="不得不说当年的 OI 不卡自然溢出真的是太棒啦">
-<meta property="og:updated_time" content="2017-05-28T02:57:30.000Z">
+<meta property="og:description" content="给定一个字符串，要求支持修改串中某个字符，在指定位置添加字符，以及求指定两个后缀的 LCP LCP LCP 长度。">
+<meta property="og:updated_time" content="2017-06-02T13:40:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="「JSOI2008」火星人Prefix - Splay，Hash">
-<meta name="twitter:description" content="不得不说当年的 OI 不卡自然溢出真的是太棒啦">
+<meta name="twitter:description" content="给定一个字符串，要求支持修改串中某个字符，在指定位置添加字符，以及求指定两个后缀的 LCP LCP LCP 长度。">
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.4.x" />
@@ -196,16 +196,15 @@
   <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">Contents</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#题目大意"><span class="toc-text">题目大意</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#题解"><span class="toc-text">题解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#题解"><span class="toc-text">题解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a></li></ol>
     </div>
   </div>
 
 
     <div class="post-content">
       
-        <p>不得不说当年的 OI 不卡自然溢出真的是太棒啦</p>
+        <p>给定一个字符串，要求支持修改串中某个字符，在指定位置添加字符，以及求指定两个后缀的 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>L</mi><mi>C</mi><mi>P</mi></mrow><annotation encoding="application/x-tex"> LCP </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">L</span><span class="mord mathit" style="margin-right:0.07153em;">C</span><span class="mord mathit" style="margin-right:0.13889em;">P</span></span></span></span> 长度。</p>
 <a id="more"></a>
-<h1 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h1><p>给定一个字符串，要求支持修改串中某个字符，在指定位置添加字符，以及求指定两个后缀的LCP长度。</p>
 <h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p>提到LCP当然会想到后缀家族，不过我才疏学浅，并不知道后缀家族怎么支持修改和插入。</p>
 <p>所以，Hash 大法好！</p>
 <p>话说回来当时在长乐的时候写字符串哈希的暴力，可能是我姿势不太对？模数一直取不对。。这道题没有卡自然溢出，感觉还是很良心的。</p>

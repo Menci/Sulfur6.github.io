@@ -34,20 +34,20 @@
 <link rel="canonical" href="http://sulfur6.github.io/bzoj1007/"/>
 
 
-<meta name="description" content="团长真的好弱啊。。">
+<meta name="description" content="有 n n n 条直线，在正无穷处往下看，如果一条直线的某一部分没有被其他任何直线覆盖，则我们认为这条直线是可见的，输出所有可见直线的编号。">
 <meta name="keywords" content="计算几何,单调栈">
 <meta property="og:type" content="article">
 <meta property="og:title" content="「HNOI2008」水平可见直线 - 计算几何，单调栈">
 <meta property="og:url" content="http://sulfur6.github.io/bzoj1007/index.html">
 <meta property="og:site_name" content="Sulfur6's Blog">
-<meta property="og:description" content="团长真的好弱啊。。">
+<meta property="og:description" content="有 n n n 条直线，在正无穷处往下看，如果一条直线的某一部分没有被其他任何直线覆盖，则我们认为这条直线是可见的，输出所有可见直线的编号。">
 <meta property="og:image" content="http://sulfur6.github.io/img/BZOJ1007/Original.png">
 <meta property="og:image" content="http://sulfur6.github.io/img/BZOJ1007/Left.png">
 <meta property="og:image" content="http://sulfur6.github.io/img/BZOJ1007/Right.png">
-<meta property="og:updated_time" content="2017-05-24T07:19:02.000Z">
+<meta property="og:updated_time" content="2017-06-02T13:39:39.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="「HNOI2008」水平可见直线 - 计算几何，单调栈">
-<meta name="twitter:description" content="团长真的好弱啊。。">
+<meta name="twitter:description" content="有 n n n 条直线，在正无穷处往下看，如果一条直线的某一部分没有被其他任何直线覆盖，则我们认为这条直线是可见的，输出所有可见直线的编号。">
 <meta name="twitter:image" content="http://sulfur6.github.io/img/BZOJ1007/Original.png">
 
 
@@ -200,16 +200,15 @@
   <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">Contents</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#题目描述"><span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#题解"><span class="toc-text">题解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#题解"><span class="toc-text">题解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a></li></ol>
     </div>
   </div>
 
 
     <div class="post-content">
       
-        <p>团长真的好弱啊。。</p>
+        <p>有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex"> n </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span> 条直线，在正无穷处往下看，如果一条直线的某一部分没有被其他任何直线覆盖，则我们认为这条直线是可见的，输出所有可见直线的编号。</p>
 <a id="more"></a>
-<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex"> n </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span> 条直线，在正无穷处往下看，如果一条直线的某一部分没有被其他任何直线覆盖，则我们认为这条直线是可见的，输出所有可见直线的编号。</p>
 <h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p>我先描述一下算法。</p>
 <p>首先对所有直线按照斜率从小到大，截距从大到小排序。然后把最小的两条斜率不想等的直线放到一个栈里，每次向栈中加入一条直线时检查即将加入的直线和栈顶直线的交点和栈顶直线和栈第二位直线的交点的位置关系，若新直线与栈顶直线的交点在栈顶直线和栈第二位直线的交点左边，则将栈顶元素弹出，若在右边，则将新直线入栈。最后栈中的直线就是答案。</p>
 <p>下面形象的解释一下它的正确性。</p>

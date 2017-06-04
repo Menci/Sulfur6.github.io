@@ -34,17 +34,17 @@
 <link rel="canonical" href="http://sulfur6.github.io/chose-class/"/>
 
 
-<meta name="description" content="据说存储树的结构叫做左儿子右兄弟，管他呢，我也不知道，当年CTSC的一道树形DP。">
+<meta name="description" content="给定NNN门课，每门课有自己的学分，可能有一门先修课 不同的课程可能有共同的先修课 求在学习课程项目限制MMM内，可能获得的最大学分">
 <meta name="keywords" content="DP,树形DP,codevs">
 <meta property="og:type" content="article">
 <meta property="og:title" content="选课，树形DP">
 <meta property="og:url" content="http://sulfur6.github.io/chose-class/index.html">
 <meta property="og:site_name" content="Sulfur6's Blog">
-<meta property="og:description" content="据说存储树的结构叫做左儿子右兄弟，管他呢，我也不知道，当年CTSC的一道树形DP。">
-<meta property="og:updated_time" content="2016-12-27T13:23:01.000Z">
+<meta property="og:description" content="给定NNN门课，每门课有自己的学分，可能有一门先修课 不同的课程可能有共同的先修课 求在学习课程项目限制MMM内，可能获得的最大学分">
+<meta property="og:updated_time" content="2017-06-02T13:46:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="选课，树形DP">
-<meta name="twitter:description" content="据说存储树的结构叫做左儿子右兄弟，管他呢，我也不知道，当年CTSC的一道树形DP。">
+<meta name="twitter:description" content="给定NNN门课，每门课有自己的学分，可能有一门先修课 不同的课程可能有共同的先修课 求在学习课程项目限制MMM内，可能获得的最大学分">
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.4.x" />
@@ -196,20 +196,19 @@
   <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">Contents</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#题目大意"><span class="toc-text">题目大意</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#存储"><span class="toc-text">存储</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#树形DP"><span class="toc-text">树形DP</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#存储"><span class="toc-text">存储</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#树形DP"><span class="toc-text">树形DP</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a></li></ol>
     </div>
   </div>
 
 
     <div class="post-content">
       
-        <p>据说存储树的结构叫做左儿子右兄弟，管他呢，我也不知道，当年CTSC的一道树形DP。</p>
-<a id="more"></a>
-<h1 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h1><ul>
+        <ul>
 <li>给定<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">N</span></span></span></span>门课，每门课有自己的学分，可能有一门先修课</li>
 <li>不同的课程可能有共同的先修课</li>
 <li>求在学习课程项目限制<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>M</mi></mrow><annotation encoding="application/x-tex">M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">M</span></span></span></span>内，可能获得的最大学分</li>
 </ul>
+<a id="more"></a>
 <h1 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h1><p>这题使用类似邻接表的方式存储树，对每一个节点，记录它的一个孩子节点，对于其他直连它的节点，使用邻接表串起来，对于没有先修课的节点，我们设置一个虚拟<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">0</span></span></span></span>节点。</p>
 <ul>
 <li>代码实现：</li>

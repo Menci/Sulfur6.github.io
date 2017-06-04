@@ -34,17 +34,17 @@
 <link rel="canonical" href="http://sulfur6.github.io/lcp-network-flow/"/>
 
 
-<meta name="description" content="题意不清的辣鸡题，记得看加粗的部分">
+<meta name="description" content="给定正整数序列 x1∼xn x_1 \sim x_n x​1​​∼x​n​​，以下递增子序列均为非严格递增。  计算其最长递增子序列的长度 s s s。 计算从给定的序列中最多可取出多少个长度为 s s s 的递增子序列。 如果允许在取出的序列中多次使用 x1 x_1 x​1​​ 和 xn x_n x​n​​，则从给定序列中最多可取出多少个长度为 s s s 的递增子序列。">
 <meta name="keywords" content="网络流">
 <meta property="og:type" content="article">
 <meta property="og:title" content="「网络流24题」最长递增子序列 - 网络流">
 <meta property="og:url" content="http://sulfur6.github.io/lcp-network-flow/index.html">
 <meta property="og:site_name" content="Sulfur6's Blog">
-<meta property="og:description" content="题意不清的辣鸡题，记得看加粗的部分">
-<meta property="og:updated_time" content="2017-05-01T10:39:05.000Z">
+<meta property="og:description" content="给定正整数序列 x1∼xn x_1 \sim x_n x​1​​∼x​n​​，以下递增子序列均为非严格递增。  计算其最长递增子序列的长度 s s s。 计算从给定的序列中最多可取出多少个长度为 s s s 的递增子序列。 如果允许在取出的序列中多次使用 x1 x_1 x​1​​ 和 xn x_n x​n​​，则从给定序列中最多可取出多少个长度为 s s s 的递增子序列。">
+<meta property="og:updated_time" content="2017-06-02T13:34:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="「网络流24题」最长递增子序列 - 网络流">
-<meta name="twitter:description" content="题意不清的辣鸡题，记得看加粗的部分">
+<meta name="twitter:description" content="给定正整数序列 x1∼xn x_1 \sim x_n x​1​​∼x​n​​，以下递增子序列均为非严格递增。  计算其最长递增子序列的长度 s s s。 计算从给定的序列中最多可取出多少个长度为 s s s 的递增子序列。 如果允许在取出的序列中多次使用 x1 x_1 x​1​​ 和 xn x_n x​n​​，则从给定序列中最多可取出多少个长度为 s s s 的递增子序列。">
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.4.x" />
@@ -196,21 +196,20 @@
   <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">Contents</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#题目描述"><span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#题解"><span class="toc-text">题解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#题解"><span class="toc-text">题解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a></li></ol>
     </div>
   </div>
 
 
     <div class="post-content">
       
-        <p>题意不清的辣鸡题，记得看加粗的部分</p>
-<a id="more"></a>
-<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>给定正整数序列 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>x</mi><mn>1</mn></msub><mo>∼</mo><msub><mi>x</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex"> x_1 \sim x_n </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">x</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">1</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">∼</span><span class="mord"><span class="mord mathit">x</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">n</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>，以下递增子序列均为<strong>非严格</strong>递增。</p>
+        <p>给定正整数序列 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>x</mi><mn>1</mn></msub><mo>∼</mo><msub><mi>x</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex"> x_1 \sim x_n </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">x</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">1</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">∼</span><span class="mord"><span class="mord mathit">x</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">n</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>，以下递增子序列均为<strong>非严格</strong>递增。</p>
 <ol>
 <li>计算其最长递增子序列的长度 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi></mrow><annotation encoding="application/x-tex"> s </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">s</span></span></span></span>。</li>
 <li>计算从给定的序列中最多可取出多少个长度为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi></mrow><annotation encoding="application/x-tex"> s </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">s</span></span></span></span> 的递增子序列。</li>
 <li>如果允许在取出的序列中多次使用 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>x</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex"> x_1 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">x</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">1</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span> 和 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>x</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex"> x_n </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">x</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">n</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>，则从给定序列中最多可取出多少个长度为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi></mrow><annotation encoding="application/x-tex"> s </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">s</span></span></span></span> 的递增子序列。</li>
 </ol>
+<a id="more"></a>
 <h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p>题意不清的辣鸡题。。这里感谢 Menci 同学在博客里和 OJ 上都强调了 <strong>非严格递增</strong>
 题意要求求出 “最长递增子序列” ，然而实际数据却是 “最长不下降子序列”
 第一问直接 dp 即可，第二问第三问网络流解决。</p>
