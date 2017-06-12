@@ -178,6 +178,49 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/hdu5900/">「HDU5900」QSC and Master - 区间DP</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017年2月7日
+        </span>
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>给定 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex"> n </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span> 个二元组，每个二元组由键和值构成，当且仅当相邻的两个二元组的键互质的时候，它们可以被消去，这时得到的价值为它们值的和，然后两边的元素链接在一起。</p>
+<p>求能够获得的最大价值。</p>
+          <div class="read-more">
+            <a href="/hdu5900/" class="read-more-link">Read more..</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/bzoj3223/">「BZOJ3223」文艺平衡树</a>
         
       </h1>
@@ -579,60 +622,6 @@
 <p>正解是枚举所有的拐点，将拐点加入子序列中一定比加入其他点更优，因为拐点比可以容纳更多的点在其中波动，最后特判起点和终点是否可以加入序列中即可</p>
 <h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight c++"><table><tr><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXN = <span class="number">100000</span>;</div><div class="line"></div><div class="line"><span class="keyword">int</span> height[MAXN + <span class="number">1</span>];</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> n; <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</div><div class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;height[i]);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">bool</span> isUping = <span class="literal">true</span>; <span class="keyword">int</span> ans = <span class="number">0</span>;</div><div class="line">    <span class="keyword">if</span> (height[<span class="number">1</span>] &gt;= height[<span class="number">2</span>]) isUping = <span class="literal">false</span>;</div><div class="line">    <span class="keyword">else</span> isUping = <span class="literal">true</span>;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n - <span class="number">1</span>; i++) &#123;</div><div class="line">        <span class="keyword">if</span> (isUping &amp;&amp; height[i] &gt; height[i + <span class="number">1</span>]) &#123;</div><div class="line">            isUping = <span class="literal">false</span>;</div><div class="line">            ans++;</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (!isUping &amp;&amp; height[i] &lt; height[i + <span class="number">1</span>]) &#123;</div><div class="line">            isUping = <span class="literal">true</span>;</div><div class="line">            ans++;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (height[<span class="number">1</span>] == height[<span class="number">2</span>]) ans--;</div><div class="line">    <span class="keyword">if</span> (height[n - <span class="number">1</span>] == height[n]) ans--;</div><div class="line"></div><div class="line">    ans += <span class="number">2</span>;</div><div class="line"></div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans);</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/Flappy-Bird/">飞扬的小鸟，DP，背包，NOIP2014</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2016年11月8日
-        </span>
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <ul>
-<li>给定一个长为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span>，高为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">m</span></span></span></span>的二位平面，其中有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span></span>个管道（不计宽度）</li>
-<li>小鸟从平面最左边出发，到达平面最右边时游戏完成</li>
-<li>小鸟每单位时间沿横坐标方向右移距离为1，竖直移动距离由玩家控制，如果点击屏幕，小鸟会上升一定高度<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>X</mi></mrow><annotation encoding="application/x-tex">X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.07847em;">X</span></span></span></span>，每单位时间内可以点击多次，效果叠加，如果不点击屏幕，小鸟会下降一定高度<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>Y</mi></mrow><annotation encoding="application/x-tex">Y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.22222em;">Y</span></span></span></span></li>
-<li>小鸟位于不同的横坐标位置时，上升高度<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>X</mi></mrow><annotation encoding="application/x-tex">X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.07847em;">X</span></span></span></span>和下降高度<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>Y</mi></mrow><annotation encoding="application/x-tex">Y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.22222em;">Y</span></span></span></span>可能互不相同</li>
-<li>小鸟高度为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">m</span></span></span></span>时，无法再上升</li>
-<li>小鸟高度等于<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">0</span></span></span></span>或小鸟碰到管道时，游戏失败</li>
-<li>要求：<ul>
-<li>如果能完成游戏，输出最少点击屏幕次数</li>
-<li>如果不能，输出最多能通过的水管</li>
-</ul>
-</li>
-</ul>
-          <div class="read-more">
-            <a href="/Flappy-Bird/" class="read-more-link">Read more..</a>
-          </div>
         
       
     </div>

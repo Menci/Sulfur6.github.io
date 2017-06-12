@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="「SHOI2008」堵塞的交通 - 线段树"/>
+
+
+
+
+  <meta name="keywords" content="线段树," />
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Sulfur6's Blog">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.4.x" />
+
+
+
+<link rel="canonical" href="http://sulfur6.github.io/bzoj-1018/"/>
+
+
+<meta name="description" content="在一个有 2C 2C 2C 个点，3C−2 3C - 2 3C−2 条边的 2 2 2 行 C C C 列的网格图中，相邻两个节点有连边，给定以下三种操作。  Open r1 c1 r2 c2 连接节点 (r1, c1), (r2, c2) 的边连通。 Close r1 c1 r2 c2 连接节点 (r1, c1), (r2, c2) 的边断开。 Ask r1 c1 r2 c2 查询节点 (r1,">
+<meta name="keywords" content="线段树">
+<meta property="og:type" content="article">
+<meta property="og:title" content="「SHOI2008」堵塞的交通 - 线段树">
+<meta property="og:url" content="http://sulfur6.github.io/bzoj-1018/index.html">
+<meta property="og:site_name" content="Sulfur6's Blog">
+<meta property="og:description" content="在一个有 2C 2C 2C 个点，3C−2 3C - 2 3C−2 条边的 2 2 2 行 C C C 列的网格图中，相邻两个节点有连边，给定以下三种操作。  Open r1 c1 r2 c2 连接节点 (r1, c1), (r2, c2) 的边连通。 Close r1 c1 r2 c2 连接节点 (r1, c1), (r2, c2) 的边断开。 Ask r1 c1 r2 c2 查询节点 (r1,">
+<meta property="og:updated_time" content="2017-06-12T03:45:41.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="「SHOI2008」堵塞的交通 - 线段树">
+<meta name="twitter:description" content="在一个有 2C 2C 2C 个点，3C−2 3C - 2 3C−2 条边的 2 2 2 行 C C C 列的网格图中，相邻两个节点有连边，给定以下三种操作。  Open r1 c1 r2 c2 连接节点 (r1, c1), (r2, c2) 的边连通。 Close r1 c1 r2 c2 连接节点 (r1, c1), (r2, c2) 的边断开。 Ask r1 c1 r2 c2 查询节点 (r1,">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.4.x" />
+<link rel="stylesheet" href="<%= url_for('/css/style.css?v='+ theme.version) %>">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css" />
+
+
+
+
+
+
+
+<script>
+  var CONFIG = {
+    search: true,
+    searchPath: "/search.json",
+    fancybox: false,
+    toc: true,
+  }
+</script>
+
+
+
+
+  
+
+
+
+    <title> 「SHOI2008」堵塞的交通 - 线段树 · Sulfur6's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="mobile-header-logo">
+    <a href="/." class="logo">Sulfur6's Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            Home
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            Archives
+          
+        </li>
+      </a>
+    
+      <a href="/tags">
+        <li class="mobile-menu-item">
+          
+          
+            Tags
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Sulfur6's Blog</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              Home
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              Archives
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/tags">
+            
+            
+              Tags
+            
+          </a>
+        </li>
+      
+      
+        <li class="menu-search">
+          <form>
+            <i class="iconfont icon-search" id="open-search"></i>
+            <input type="text" class="search-input" id="search-input" />
+            <i class="iconfont icon-close" id="close-search"></i>
+          </form>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          「SHOI2008」堵塞的交通 - 线段树
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017年6月11日
+        </span>
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#题解"><span class="toc-text">题解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a></li></ol>
+    </div>
+  </div>
+
+
+    <div class="post-content">
+      
+        <p>在一个有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mi>C</mi></mrow><annotation encoding="application/x-tex"> 2C </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">2</span><span class="mord mathit" style="margin-right:0.07153em;">C</span></span></span></span> 个点，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>3</mn><mi>C</mi><mo>−</mo><mn>2</mn></mrow><annotation encoding="application/x-tex"> 3C - 2 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">3</span><span class="mord mathit" style="margin-right:0.07153em;">C</span><span class="mbin">−</span><span class="mord mathrm">2</span></span></span></span> 条边的 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex"> 2 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">2</span></span></span></span> 行 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>C</mi></mrow><annotation encoding="application/x-tex"> C </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.07153em;">C</span></span></span></span> 列的网格图中，相邻两个节点有连边，给定以下三种操作。</p>
+<ol>
+<li><code>Open r1 c1 r2 c2</code> 连接节点 <code>(r1, c1), (r2, c2)</code> 的边连通。</li>
+<li><code>Close r1 c1 r2 c2</code> 连接节点 <code>(r1, c1), (r2, c2)</code> 的边断开。</li>
+<li><code>Ask r1 c1 r2 c2</code> 查询节点 <code>(r1, c1), (r2, c2)</code> 之间的连通性。</li>
+</ol>
+<p>开始时每条边都是断开的状态。</p>
+<a id="more"></a>
+<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p>为什么这种特殊的要死的图我第一时间想到的是 LCT，怕不是我失了智。。</p>
+<p>但是看了题解的线段树做法，我感觉我整个人都没有智商了。。怕不是我变成了大傻子。。</p>
+<p>原图中有上下两行，这里用 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>i</mi><mo separator="true">,</mo><mn>0</mn><mo>)</mo></mrow><annotation encoding="application/x-tex"> (i, 0) </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathrm">0</span><span class="mclose">)</span></span></span></span> 表示第 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex"> i </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.65952em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span></span></span></span> 列上面的城市，用 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>i</mi><mo separator="true">,</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex"> (i, 1) </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathrm">1</span><span class="mclose">)</span></span></span></span> 表示第 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex"> i </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.65952em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span></span></span></span> 列下面的城市。</p>
+<p>对于线段树中的一个代表区间 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>[</mo><mi>l</mi><mo separator="true">,</mo><mi>r</mi><mo>]</mo></mrow><annotation encoding="application/x-tex"> [l, r] </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">[</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mclose">]</span></span></span></span> 的节点，其中维护的是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>l</mi><mo separator="true">,</mo><mn>0</mn><mo>)</mo><mo separator="true">,</mo><mo>(</mo><mi>l</mi><mo separator="true">,</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex"> (l, 0), (l, 1) </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mpunct">,</span><span class="mord mathrm">0</span><span class="mclose">)</span><span class="mpunct">,</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mpunct">,</span><span class="mord mathrm">1</span><span class="mclose">)</span></span></span></span> 分别与 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>r</mi><mo separator="true">,</mo><mn>0</mn><mo>)</mo><mo separator="true">,</mo><mo>(</mo><mi>r</mi><mo separator="true">,</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex"> (r, 0), (r, 1) </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mpunct">,</span><span class="mord mathrm">0</span><span class="mclose">)</span><span class="mpunct">,</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mpunct">,</span><span class="mord mathrm">1</span><span class="mclose">)</span></span></span></span> 的连通性。</p>
+<p>对于某个区间 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>[</mo><mi>l</mi><mo>=</mo><mi>i</mi><mo separator="true">,</mo><mi>r</mi><mo>=</mo><mi>i</mi><mo>]</mo></mrow><annotation encoding="application/x-tex"> [l = i, r = i] </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">[</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mrel">=</span><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mrel">=</span><span class="mord mathit">i</span><span class="mclose">]</span></span></span></span>，我们认为这个区间中的 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>l</mi><mo separator="true">,</mo><mn>0</mn><mo>)</mo><mo separator="true">,</mo><mo>(</mo><mi>r</mi><mo separator="true">,</mo><mn>0</mn><mo>)</mo></mrow><annotation encoding="application/x-tex"> (l, 0), (r, 0) </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mpunct">,</span><span class="mord mathrm">0</span><span class="mclose">)</span><span class="mpunct">,</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mpunct">,</span><span class="mord mathrm">0</span><span class="mclose">)</span></span></span></span> 是连通的，同样的 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>l</mi><mo separator="true">,</mo><mn>1</mn><mo>)</mo><mo separator="true">,</mo><mo>(</mo><mi>r</mi><mo separator="true">,</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex"> (l, 1), (r, 1) </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mpunct">,</span><span class="mord mathrm">1</span><span class="mclose">)</span><span class="mpunct">,</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mpunct">,</span><span class="mord mathrm">1</span><span class="mclose">)</span></span></span></span> 也是连通的。</p>
+<p>若该位置上下连通，则认为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>l</mi><mo separator="true">,</mo><mn>0</mn><mo>)</mo><mo separator="true">,</mo><mo>(</mo><mi>r</mi><mo separator="true">,</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex"> (l, 0), (r, 1) </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mpunct">,</span><span class="mord mathrm">0</span><span class="mclose">)</span><span class="mpunct">,</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mpunct">,</span><span class="mord mathrm">1</span><span class="mclose">)</span></span></span></span> 连通，同时 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>r</mi><mo separator="true">,</mo><mn>0</mn><mo>)</mo><mo separator="true">,</mo><mo>(</mo><mi>l</mi><mo separator="true">,</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex"> (r, 0), (l, 1) </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mpunct">,</span><span class="mord mathrm">0</span><span class="mclose">)</span><span class="mpunct">,</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mpunct">,</span><span class="mord mathrm">1</span><span class="mclose">)</span></span></span></span> 连通。</p>
+<p>合并两个区间 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>[</mo><mi>l</mi><mo separator="true">,</mo><mi>m</mi><mo>]</mo><mo separator="true">,</mo><mo>[</mo><mi>m</mi><mo>+</mo><mn>1</mn><mo separator="true">,</mo><mi>r</mi><mo>]</mo></mrow><annotation encoding="application/x-tex"> [l, m], [m + 1, r] </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">[</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mpunct">,</span><span class="mord mathit">m</span><span class="mclose">]</span><span class="mpunct">,</span><span class="mopen">[</span><span class="mord mathit">m</span><span class="mbin">+</span><span class="mord mathrm">1</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mclose">]</span></span></span></span>，枚举 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi><mo>↔</mo><mi>m</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex"> m \leftrightarrow m + 1 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathit">m</span><span class="mrel">↔</span><span class="mord mathit">m</span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span> 经过的是上面的还是下面的路径。</p>
+<p>回答询问时，假设 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>c</mi><mn>1</mn></mrow><annotation encoding="application/x-tex"> c1 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">c</span><span class="mord mathrm">1</span></span></span></span> 在 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>c</mi><mn>2</mn></mrow><annotation encoding="application/x-tex"> c2 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">c</span><span class="mord mathrm">2</span></span></span></span> 左边，二分 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>c</mi><mn>1</mn></mrow><annotation encoding="application/x-tex"> c1 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">c</span><span class="mord mathrm">1</span></span></span></span> 能够达到的最左位置以及 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>c</mi><mn>2</mn></mrow><annotation encoding="application/x-tex"> c2 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">c</span><span class="mord mathrm">2</span></span></span></span> 能够达到的最右位置，枚举回答。假如 <code>(r1, c1)</code> 不和 <code>(r2, c2)</code> 直接连通，那么这样做可以包含到 <code>(r1, c1)</code> 先向左走以及 <code>(r2, c2)</code> 先向右走的情况。</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight c++"><table><tr><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAX_C = <span class="number">100000</span>;</div><div class="line"></div><div class="line"><span class="keyword">int</span> n;</div><div class="line"><span class="keyword">bool</span> right[MAX_C][<span class="number">2</span>], uad[MAX_C + <span class="number">1</span>];</div><div class="line"></div><div class="line"><span class="keyword">struct</span> Connectivity &#123;</div><div class="line">    <span class="keyword">bool</span> a[<span class="number">2</span>][<span class="number">2</span>];</div><div class="line"></div><div class="line">    Connectivity(<span class="keyword">bool</span> init) &#123;</div><div class="line">        a[<span class="number">0</span>][<span class="number">0</span>] = a[<span class="number">0</span>][<span class="number">1</span>] = a[<span class="number">1</span>][<span class="number">0</span>] = a[<span class="number">1</span>][<span class="number">1</span>] = init;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">bool</span> &amp;<span class="title">operator</span><span class="params">()</span><span class="params">(<span class="keyword">const</span> <span class="keyword">int</span> i, <span class="keyword">const</span> <span class="keyword">int</span> j)</span> </span>&#123; <span class="keyword">return</span> a[i][j]; &#125;</div><div class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">operator</span><span class="params">()</span><span class="params">(<span class="keyword">const</span> <span class="keyword">int</span> i, <span class="keyword">const</span> <span class="keyword">int</span> j)</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> a[i][j]; &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">operator</span> <span class="title">bool</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> a[<span class="number">0</span>][<span class="number">0</span>] || a[<span class="number">0</span>][<span class="number">1</span>] || a[<span class="number">1</span>][<span class="number">0</span>] || a[<span class="number">1</span>][<span class="number">1</span>]; &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">inline</span> Connectivity <span class="title">merge</span><span class="params">(Connectivity a, Connectivity b, <span class="keyword">int</span> mid)</span> </span>&#123;</div><div class="line">    <span class="function">Connectivity <span class="title">res</span><span class="params">(<span class="literal">false</span>)</span></span>;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">2</span>; i++) &#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">2</span>; j++) &#123;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; <span class="number">2</span>; k++) &#123;</div><div class="line">                res(i, j) |= a(i, k) &amp;&amp; right[mid][k] &amp;&amp; b(k, j);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> res;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">struct</span> Segt &#123;</div><div class="line">    <span class="keyword">int</span> l, r, mid;</div><div class="line">    Segt *lc, *rc;</div><div class="line"></div><div class="line">    <span class="comment">// con(0, 0) : (l, 0) &lt;-&gt; (r, 0)</span></div><div class="line">    <span class="comment">// con(0, 1) : (l, 0) &lt;-&gt; (r, 1)</span></div><div class="line">    <span class="comment">// con(1, 0) : (l, 1) &lt;-&gt; (r, 0)</span></div><div class="line">    <span class="comment">// con(1, 1) : (l, 1) &lt;-&gt; (r, 1)</span></div><div class="line">    Connectivity con;</div><div class="line"></div><div class="line">    Segt(<span class="keyword">int</span> l, <span class="keyword">int</span> r, Segt *lc, Segt *rc) : l(l), r(r), mid(l + (r - l) / <span class="number">2</span>), lc(lc), rc(rc), con(l == r) &#123;&#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">modify</span><span class="params">(<span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (l &gt; <span class="keyword">this</span>-&gt;r || r &lt; <span class="keyword">this</span>-&gt;l) <span class="keyword">return</span>;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">this</span>-&gt;l == <span class="keyword">this</span>-&gt;r) &#123;</div><div class="line">            con(<span class="number">0</span>, <span class="number">0</span>) = con(<span class="number">1</span>, <span class="number">1</span>) = <span class="literal">true</span>;</div><div class="line">            con(<span class="number">0</span>, <span class="number">1</span>) = con(<span class="number">1</span>, <span class="number">0</span>) = uad[mid];</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125; <span class="keyword">else</span> lc-&gt;modify(l, r), rc-&gt;modify(l, r);</div><div class="line">        con = merge(lc-&gt;con, rc-&gt;con, mid);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function">Connectivity <span class="title">query</span><span class="params">(<span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (l &lt;= <span class="keyword">this</span>-&gt;l &amp;&amp; r &gt;= <span class="keyword">this</span>-&gt;r) <span class="keyword">return</span> <span class="keyword">this</span>-&gt;con;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (r &lt;= mid) <span class="keyword">return</span> lc-&gt;query(l, r);</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (l &gt; mid) <span class="keyword">return</span> rc-&gt;query(l, r);</div><div class="line">        <span class="keyword">else</span> <span class="keyword">return</span> merge(lc-&gt;query(l, r), rc-&gt;query(l, r), mid);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">static</span> Segt *<span class="title">build</span><span class="params">(<span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (l &gt; r) <span class="keyword">return</span> <span class="literal">NULL</span>;</div><div class="line">        <span class="keyword">if</span> (l == r) <span class="keyword">return</span> <span class="keyword">new</span> Segt(l, r, <span class="literal">NULL</span>, <span class="literal">NULL</span>);</div><div class="line">        <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">int</span> mid = l + (r - l) / <span class="number">2</span>;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> Segt(l, r, build(l, mid), build(mid + <span class="number">1</span>, r));</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125; *segt;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">modify</span><span class="params">(<span class="keyword">int</span> r1, <span class="keyword">int</span> c1, <span class="keyword">int</span> r2, <span class="keyword">int</span> c2, <span class="keyword">bool</span> state)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (r1 == r2) &#123;</div><div class="line">        right[<span class="built_in">std</span>::min(c1, c2)][r1] = state;</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (c1 == c2) &#123;</div><div class="line">        uad[c1] = state;</div><div class="line">    &#125;</div><div class="line">    segt-&gt;modify(<span class="built_in">std</span>::min(c1, c2), <span class="built_in">std</span>::max(c1, c2));</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">query</span><span class="params">(<span class="keyword">int</span> r1, <span class="keyword">int</span> c1, <span class="keyword">int</span> r2, <span class="keyword">int</span> c2)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> l, r;</div><div class="line"></div><div class="line">    l = <span class="number">1</span>, r = c1;</div><div class="line">    <span class="keyword">while</span> (l &lt; r) &#123;</div><div class="line">         <span class="keyword">int</span> mid = l + (r - l) / <span class="number">2</span>;</div><div class="line">         Connectivity res = segt-&gt;query(mid, c1);</div><div class="line">         <span class="keyword">if</span> (res(<span class="number">0</span>, r1) || res(<span class="number">1</span>, r1)) r = mid;</div><div class="line">         <span class="keyword">else</span> l = mid + <span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">const</span> <span class="keyword">int</span> lpos = l;</div><div class="line">    Connectivity lcon = segt-&gt;query(lpos, c1);</div><div class="line"></div><div class="line">    l = c2, r = n;</div><div class="line">    <span class="keyword">while</span> (l &lt; r) &#123;</div><div class="line">        <span class="keyword">int</span> mid = l + (r - l) / <span class="number">2</span> + <span class="number">1</span>;</div><div class="line">        Connectivity res = segt-&gt;query(c2, mid);</div><div class="line">        <span class="keyword">if</span> (res(r2, <span class="number">0</span>) || res(r2, <span class="number">1</span>)) l = mid;</div><div class="line">        <span class="keyword">else</span> r = mid - <span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">const</span> <span class="keyword">int</span> rpos = l;</div><div class="line">    Connectivity rcon = segt-&gt;query(c2, rpos);</div><div class="line"></div><div class="line">    Connectivity con = segt-&gt;query(lpos, rpos);</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">2</span>; i++) &#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">2</span>; j++) &#123;</div><div class="line">            <span class="keyword">if</span> (lcon(i, r1) &amp;&amp; rcon(r2, j) &amp;&amp; con(i, j)) <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</div><div class="line">    segt = Segt::build(<span class="number">1</span>, n);</div><div class="line">    <span class="keyword">char</span> cmd[<span class="number">5</span>];</div><div class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">"%s"</span>, cmd) != EOF) &#123;</div><div class="line">        <span class="keyword">if</span> (cmd[<span class="number">0</span>] == <span class="string">'E'</span>) <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">int</span> r1, c1, r2, c2;</div><div class="line">            <span class="built_in">scanf</span>(<span class="string">"%d %d %d %d"</span>, &amp;r1, &amp;c1, &amp;r2, &amp;c2);</div><div class="line">            r1--, r2--;</div><div class="line">            <span class="keyword">if</span> (cmd[<span class="number">0</span>] == <span class="string">'O'</span>) modify(r1, c1, r2, c2, <span class="literal">true</span>);</div><div class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (cmd[<span class="number">0</span>] == <span class="string">'C'</span>) modify(r1, c1, r2, c2, <span class="literal">false</span>);</div><div class="line">            <span class="keyword">else</span> &#123;</div><div class="line">                <span class="keyword">if</span> (c1 &gt; c2) <span class="built_in">std</span>::swap(r1, r2), <span class="built_in">std</span>::swap(c1, c2);</div><div class="line">                <span class="built_in">puts</span>(query(r1, c1, r2, c2) ? <span class="string">"Y"</span> : <span class="string">"N"</span>);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+      
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>作者: </span>
+      <span>Sulfur6</span>
+    </p>
+    <p class="copyright-item">
+      <span>来源: </span>
+      <a href="http://sulfur6.github.io">http://sulfur6.github.io</a>
+    </p>
+    <p class="copyright-item">
+      <span>链接: </span>
+      <a href="http://sulfur6.github.io/bzoj-1018/">http://sulfur6.github.io/bzoj-1018/</a>
+    </p>
+
+    <p class="copyright-item lincese">
+      
+      本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+    </p>
+  </div>
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/线段树/">线段树</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/bzoj-1017/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">「JSOI2008」魔兽地图 - 树形DP，多重背包</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>  
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:huangchun50@icloud.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/Sulfur6" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2016 - 
+    
+    2017
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Sulfur6</span>
+  </span>
+</div>
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+
+  
+  <script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://sulfur6.github.io/bzoj-1018/';
+        this.page.identifier = 'bzoj-1018/';
+        this.page.title = '「SHOI2008」堵塞的交通 - 线段树';
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = '//sulfur6-blog.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
+  </script>
+
+  
+
+
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.4.x"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.4.x"></script>
+
+    
+  <script type="text/html" id="search-result">
+    <article class="post">
+      <header class="post-header">
+        <h1 class="post-title">
+          <a href="$url$" class="post-link">
+            $title$
+          </a>
+        </h1>
+      </header>
+      <div class="post-content">
+        $content$
+        <div class="read-more">
+          <a href="$url$" class="read-more-link">
+            Read more..
+          </a>
+        </div>
+      </div>
+    </article>
+  </script>
+  <script type="text/html" id="no-search-result">
+    <div class="no-result">
+      <h2>No result found!</h2>
+    </div>
+  </script>
+  <script type="text/javascript" src="/js/src/search.js?v=2.4.x"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  </body>
+</html>
