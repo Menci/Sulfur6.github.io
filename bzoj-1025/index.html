@@ -34,17 +34,17 @@
 <link rel="canonical" href="http://sulfur6.github.io/bzoj-1025/"/>
 
 
-<meta name="description" content="对于一个长度为 n n n 的序列 A A A，记其置换集合为 G G G，对于 f∈G f \in G f∈G，记使得                                               的嵌套次数为其排数，求对于所有 f∈G f \in G f∈G 共有多少种不同的排数。 题解将置换改写成轮换，一个很显然的结论是：对于一个置换，所求排数为改写成轮换后所有环的点数的最小公">
+<meta name="description" content="对于一个长度为 n n n 的序列 A A A，记其置换集合为 G G G，对于 f∈G f \in G f∈G，记使得                                               的嵌套次数为其排数，求对于所有 f∈G f \in  G f∈G 共有多少种不同的排数。">
 <meta name="keywords" content="DP,线性筛,置换">
 <meta property="og:type" content="article">
 <meta property="og:title" content="「SCOI2009」游戏 - DP，线性筛，置换">
 <meta property="og:url" content="http://sulfur6.github.io/bzoj-1025/index.html">
 <meta property="og:site_name" content="Sulfur6&#39;s Blog">
-<meta property="og:description" content="对于一个长度为 n n n 的序列 A A A，记其置换集合为 G G G，对于 f∈G f \in G f∈G，记使得                                               的嵌套次数为其排数，求对于所有 f∈G f \in G f∈G 共有多少种不同的排数。 题解将置换改写成轮换，一个很显然的结论是：对于一个置换，所求排数为改写成轮换后所有环的点数的最小公">
-<meta property="og:updated_time" content="2017-07-04T07:35:11.000Z">
+<meta property="og:description" content="对于一个长度为 n n n 的序列 A A A，记其置换集合为 G G G，对于 f∈G f \in G f∈G，记使得                                               的嵌套次数为其排数，求对于所有 f∈G f \in  G f∈G 共有多少种不同的排数。">
+<meta property="og:updated_time" content="2017-07-05T09:35:21.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="「SCOI2009」游戏 - DP，线性筛，置换">
-<meta name="twitter:description" content="对于一个长度为 n n n 的序列 A A A，记其置换集合为 G G G，对于 f∈G f \in G f∈G，记使得                                               的嵌套次数为其排数，求对于所有 f∈G f \in G f∈G 共有多少种不同的排数。 题解将置换改写成轮换，一个很显然的结论是：对于一个置换，所求排数为改写成轮换后所有环的点数的最小公">
+<meta name="twitter:description" content="对于一个长度为 n n n 的序列 A A A，记其置换集合为 G G G，对于 f∈G f \in G f∈G，记使得                                               的嵌套次数为其排数，求对于所有 f∈G f \in  G f∈G 共有多少种不同的排数。">
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.4.x" />
@@ -231,7 +231,9 @@
  <use xlink:href="#E1-MJMAIN-3D" x="8074" y="0"/>
  <use xlink:href="#E1-MJMATHI-41" x="9131" y="0"/>
 </g>
-</svg> 的嵌套次数为其排数，求对于所有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>∈</mo><mi>G</mi></mrow><annotation encoding="application/x-tex"> f \in G </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mrel">∈</span><span class="mord mathit">G</span></span></span></span> 共有多少种不同的排数。</p>
+</svg> 的嵌套次数为其排数，求对于所有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>∈</mo><mi>G</mi></mrow><annotation encoding="application/x-tex"> f \in 
+G </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mrel">∈</span><span class="mord mathit">G</span></span></span></span> 共有多少种不同的排数。</p>
+<a id="more"></a>
 <h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p>将置换改写成轮换，一个很显然的结论是：对于一个置换，所求排数为改写成轮换后所有环的点数的最小公倍数 + <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex"> 1 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span></span></span></span>。</p>
 <p>所以问题变为，把 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex"> n </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span> 分成 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex"> k </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span></span> 个数 <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="13.099ex" height="2.009ex" style="vertical-align: -0.671ex;" viewbox="0 -576.1 5639.7 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg">
 <defs>
@@ -273,15 +275,15 @@
 
   <div class="post-copyright">
     <p class="copyright-item">
-      <span>作者: </span>
+      <span>Author: </span>
       <span>Sulfur6</span>
     </p>
     <p class="copyright-item">
-      <span>来源: </span>
+      <span>Origin: </span>
       <a href="http://sulfur6.github.io">http://sulfur6.github.io</a>
     </p>
     <p class="copyright-item">
-      <span>链接: </span>
+      <span>Link: </span>
       <a href="http://sulfur6.github.io/bzoj-1025/">http://sulfur6.github.io/bzoj-1025/</a>
     </p>
 
