@@ -178,6 +178,100 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/NOIP2016-problem/">组合数问题 - 组合数学，递推，二维前缀和</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016年11月30日
+        </span>
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>组合数表示的是从 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex"> n </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span> 个物品中选出 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex"> m </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">m</span></span></span></span> 个物品的方案数。举个例子，从 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mn>1</mn><mo separator="true">,</mo><mn>2</mn><mo separator="true">,</mo><mn>3</mn><mo>)</mo></mrow><annotation encoding="application/x-tex"> (1, 2, 3) </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="mord mathrm">1</span><span class="mpunct">,</span><span class="mord mathrm">2</span><span class="mpunct">,</span><span class="mord mathrm">3</span><span class="mclose">)</span></span></span></span> 三个物品中选择两个物品可以有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mn>1</mn><mo separator="true">,</mo><mn>2</mn><mo>)</mo></mrow><annotation encoding="application/x-tex"> (1, 2) </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="mord mathrm">1</span><span class="mpunct">,</span><span class="mord mathrm">2</span><span class="mclose">)</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mn>1</mn><mo separator="true">,</mo><mn>3</mn><mo>)</mo></mrow><annotation encoding="application/x-tex"> (1, 3) </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="mord mathrm">1</span><span class="mpunct">,</span><span class="mord mathrm">3</span><span class="mclose">)</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mn>2</mn><mo separator="true">,</mo><mn>3</mn><mo>)</mo></mrow><annotation encoding="application/x-tex"> (2, 3) </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="mord mathrm">2</span><span class="mpunct">,</span><span class="mord mathrm">3</span><span class="mclose">)</span></span></span></span> 这三种选择方法。</p>
+<p>根据组合数的定义，我们可以给出计算组合数的一般公式：</p>
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msubsup><mi>C</mi><mi>n</mi><mi>m</mi></msubsup><mo>=</mo><mfrac><mrow><mi>n</mi><mo>!</mo></mrow><mrow><mi>m</mi><mo>!</mo><mo>(</mo><mi>n</mi><mo>−</mo><mi>m</mi><mo>)</mo><mo>!</mo></mrow></mfrac></mrow><annotation encoding="application/x-tex"> C_n ^ m = \frac{n!}{m!(n - m)!} </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.37144em;"></span><span class="strut bottom" style="height:2.30744em;vertical-align:-0.936em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.07153em;">C</span><span class="vlist"><span style="top:0.247em;margin-left:-0.07153em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">n</span></span></span><span style="top:-0.4129999999999999em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathit">m</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">=</span><span class="mord reset-textstyle displaystyle textstyle uncramped"><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.686em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle cramped"><span class="mord textstyle cramped"><span class="mord mathit">m</span><span class="mclose">!</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mbin">−</span><span class="mord mathit">m</span><span class="mclose">)</span><span class="mclose">!</span></span></span></span><span style="top:-0.2300000000000001em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.677em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped"><span class="mord textstyle uncramped"><span class="mord mathit">n</span><span class="mclose">!</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span></span></span></span></span><p>其中 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>!</mo><mo>=</mo><mn>1</mn><mo>×</mo><mn>2</mn><mo>×</mo><mo>⋯</mo><mo>×</mo><mi>n</mi></mrow><annotation encoding="application/x-tex"> n! = 1 \times 2 \times \cdots \times n </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span><span class="mclose">!</span><span class="mrel">=</span><span class="mord mathrm">1</span><span class="mbin">×</span><span class="mord mathrm">2</span><span class="mbin">×</span><span class="minner">⋯</span><span class="mbin">×</span><span class="mord mathit">n</span></span></span></span>。</p>
+<p>小葱想知道如果给定 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex"> n </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex"> m </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">m</span></span></span></span> 和 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex"> k </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span></span>，对于所有的 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn><mo>≤</mo><mi>i</mi><mo>≤</mo><mi>n</mi></mrow><annotation encoding="application/x-tex"> 0 \leq i \leq n </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.79549em;vertical-align:-0.13597em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">0</span><span class="mrel">≤</span><span class="mord mathit">i</span><span class="mrel">≤</span><span class="mord mathit">n</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn><mo>≤</mo><mi>j</mi><mo>≤</mo><mi>min</mi><mo>(</mo><mi>i</mi><mo separator="true">,</mo><mi>m</mi><mo>)</mo></mrow><annotation encoding="application/x-tex"> 0 \leq j \leq \min(i, m) </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">0</span><span class="mrel">≤</span><span class="mord mathit" style="margin-right:0.05724em;">j</span><span class="mrel">≤</span><span class="mop">min</span><span class="mopen">(</span><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit">m</span><span class="mclose">)</span></span></span></span> 有多少对 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>i</mi><mo separator="true">,</mo><mi>j</mi><mo>)</mo></mrow><annotation encoding="application/x-tex"> (i, j) </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span><span class="mclose">)</span></span></span></span> 满足是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex"> k </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span></span> 的倍数。</p>
+          <div class="read-more">
+            <a href="/NOIP2016-problem/" class="read-more-link">Read more..</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/NOIP2016-classroom/">换教室 - NOIP2016，Floyd，概率与期望</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016年11月30日
+        </span>
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>对于刚上大学的牛牛来说，他面临的第一个问题是如何根据实际情况申请合适的课程。</p>
+<p>在可以选择的课程中，有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mi>n</mi></mrow><annotation encoding="application/x-tex"> 2n </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">2</span><span class="mord mathit">n</span></span></span></span> 节课程安排在 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex"> n </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span> 个时间段上。在第 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex"> i </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.65952em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span></span></span></span> （<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>≤</mo><mi>i</mi><mo>≤</mo><mi>n</mi></mrow><annotation encoding="application/x-tex"> 1 \leq  i \leq n </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.79549em;vertical-align:-0.13597em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span><span class="mrel">≤</span><span class="mord mathit">i</span><span class="mrel">≤</span><span class="mord mathit">n</span></span></span></span>）个时间段上，两节内容相同的课程同时在不同的地点进行，其中，牛牛预先被安排在教室 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>c</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex"> c_i </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">c</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span> 上课，而另一节课程在教室 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>d</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex"> d_i </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">d</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span> 进行。</p>
+<p>在不提交任何申请的情况下，学生们需要按时间段的顺序依次完成所有的 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex"> n </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span> 节安排好的课程。如果学生想更换第i节课程的教室，则需要提出申请。若申请通过，学生就可以在第 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex"> i </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.65952em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span></span></span></span> 个时间段去教室 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>d</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex"> d_i </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">d</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span> 上课，否则仍然在教室 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>c</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex"> c_i </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">c</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span> 上课。</p>
+<p>由于更换教室的需求太多，申请不一定能获得通过。通过计算，牛牛发现申请更换第 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex"> i </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.65952em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span></span></span></span> 节课程的教室时，申请被通过的概率是一个已知的实数 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>k</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex"> k_i </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.03148em;">k</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03148em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>，并且对于不同课程的申请，被通过的概率是互相独立的。</p>
+<p>学校规定，所有的申请只能在学期开始前一次性提交，并且每个人只能选择至多 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex"> m </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">m</span></span></span></span> 节课程进行申请。这意味着牛牛必须一次性决定是否申请更换每节课的教室，而不能根据某些课程的申请结果来决定其他课程是否申请；牛牛可以申请白己最希望更换教室的 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex"> m </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">m</span></span></span></span> 门课程，也可以不用完这 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex"> m </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">m</span></span></span></span> 个申请的机会，甚至可以一门课程都不申请。</p>
+<p>因为不同的课程可能会被安排在不同的教室进行，所以牛牛需要利用课间时间从一间教室赶到另一间教室。</p>
+<p>牛牛所在的大学有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>v</mi></mrow><annotation encoding="application/x-tex"> v </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03588em;">v</span></span></span></span> 个教室，有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>e</mi></mrow><annotation encoding="application/x-tex"> e </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">e</span></span></span></span> 条道路。每条道路连接两间教室，并且是可以双向通行的。由于道路的长度和拥堵程度不同，通过不同的道路耗费的体力可能会有所不同。当第 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex"> i </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.65952em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span></span></span></span>（<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>≤</mo><mi>i</mi><mo>≤</mo><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex"> 1 \leq i \leq n - 1 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.79549em;vertical-align:-0.13597em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span><span class="mrel">≤</span><span class="mord mathit">i</span><span class="mrel">≤</span><span class="mord mathit">n</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span>）节课结束后，牛牛就会从这节课的教室出发，选择一条耗费体力最少的路径前往下一节课的教室。</p>
+<p>现在牛牛想知道，申请哪几门课程可以使他因在教室问移动耗费的体力值的总和的期望值最小，请你帮他求出这个最小值。</p>
+          <div class="read-more">
+            <a href="/NOIP2016-classroom/" class="read-more-link">Read more..</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/NOIP2016-toy/">玩具迷题 - NOIP2016，模拟</a>
         
       </h1>
@@ -537,110 +631,6 @@
 </ul>
           <div class="read-more">
             <a href="/chose-class/" class="read-more-link">Read more..</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/birthday-cake/">生日蛋糕，DFS，POJ1190</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2016年10月31日
-        </span>
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <ul>
-<li>制作一个体积为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi><mi>π</mi></mrow><annotation encoding="application/x-tex">N\pi</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">N</span><span class="mord mathit" style="margin-right:0.03588em;">π</span></span></span></span>，共<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>M</mi></mrow><annotation encoding="application/x-tex">M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">M</span></span></span></span>层的蛋糕</li>
-<li>从上往下数第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi><mo separator="true">,</mo><mo>(</mo><mn>1</mn><mo>≤</mo><mi>i</mi><mo>≤</mo><mi>M</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">i,(1\leq i\leq M)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mopen">(</span><span class="mord mathrm">1</span><span class="mrel">≤</span><span class="mord mathit">i</span><span class="mrel">≤</span><span class="mord mathit" style="margin-right:0.10903em;">M</span><span class="mclose">)</span></span></span></span>的蛋糕是半径为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>R</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">R_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.00773em;">R</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.00773em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>，高度为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>H</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">H_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.08125em;">H</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.08125em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>的圆柱</li>
-<li>当<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi><mo>&lt;</mo><mi>M</mi></mrow><annotation encoding="application/x-tex">i&lt;M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.72243em;vertical-align:-0.0391em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span><span class="mrel">&lt;</span><span class="mord mathit" style="margin-right:0.10903em;">M</span></span></span></span>时，要求<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>R</mi><mi>i</mi></msub><mo>&gt;</mo><msub><mi>R</mi><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">R_i&gt;R_{i+1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.891661em;vertical-align:-0.208331em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.00773em;">R</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.00773em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">&gt;</span><span class="mord"><span class="mord mathit" style="margin-right:0.00773em;">R</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.00773em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>且<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>H</mi><mi>i</mi></msub><mo>&gt;</mo><msub><mi>H</mi><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">H_i&gt;H_{i+1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.891661em;vertical-align:-0.208331em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.08125em;">H</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.08125em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">&gt;</span><span class="mord"><span class="mord mathit" style="margin-right:0.08125em;">H</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.08125em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span></li>
-<li>使得蛋糕的表面积最小</li>
-</ul>
-<blockquote>
-<p>在这里本题需要输出的答案并不是最小的表面积，而是最小表面积除以<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>π</mi></mrow><annotation encoding="application/x-tex">\pi</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03588em;">π</span></span></span></span>之后的结果</p>
-</blockquote>
-          <div class="read-more">
-            <a href="/birthday-cake/" class="read-more-link">Read more..</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/landlord-NOIP2015/">斗地主，DFS，状态压缩，记忆化搜索</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2016年10月29日
-        </span>
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <ul>
-<li>给定一副扑克牌，牌面随机，按照斗地主的方式打出，求最少出完要多少次</li>
-<li>规则:<ul>
-<li>单顺子五个起，最多到A，不包括2和王</li>
-<li>连对从三对起，最多到A，不包括2和王</li>
-<li>飞机两个起，最多到A，不包括2和王，不可带牌</li>
-<li>三张可以带一张也可以带一对，可以单打</li>
-<li>四张可以带两张或者两对，可以单打</li>
-<li>大小王可以当火箭出，但是打带牌的时候不能当对牌带</li>
-<li>一对和单牌和斗地主完全一样</li>
-</ul>
-</li>
-</ul>
-          <div class="read-more">
-            <a href="/landlord-NOIP2015/" class="read-more-link">Read more..</a>
           </div>
         
       
