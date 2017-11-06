@@ -12,7 +12,7 @@
 
 
 
-  <meta name="description" content="bzoj1037"/>
+  <meta name="description" content="「JSOI2008」生日聚会 - DP"/>
 
 
 
@@ -37,13 +37,13 @@
 <meta name="description" content="现有 n n n 个男生 m m m 个女生要坐成一排，需要满足对于任意连续的一段，不存在男女数量之差大于 k k k 的情况，其中 n,m,k n, m, k n,m,k 由输入数据给定。">
 <meta name="keywords" content="DP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="bzoj1037">
+<meta property="og:title" content="「JSOI2008」生日聚会 - DP">
 <meta property="og:url" content="http://sulfur6.github.io/bzoj-1037/index.html">
 <meta property="og:site_name" content="I Have Just Killed Myself">
 <meta property="og:description" content="现有 n n n 个男生 m m m 个女生要坐成一排，需要满足对于任意连续的一段，不存在男女数量之差大于 k k k 的情况，其中 n,m,k n, m, k n,m,k 由输入数据给定。">
-<meta property="og:updated_time" content="2017-11-06T08:25:36.000Z">
+<meta property="og:updated_time" content="2017-11-06T08:28:34.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="bzoj1037">
+<meta name="twitter:title" content="「JSOI2008」生日聚会 - DP">
 <meta name="twitter:description" content="现有 n n n 个男生 m m m 个女生要坐成一排，需要满足对于任意连续的一段，不存在男女数量之差大于 k k k 的情况，其中 n,m,k n, m, k n,m,k 由输入数据给定。">
 
 
@@ -73,7 +73,7 @@
 
 
 
-    <title> bzoj1037 · I Have Just Killed Myself </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <title> 「JSOI2008」生日聚会 - DP · I Have Just Killed Myself </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   </head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -180,7 +180,7 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          bzoj1037
+          「JSOI2008」生日聚会 - DP
         
       </h1>
 
@@ -211,6 +211,7 @@
 <p>但是这个状态不保证满足题目中的限制，而且由于转移分选男生与选女生，所以应分别记录已经确定的区间当中，男生数目减去女生数目的最大值，以及女生数目减去男生数目的最大值。又由于DP的顺序，只需要记录后缀最大值即可。</p>
 <p>公式爆炸，具体看代码就好。</p>
 <h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight c++"><table><tr><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cctype&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;climits&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</div><div class="line"></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXN = <span class="number">160</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXK = <span class="number">30</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> MOD = <span class="number">12345678</span>;</div><div class="line"></div><div class="line"><span class="keyword">int</span> n, m, k;</div><div class="line"><span class="keyword">int</span> f[MAXN][MAXN][MAXK][MAXK];</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d %d %d"</span>, &amp;n, &amp;m, &amp;k);</div><div class="line">    f[<span class="number">0</span>][<span class="number">0</span>][<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span>;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= n; i++) &#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= m; j++) &#123;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> a = <span class="number">0</span>; a &lt;= <span class="built_in">std</span>::min(i, k); a++) &#123;</div><div class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> b = <span class="number">0</span>; b &lt;= <span class="built_in">std</span>::min(j, k); b++) &#123;</div><div class="line">                    <span class="keyword">if</span> (i &lt; n &amp;&amp; a &lt; k) &#123;</div><div class="line">                        f[i + <span class="number">1</span>][j][a + <span class="number">1</span>][<span class="built_in">std</span>::max(b - <span class="number">1</span>, <span class="number">0</span>)] += f[i][j][a][b];</div><div class="line">                        f[i + <span class="number">1</span>][j][a + <span class="number">1</span>][<span class="built_in">std</span>::max(b - <span class="number">1</span>, <span class="number">0</span>)] %= MOD;</div><div class="line">                    &#125;</div><div class="line">                    <span class="keyword">if</span> (j &lt; m &amp;&amp; b &lt; k) &#123;</div><div class="line">                        f[i][j + <span class="number">1</span>][<span class="built_in">std</span>::max(a - <span class="number">1</span>, <span class="number">0</span>)][b + <span class="number">1</span>] += f[i][j][a][b];</div><div class="line">                        f[i][j + <span class="number">1</span>][<span class="built_in">std</span>::max(a - <span class="number">1</span>, <span class="number">0</span>)][b + <span class="number">1</span>] %= MOD;</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> a = <span class="number">0</span>; a &lt;= k; a++) &#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> b = <span class="number">0</span>; b &lt;= k; b++) &#123;</div><div class="line">            ans += f[n][m][a][b];</div><div class="line">            ans %= MOD;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d"</span>, ans);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -258,8 +259,8 @@
   <nav class="post-nav">
     
     
-      <a class="next" href="/diary-aug-13/">
-        <span class="next-text nav-default">独在异乡为异客</span>
+      <a class="next" href="/bzoj-1031/">
+        <span class="next-text nav-default">「JSOI2007」字符加密 - 后缀数组</span>
         <span class="prev-text nav-mobile">Next</span>
         <i class="iconfont icon-right"></i>
       </a>
@@ -367,7 +368,7 @@
     var disqus_config = function () {
         this.page.url = 'http://sulfur6.github.io/bzoj-1037/';
         this.page.identifier = 'bzoj-1037/';
-        this.page.title = 'bzoj1037';
+        this.page.title = '「JSOI2008」生日聚会 - DP';
     };
     (function() {
     var d = document, s = d.createElement('script');

@@ -178,48 +178,6 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          <a class="post-link" href="/bzoj1006/">「HNOI2008」神奇的国度 - 弦图染色</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2017年5月23日
-        </span>
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>给定一个弦图，求其最小染色数。</p>
-          <div class="read-more">
-            <a href="/bzoj1006/" class="read-more-link">Read more..</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
           <a class="post-link" href="/bzoj1005/">「HNOI2008」明明的烦恼 - prufer序列</a>
         
       </h1>
@@ -689,6 +647,56 @@
 <p>Alice 想知道，有多少个序列满足她的要求。</p>
           <div class="read-more">
             <a href="/sdoi2017-count/" class="read-more-link">Read more..</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/sdoi2017-paint/">「SDOI2017」树点涂色 - LCT，线段树</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017年5月6日
+        </span>
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>Bob 有一棵 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex"> n </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span> 个点的有根树，其中 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex"> 1 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span></span></span></span> 号点是根节点。Bob 在每个节点上涂了颜色，并且每个点上的颜色不同。</p>
+<p>定义一条路径的权值是，这条路径上的点（包括起点和终点）共有多少种不同的颜色。</p>
+<p>Bob 可能会进行这几种操作：</p>
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mtext> </mtext><mi>x</mi></mrow><annotation encoding="application/x-tex"> 1 \ x </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span><span class="mord mspace"> </span><span class="mord mathit">x</span></span></span></span>，把点 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex"> x </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">x</span></span></span></span> 到根节点的路径上的所有的点染上一种没有用过的新颜色；</li>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mtext> </mtext><mi>x</mi><mtext> </mtext><mi>y</mi></mrow><annotation encoding="application/x-tex"> 2 \ x \ y </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">2</span><span class="mord mspace"> </span><span class="mord mathit">x</span><span class="mord mspace"> </span><span class="mord mathit" style="margin-right:0.03588em;">y</span></span></span></span>，求 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex"> x </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">x</span></span></span></span> 到 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex"> y </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03588em;">y</span></span></span></span> 的路径的权值；</li>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>3</mn><mtext> </mtext><mi>x</mi></mrow><annotation encoding="application/x-tex"> 3 \ x </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">3</span><span class="mord mspace"> </span><span class="mord mathit">x</span></span></span></span>，在以 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex"> x </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">x</span></span></span></span> 为根的子树中选择一个点，使得这个点到根节点的路径权值最大，求最大权值。</li>
+</ul>
+<p>Bob 一共会进行 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex"> m </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">m</span></span></span></span> 次操作。</p>
+          <div class="read-more">
+            <a href="/sdoi2017-paint/" class="read-more-link">Read more..</a>
           </div>
         
       
