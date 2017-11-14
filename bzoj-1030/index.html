@@ -34,17 +34,17 @@
 <link rel="canonical" href="http://sulfur6.github.io/bzoj-1030/"/>
 
 
-<meta name="description" content="给定属于字符集 A..Z A .. Z A..Z 的若干字符串，求随机生成的所有长度为 m m m 的字符串中，给定的某些字符串是生成字符串的子串的数量。">
+<meta name="description" content="给定属于字符集 $ A .. Z $ 的若干字符串，求随机生成的所有长度为 $ m $ 的字符串中，给定的某些字符串是生成字符串的子串的数量。">
 <meta name="keywords" content="DP,AC自动机">
 <meta property="og:type" content="article">
 <meta property="og:title" content="「JSOI2007」文本生成器 - AC自动机，DP">
 <meta property="og:url" content="http://sulfur6.github.io/bzoj-1030/index.html">
 <meta property="og:site_name" content="I Have Just Killed Myself">
-<meta property="og:description" content="给定属于字符集 A..Z A .. Z A..Z 的若干字符串，求随机生成的所有长度为 m m m 的字符串中，给定的某些字符串是生成字符串的子串的数量。">
+<meta property="og:description" content="给定属于字符集 $ A .. Z $ 的若干字符串，求随机生成的所有长度为 $ m $ 的字符串中，给定的某些字符串是生成字符串的子串的数量。">
 <meta property="og:updated_time" content="2017-07-25T11:40:14.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="「JSOI2007」文本生成器 - AC自动机，DP">
-<meta name="twitter:description" content="给定属于字符集 A..Z A .. Z A..Z 的若干字符串，求随机生成的所有长度为 m m m 的字符串中，给定的某些字符串是生成字符串的子串的数量。">
+<meta name="twitter:description" content="给定属于字符集 $ A .. Z $ 的若干字符串，求随机生成的所有长度为 $ m $ 的字符串中，给定的某些字符串是生成字符串的子串的数量。">
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.4.x" />
@@ -203,7 +203,7 @@
 
     <div class="post-content">
       
-        <p>给定属于字符集 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi>Z</mi></mrow><annotation encoding="application/x-tex"> A .. Z </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">A</span><span class="mord mathrm">.</span><span class="mord mathrm">.</span><span class="mord mathit" style="margin-right:0.07153em;">Z</span></span></span></span> 的若干字符串，求随机生成的所有长度为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex"> m </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">m</span></span></span></span> 的字符串中，给定的某些字符串是生成字符串的子串的数量。</p>
+        <p>给定属于字符集 $ A .. Z $ 的若干字符串，求随机生成的所有长度为 $ m $ 的字符串中，给定的某些字符串是生成字符串的子串的数量。</p>
 <a id="more"></a>
 <p>哎呀团长本来是想把辣鸡题面翻译的简洁易懂的但是感觉越翻译越不可读。。讲真我语文老师人很棒而且活的好好的只是我不听话。。</p>
 <p>这个题乍一看和<a href="https://sulfur6.github.io/bzoj1009/">「BZOJ1009」</a>蛮像的，只是把一个串改成了多个串，那么相应的我们就把KMP换成AC自动机就好了嘛。</p>

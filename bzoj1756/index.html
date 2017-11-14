@@ -34,17 +34,17 @@
 <link rel="canonical" href="http://sulfur6.github.io/bzoj1756/"/>
 
 
-<meta name="description" content="给定一个序列，需要支持两种操作：  询问给定区间 [l,r] [l, r] [l,r] 中的最大子段和 修改序列中某个元素的值">
+<meta name="description" content="给定一个序列，需要支持两种操作：  询问给定区间 $ [l, r] $ 中的最大子段和 修改序列中某个元素的值">
 <meta name="keywords" content="线段树,BZOJ">
 <meta property="og:type" content="article">
 <meta property="og:title" content="「BZOJ1756」小白逛公园 - 线段树">
 <meta property="og:url" content="http://sulfur6.github.io/bzoj1756/index.html">
 <meta property="og:site_name" content="I Have Just Killed Myself">
-<meta property="og:description" content="给定一个序列，需要支持两种操作：  询问给定区间 [l,r] [l, r] [l,r] 中的最大子段和 修改序列中某个元素的值">
+<meta property="og:description" content="给定一个序列，需要支持两种操作：  询问给定区间 $ [l, r] $ 中的最大子段和 修改序列中某个元素的值">
 <meta property="og:updated_time" content="2017-06-02T13:32:36.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="「BZOJ1756」小白逛公园 - 线段树">
-<meta name="twitter:description" content="给定一个序列，需要支持两种操作：  询问给定区间 [l,r] [l, r] [l,r] 中的最大子段和 修改序列中某个元素的值">
+<meta name="twitter:description" content="给定一个序列，需要支持两种操作：  询问给定区间 $ [l, r] $ 中的最大子段和 修改序列中某个元素的值">
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.4.x" />
@@ -205,11 +205,11 @@
       
         <p>给定一个序列，需要支持两种操作：</p>
 <ol>
-<li>询问给定区间 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>[</mo><mi>l</mi><mo separator="true">,</mo><mi>r</mi><mo>]</mo></mrow><annotation encoding="application/x-tex"> [l, r] </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">[</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mclose">]</span></span></span></span> 中的最大子段和</li>
+<li>询问给定区间 $ [l, r] $ 中的最大子段和</li>
 <li>修改序列中某个元素的值</li>
 </ol>
 <a id="more"></a>
-<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p>最大子段和问题的最优复杂度显然是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex"> O(n) </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mclose">)</span></span></span></span> 的 dp，但是我们要求的是某个区间中的最大子段和，并且需要支持对区间上的某个位置修改其值，所以我们用分治法来求，用线段树来维护信息。</p>
+<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p>最大子段和问题的最优复杂度显然是 $ O(n) $ 的 dp，但是我们要求的是某个区间中的最大子段和，并且需要支持对区间上的某个位置修改其值，所以我们用分治法来求，用线段树来维护信息。</p>
 <p>我们考虑对于求解一个区间的最大子段和的分治做法，首先将其分为两个子区间。</p>
 <p>整个大区间的最大子段和可能等于某一个小区间的最大子段和，但是也有可能存在最大子段和中的子段跨过区间中点的情况，所以我们需要左半边区间强制包含右端点的最大子段和，以及右半边区间强制包含左端点的最大子段和，这样将这两个加起来，得到大区间跨过区间中点的最大子段和，三者取最大即可。</p>
 <p>对于线段树而言，我们对于每个节点都记录该区间的最大子段和，该区间包含左端点，包含右端点的最大子段和，具体实现见代码。</p>

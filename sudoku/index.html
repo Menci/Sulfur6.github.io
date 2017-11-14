@@ -206,7 +206,7 @@
         <p>数独有趣，爆搜无脑。</p>
 <p>还有回不去的还记得的一张张写满算式的纸，和解不出的数独。</p>
 <a id="more"></a>
-<h1 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h1><p>标准 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>9</mn><mo>×</mo><mn>9</mn></mrow><annotation encoding="application/x-tex"> 9 \times 9 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">9</span><span class="mbin">×</span><span class="mord mathrm">9</span></span></span></span> 的数独游戏，由你填上空缺的数</p>
+<h1 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h1><p>标准 $ 9 \times 9 $ 的数独游戏，由你填上空缺的数</p>
 <h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><ul>
 <li>填满每个空格</li>
 <li>记录某一行，某一列，某一小格不能填的数</li>
@@ -214,7 +214,7 @@
 </ul>
 <h1 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h1><ul>
 <li>搜索过程中，依次往每个格子中填数</li>
-<li>简单Hash，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathrm">1</span><span class="mclose">)</span></span></span></span>判断某行某列某小格是否填写某数</li>
+<li>简单Hash，$O(1)$判断某行某列某小格是否填写某数</li>
 </ul>
 <h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><ul>
 <li>本题给定数据的数独矩阵，数和数之间没有空格，所以需要用字符处理。</li>
