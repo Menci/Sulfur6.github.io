@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="「NOI2005」维修数列 - 平衡树"/>
+
+
+
+
+  <meta name="keywords" content="平衡树,Treap,最大子段和," />
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="I Have Just Killed Myself">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.4.x" />
+
+
+
+<link rel="canonical" href="http://sulfur6.github.io/bzoj-1500/"/>
+
+
+<meta name="description" content="Treap 是坠吼的啊！！！！！！！">
+<meta name="keywords" content="平衡树,Treap,最大子段和">
+<meta property="og:type" content="article">
+<meta property="og:title" content="「NOI2005」维修数列 - 平衡树">
+<meta property="og:url" content="http://sulfur6.github.io/bzoj-1500/index.html">
+<meta property="og:site_name" content="I Have Just Killed Myself">
+<meta property="og:description" content="Treap 是坠吼的啊！！！！！！！">
+<meta property="og:image" content="http://www.lydsy.com/JudgeOnline/images/1500_1.jpg">
+<meta property="og:updated_time" content="2017-12-26T12:45:32.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="「NOI2005」维修数列 - 平衡树">
+<meta name="twitter:description" content="Treap 是坠吼的啊！！！！！！！">
+<meta name="twitter:image" content="http://www.lydsy.com/JudgeOnline/images/1500_1.jpg">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.4.x" />
+<link rel="stylesheet" href="<%= url_for('/css/style.css?v='+ theme.version) %>">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css" />
+
+
+
+
+
+
+
+<script>
+  var CONFIG = {
+    search: true,
+    searchPath: "/search.json",
+    fancybox: false,
+    toc: true,
+  }
+</script>
+
+
+
+
+  
+
+
+
+    <title> 「NOI2005」维修数列 - 平衡树 · I Have Just Killed Myself </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="mobile-header-logo">
+    <a href="/." class="logo">I Have Just Killed Myself</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            Home
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            Archives
+          
+        </li>
+      </a>
+    
+      <a href="/tags">
+        <li class="mobile-menu-item">
+          
+          
+            Tags
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">I Have Just Killed Myself</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              Home
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              Archives
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/tags">
+            
+            
+              Tags
+            
+          </a>
+        </li>
+      
+      
+        <li class="menu-search">
+          <form>
+            <i class="iconfont icon-search" id="open-search"></i>
+            <input type="text" class="search-input" id="search-input" />
+            <i class="iconfont icon-close" id="close-search"></i>
+          </form>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          「NOI2005」维修数列 - 平衡树
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017年12月26日
+        </span>
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Description"><span class="toc-text">Description</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Solution"><span class="toc-text">Solution</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Code"><span class="toc-text">Code</span></a></li></ol>
+    </div>
+  </div>
+
+
+    <div class="post-content">
+      
+        <p>Treap 是坠吼的啊！！！！！！！</p>
+<a id="more"></a>
+<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><p><img src="http://www.lydsy.com/JudgeOnline/images/1500_1.jpg" alt="Description"></p>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><p>前五个是 Simple 的平衡树操作。
+最后一个需要一点小技巧，详见代码。</p>
+<p>还有就是不要忘记把删掉的节点<code>delete</code>掉。</p>
+<p>在这道题之后我加入 Treap 神教了！</p>
+<h1 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h1><figure class="highlight c++"><table><tr><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;climits&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">500000</span>;</div><div class="line"></div><div class="line"><span class="keyword">int</span> n, m;</div><div class="line"><span class="keyword">int</span> a[N + <span class="number">1</span>];</div><div class="line"></div><div class="line"><span class="keyword">struct</span> Data &#123;</div><div class="line">    <span class="keyword">int</span> sum, lsum, rsum, maxSum;</div><div class="line"></div><div class="line">    Data(<span class="keyword">int</span> x = INT_MIN) : sum(x), lsum(x), rsum(x), maxSum(x) &#123;&#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">static</span> Data <span class="title">merge</span><span class="params">(<span class="keyword">const</span> Data &amp;l, <span class="keyword">const</span> Data &amp;r)</span> </span>&#123;</div><div class="line">        Data res;</div><div class="line">        res.sum = l.sum + r.sum;</div><div class="line"></div><div class="line">        res.lsum = res.sum;</div><div class="line">        res.lsum = <span class="built_in">std</span>::max(res.lsum, l.lsum);</div><div class="line">        res.lsum = <span class="built_in">std</span>::max(res.lsum, l.sum + r.lsum);</div><div class="line"></div><div class="line">        res.rsum = res.sum;</div><div class="line">        res.rsum = <span class="built_in">std</span>::max(res.rsum, r.rsum);</div><div class="line">        res.rsum = <span class="built_in">std</span>::max(res.rsum, l.rsum + r.sum);</div><div class="line"></div><div class="line">        res.maxSum = res.sum;</div><div class="line">        res.maxSum = <span class="built_in">std</span>::max(res.maxSum, l.maxSum);</div><div class="line">        res.maxSum = <span class="built_in">std</span>::max(res.maxSum, r.maxSum);</div><div class="line">        res.maxSum = <span class="built_in">std</span>::max(res.maxSum, l.rsum + r.lsum);</div><div class="line"></div><div class="line">        <span class="keyword">return</span> res;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// divide</span></div><div class="line">    <span class="function"><span class="keyword">static</span> Data <span class="title">merge</span><span class="params">(<span class="keyword">const</span> Data &amp;l, <span class="keyword">int</span> x, <span class="keyword">const</span> Data &amp;r)</span> </span>&#123;</div><div class="line">        <span class="function">Data <span class="title">v</span><span class="params">(x)</span></span>;</div><div class="line">        <span class="keyword">if</span> (l.sum == INT_MIN &amp;&amp; r.sum == INT_MIN) <span class="keyword">return</span> v;</div><div class="line">        <span class="keyword">if</span> (l.sum == INT_MIN) &#123;</div><div class="line">            <span class="keyword">if</span> (x == INT_MIN) <span class="keyword">return</span> r;</div><div class="line">            <span class="keyword">else</span> <span class="keyword">return</span> merge(v, r);</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (r.sum == INT_MIN) &#123;</div><div class="line">            <span class="keyword">if</span> (x == INT_MIN) <span class="keyword">return</span> l;</div><div class="line">            <span class="keyword">else</span> <span class="keyword">return</span> merge(l, v);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">if</span> (x == INT_MIN) <span class="keyword">return</span> merge(l, r);</div><div class="line">            <span class="keyword">else</span> <span class="keyword">return</span> merge(merge(l, v), r);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">struct</span> Treap &#123;</div><div class="line">    <span class="keyword">struct</span> Node &#123;</div><div class="line">        Node *lc, *rc;</div><div class="line">        <span class="comment">// Val reserved</span></div><div class="line">        <span class="keyword">int</span> key;</div><div class="line">        <span class="keyword">int</span> x, size;</div><div class="line">        Data data;</div><div class="line">        <span class="comment">// tags</span></div><div class="line">        <span class="keyword">int</span> tag;</div><div class="line">        <span class="keyword">bool</span> rev;</div><div class="line"></div><div class="line">        Node (<span class="keyword">int</span> x = INT_MIN) :</div><div class="line">            lc(<span class="literal">NULL</span>), rc(<span class="literal">NULL</span>), key(rand()),</div><div class="line">            x(x), size(<span class="number">1</span>),</div><div class="line">            data(),</div><div class="line">            tag(INT_MAX), rev(<span class="literal">false</span>) &#123;&#125;</div><div class="line"></div><div class="line">        ~Node() &#123;</div><div class="line">            <span class="keyword">if</span> (lc) <span class="keyword">delete</span> lc;</div><div class="line">            <span class="keyword">if</span> (rc) <span class="keyword">delete</span> rc;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">void</span> <span class="title">cover</span><span class="params">(<span class="keyword">int</span> val)</span> </span>&#123;</div><div class="line">            x = val;</div><div class="line">            <span class="keyword">int</span> s = size * x;</div><div class="line">            data = Data(<span class="built_in">std</span>::max(s, x));</div><div class="line">            data.sum = s;</div><div class="line">            tag = x;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">void</span> <span class="title">reverse</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="built_in">std</span>::swap(data.lsum, data.rsum);</div><div class="line">            rev ^= <span class="number">1</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">void</span> <span class="title">pushDown</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="keyword">if</span> (tag != INT_MAX) &#123;</div><div class="line">                <span class="keyword">if</span> (lc) lc-&gt;cover(tag);</div><div class="line">                <span class="keyword">if</span> (rc) rc-&gt;cover(tag);</div><div class="line">                tag = INT_MAX;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="keyword">if</span> (rev) &#123;</div><div class="line">                <span class="built_in">std</span>::swap(lc, rc);</div><div class="line">                <span class="keyword">if</span> (lc) lc-&gt;reverse();</div><div class="line">                <span class="keyword">if</span> (rc) rc-&gt;reverse();</div><div class="line">                rev = <span class="literal">false</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="comment">// reload size</span></div><div class="line">            size = (lc ? lc-&gt;size : <span class="number">0</span>) + (rc ? rc-&gt;size : <span class="number">0</span>) + <span class="number">1</span>;</div><div class="line"></div><div class="line">            <span class="comment">// divide the array into 3 parts</span></div><div class="line">            <span class="comment">// merge them one by one</span></div><div class="line">            Data ld = INT_MIN, rd = INT_MIN;</div><div class="line">            <span class="keyword">if</span> (lc) ld = lc-&gt;data;</div><div class="line">            <span class="keyword">if</span> (rc) rd = rc-&gt;data;</div><div class="line">            data = Data::merge(ld, x, rd);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">int</span> <span class="title">lsize</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="keyword">return</span> lc ? lc-&gt;size : <span class="number">0</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"%d -&gt; sum = %d, maxSum = %d, lMaxSum = %d, rMaxSum = %d\n"</span>, x, data.sum, data.maxSum, data.lsum, data.rsum);</div><div class="line">        &#125;</div><div class="line">    &#125; *root;</div><div class="line"></div><div class="line">    Treap() : root(<span class="literal">NULL</span>) &#123;</div><div class="line">        srand(<span class="number">20000704</span> ^ <span class="number">20000116</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// a &lt; b</span></div><div class="line">    <span class="function">Node *<span class="title">merge</span><span class="params">(Node *a, Node *b)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (!a) <span class="keyword">return</span> b;</div><div class="line">        <span class="keyword">if</span> (!b) <span class="keyword">return</span> a;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (a-&gt;key &gt; b-&gt;key) &#123;</div><div class="line">            a-&gt;pushDown();</div><div class="line">            a-&gt;rc = merge(a-&gt;rc, b);</div><div class="line">            a-&gt;update();</div><div class="line">            <span class="keyword">return</span> a;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            b-&gt;pushDown();</div><div class="line">            b-&gt;lc = merge(a, b-&gt;lc);</div><div class="line">            b-&gt;update();</div><div class="line">            <span class="keyword">return</span> b;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">split</span><span class="params">(Node *v, <span class="keyword">int</span> k, Node *&amp;l, Node *&amp;r)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (!v) &#123;</div><div class="line">            l = r = <span class="literal">NULL</span>;</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        v-&gt;pushDown();</div><div class="line">        <span class="keyword">int</span> s = v-&gt;lsize();</div><div class="line">        <span class="keyword">if</span> (k &lt;= s) &#123;</div><div class="line">            split(v-&gt;lc, k, l, r);</div><div class="line">            v-&gt;lc = r;</div><div class="line">            r = v;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            split(v-&gt;rc, k - s - <span class="number">1</span>, l, r);</div><div class="line">            v-&gt;rc = l;</div><div class="line">            l = v;</div><div class="line">        &#125;</div><div class="line">        v-&gt;update();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> c)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (p == <span class="number">0</span>) &#123;</div><div class="line">            root = merge(build(c), root);</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line">        Node *pred, *succ;</div><div class="line">        split(root, p, pred, succ);</div><div class="line">        root = merge(merge(pred, build(c)), succ);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function">Node *<span class="title">build</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">        <span class="built_in">std</span>::<span class="built_in">stack</span>&lt;Node *&gt; s;</div><div class="line">        <span class="keyword">while</span> (!s.empty()) s.pop();</div><div class="line">        Node *v, *last;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</div><div class="line">            v = <span class="keyword">new</span> Node(a[i]);</div><div class="line">            last = <span class="literal">NULL</span>;</div><div class="line">            <span class="keyword">while</span> (!s.empty() &amp;&amp; v-&gt;key &gt; s.top()-&gt;key) &#123;</div><div class="line">                last = s.top();</div><div class="line">                s.pop();</div><div class="line">                last-&gt;update();</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (!s.empty()) s.top()-&gt;rc = v;</div><div class="line">            v-&gt;lc = last;</div><div class="line">            s.push(v);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">while</span> (s.size() != <span class="number">1</span>) &#123;</div><div class="line">            s.top()-&gt;update();</div><div class="line">            s.pop();</div><div class="line">        &#125;</div><div class="line">        Node *res = s.top();</div><div class="line">        s.pop();</div><div class="line">        res-&gt;update();</div><div class="line">        <span class="keyword">return</span> res;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">del</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> c)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> l = p, r = p + c - <span class="number">1</span>;</div><div class="line">        Node *pred, *succ, *mid, *tar;</div><div class="line">        split(root, l - <span class="number">1</span>, pred, tar);</div><div class="line">        split(tar, r - l + <span class="number">1</span>, mid, succ);</div><div class="line">        <span class="keyword">delete</span> mid;</div><div class="line">        root = merge(pred, succ);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">change</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> c, <span class="keyword">int</span> x)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> l = p, r = p + c - <span class="number">1</span>;</div><div class="line">        Node *pred, *succ, *mid, *tar;</div><div class="line">        split(root, l - <span class="number">1</span>, pred, tar);</div><div class="line">        split(tar, r - l + <span class="number">1</span>, mid, succ);</div><div class="line">        mid-&gt;cover(x);</div><div class="line">        root = merge(merge(pred, mid), succ);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">reverse</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> c)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> l = p, r = p + c - <span class="number">1</span>;</div><div class="line">        Node *pred, *succ, *mid, *tar;</div><div class="line">        split(root, l - <span class="number">1</span>, pred, tar);</div><div class="line">        split(tar, r - l + <span class="number">1</span>, mid, succ);</div><div class="line">        mid-&gt;reverse();</div><div class="line">        root = merge(merge(pred, mid), succ);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">sum</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> c)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> l = p, r = p + c - <span class="number">1</span>, res;</div><div class="line">        Node *pred, *succ, *mid, *tar;</div><div class="line">        split(root, l - <span class="number">1</span>, pred, tar);</div><div class="line">        split(tar, r - l + <span class="number">1</span>, mid, succ);</div><div class="line">        res = mid-&gt;data.sum;</div><div class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> DBG</span></div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div><div class="line">        root = merge(merge(pred, mid), succ);</div><div class="line">        <span class="keyword">return</span> res;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxSum</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">// print(root);</span></div><div class="line">        <span class="keyword">return</span> root-&gt;data.maxSum;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(Node *v, <span class="keyword">int</span> dep = <span class="number">0</span>)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (!v) <span class="keyword">return</span>;</div><div class="line">        v-&gt;pushDown();</div><div class="line">        print(v-&gt;lc, dep + <span class="number">1</span>);</div><div class="line">        v-&gt;print();</div><div class="line">        print(v-&gt;rc, dep + <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line">&#125; treap;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>, &amp;n, &amp;m);</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;a[i]);</div><div class="line">    treap.root = treap.build(n);</div><div class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> DBG</span></div><div class="line">    <span class="comment">// treap.print(treap.root);</span></div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div><div class="line">    <span class="keyword">char</span> cmd[<span class="keyword">sizeof</span>(<span class="string">"MAKE-SAME"</span>)];</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> T = <span class="number">1</span>; T &lt;= m; T++) &#123;</div><div class="line">        <span class="built_in">scanf</span>(<span class="string">"%s"</span>, cmd);</div><div class="line">        <span class="keyword">if</span> (cmd[<span class="number">2</span>] == <span class="string">'X'</span>) <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, treap.maxSum());</div><div class="line">        <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">int</span> p, c;</div><div class="line">            <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>, &amp;p, &amp;c);</div><div class="line">            <span class="keyword">if</span> (cmd[<span class="number">2</span>] == <span class="string">'S'</span>) &#123;</div><div class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= c; i++) <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;a[i]);</div><div class="line">                treap.insert(p, c);</div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (cmd[<span class="number">2</span>] == <span class="string">'L'</span>) &#123;</div><div class="line">                treap.del(p, c);</div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (cmd[<span class="number">2</span>] == <span class="string">'K'</span>) &#123;</div><div class="line">                <span class="keyword">int</span> x;</div><div class="line">                <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;x);</div><div class="line">                treap.change(p, c, x);</div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (cmd[<span class="number">2</span>] == <span class="string">'V'</span>) &#123;</div><div class="line">                treap.reverse(p, c);</div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (cmd[<span class="number">2</span>] == <span class="string">'T'</span>) &#123;</div><div class="line">                <span class="keyword">if</span> (c == <span class="number">0</span>) <span class="built_in">puts</span>(<span class="string">"0"</span>);</div><div class="line">                <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, treap.sum(p, c));</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+      
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>作者: </span>
+      <span>Sulfur6</span>
+    </p>
+    <p class="copyright-item">
+      <span>来源: </span>
+      <a href="http://sulfur6.github.io">http://sulfur6.github.io</a>
+    </p>
+    <p class="copyright-item">
+      <span>链接: </span>
+      <a href="http://sulfur6.github.io/bzoj-1500/">http://sulfur6.github.io/bzoj-1500/</a>
+    </p>
+
+    <p class="copyright-item lincese">
+      
+      本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+    </p>
+  </div>
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/平衡树/">平衡树</a>
+            
+              <a href="/tags/Treap/">Treap</a>
+            
+              <a href="/tags/最大子段和/">最大子段和</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/MoQueue/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">莫队算法学习笔记</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/noip2017-treasure/">
+        <span class="next-text nav-default">「NOIP2017」宝藏 - 状压</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>  
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:huangchun50@icloud.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/Sulfur6" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2016 - 
+    
+    2017
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Sulfur6</span>
+  </span>
+</div>
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+
+  
+  <script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://sulfur6.github.io/bzoj-1500/';
+        this.page.identifier = 'bzoj-1500/';
+        this.page.title = '「NOI2005」维修数列 - 平衡树';
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = '//sulfur6-blog.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
+  </script>
+
+  
+
+
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.4.x"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.4.x"></script>
+
+    
+  <script type="text/html" id="search-result">
+    <article class="post">
+      <header class="post-header">
+        <h1 class="post-title">
+          <a href="$url$" class="post-link">
+            $title$
+          </a>
+        </h1>
+      </header>
+      <div class="post-content">
+        $content$
+        <div class="read-more">
+          <a href="$url$" class="read-more-link">
+            Read more..
+          </a>
+        </div>
+      </div>
+    </article>
+  </script>
+  <script type="text/html" id="no-search-result">
+    <div class="no-result">
+      <h2>No result found!</h2>
+    </div>
+  </script>
+  <script type="text/javascript" src="/js/src/search.js?v=2.4.x"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  </body>
+</html>

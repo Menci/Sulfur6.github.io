@@ -34,17 +34,17 @@
 <link rel="canonical" href="http://sulfur6.github.io/bzoj1004/"/>
 
 
-<meta name="description" content="把 $ n $ 张卡牌染成 $ a $ 张红色，$ b $ 张蓝色，$ c $ 张绿色。同时给定 $ m $ 种洗牌方法，求有多少种不同染色的方案数。两种染色方法相同当且仅当一种染色方法可以同过任意洗牌方式变成另一种。">
+<meta name="description" content="把 n n n 张卡牌染成 a a a 张红色，b b b 张蓝色，c c c 张绿色。同时给定 m m m 种洗牌方法，求有多少种不同染色的方案数。两种染色方法相同当且仅当一种染色方法可以同过任意洗牌方式变成另一种。">
 <meta name="keywords" content="组合数学,置换群,Burnside引理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="「HNOI2008」Card - Burnside引理">
 <meta property="og:url" content="http://sulfur6.github.io/bzoj1004/index.html">
 <meta property="og:site_name" content="I Have Just Killed Myself">
-<meta property="og:description" content="把 $ n $ 张卡牌染成 $ a $ 张红色，$ b $ 张蓝色，$ c $ 张绿色。同时给定 $ m $ 种洗牌方法，求有多少种不同染色的方案数。两种染色方法相同当且仅当一种染色方法可以同过任意洗牌方式变成另一种。">
+<meta property="og:description" content="把 n n n 张卡牌染成 a a a 张红色，b b b 张蓝色，c c c 张绿色。同时给定 m m m 种洗牌方法，求有多少种不同染色的方案数。两种染色方法相同当且仅当一种染色方法可以同过任意洗牌方式变成另一种。">
 <meta property="og:updated_time" content="2017-06-02T13:38:56.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="「HNOI2008」Card - Burnside引理">
-<meta name="twitter:description" content="把 $ n $ 张卡牌染成 $ a $ 张红色，$ b $ 张蓝色，$ c $ 张绿色。同时给定 $ m $ 种洗牌方法，求有多少种不同染色的方案数。两种染色方法相同当且仅当一种染色方法可以同过任意洗牌方式变成另一种。">
+<meta name="twitter:description" content="把 n n n 张卡牌染成 a a a 张红色，b b b 张蓝色，c c c 张绿色。同时给定 m m m 种洗牌方法，求有多少种不同染色的方案数。两种染色方法相同当且仅当一种染色方法可以同过任意洗牌方式变成另一种。">
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.4.x" />
@@ -203,7 +203,7 @@
 
     <div class="post-content">
       
-        <p>把 $ n $ 张卡牌染成 $ a $ 张红色，$ b $ 张蓝色，$ c $ 张绿色。同时给定 $ m $ 种洗牌方法，求有多少种不同染色的方案数。两种染色方法相同当且仅当一种染色方法可以同过任意洗牌方式变成另一种。</p>
+        <p>把 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex"> n </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span> 张卡牌染成 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex"> a </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">a</span></span></span></span> 张红色，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>b</mi></mrow><annotation encoding="application/x-tex"> b </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">b</span></span></span></span> 张蓝色，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>c</mi></mrow><annotation encoding="application/x-tex"> c </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">c</span></span></span></span> 张绿色。同时给定 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex"> m </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">m</span></span></span></span> 种洗牌方法，求有多少种不同染色的方案数。两种染色方法相同当且仅当一种染色方法可以同过任意洗牌方式变成另一种。</p>
 <a id="more"></a>
 <h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p>使用 Burnside 引理。</p>
 <p>染色集中的非等价染色数等于在置换群的每个置换作用下保持不变的着色之和的平均数。。懒得证了，组合数学上讲的还是很好的嘛。蛤蛤蛤团长就是这样的无耻。</p>

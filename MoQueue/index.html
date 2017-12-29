@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="莫队算法学习笔记"/>
+
+
+
+
+  <meta name="keywords" content="学习笔记," />
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="I Have Just Killed Myself">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.4.x" />
+
+
+
+<link rel="canonical" href="http://sulfur6.github.io/MoQueue/"/>
+
+
+<meta name="description" content="我相信莫队本人应该没有想到他的莫队算法不仅可以做到支持修改而且还可以上树甚至在树上都可以支持修改吧（笑。 传统的莫队是将询问储存为询问的左端点和右端点，然后对序列以 n \sqrt n √​n​​​ 为长度分块，以左端点所在块为第一关键字，右端点为第二关键字排序然后暴力，这样的做法的时间复杂度是 O(nn) O(n \sqrt n) O(n√​n​​​) 即 O(n32) O(n ^ {\fra">
+<meta name="keywords" content="学习笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="莫队算法学习笔记">
+<meta property="og:url" content="http://sulfur6.github.io/MoQueue/index.html">
+<meta property="og:site_name" content="I Have Just Killed Myself">
+<meta property="og:description" content="我相信莫队本人应该没有想到他的莫队算法不仅可以做到支持修改而且还可以上树甚至在树上都可以支持修改吧（笑。 传统的莫队是将询问储存为询问的左端点和右端点，然后对序列以 n \sqrt n √​n​​​ 为长度分块，以左端点所在块为第一关键字，右端点为第二关键字排序然后暴力，这样的做法的时间复杂度是 O(nn) O(n \sqrt n) O(n√​n​​​) 即 O(n32) O(n ^ {\fra">
+<meta property="og:updated_time" content="2017-12-28T07:16:14.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="莫队算法学习笔记">
+<meta name="twitter:description" content="我相信莫队本人应该没有想到他的莫队算法不仅可以做到支持修改而且还可以上树甚至在树上都可以支持修改吧（笑。 传统的莫队是将询问储存为询问的左端点和右端点，然后对序列以 n \sqrt n √​n​​​ 为长度分块，以左端点所在块为第一关键字，右端点为第二关键字排序然后暴力，这样的做法的时间复杂度是 O(nn) O(n \sqrt n) O(n√​n​​​) 即 O(n32) O(n ^ {\fra">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.4.x" />
+<link rel="stylesheet" href="<%= url_for('/css/style.css?v='+ theme.version) %>">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css" />
+
+
+
+
+
+
+
+<script>
+  var CONFIG = {
+    search: true,
+    searchPath: "/search.json",
+    fancybox: false,
+    toc: true,
+  }
+</script>
+
+
+
+
+  
+
+
+
+    <title> 莫队算法学习笔记 · I Have Just Killed Myself </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="mobile-header-logo">
+    <a href="/." class="logo">I Have Just Killed Myself</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            Home
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            Archives
+          
+        </li>
+      </a>
+    
+      <a href="/tags">
+        <li class="mobile-menu-item">
+          
+          
+            Tags
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">I Have Just Killed Myself</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              Home
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              Archives
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/tags">
+            
+            
+              Tags
+            
+          </a>
+        </li>
+      
+      
+        <li class="menu-search">
+          <form>
+            <i class="iconfont icon-search" id="open-search"></i>
+            <input type="text" class="search-input" id="search-input" />
+            <i class="iconfont icon-close" id="close-search"></i>
+          </form>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          莫队算法学习笔记
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017年12月28日
+        </span>
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        <a id="more"></a>
+<p>我相信莫队本人应该没有想到他的莫队算法不仅可以做到支持修改而且还可以上树甚至在树上都可以支持修改吧（笑。</p>
+<p>传统的莫队是将询问储存为询问的左端点和右端点，然后对序列以 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msqrt><mi>n</mi></msqrt></mrow><annotation encoding="application/x-tex"> \sqrt n </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8002800000000001em;"></span><span class="strut bottom" style="height:1.04em;vertical-align:-0.23972em;"></span><span class="base textstyle uncramped"><span class="sqrt mord"><span class="sqrt-sign" style="top:0.03971999999999998em;"><span class="style-wrap reset-textstyle textstyle uncramped">√</span></span><span class="vlist"><span style="top:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="mord mathit">n</span></span><span style="top:-0.72028em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="reset-textstyle textstyle uncramped sqrt-line"></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span>​</span></span></span></span></span></span> 为长度分块，以左端点所在块为第一关键字，右端点为第二关键字排序然后暴力，这样的做法的时间复杂度是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><msqrt><mi>n</mi></msqrt><mo>)</mo></mrow><annotation encoding="application/x-tex"> O(n \sqrt n) </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8002800000000001em;"></span><span class="strut bottom" style="height:1.05028em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="sqrt mord"><span class="sqrt-sign" style="top:0.03971999999999998em;"><span class="style-wrap reset-textstyle textstyle uncramped">√</span></span><span class="vlist"><span style="top:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="mord mathit">n</span></span><span style="top:-0.72028em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="reset-textstyle textstyle uncramped sqrt-line"></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span>​</span></span></span><span class="mclose">)</span></span></span></span> 即 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mi>n</mi><mrow><mfrac><mn>3</mn><mn>2</mn></mfrac></mrow></msup><mo>)</mo></mrow><annotation encoding="application/x-tex"> O(n ^ {\frac 3 2}) </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.96102em;"></span><span class="strut bottom" style="height:1.21102em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">n</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord reset-scriptstyle scriptstyle uncramped"><span class="sizing reset-size5 size5 reset-scriptstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.345em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord mathrm">2</span></span></span><span style="top:-0.22142857142857142em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle textstyle uncramped frac-line"></span></span><span style="top:-0.394em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle uncramped"><span class="mord mathrm">3</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-scriptstyle textstyle uncramped nulldelimiter"></span></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose">)</span></span></span></span> 的。</p>
+<p>反正就是个排序再暴力有啥子好讲的，复杂度证明这种事管他呢（其实不带修改的莫队我还是可以证一下的。</p>
+<p>好啦以上是复习！</p>
+<p>如果需要支持单点修改该怎么办呢？</p>
+<p>解决方案是，对于每一个询问，不仅记录询问的区间端点，而且记录下在它之前离它最近的修改操作。对于每一个修改操作，记录下它修改的位置，以及修改前后的值。</p>
+<p>就像这样。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><div class="line"><span class="keyword">struct</span> Query &#123;</div><div class="line">    <span class="keyword">int</span> l, r;</div><div class="line">    Change *x;</div><div class="line">    <span class="keyword">int</span> *ans;</div><div class="line">&#125; querys[N + <span class="number">1</span>], *queryEnd;</div><div class="line"></div><div class="line"><span class="keyword">struct</span> Change &#123;</div><div class="line">    <span class="keyword">int</span> pos, newVal, oldVal;</div><div class="line">&#125; changes[N + <span class="number">1</span>], *changeEnd;</div></pre></td></tr></table></figure>
+<p>以 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>n</mi><mrow><mfrac><mn>2</mn><mn>3</mn></mfrac></mrow></msup></mrow><annotation encoding="application/x-tex"> n ^ {\frac 2 3} </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.96102em;"></span><span class="strut bottom" style="height:0.96102em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">n</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord reset-scriptstyle scriptstyle uncramped"><span class="sizing reset-size5 size5 reset-scriptstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.345em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord mathrm">3</span></span></span><span style="top:-0.22142857142857142em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle textstyle uncramped frac-line"></span></span><span style="top:-0.394em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle uncramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-scriptstyle textstyle uncramped nulldelimiter"></span></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span> 为大小分块，排序时按照左端点所在块为第一关键字，右端点所在块为第二关键字，离它最近的修改操作的位置为第三关键字排序，然后暴力。</p>
+<p>处理修改操作时维护一个指针，每次记录此次操作之后修改指针停留的位置，对于某个询问，如果当前修改指针在离它最近的指针之前，就正着改过去，如果在之后，就倒着改回去。正确性显然。记得处理能影响到当前区间的位置就好了。</p>
+<p>这样做的时间复杂度被证明是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mi>n</mi><mrow><mfrac><mn>5</mn><mn>3</mn></mfrac></mrow></msup><mo>)</mo></mrow><annotation encoding="application/x-tex"> O(n ^ {\frac 5 3}) </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.96102em;"></span><span class="strut bottom" style="height:1.21102em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">n</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord reset-scriptstyle scriptstyle uncramped"><span class="sizing reset-size5 size5 reset-scriptstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.345em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord mathrm">3</span></span></span><span style="top:-0.22142857142857142em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle textstyle uncramped frac-line"></span></span><span style="top:-0.394em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle uncramped"><span class="mord mathrm">5</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-scriptstyle textstyle uncramped nulldelimiter"></span></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose">)</span></span></span></span> 的。</p>
+<p>这里是带修改莫队的一道例题，Uva12345的代码。（此题同 BZOJ2120，BZOJ2453.</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;climits&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">50000</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAX = <span class="number">1000000</span>;</div><div class="line"></div><div class="line"><span class="keyword">struct</span> Query;</div><div class="line"><span class="keyword">struct</span> Change;</div><div class="line"></div><div class="line"><span class="keyword">struct</span> Query &#123;</div><div class="line">    <span class="keyword">int</span> l, r;</div><div class="line">    Change *x;</div><div class="line">    <span class="keyword">int</span> *ans;</div><div class="line">&#125; querys[N + <span class="number">1</span>], *queryEnd;</div><div class="line"></div><div class="line"><span class="keyword">struct</span> Change &#123;</div><div class="line">    <span class="keyword">int</span> pos, newVal, oldVal;</div><div class="line">&#125; changes[N + <span class="number">1</span>], *changeEnd;</div><div class="line"></div><div class="line"><span class="keyword">int</span> n, m;</div><div class="line"><span class="keyword">int</span> block[N + <span class="number">1</span>], last[N + <span class="number">1</span>];</div><div class="line"><span class="keyword">int</span> res, ans[N + <span class="number">1</span>];</div><div class="line"><span class="keyword">bool</span> affected[N + <span class="number">1</span>];</div><div class="line"><span class="keyword">int</span> buc[MAX + <span class="number">1</span>], a[N + <span class="number">1</span>];</div><div class="line"><span class="keyword">int</span> l, r;</div><div class="line">Change *now;</div><div class="line"></div><div class="line"><span class="keyword">int</span> blockSize;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">comp</span><span class="params">(<span class="keyword">const</span> Query &amp;x, <span class="keyword">const</span> Query &amp;y)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> block[x.l] &lt; block[y.l] ||</div><div class="line">           block[x.l] == block[y.l] &amp;&amp; block[x.r] &lt; block[y.r] ||</div><div class="line">           block[x.l] == block[y.l] &amp;&amp; block[x.r] == block[y.r] &amp;&amp; x.x &lt; y.x;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">(<span class="keyword">int</span> pos)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (affected[pos]) &#123;</div><div class="line">        <span class="keyword">if</span> (!--buc[a[pos]]) res--;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">if</span> (!buc[a[pos]]++) res++;</div><div class="line">    &#125;</div><div class="line">    affected[pos] ^= <span class="number">1</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">modify</span><span class="params">(<span class="keyword">int</span> pos, <span class="keyword">int</span> val)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (affected[pos]) &#123;</div><div class="line">        update(pos);</div><div class="line">        a[pos] = val;</div><div class="line">        update(pos);</div><div class="line">    &#125; <span class="keyword">else</span> a[pos] = val;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    queryEnd = querys;</div><div class="line">    changeEnd = changes;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>, &amp;n, &amp;m);</div><div class="line">    blockSize = <span class="number">1500</span>;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</div><div class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;a[i]);</div><div class="line">        block[i] = i / blockSize;</div><div class="line">        last[i] = a[i];</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i++) &#123;</div><div class="line">        <span class="keyword">char</span> s[<span class="number">10</span>];</div><div class="line">        <span class="keyword">int</span> x, y;</div><div class="line">        <span class="built_in">scanf</span>(<span class="string">"%s %d %d"</span>, s, &amp;x, &amp;y);</div><div class="line">        <span class="keyword">if</span> (s[<span class="number">0</span>] == <span class="string">'Q'</span>) &#123;</div><div class="line">            x++;</div><div class="line">            queryEnd++;</div><div class="line">            queryEnd-&gt;l = x;</div><div class="line">            queryEnd-&gt;r = y;</div><div class="line">            queryEnd-&gt;x = changeEnd;</div><div class="line">            queryEnd-&gt;ans = &amp;ans[queryEnd - querys];</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            x++;</div><div class="line">            changeEnd++;</div><div class="line">            changeEnd-&gt;pos = x;</div><div class="line">            changeEnd-&gt;newVal = y;</div><div class="line">            changeEnd-&gt;oldVal = last[x];</div><div class="line">            last[x] = y;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="built_in">std</span>::sort(querys + <span class="number">1</span>, queryEnd + <span class="number">1</span>, comp);</div><div class="line"></div><div class="line">    l = <span class="number">1</span>;</div><div class="line">    r = <span class="number">0</span>;</div><div class="line">    now = changes;</div><div class="line">    <span class="keyword">for</span> (Query *v = querys + <span class="number">1</span>; v != queryEnd + <span class="number">1</span>; v++) &#123;</div><div class="line">        <span class="keyword">if</span> (now == v-&gt;x) &#123;&#125;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (now &lt; v-&gt;x) &#123;</div><div class="line">            <span class="keyword">for</span> (Change *p = now + <span class="number">1</span>; p != v-&gt;x + <span class="number">1</span>; p++) modify(p-&gt;pos, p-&gt;newVal);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">for</span> (Change *p = now; p != v-&gt;x + <span class="number">1</span> - <span class="number">1</span>; p--) modify(p-&gt;pos, p-&gt;oldVal);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (l == v-&gt;l) &#123;&#125;</div><div class="line">        <span class="keyword">if</span> (l &lt; v-&gt;l) <span class="keyword">for</span> (<span class="keyword">int</span> i = l; i &lt;= v-&gt;l - <span class="number">1</span>; i++) update(i);</div><div class="line">        <span class="keyword">else</span> <span class="keyword">for</span> (<span class="keyword">int</span> i = v-&gt;l; i &lt;= l - <span class="number">1</span>; i++) update(i);</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (r == v-&gt;r) &#123;&#125;</div><div class="line">        <span class="keyword">if</span> (r &lt; v-&gt;r) <span class="keyword">for</span> (<span class="keyword">int</span> i = r + <span class="number">1</span>; i &lt;= v-&gt;r; i++) update(i);</div><div class="line">        <span class="keyword">else</span> <span class="keyword">for</span> (<span class="keyword">int</span> i = v-&gt;r + <span class="number">1</span>; i &lt;= r; i++) update(i);</div><div class="line"></div><div class="line">        l = v-&gt;l;</div><div class="line">        r = v-&gt;r;</div><div class="line">        now = v-&gt;x;</div><div class="line">        *v-&gt;ans = res;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= queryEnd - querys; i++) <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans[i]);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+      
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>作者: </span>
+      <span>Sulfur6</span>
+    </p>
+    <p class="copyright-item">
+      <span>来源: </span>
+      <a href="http://sulfur6.github.io">http://sulfur6.github.io</a>
+    </p>
+    <p class="copyright-item">
+      <span>链接: </span>
+      <a href="http://sulfur6.github.io/MoQueue/">http://sulfur6.github.io/MoQueue/</a>
+    </p>
+
+    <p class="copyright-item lincese">
+      
+      本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+    </p>
+  </div>
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/学习笔记/">学习笔记</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+    
+      <a class="next" href="/bzoj-1500/">
+        <span class="next-text nav-default">「NOI2005」维修数列 - 平衡树</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>  
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:huangchun50@icloud.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/Sulfur6" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2016 - 
+    
+    2017
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Sulfur6</span>
+  </span>
+</div>
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+
+  
+  <script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://sulfur6.github.io/MoQueue/';
+        this.page.identifier = 'MoQueue/';
+        this.page.title = '莫队算法学习笔记';
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = '//sulfur6-blog.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
+  </script>
+
+  
+
+
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.4.x"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.4.x"></script>
+
+    
+  <script type="text/html" id="search-result">
+    <article class="post">
+      <header class="post-header">
+        <h1 class="post-title">
+          <a href="$url$" class="post-link">
+            $title$
+          </a>
+        </h1>
+      </header>
+      <div class="post-content">
+        $content$
+        <div class="read-more">
+          <a href="$url$" class="read-more-link">
+            Read more..
+          </a>
+        </div>
+      </div>
+    </article>
+  </script>
+  <script type="text/html" id="no-search-result">
+    <div class="no-result">
+      <h2>No result found!</h2>
+    </div>
+  </script>
+  <script type="text/javascript" src="/js/src/search.js?v=2.4.x"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  </body>
+</html>

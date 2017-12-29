@@ -178,6 +178,161 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/bzoj-1025/">「SCOI2009」游戏 - DP，线性筛，置换</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017年7月4日
+        </span>
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>对于一个长度为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex"> n </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span> 的序列 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi></mrow><annotation encoding="application/x-tex"> A </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">A</span></span></span></span>，记其置换集合为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>G</mi></mrow><annotation encoding="application/x-tex"> G </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">G</span></span></span></span>，对于 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>∈</mo><mi>G</mi></mrow><annotation encoding="application/x-tex"> f \in G </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mrel">∈</span><span class="mord mathit">G</span></span></span></span>，记使得 <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="22.951ex" height="2.843ex" style="vertical-align: -0.838ex;" viewbox="0 -863.1 9881.7 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<path stroke-width="1" id="E1-MJMATHI-66" d="M118 -162Q120 -162 124 -164T135 -167T147 -168Q160 -168 171 -155T187 -126Q197 -99 221 27T267 267T289 382V385H242Q195 385 192 387Q188 390 188 397L195 425Q197 430 203 430T250 431Q298 431 298 432Q298 434 307 482T319 540Q356 705 465 705Q502 703 526 683T550 630Q550 594 529 578T487 561Q443 561 443 603Q443 622 454 636T478 657L487 662Q471 668 457 668Q445 668 434 658T419 630Q412 601 403 552T387 469T380 433Q380 431 435 431Q480 431 487 430T498 424Q499 420 496 407T491 391Q489 386 482 386T428 385H372L349 263Q301 15 282 -47Q255 -132 212 -173Q175 -205 139 -205Q107 -205 81 -186T55 -132Q55 -95 76 -78T118 -61Q162 -61 162 -103Q162 -122 151 -136T127 -157L118 -162Z"/>
+<path stroke-width="1" id="E1-MJMAIN-28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"/>
+<path stroke-width="1" id="E1-MJMAIN-2026" d="M78 60Q78 84 95 102T138 120Q162 120 180 104T199 61Q199 36 182 18T139 0T96 17T78 60ZM525 60Q525 84 542 102T585 120Q609 120 627 104T646 61Q646 36 629 18T586 0T543 17T525 60ZM972 60Q972 84 989 102T1032 120Q1056 120 1074 104T1093 61Q1093 36 1076 18T1033 0T990 17T972 60Z"/>
+<path stroke-width="1" id="E1-MJMATHI-41" d="M208 74Q208 50 254 46Q272 46 272 35Q272 34 270 22Q267 8 264 4T251 0Q249 0 239 0T205 1T141 2Q70 2 50 0H42Q35 7 35 11Q37 38 48 46H62Q132 49 164 96Q170 102 345 401T523 704Q530 716 547 716H555H572Q578 707 578 706L606 383Q634 60 636 57Q641 46 701 46Q726 46 726 36Q726 34 723 22Q720 7 718 4T704 0Q701 0 690 0T651 1T578 2Q484 2 455 0H443Q437 6 437 9T439 27Q443 40 445 43L449 46H469Q523 49 533 63L521 213H283L249 155Q208 86 208 74ZM516 260Q516 271 504 416T490 562L463 519Q447 492 400 412L310 260L413 259Q516 259 516 260Z"/>
+<path stroke-width="1" id="E1-MJMAIN-29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"/>
+<path stroke-width="1" id="E1-MJMAIN-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"/>
+</defs>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)">
+ <use xlink:href="#E1-MJMATHI-66" x="0" y="0"/>
+ <use xlink:href="#E1-MJMAIN-28" x="550" y="0"/>
+ <use xlink:href="#E1-MJMATHI-66" x="940" y="0"/>
+ <use xlink:href="#E1-MJMAIN-28" x="1490" y="0"/>
+ <use xlink:href="#E1-MJMATHI-66" x="1880" y="0"/>
+ <use xlink:href="#E1-MJMAIN-28" x="2430" y="0"/>
+ <use xlink:href="#E1-MJMAIN-2026" x="2820" y="0"/>
+ <use xlink:href="#E1-MJMAIN-28" x="4159" y="0"/>
+ <use xlink:href="#E1-MJMATHI-66" x="4548" y="0"/>
+ <use xlink:href="#E1-MJMAIN-28" x="5099" y="0"/>
+ <use xlink:href="#E1-MJMATHI-41" x="5488" y="0"/>
+ <use xlink:href="#E1-MJMAIN-29" x="6239" y="0"/>
+ <use xlink:href="#E1-MJMAIN-29" x="6628" y="0"/>
+ <use xlink:href="#E1-MJMAIN-29" x="7018" y="0"/>
+ <use xlink:href="#E1-MJMAIN-29" x="7407" y="0"/>
+ <use xlink:href="#E1-MJMAIN-3D" x="8074" y="0"/>
+ <use xlink:href="#E1-MJMATHI-41" x="9131" y="0"/>
+</g>
+</svg> 的嵌套次数为其排数，求对于所有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>∈</mo><mi>G</mi></mrow><annotation encoding="application/x-tex"> f \in 
+G </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mrel">∈</span><span class="mord mathit">G</span></span></span></span> 共有多少种不同的排数。</p>
+          <div class="read-more">
+            <a href="/bzoj-1025/" class="read-more-link">Read more..</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/bzoj-1024/">「SCOI2009」生日快乐</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017年7月4日
+        </span>
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>现有一块长为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>X</mi></mrow><annotation encoding="application/x-tex"> X </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.07847em;">X</span></span></span></span>，宽为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>Y</mi></mrow><annotation encoding="application/x-tex"> Y </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.22222em;">Y</span></span></span></span> 的蛋糕，切 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex"> N - 1 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">N</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span> 刀，分成 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex"> N </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">N</span></span></span></span> 块，在保证每块蛋糕面积相等的前提下使得 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex"> N </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">N</span></span></span></span> 块切好的蛋糕长边比短边的最大值最小，求这个最小值。</p>
+          <div class="read-more">
+            <a href="/bzoj-1024/" class="read-more-link">Read more..</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/bzoj-1023/">「SHOI2008」仙人掌图 - 仙人掌DP，单调队列</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017年7月3日
+        </span>
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>给定一个仙人掌图，求其直径。</p>
+          <div class="read-more">
+            <a href="/bzoj-1023/" class="read-more-link">Read more..</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/bzoj-1021/">「SHOI2008」循环的债务 - DP</a>
         
       </h1>
@@ -200,7 +355,7 @@
         
 
         
-          <p>A，B，C 三个人之间互相有一些债务，每个人有面值为 $ 1, 5, 10, 20, 50, 100 $ 的钞票若干，求出他们之间钞票交换次数最少的交换方式。</p>
+          <p>A，B，C 三个人之间互相有一些债务，每个人有面值为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo separator="true">,</mo><mn>5</mn><mo separator="true">,</mo><mn>1</mn><mn>0</mn><mo separator="true">,</mo><mn>2</mn><mn>0</mn><mo separator="true">,</mo><mn>5</mn><mn>0</mn><mo separator="true">,</mo><mn>1</mn><mn>0</mn><mn>0</mn></mrow><annotation encoding="application/x-tex"> 1, 5, 10, 20, 50, 100 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span><span class="mpunct">,</span><span class="mord mathrm">5</span><span class="mpunct">,</span><span class="mord mathrm">1</span><span class="mord mathrm">0</span><span class="mpunct">,</span><span class="mord mathrm">2</span><span class="mord mathrm">0</span><span class="mpunct">,</span><span class="mord mathrm">5</span><span class="mord mathrm">0</span><span class="mpunct">,</span><span class="mord mathrm">1</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span></span></span></span> 的钞票若干，求出他们之间钞票交换次数最少的交换方式。</p>
           <div class="read-more">
             <a href="/bzoj-1021/" class="read-more-link">Read more..</a>
           </div>
@@ -242,14 +397,15 @@
         
 
         
-          <p>用 $ A, B, C $ 分别表示汉诺塔问题中的三根柱子。</p>
-<p>用两个字母描述一个操作，例如 <code>AB</code> 就是把柱子 $ A $ 最上面圆盘挪动到柱子 $ B $ 上。</p>
-<p>我们为所有的 $ 6 $ 种操作赋予一个优先级，并且利用以下规则进行游戏：</p>
+          <p>用 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mo separator="true">,</mo><mi>B</mi><mo separator="true">,</mo><mi>C</mi></mrow><annotation encoding="application/x-tex"> A, B, C </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit">A</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05017em;">B</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.07153em;">C</span></span></span></span> 分别表示汉诺塔问题中的三根柱子。</p>
+<p>用两个字母描述一个操作，例如 <code>AB</code> 就是把柱子 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi></mrow><annotation encoding="application/x-tex"> A </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">A</span></span></span></span> 最上面圆盘挪动到柱子 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>B</mi></mrow><annotation encoding="application/x-tex"> B </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.05017em;">B</span></span></span></span> 上。</p>
+<p>我们为所有的 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>6</mn></mrow><annotation encoding="application/x-tex"> 6 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">6</span></span></span></span> 种操作赋予一个优先级，并且利用以下规则进行游戏：</p>
 <ol>
 <li>选择一种操作，这种操作是所有合法操作中优先级最高的。</li>
 <li>本次操作需要移动的圆盘不是上一次操作移动的圆盘。</li>
 </ol>
-<p>可以证明，上述策略一定能完成汉诺塔游戏。<br>计算给定操作优先级时将 $ A $ 柱子上的 $ n $ 个圆盘全部移动到另一根上所需的操作数。</p>
+<p>可以证明，上述策略一定能完成汉诺塔游戏。
+计算给定操作优先级时将 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi></mrow><annotation encoding="application/x-tex"> A </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">A</span></span></span></span> 柱子上的 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex"> n </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span> 个圆盘全部移动到另一根上所需的操作数。</p>
           <div class="read-more">
             <a href="/bzoj-1019/" class="read-more-link">Read more..</a>
           </div>
@@ -291,7 +447,7 @@
         
 
         
-          <p>在一个有 $ 2C $ 个点，$ 3C - 2 $ 条边的 $ 2 $ 行 $ C $ 列的网格图中，相邻两个节点有连边，给定以下三种操作。</p>
+          <p>在一个有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mi>C</mi></mrow><annotation encoding="application/x-tex"> 2C </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">2</span><span class="mord mathit" style="margin-right:0.07153em;">C</span></span></span></span> 个点，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>3</mn><mi>C</mi><mo>−</mo><mn>2</mn></mrow><annotation encoding="application/x-tex"> 3C - 2 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">3</span><span class="mord mathit" style="margin-right:0.07153em;">C</span><span class="mbin">−</span><span class="mord mathrm">2</span></span></span></span> 条边的 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex"> 2 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">2</span></span></span></span> 行 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>C</mi></mrow><annotation encoding="application/x-tex"> C </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.07153em;">C</span></span></span></span> 列的网格图中，相邻两个节点有连边，给定以下三种操作。</p>
 <ol>
 <li><code>Open r1 c1 r2 c2</code> 连接节点 <code>(r1, c1), (r2, c2)</code> 的边连通。</li>
 <li><code>Close r1 c1 r2 c2</code> 连接节点 <code>(r1, c1), (r2, c2)</code> 的边断开。</li>
@@ -339,7 +495,7 @@
         
 
         
-          <p>给定 $ n $ 件物品，$ m $ 个金币，每个物品有自己的价值。低级物品可以直接购买，高级物品需要若干件较低级的物品来合成，并且具有合成的数量限制，求能够获得的最大价值。</p>
+          <p>给定 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex"> n </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span> 件物品，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex"> m </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">m</span></span></span></span> 个金币，每个物品有自己的价值。低级物品可以直接购买，高级物品需要若干件较低级的物品来合成，并且具有合成的数量限制，求能够获得的最大价值。</p>
           <div class="read-more">
             <a href="/bzoj-1017/" class="read-more-link">Read more..</a>
           </div>
@@ -465,136 +621,9 @@
         
 
         
-          <p>给定一个字符串，要求支持修改串中某个字符，在指定位置添加字符，以及求指定两个后缀的 $ LCP $ 长度。</p>
+          <p>给定一个字符串，要求支持修改串中某个字符，在指定位置添加字符，以及求指定两个后缀的 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>L</mi><mi>C</mi><mi>P</mi></mrow><annotation encoding="application/x-tex"> LCP </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">L</span><span class="mord mathit" style="margin-right:0.07153em;">C</span><span class="mord mathit" style="margin-right:0.13889em;">P</span></span></span></span> 长度。</p>
           <div class="read-more">
             <a href="/bzoj1014/" class="read-more-link">Read more..</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/bzoj1009/">「HNOI2008」GT考试 - DP，矩阵乘法，KMP</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2017年5月27日
-        </span>
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>阿申准备报名参加GT考试，准考证号为 $ N $ 位数 $ X_1X_2 \dots X_n (0 \leq X_i \leq 9) $，他不希望准考证号上出现不吉利的数字。他的不吉利数字 $ A_1A_2 \dots A_m(0 \leq A_i \leq 9) $ 有 $ M $ 位，不出现是指 $ X_1X_2 \dots X_n $ 中没有恰好一段等于 $ A_1 A_2 \dots Am.  $， 特别地 $ A_1 $ 和 $ x_1 $ 可以为 $ 0 $</p>
-          <div class="read-more">
-            <a href="/bzoj1009/" class="read-more-link">Read more..</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/HearthStone-Karazhan/">英雄难度「卡拉赞之夜」通关记</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2017年5月27日
-        </span>
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>团长通关卡拉赞辣！</p>
-<p><img src="/img/Karazhan/Over.PNG" alt="Over"></p>
-          <div class="read-more">
-            <a href="/HearthStone-Karazhan/" class="read-more-link">Read more..</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/bzoj1007/">「HNOI2008」水平可见直线 - 计算几何，单调栈</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2017年5月24日
-        </span>
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>有 $ n $ 条直线，在正无穷处往下看，如果一条直线的某一部分没有被其他任何直线覆盖，则我们认为这条直线是可见的，输出所有可见直线的编号。</p>
-          <div class="read-more">
-            <a href="/bzoj1007/" class="read-more-link">Read more..</a>
           </div>
         
       
