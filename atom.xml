@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://sulfur6.github.io/"/>
-  <updated>2017-12-28T07:16:14.000Z</updated>
+  <updated>2018-05-04T12:11:23.000Z</updated>
   <id>http://sulfur6.github.io/</id>
   
   <author>
@@ -14,6 +14,43 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>氯化钠MOD安装指导</title>
+    <link href="http://sulfur6.github.io/bh3mod/"/>
+    <id>http://sulfur6.github.io/bh3mod/</id>
+    <published>2018-05-04T12:10:52.000Z</published>
+    <updated>2018-05-04T12:11:23.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>在某些群里听说这个MOD会封号，大家慎用吧。</p>
+<a id="more"></a>
+<p>首先，下载Unity模组管理器和mod源文件。</p>
+<blockquote>
+<p><a href="https://pan.baidu.com/s/1eYxA8PBWYfqzLJPRG3c_uw" target="_blank" rel="external">度娘盘</a><br>密码:bwxn</p>
+</blockquote>
+<p>安装完成后，点击下图中红圈位置，选择崩坏3</p>
+<p><img src="/img/bh3mod/step1.jpg" alt="STEP1"></p>
+<p>点击左上角的三道横线，在左栏菜单中点击模组。</p>
+<p><img src="/img/bh3mod/step2.jpg" alt="STEP2"></p>
+<p>点击右下角加号，找到刚才下载的rar文件，选中，并将mod开关打开。</p>
+<p><img src="/img/bh3mod/step3.jpg" alt="STEP3"></p>
+<p>此时，点击右上角的手柄按钮，等待，然后就可以进入成功安装mod状态下的崩3了。</p>
+<p>模组管理器会在桌面创建一个「崩坏3[模组管理器]」标题的app，从那个进入游戏就是安装了mod的崩坏3了。</p>
+<p><strong>再次声明，此mod安全性未知，有封号风险</strong></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在某些群里听说这个MOD会封号，大家慎用吧。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="日常生活" scheme="http://sulfur6.github.io/categories/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/"/>
+    
+    
+      <category term="Game" scheme="http://sulfur6.github.io/tags/Game/"/>
+    
+  </entry>
   
   <entry>
     <title>莫队算法学习笔记</title>
@@ -119,35 +156,6 @@
     
     
       <category term="状压" scheme="http://sulfur6.github.io/tags/%E7%8A%B6%E5%8E%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>写在NOIP2017之后</title>
-    <link href="http://sulfur6.github.io/after-NOIP2017/"/>
-    <id>http://sulfur6.github.io/after-NOIP2017/</id>
-    <published>2017-11-14T12:45:12.000Z</published>
-    <updated>2017-11-14T12:57:04.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>并没有想象中的悔恨和不甘，也没有理应出现的愤怒与疯狂，我站在楼梯上，只是被深深的绝望包围。</p>
-<a id="more"></a>
-<p>其实仔细想想，得到这么差的成绩也在情理之中。考场上的我一次又一次的心态爆炸，编译原理、临接表、BFS、Treap……一个接一个的写错，应该得到的分全都没有得到，和SDOI Round1，和NOIP2016，全都一样。</p>
-<p>我已经不是去年NOIP结束以后就跟教练说「不管怎样我都要参加省选」的热血青年了，去年的我在NOIP失利后马上投入省选的准备，因为我知道我还有一次翻盘的机会，因为我在未来看到了淡淡希望的曙光。</p>
-<p>然而现在一切都没了。</p>
-<p>哪怕省选失利了，我还可以告诉自己，我还有今年的NOIP，但是现在我还有什么呢？只剩下无穷无尽补不完的文化了吧。可能我真的找不到方向了，两年OI，我成功的与每一次机会失之交臂，我不知道我现如今的状态还能做的好什么。</p>
-<p>我已经是个废人了。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;并没有想象中的悔恨和不甘，也没有理应出现的愤怒与疯狂，我站在楼梯上，只是被深深的绝望包围。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Life" scheme="http://sulfur6.github.io/categories/Life/"/>
-    
-    
-      <category term="Diary" scheme="http://sulfur6.github.io/tags/Diary/"/>
     
   </entry>
   
